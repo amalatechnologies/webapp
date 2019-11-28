@@ -49,10 +49,7 @@
       :clipped-left="clipped"
       fixed
       app
-      dense
-      flat
-      src="https://picsum.photos/1920/1080?random"
-      scroll-threshold="true"
+      collapse-on-scroll="true"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!--<v-btn
@@ -75,6 +72,7 @@
       </v-btn>-->
       <v-toolbar-title v-text="title" />
       <v-spacer />
+       <v-toolbar-title>Home</v-toolbar-title>
       <!--<v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
