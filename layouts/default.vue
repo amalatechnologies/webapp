@@ -19,7 +19,8 @@
       </v-list-item>
 
       <v-divider></v-divider>
-      <v-list>
+      <v-list nav dense  shaped="true">
+        <v-list-item-group>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -32,14 +33,26 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
+            <v-list-item-subtitle v-text="item.subtitle" />
           </v-list-item-content>
         </v-list-item>
+        </v-list-item-group>
+        <v-divider></v-divider>
+        <v-list-item-group>
+          <v-list-item>
+
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
       :clipped-left="clipped"
       fixed
       app
+      dense
+      flat
+      src="https://picsum.photos/1920/1080?random"
+      scroll-threshold="true"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!--<v-btn
@@ -112,21 +125,25 @@ export default {
         {
           icon: 'mdi-view-dashboard',
           title: 'Home',
+          subtitle: 'Lorem ipsum dolor sit de amet',
           to: '/'
         },
         {
           icon: 'mdi-help-circle',
           title: 'Help',
+          subtitle: 'Lorem ipsum dolor sit de amet',
           to: '/component-help'
         },
           {
           icon: 'mdi-information-variant',
           title: 'About Us',
+          subtitle: 'Lorem ipsum dolor sit de amet',
           to: '/component-about-us'
         },
           {
           icon: 'mdi-phone-classic',
           title: 'Contact Us',
+          subtitle: 'Lorem ipsum dolor sit de amet',
           to: '/component-contact-us'
         }
       ],
@@ -139,3 +156,8 @@ export default {
   }
 }
 </script>
+<style>
+template{
+  font-family: 'Montserrat', sans-serif;
+}
+</style>
