@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app dark class="app">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -157,7 +157,7 @@ export default {
 }
 </script>
 <style>
-template{
+.app{
   font-family: 'Montserrat', sans-serif;
 }
 </style>
