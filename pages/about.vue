@@ -68,7 +68,7 @@
           <v-btn
             color="primary"
             nuxt
-            to="/component-contact-us"
+            to="/contacts"
           >
             Contact us
           </v-btn>

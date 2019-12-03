@@ -51,6 +51,7 @@
       app
       collapse-on-scroll="true"
     >
+    
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!--<v-btn
         icon
@@ -69,16 +70,24 @@
         @click.stop="fixed = !fixed"
       >
         <v-icon>mdi-minus</v-icon>
-      </v-btn>-->
-      <v-toolbar-title v-text="title" />
+      </v-btn>
+      <v-toolbar-title v-text="title" />-->
+       <v-img
+    class="mx-1"
+    :src="require('~/assets/images/logo_gold.png')"
+    max-height="80"
+    max-width="80"
+    contain
+  ></v-img>
       <v-spacer />
-       <v-toolbar-title>Home</v-toolbar-title>
-      <!--<v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>-->
+   <v-appbar-items v-if="$vuetify.breakpoint.smAndUp">
+        <v-btn flat v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact text >{{item.title}}</v-btn>
+      </v-appbar-items>
+
     </v-app-bar>
     <v-content>
       <v-container>
@@ -107,7 +116,7 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; 2019</span>
+      <span>&copy; {{year}}</span>
     </v-footer>
   </v-app>
 </template>
@@ -130,26 +139,27 @@ export default {
           icon: 'mdi-help-circle',
           title: 'Help',
           subtitle: 'Lorem ipsum dolor sit de amet',
-          to: '/component-help'
+          to: '/help'
         },
           {
           icon: 'mdi-information-variant',
           title: 'About Us',
           subtitle: 'Lorem ipsum dolor sit de amet',
-          to: '/component-about-us'
+          to: '/about'
         },
           {
           icon: 'mdi-phone-classic',
           title: 'Contact Us',
           subtitle: 'Lorem ipsum dolor sit de amet',
-          to: '/component-contact-us'
+          to: '/contacts'
         }
       ],
       miniVariant: false,
       right: false,
       rightDrawer: false,
-      title: 'Finspointa',
-      motto: 'Making awesome stuffs'
+      title: 'Kopasmart',
+      motto: 'Making awesome stuffs',
+      year: new Date().getFullYear(),
     }
   }
 }
