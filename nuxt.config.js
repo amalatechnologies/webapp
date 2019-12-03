@@ -42,6 +42,27 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    [
+      'nuxt-i18n',
+      {
+        locales: ['en','sw'],
+        defaultLocale: 'en',
+        vueI18n:{
+          fallbackLocale: 'en',
+          messages:{
+            en:{
+              appName: 'KopaSmart',
+              goToCalculator: 'Go to Calculator',
+              signIn: 'Sign In',
+              signUp: 'Sign Up'
+            },
+            sw: {
+              appName: 'KopaSmart'
+            }
+          }
+        }
+      }
+    ]
   ],
   /*
   ** vuetify module configuration
