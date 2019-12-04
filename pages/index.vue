@@ -28,7 +28,7 @@
                     <v-btn color="primary" dark to="/calculator" router exact>{{ $t('goToCalculator') }}</v-btn>
                   </div>
                   <div class="my-2">
-                    <v-btn color="primary" to="/signIn" dark>{{ $t('signIn') }}</v-btn>
+                    <v-btn color="primary" to="/signin" dark>{{ $t('signIn') }}</v-btn>
                   </div>
                 </div>
               </v-col>
@@ -41,7 +41,9 @@
 </template>
 <script>
 export default {
-  layout: "home",
+  layout(context){
+    return 'home'
+  },
   data: () => ({
     locale: "",
     appname: "KopaSmart",

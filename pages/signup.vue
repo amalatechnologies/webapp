@@ -10,7 +10,7 @@
       dark
       flat>
       <v-btn icon>
-        <v-icon>mdi-arrow-left</v-icon>
+        <!--<v-icon>mdi-arrow-left</v-icon>-->
       </v-btn>
       <v-card-title class="title font-weight-regular" >{{ $t('signUp')}}</v-card-title>
       <v-spacer></v-spacer>
