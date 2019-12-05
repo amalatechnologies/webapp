@@ -9,7 +9,7 @@
       </v-list-item>
 
       <v-divider></v-divider>
-      <v-list nav dense shaped='true'>
+      <v-list nav dense shaped="true">
         <v-list-item-group>
           <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
             <v-list-item-action>
