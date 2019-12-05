@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <v-card class="mx-auto" style flat>
-      <v-toolbar color="deep-purple accent-4" cards dark flat>
+      <v-toolbar color="primary" cards dark flat>
         <v-btn icon>
           <!--<v-icon>mdi-arrow-left</v-icon>-->
         </v-btn>
@@ -36,7 +36,7 @@
               ></v-text-field>
 
               <div class="my-2">
-                <v-btn color="deep-purple" dark>{{ $t('signIn') }}</v-btn>
+                <v-btn color="primary" dark>{{ $t('signIn') }}</v-btn>
               </div>
 
               <p>{{ $t('qnNewToKopasmart') }}</p>

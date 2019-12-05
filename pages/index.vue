@@ -2,7 +2,7 @@
   <v-app dark class="app">
     <v-container fluid>
       <v-card class="mx-auto" style flat>
-        <v-toolbar color="deep-purple accent-4" cards dark flat>
+        <v-toolbar color="primary" cards dark flat>
           <v-card-title class="title font-weight-regular">{{ $t('homePage') }}</v-card-title>
           <v-spacer></v-spacer>
           <v-select
@@ -29,7 +29,7 @@
                 <v-btn color="primary" dark to="/calculator" router exact>{{ $t('goToCalculator') }}</v-btn>
               </div>
               <div class="my-2 pa-1">
-                <v-btn color="primary" to="/signin" dark>{{ $t('signin') }}</v-btn>
+                <v-btn color="primary" to="/signin" dark>{{ $t('signIn') }}</v-btn>
               </div>
             </div>
           </v-col>

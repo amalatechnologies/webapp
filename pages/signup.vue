@@ -3,7 +3,7 @@
     <v-container>
 
       <v-card class="mx-auto" style="max-width=540">
-      <v-toolbar color="deep-purple accent-4" dark flat>
+      <v-toolbar color="primary" dark flat>
         <v-btn icon>
           <!--<v-icon>mdi-arrow-left</v-icon>-->
         </v-btn>
@@ -29,7 +29,7 @@
           style="min-height: 96px"
           type="password">
           </v-text-field>
-        <v-text-field v-model="phone" filled color="deep-purple" label="Phone number"></v-text-field>
+        <v-text-field v-model="phone" filled color="primary" label="Phone number"></v-text-field>
        
 
         </v-col>
