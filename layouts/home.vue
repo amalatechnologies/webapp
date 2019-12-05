@@ -1,8 +1,8 @@
 
 <template>
   <v-app dark class="app">
-    <v-container bg fill-height grid-list-md text-xs-center>
-      <v-row>
+    <v-container fluid>
+      <v-row class="hidden-md-and-up">
         <v-col cols="4" sm="4" class="d-flex child-flex"></v-col>
         <v-col cols="4" sm="4" class="d-flex child-flex">
           <img :src="require('~/assets/images/logo_gold.png')" alt="Kopasmat" />
