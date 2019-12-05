@@ -2,14 +2,22 @@ language: node_js
 node_js:
  - "node"
 
-cache: npm
+cache: 
+  directories:
+      - "node_modules"
 
-script: npm run build
+install:
+  - npm install
+  - npm run generate
+
+script:
+  - echo "Skipping tests"
 
 deploy:
  provider: pages
  skip_cleanup: true
  github_token: $GITHUB_TOKEN
+ target_branch: gh-pages
  local_dir: dist
  on:
    branch: master
