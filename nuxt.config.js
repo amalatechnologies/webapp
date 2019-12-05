@@ -60,6 +60,7 @@ export default {
   ** Build configuration
   */
   build: {
+    publicPath: '_nuxt/dist/client/',
     /*
     ** You can extend webpack config here
     */
