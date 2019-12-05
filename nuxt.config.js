@@ -1,10 +1,12 @@
 import colors from 'vuetify/es5/util/colors';
-
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/kopasmart-webapp/'
+  }
+} : {};
 export default {
   mode: 'spa',
-  router: {
-    base: '/'
-  },
+  ...routerBase,
   /*
   ** Headers of the page
   */
