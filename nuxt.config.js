@@ -1,13 +1,10 @@
 import colors from 'vuetify/es5/util/colors';
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/kopasmart-webapp/'
-  }
-} : {};
 
 export default {
   mode: 'spa',
-  routerBase,
+  router: {
+    base: '/kopasmart-webapp/'
+  },
   /*
   ** Headers of the page
   */
@@ -60,14 +57,12 @@ export default {
   ** Build configuration
   */
   build: {
-    publicPath: '_nuxt/dist/client/',
     /*
     ** You can extend webpack config here
     */
     extend (config, ctx) {
     }
   },
- 
   server: {     
     port: 8000, // default: 3000     
     host: '0.0.0.0', // default: localhost   
