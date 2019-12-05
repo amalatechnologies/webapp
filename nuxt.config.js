@@ -54,6 +54,7 @@ export default {
   ** Build configuration
   */
   build: {
+    publicPath: 'dist/',
     /*
     ** You can extend webpack config here
     */
@@ -64,7 +65,7 @@ export default {
   ** Router configurations
   */
  router: {
-  mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history'
+  base: '/'
 },
   server: {     
     port: 8000, // default: 3000     
