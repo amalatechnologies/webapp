@@ -12,6 +12,27 @@
             label="Select Languages"
             dense
           ></v-select>
+            <v-menu bottom left>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                dark
+                icon
+                v-on="on"
+              >
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, i) in locales"
+                :key="i"
+                @click="changeLanguage(item.lang)"
+              >
+                <v-list-item-title>{{ item.locale }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-toolbar>
         <v-row align="center" class="pa-6">
           <v-col cols="12" sm="6">
@@ -45,7 +66,12 @@ export default {
   },
   data: () => ({
     locale: "",
-    locales: ["en", "sw"]
+     locales: [
+        { locale: 'English',  lang: 'en'},
+        { locale: 'Swahili',  lang: 'sw' },
+        { locale: 'French',  lang: 'fr' },
+        { locale: 'Arabic',  lang: 'ar' },
+      ],
   }),
   computed: {
   
