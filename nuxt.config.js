@@ -30,8 +30,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: ["~/plugins/i18n.js"],
   /*
   ** Nuxt.js dev-modules
   */
@@ -41,37 +40,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    [
-      'nuxt-i18n',
-      {
-        locales: ['en','sw'],
-        strategy: 'no_prefix',
-        defaultLocale: 'en',
-        vueI18n:{
-          fallbackLocale: 'en',
-          messages:{
-            en:{
-              appName: 'KopaSmart',
-              goToCalculator: 'Go to Calculator',
-              signIn: 'Sign In',
-              signUp: 'Sign Up',
-              userName: 'Username',
-              qnNewToKopasmart: 'New to Kopasmart ?',
-              createAccount: 'Create Account',
-              homeDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-              homeDescriptionTitle: 'What is Kopasmart ?',
-              homePage: 'Home',
-              
-            },
-            sw: {
-              appName: 'KopaSmart'
-            }
-          }
-        }
-      }
-    ]
-  ],
+  modules: [],
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
