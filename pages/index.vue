@@ -5,30 +5,13 @@
         <v-toolbar color="primary" cards dark flat>
           <v-card-title class="title font-weight-regular">{{ $t('homePage') }}</v-card-title>
           <v-spacer></v-spacer>
-          <v-select
-            :items="locales"
-            v-model="locale"
-            @change="changeLanguage('sw')"
-            label="Select Languages"
-            dense
-          ></v-select>
-            <v-menu bottom left>
+          <v-menu bottom left :offset-x="offset">
             <template v-slot:activator="{ on }">
-              <v-btn
-                dark
-                icon
-                v-on="on"
-              >
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
+              <v-btn color="primary" dark v-on="on">{{ $t('change.languages') }}</v-btn>
             </template>
 
             <v-list>
-              <v-list-item
-                v-for="(item, i) in locales"
-                :key="i"
-                @click="changeLanguage(item.lang)"
-              >
+              <v-list-item v-for="(item, i) in locales" :key="i" @click="changeLanguage(item.lang)">
                 <v-list-item-title>{{ item.locale }}</v-list-item-title>
               </v-list-item>
             </v-list>
@@ -66,16 +49,14 @@ export default {
   },
   data: () => ({
     locale: "",
-     locales: [
-        { locale: 'English',  lang: 'en'},
-        { locale: 'Swahili',  lang: 'sw' },
-        { locale: 'French',  lang: 'fr' },
-        { locale: 'Arabic',  lang: 'ar' },
-      ],
+    locales: [
+      { locale: "English", lang: "en" },
+      { locale: "Swahili", lang: "sw" },
+      { locale: "French", lang: "fr" },
+      { locale: "Arabic", lang: "ar" }
+    ]
   }),
-  computed: {
-  
-  },
+  computed: {},
   methods: {
     changeLanguage(lang) {
       // Change the i18n context object's locale

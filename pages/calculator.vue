@@ -153,13 +153,27 @@ export default {
 
   },
   computed:{
-    createRepaymentSchedule: function(amount, rate, period){
+    createRepaymentSchedule: function(amount, rate, period, loanTerm, nRepayments){
+      var totalAmout = amount * rate * period;
+      var numRepayments =  totalAmout / loanTerm;
+      for(i=0; 1< nRepayments; i++){
+        repaymetsObj("","31 oct 2019", "27 sept 2019", "", "","")
+      }
+
       var obj = {
         "amount": amount,
         "date": period,
       }
       return obj;
-    }
+    },
+  repaymetsObj: function(days, date, paidDate, principalDue, loanBalance,interest) {
+  this.rDays = days;
+  this.rDate = date;
+  this.rPaiddate = paidDate;
+  this.rPrincipalDue = principalDue;
+  this.rLoanBalance  = loanBalance;
+  this.rInterest = interest;
+}
 
   }
 };
