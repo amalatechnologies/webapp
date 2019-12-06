@@ -9,7 +9,7 @@
       </v-list-item>
 
       <v-divider></v-divider>
-      <v-list nav dense shaped="true">
+      <v-list nav dense :shaped="shaped">
         <v-list-item-group>
           <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
             <v-list-item-action>
@@ -27,7 +27,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app collapse-on-scroll="true">
+    <v-app-bar :clipped-left="clipped" fixed app :collapse-on-scroll="collapseOnScroll">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!--<v-btn
         icon
@@ -56,9 +56,9 @@
         contain
       ></v-img>
       <v-spacer />
-      <v-appbar-items v-if="$vuetify.breakpoint.smAndUp">
-        <v-btn
-          flat
+      <v-list v-if="$vuetify.breakpoint.smAndUp">
+        <v-list-item>
+          <v-btn
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
@@ -66,7 +66,8 @@
           exact
           text
         >{{item.title}}</v-btn>
-      </v-appbar-items>
+        </v-list-item>
+      </v-list>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -123,7 +124,9 @@ export default {
         }
       ],
       miniVariant: false,
-      right: false,
+      right: true,
+      shaped: true,
+      collapseOnScroll: true,
       rightDrawer: false,
       title: "Kopasmart",
       motto: "Making awesome stuffs",
