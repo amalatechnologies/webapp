@@ -21,7 +21,6 @@
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
-        <v-divider></v-divider>
         <v-list-item-group>
           <v-list-item></v-list-item>
         </v-list-item-group>
