@@ -11,5 +11,11 @@
     "homePage": "Home",
     "change":{
         "languages": "Change Language"
+    },
+    "label":{
+        "heading":{
+            "repaymentschedule": "Repayment Schedule",
+            "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+        }
     }
 }

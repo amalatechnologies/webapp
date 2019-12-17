@@ -4,7 +4,7 @@
       <v-flex xs12 sm8 md6>
         <v-card>
           <v-container fluid>
-            <p class="subtitle-2 text-center font-weight-black">Loan Repayment Schedule Calculator</p>
+            <p class="subtitle-2 text-center font-weight-black">{{ $t('label.heading.loanrepaymentschedulecalculator') }}</p>
             <v-row align="center">
               <v-col class="d-flex" cols="12" sm="6">
                 <v-text-field
@@ -96,29 +96,32 @@
           </v-container>
 
           <v-container fluid>
-            <p class="subtitle-2 text-center font-weight-black">Repayment Schedules</p>
-            <v-row no-gutters>
-              <v-col v-for="n in 6" :key="n" cols="2" sm="2">
-                <v-subheader
-                  class="pa-sm-2 font-weight-black"
-                  tile
-                  v-text="repayments_schedule_titles[n-1]"
-                ></v-subheader>
-              </v-col>
-
-              <v-col>
-                <v-container>
-                  <v-row v-for="(n, index) in repayments" :key="n.days" cols="2" sm="2">
-                    <v-subheader class="pa-sm-2" tile v-text="n.days"></v-subheader>
-                    <v-subheader class="pa-sm-2" tile v-text="n.date"></v-subheader>
-                    <v-subheader class="pa-sm-2" tile v-text="n.paidDate"></v-subheader>
-                    <v-subheader class="pa-sm-2" tile v-text="n.principalDue"></v-subheader>
-                    <v-subheader class="pa-sm-2" tile v-text="n.loanBalance"></v-subheader>
-                    <v-subheader class="pa-sm-2" tile v-text="n.interest"></v-subheader>
-                  </v-row>
-                </v-container>
-              </v-col>
-            </v-row>
+           <template>
+              <v-card>
+    <v-card-title>
+      {{ $t('label.heading.repaymentschedule') }}
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+  <v-data-table
+  v-model="selected"
+    :headers="headers"
+    :items="repayments"
+    :items-per-page="5"
+    :search="search"
+    class="elevation-0"
+    multi-sort
+    :loading="loading"
+    loading-text="Loading... Please wait"
+  ></v-data-table>
+  </v-card>
+</template>
           </v-container>
         </v-card>
       </v-flex>
@@ -141,40 +144,70 @@ export default {
       loan_terms: ["Days", "Weeks", "Months", "Year"],
       iterest_methods: ["Flat", "Reducing Balance", "Straight Method"],
       amortizations: ["Equal Installment", "Equal principal"],
+         headers: [
+          {
+            text: 'Day',
+            align: 'left',
+            sortable: false,
+            value: 'days',
+          },
+          { text: 'Repayment Date', value: 'date' },
+          { text: 'Paid Date', value: 'paiddate' },
+          { text: 'Principal Due', value: 'principaldue' },
+          { text: 'Loan Balance', value: 'loanbalance' },
+          { text: 'Interest', value: 'interest',  filterable: false, },
+        ],
       repayments: [
         {
           days: 31,
           date: "11 Nov 2019",
-          paidDate: "11 October 2019",
-          principalDue: 666777,
-          loanBalance: 933333,
+          paiddate: "11 October 2019",
+          principaldue: 666777,
+          loanbalance: 933333,
           interest: 935363.22
         },
         {
           days: 29,
           date: "11,Oct 2019",
-          paidDate: "...",
-          principalDue: 666777,
-          loanBalance: 933333,
+          paiddate: "...",
+          principaldue: 666777,
+          loanBblance: 933333,
           interest: 935363.22
         },
         {
           days: 28,
           date: "11,Oct 2019",
-          paidDate: "...",
-          principalDue: 666777,
-          loanBalance: 933333,
+          paiddate: "...",
+          principaldue: 666777,
+          loanbalance: 933333,
+          interest: 935363.22
+        },
+         {
+          days: 25,
+          date: "11,Oct 2019",
+          paiddate: "...",
+          principaldue: 666777,
+          loanbalance: 933333,
+          interest: 935363.22
+        },
+         {
+          days: 24,
+          date: "11,Oct 2019",
+          paiddate: "...",
+          principaldue: 666777,
+          loanbalance: 933333,
+          interest: 935363.22
+        },
+         {
+          days: 23,
+          date: "11,Oct 2019",
+          paiddate: "...",
+          principaldue: 666777,
+          loanbalance: 933333,
           interest: 935363.22
         }
       ],
-      repayments_schedule_titles: [
-        "Days",
-        "Date",
-        "Pid Date",
-        "Principal Due",
-        "Loan Balance",
-        "Iterest"
-      ],
+    
       loan_amount: 0,
       amortization: '',
       interestMoratorium: '',
