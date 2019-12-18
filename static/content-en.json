@@ -41,8 +41,7 @@
         },
         "tooltip":{
             "tooltiphello":"Hello there",
-            "tooltipwelcometo":"Welcome to"
-
+            "tooltipwelcometo":"Welcome to",
             "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
         }
     }
