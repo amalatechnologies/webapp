@@ -30,17 +30,13 @@
             If you have questions, please join the official <a
               href="https://singoafrica.slack.com/messages"
               target="_blank"
-              title="chat"
-            >
+              title="chat">
               slack community
             </a>.
           </p>
           <p>
             Find a bug? Report it on the github <a
-              href="https://github.com/finspointa/kopasmart-webapp/issues"
-              target="_blank"
-              title="contribute"
-            >
+              href="https://github.com/finspointa/kopasmart-webapp/issues" target="_blank" title="contribute" >
               issue board
             </a>.
           </p>

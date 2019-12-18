@@ -16,6 +16,10 @@
         "heading":{
             "repaymentschedule": "Repayment Schedule",
             "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+        },
+        "button":{
+            "buttonsignin":"Sign In",
+            "buttonsignup": "Sign Up"
         }
     }
 }
