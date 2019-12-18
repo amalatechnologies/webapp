@@ -1,8 +1,9 @@
 <template>
-  <v-container>
-    <v-layout column justify-center align-center>
-      <v-flex xs12 sm8 md6>
-        <v-card>
+  <v-app class="app">
+    <v-container fluid>
+    <v-layout justify-center align-center>
+      <v-flex >
+        <v-card class="mx-auto" v-if="datarequired">
           <v-container fluid>
             <p class="subtitle-2 text-center font-weight-black">{{ $t('label.heading.loanrepaymentschedulecalculator') }}</p>
             <v-row align="center">
@@ -95,15 +96,13 @@
               <v-col  class="d-flex" cols="12" sm="6"></v-col>
               <v-col  class="d-flex" cols="12" sm="6">
 
-              <v-btn color="primary" depressed v-on="on">{{ $t('label.button.btncalculate') }}</v-btn>
+              <v-btn color="primary" small outlined depressed @click="calculateRepayments">{{ $t('label.button.btncalculate') }}</v-btn>
 
               </v-col>
             </v-row>
           </v-container>
-
-          <v-container fluid>
-           <template>
-              <v-card>
+        </v-card>
+         <v-card v-else>
     <v-card-title>
       {{ $t('label.heading.repaymentschedule') }}
       <v-spacer></v-spacer>
@@ -116,7 +115,6 @@
       ></v-text-field>
     </v-card-title>
   <v-data-table
-  v-model="selected"
     :headers="headers"
     :items="repayments"
     :items-per-page="5"
@@ -127,12 +125,10 @@
     loading-text="Loading... Please wait"
   ></v-data-table>
   </v-card>
-</template>
-          </v-container>
-        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
+  </v-app>
 </template>
 
 <script>
@@ -147,6 +143,7 @@ export default {
   data() {
     return {
       title: "Home",
+      datarequired: true,
       loan_terms: ["Days", "Weeks", "Months", "Year"],
       iterest_methods: ["Flat", "Reducing Balance", "Straight Method"],
       amortizations: ["Equal Installment", "Equal principal"],
@@ -224,7 +221,9 @@ export default {
       loan_term_value: '',
       interest_rate: '',
       loanTermsUnit : '',
-      repaymentFreq: ''
+      repaymentFreq: '',
+      loading: false,
+      search:''
 
     };
   },
@@ -237,6 +236,9 @@ export default {
         })
       }
 
+    },
+    calculateRepayments(){
+      this.datarequired = false;
     }
 
   },

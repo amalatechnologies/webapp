@@ -136,4 +136,5 @@ export default {
 .app {
   font-family: "Montserrat", sans-serif;
 }
+
 </style>

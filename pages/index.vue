@@ -3,19 +3,26 @@
     <v-container fluid>
       <v-card class="mx-auto" style flat>
         <v-toolbar color="primary" cards dark flat>
-          <v-card-title class="title font-weight-regular">{{ $t('homePage') }}</v-card-title>
-          <v-spacer></v-spacer>
-          <v-menu bottom left :offset-x="offset">
-            <template v-slot:activator="{ on }">
-              <v-btn color="primary" dark v-on="on">{{ $t('label.button.btnchangelanguages') }}</v-btn>
-            </template>
+             <v-row align="center">
+      <v-col cols="6" sm="6">
+        <v-subheader>{{ $t('homePage') }}</v-subheader>
+      </v-col>
 
-            <v-list>
-              <v-list-item v-for="(item, i) in locales" :key="i" @click="changeLanguage(item.lang)">
-                <v-list-item-title>{{ item.locale }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+      <v-col cols="6" sm="6">
+        <v-select
+          v-model="select"
+          :hint="`${select.locale}, ${select.lang}`"
+          :items="locales"
+          item-text="locale"
+          item-value="lang"
+          label="Select"
+          persistent-hint
+          return-object
+          single-line
+          @change="changeLanguage(select.lang)"
+        ></v-select>
+      </v-col>
+    </v-row>
         </v-toolbar>
         <v-row align="center" class="pa-6">
           <v-col cols="12" sm="6">
@@ -30,10 +37,10 @@
           <v-col cols="12" sm="6">
             <div class="text-center">
               <div class="my-2 pa-1">
-                <v-btn color="primary" dark to="/calculator" router exact>{{ $t('label.button.btncalculator') }}</v-btn>
+                <v-btn color="primary" small outlined dark to="/calculator" router exact>{{ $t('label.button.btncalculator') }}</v-btn>
               </div>
               <div class="my-2 pa-1">
-                <v-btn color="primary" to="/signin" dark>{{ $t('label.button.btnsignin') }}</v-btn>
+                <v-btn color="success" outlined small to="/signin" dark>{{ $t('label.button.btnsignin') }}</v-btn>
               </div>
             </div>
           </v-col>
@@ -49,6 +56,8 @@ export default {
   },
   data: () => ({
     locale: "",
+    selectedLocale: null,
+    select: { locale: "English", lang: "en" },
     locales: [
       { locale: "English", lang: "en" },
       { locale: "Swahili", lang: "sw" },

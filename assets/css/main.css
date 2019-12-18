@@ -1,4 +1,8 @@
 .app {
   padding: 0;
 }
+
+v-btn {
+  text-transform: none;
+}
 /*# sourceMappingURL=main.css.map */
