@@ -203,10 +203,9 @@ export default {
           sortable: false,
           value: "days"
         },
-        { text: "Repayment Date", value: "date" },
         { text: "Paid Date", value: "paiddate" },
-        { text: "Principal Due", value: "principaldue" },
-        { text: "Loan Balance", value: "loanbalance" },
+        { text: "Principal", value: "loanamount" },
+        { text: "Principal due", value: "principaldue" },
         { text: "Interest", value: "interest", filterable: false },
         { text: "Loan Balance", value: "loanbalance" },
         { text: "Total", value: "total", filterable: false }
@@ -252,18 +251,18 @@ export default {
       this.loading = true;
       this.$nextTick(() => {
         const items = [];
-        var mInterest = (this.value_loan_amount * this.value_interest_rate * this.value_loan_term_value)/100;
-        var balance = this.value_loan_amount + mInterest;
+        
+        var totalInterest = (this.value_loan_amount * this.value_interest_rate * this.value_loan_term_value)/100;
+        var balance = parseInt(this.value_loan_amount) + parseInt(totalInterest);
       
         for(var i=0;i < this.value_num_of_repayments;i++) {
           const item = new Object();
           
           item.days = 1 + i;
-          item.date = new Date(Date.now()).toLocaleString();
-          item.paiddate = new Date(Date.now()).toLocaleString();
+          item.paiddate = this.getNextWeekDay(i+1).toLocaleString();
           item.principaldue = this.value_loan_amount/this.value_num_of_repayments;
-          
-          item.interest = mInterest/this.value_num_of_repayments;
+          item.loanamount = this.value_loan_amount;
+          item.interest = totalInterest/this.value_num_of_repayments;
           item.total = item.principaldue + item.interest;
           balance = balance - (item.principaldue + item.interest);
           item.loanbalance = balance;
@@ -281,6 +280,12 @@ export default {
       cancel () {
         this.datarequired = true
       },
+     getNextWeekDay (i){
+    var firstDay = new Date(Date.now());
+    var nextWeek = new Date(firstDay.getTime() + parseInt(i) * 7 * 24 * 60 * 60 * 1000);
+
+    return nextWeek;
+}
   },
   computed: {  }
 };
