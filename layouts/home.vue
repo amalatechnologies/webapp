@@ -12,7 +12,7 @@
       </v-row>
 
       <v-content>
-        <v-container>
+        <v-container class="container">
           <nuxt />
         </v-container>
       </v-content>
@@ -30,4 +30,8 @@ export default {
   }
 };
 </script>
-
+<style scoped>
+.container{
+  padding: 0%
+}
+</style>

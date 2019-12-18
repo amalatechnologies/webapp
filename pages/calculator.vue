@@ -92,6 +92,12 @@
                   dense
                 ></v-text-field>
               </v-col>
+              <v-col  class="d-flex" cols="12" sm="6"></v-col>
+              <v-col  class="d-flex" cols="12" sm="6">
+
+              <v-btn color="primary" depressed v-on="on">{{ $t('label.button.btncalculate') }}</v-btn>
+
+              </v-col>
             </v-row>
           </v-container>
 
