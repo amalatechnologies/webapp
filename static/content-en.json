@@ -13,6 +13,7 @@
     "label": {
         "heading": {
             "repaymentschedule": "Repayment Schedule",
+
             "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
             "contactus": "Contact Us",
             "aboutus": "About Us",
@@ -39,6 +40,13 @@
         "tooltip":{
             "tooltiphello":"Hello there",
             "tooltipwelcometo":"Welcome to"
+
+            "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+        },
+        "button":{
+            "buttonsignin":"Sign In",
+            "buttonsignup": "Sign Up"
+
         }
     }
 }

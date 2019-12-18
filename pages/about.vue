@@ -31,14 +31,12 @@
               target="_blank"
               title="chat">
             {{ $t('label.contacts.slack')}}
+
             </a>.
           </p>
           <p>
             Find a bug? Report it on the github <a
-              href="https://github.com/finspointa/kopasmart-webapp/issues"
-              target="_blank"
-              title="contribute"
-            >
+              href="https://github.com/finspointa/kopasmart-webapp/issues" target="_blank" title="contribute" >
               issue board
             </a>.
           </p>
