@@ -3,8 +3,8 @@
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="title">{{title}}</v-list-item-title>
-          <v-list-item-subtitle>{{motto}}</v-list-item-subtitle>
+          <v-list-item-title class="title">{{ $t('appName')}}</v-list-item-title>
+          <v-list-item-subtitle>{{ $t('label.message.motto') }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -100,25 +100,25 @@ export default {
         {
           icon: "mdi-view-dashboard",
           title: "Home",
-          subtitle: "Lorem ipsum dolor sit de amet",
-          to: "/"
+          subtitle: "Go to Home Page",
+          to: "/homepage"
         },
         {
           icon: "mdi-help-circle",
           title: "Help",
-          subtitle: "Lorem ipsum dolor sit de amet",
+          subtitle: "Are you in need of help ?",
           to: "/help"
         },
         {
           icon: "mdi-information-variant",
           title: "About Us",
-          subtitle: "Lorem ipsum dolor sit de amet",
+          subtitle: "Read more about us",
           to: "/about"
         },
         {
           icon: "mdi-phone-classic",
           title: "Contact Us",
-          subtitle: "Lorem ipsum dolor sit de amet",
+          subtitle: "Contact kopasmart team/community",
           to: "/contacts"
         }
       ],
@@ -127,8 +127,6 @@ export default {
       shaped: true,
       collapseOnScroll: true,
       rightDrawer: false,
-      title: "Kopasmart",
-      motto: "Making awesome stuffs",
       year: new Date().getFullYear()
     };
   }

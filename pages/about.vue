@@ -1,6 +1,6 @@
 <template>
 <v-container>
-    <p>{{title}}</p>
+    <h1>{{ $t('label.heading.aboutus')}}</h1>
     <v-layout
     column
     justify-center
@@ -14,15 +14,14 @@
       
       <v-card>
         <v-card-title class="headline">
-           Kopasmart Application
+           {{ $t('appName')}} {{ $t('application')}}
         </v-card-title>
         <v-card-text>
-          <p>{{lorem}}</p>
+          <p>{{ $t('label.message.aboutusmessage') }}</p>
           <p>
             For more information on {{app_name}}, check out the <a
               href="https://vuetifyjs.com"
-              target="_blank"
-            >
+              target="_blank">
               documentation
             </a>.
           </p>
@@ -31,7 +30,8 @@
               href="https://singoafrica.slack.com/messages"
               target="_blank"
               title="chat">
-              slack community
+            {{ $t('label.contacts.slack')}}
+
             </a>.
           </p>
           <p>
@@ -40,23 +40,23 @@
               issue board
             </a>.
           </p>
-          <p>Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.</p>
+          <p>{{ $t('label.message.thanksmessage') }}</p>
           <div class="text-xs-right">
-            <em><small>&mdash; {{app_name}}</small></em>
+            <em><small>&mdash; {{ $t('appName')}} {{ $t('application')}}</small></em>
           </div>
           <hr class="my-3">
           <a
             href="http://singo.africa/"
             target="_blank"
           >
-            Kopasmart Community
+            {{ $t('appName')}} {{$t('label.contacts.community')}}
           </a>
           <br>
           <a
             href="https://github.com/finspointa"
             target="_blank"
           >
-            Developer Community
+           {{$t('label.contacts.developer')}} {{$t('label.contacts.community')}}
           </a>
         </v-card-text>
         <v-card-actions>
@@ -66,7 +66,7 @@
             nuxt
             to="/contacts"
           >
-            Contact us
+            {{ $t('label.button.btncontactus')}}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -81,13 +81,7 @@ export default {
         return{
             title: 'About Us',
             app_name: 'Kopasmart Application',
-            lorem: 'Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit \t'+
-             'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \t' + 
-             ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris \t' +
-             ' nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in '+
-             ' reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'+ 
-             ' Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-
+            
         };
     }
 }

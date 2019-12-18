@@ -1,25 +1,52 @@
 {
     "appName": "KopaSmart",
-    "goToCalculator": "Go to Calculator",
-    "signIn": "Sign In",
-    "signUp": "Sign Up",
+    "application": "Application",
     "userName": "Username",
     "qnNewToKopasmart": "New to Kopasmart ?",
     "createAccount": "Create Account",
     "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
     "homeDescriptionTitle": "What is Kopasmart ",
     "homePage": "Home",
-    "change":{
+    "change": {
         "languages": "Change Language"
     },
-    "label":{
-        "heading":{
+    "label": {
+        "heading": {
             "repaymentschedule": "Repayment Schedule",
+
+            "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
+            "contactus": "Contact Us",
+            "aboutus": "About Us",
+            "help": "Help",
+            "hompage": "Home Page"
+        },
+        "button": {
+            "btncontactus": "Contact Us",
+            "btncalculator": "Go to Calculator",
+            "btnsignin": "Sign In",
+            "btnsignup": "Sign Up",
+            "btnchangelanguages": "Change Language"
+        },
+        "message": {
+            "aboutusmessage": "Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
+            "motto": "Making awesome stuffs"
+        },
+        "contacts": {
+            "community": "Community",
+            "developer": "Developer",
+            "slack": "slack community"
+        },
+        "tooltip":{
+            "tooltiphello":"Hello there",
+            "tooltipwelcometo":"Welcome to"
+
             "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
         },
         "button":{
             "buttonsignin":"Sign In",
             "buttonsignup": "Sign Up"
+
         }
     }
 }
