@@ -79,6 +79,7 @@ export default {
    ** Build configuration
    */
   build: {
+    publicPath: 'public/',
     /*
      ** You can extend webpack config here
      */
