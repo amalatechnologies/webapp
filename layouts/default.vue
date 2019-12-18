@@ -1,9 +1,15 @@
 <template>
   <v-app dark class="app">
-    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
+    <v-navigation-drawer  v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="title">{{ $t('appName')}}</v-list-item-title>
+          <v-list-item-title class="title">  <v-img
+        class="mx-1"
+        :src="require('~/assets/images/logo_gold.png')"
+        max-height="80"
+        max-width="80"
+        contain
+      ></v-img></v-list-item-title>
           <v-list-item-subtitle>{{ $t('label.message.motto') }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -26,7 +32,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app :collapse-on-scroll="collapseOnScroll">
+    <v-app-bar elevation="1" :clipped-left="clipped" fixed app :collapse-on-scroll="collapseOnScroll">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!--<v-btn
         icon
@@ -58,6 +64,7 @@
       <v-list v-if="$vuetify.breakpoint.smAndUp">
         <v-list-item>
           <v-btn
+          small
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"

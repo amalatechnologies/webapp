@@ -1,133 +1,181 @@
 <template>
   <v-app class="app">
     <v-container fluid>
-    <v-layout justify-center align-center>
-      <v-flex >
-        <v-card class="mx-auto" v-if="datarequired">
-          <v-container fluid>
-            <p class="subtitle-2 text-center font-weight-black">{{ $t('label.heading.loanrepaymentschedulecalculator') }}</p>
-            <v-row align="center">
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="loan_amount"
-                  type="number"
-                  label="Loan Amount"
-                  single-line
-                  dense
+      <v-layout justify-center align-center>
+        <v-flex>
+          <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+          >
+          <v-card class="mx-auto" >
+            <v-container fluid  v-if="datarequired">
+              <p
+                class="subtitle-2 text-center font-weight-black"
+              >{{ $t('label.heading.loanrepaymentschedulecalculator') }}</p>
+              <v-row align="center">
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_loan_amount"
+                    type="number"
+                    label="Loan Amount"
+                    single-line
                   @input="loanAmount"
-                ></v-text-field>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="interest_rate"
-                  type="number"
-                  single-line
-                  label="Interest Rate"
-                  dense
-                ></v-text-field>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="iterest_methods" chips label="Interest Methods" dense></v-select>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="loan_term_value"
-                  type="number"
-                  single-line
-                  label="Loan Terms"
-                  dense
-                ></v-text-field>
-                <v-spacer></v-spacer>
-                <v-select :items="loan_terms" v-model="loanTermsUnit" label="Units" dense></v-select>
-              </v-col>
+                    dense
+                    required
+                    :counter="4"
+                    :rules="numberRules"
+                  ></v-text-field>
+                </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_interest_rate"
+                    type="number"
+                    single-line
+                    label="Interest Rate"
+                    dense
+                     required
+                    :rules="numberRules"
+                  ></v-text-field>
+                </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-select :items="iterest_methods" :rules="[v => !!v || 'Item is required']" chips label="Interest Methods" dense></v-select>
+                </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_loan_term_value"
+                    type="number"
+                    single-line
+                    label="Loan Terms"
+                    dense
+                      required
+                    :rules="numberRules"
+                  ></v-text-field>
+                  <v-spacer></v-spacer>
+                  <v-select :items="loan_terms" v-model="value_loan_term_units" label="Units" dense></v-select>
+                </v-col>
 
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="numberOfRepayments"
-                  type="number"
-                  single-line
-                  label="Number of Repayments"
-                  dense
-                ></v-text-field>
-              </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_num_of_repayments"
+                    type="number"
+                    single-line
+                    label="Number of Repayments"
+                    dense
+                     required
+                    :rules="numberRules"
+                  ></v-text-field>
+                </v-col>
 
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="repaymentFreq"
-                  type="number"
-                  single-line
-                  label="Repayment Frequency"
-                  dense
-                ></v-text-field>
-                <v-spacer></v-spacer>
-                <v-select :items="loan_terms" v-model="repaymetfreqUnit" label="Units" dense></v-select>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="amortizations" v-model="amortization" label="Amortization" dense></v-select>
-              </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_repayments_freq"
+                    type="number"
+                    single-line
+                    label="Repayment Frequency"
+                    dense
+                  ></v-text-field>
+                  <v-spacer></v-spacer>
+                  <v-select :items="loan_terms" v-model="value_repayment_freq_unit" label="Units" dense></v-select>
+                </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-select
+                    :items="amortizations"
+                    v-model="value_amortization"
+                    label="Amortization"
+                    dense
+                  ></v-select>
+                </v-col>
 
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="interestMoratorium"
-                  type="number"
-                  single-line
-                  label="Interest Moratorium"
-                  dense
-                ></v-text-field>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="principalMoratorium"
-                  type="number"
-                  single-line
-                  label="Principal Moratorium"
-                  dense
-                ></v-text-field>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-text-field
-                  v-model="interestFreePeriod"
-                  type="number"
-                  single-line
-                  label="Interest Free Period"
-                  dense
-                ></v-text-field>
-              </v-col>
-              <v-col  class="d-flex" cols="12" sm="6"></v-col>
-              <v-col  class="d-flex" cols="12" sm="6">
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_interest_moratorium"
+                    type="number"
+                    single-line
+                    label="Interest Moratorium"
+                    dense
+                  ></v-text-field>
+                </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_principal_moratorium"
+                    type="number"
+                    single-line
+                    label="Principal Moratorium"
+                    dense
+                  ></v-text-field>
+                </v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-text-field
+                    v-model="value_interest_free_period"
+                    type="number"
+                    single-line
+                    label="Interest Free Period"
+                    dense
+                  ></v-text-field>
+                </v-col>
+                
+              </v-row>
+            </v-container>
+            <v-container v-else>
+              <v-card-title>
+              {{ $t('label.heading.repaymentschedule') }}
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-card-title>
+            <v-data-table
+              :headers="headers"
+              :items="repayments"
+              :items-per-page="5"
+              :search="search"
+              class="elevation-0"
+              multi-sort
+              :loading="loading"
+              loading-text="Loading... Please wait"
+            ></v-data-table>
+            </v-container>
 
-              <v-btn color="primary" small outlined depressed @click="calculateRepayments">{{ $t('label.button.btncalculate') }}</v-btn>
-
-              </v-col>
+            <v-row>
+              <v-col class="d-flex" cols="12" sm="6"></v-col>
+                <v-col class="d-flex" cols="12" sm="6">
+                  <v-btn
+                  v-if="datarequired"
+                    color="success"
+                    small
+                    outlined
+                    depressed
+                    :disabled="!valid"
+                    @click="calculate"
+                  >{{ $t('label.button.btncalculate') }}</v-btn>&nbsp;
+                  <v-btn
+                  v-if="datarequired"
+                    color="secondary"
+                    outlined
+                    small
+                    depressed
+                    @click="clear"
+                  >{{ $t('label.button.btnclear') }}</v-btn>&nbsp;
+                  <v-btn
+                  v-if="!datarequired"
+                    color="error"
+                    small
+                    depressed
+                    @click="cancel"
+                  >{{ $t('label.button.btnback') }}</v-btn>&nbsp;
+                </v-col>
             </v-row>
-          </v-container>
-        </v-card>
-         <v-card v-else>
-    <v-card-title>
-      {{ $t('label.heading.repaymentschedule') }}
-      <v-spacer></v-spacer>
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-      ></v-text-field>
-    </v-card-title>
-  <v-data-table
-    :headers="headers"
-    :items="repayments"
-    :items-per-page="5"
-    :search="search"
-    class="elevation-0"
-    multi-sort
-    :loading="loading"
-    loading-text="Loading... Please wait"
-  ></v-data-table>
-  </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+          </v-card>
+          </v-form>
+        
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
@@ -142,142 +190,99 @@ export default {
   },
   data() {
     return {
+      valid: true,
       title: "Home",
       datarequired: true,
       loan_terms: ["Days", "Weeks", "Months", "Year"],
       iterest_methods: ["Flat", "Reducing Balance", "Straight Method"],
       amortizations: ["Equal Installment", "Equal principal"],
-         headers: [
-          {
-            text: 'Day',
-            align: 'left',
-            sortable: false,
-            value: 'days',
-          },
-          { text: 'Repayment Date', value: 'date' },
-          { text: 'Paid Date', value: 'paiddate' },
-          { text: 'Principal Due', value: 'principaldue' },
-          { text: 'Loan Balance', value: 'loanbalance' },
-          { text: 'Interest', value: 'interest',  filterable: false, },
-        ],
-      repayments: [
+      headers: [
         {
-          days: 31,
-          date: "11 Nov 2019",
-          paiddate: "11 October 2019",
-          principaldue: 666777,
-          loanbalance: 933333,
-          interest: 935363.22
+          text: "Day",
+          align: "left",
+          sortable: false,
+          value: "days"
         },
-        {
-          days: 29,
-          date: "11,Oct 2019",
-          paiddate: "...",
-          principaldue: 666777,
-          loanBblance: 933333,
-          interest: 935363.22
-        },
-        {
-          days: 28,
-          date: "11,Oct 2019",
-          paiddate: "...",
-          principaldue: 666777,
-          loanbalance: 933333,
-          interest: 935363.22
-        },
-         {
-          days: 25,
-          date: "11,Oct 2019",
-          paiddate: "...",
-          principaldue: 666777,
-          loanbalance: 933333,
-          interest: 935363.22
-        },
-         {
-          days: 24,
-          date: "11,Oct 2019",
-          paiddate: "...",
-          principaldue: 666777,
-          loanbalance: 933333,
-          interest: 935363.22
-        },
-         {
-          days: 23,
-          date: "11,Oct 2019",
-          paiddate: "...",
-          principaldue: 666777,
-          loanbalance: 933333,
-          interest: 935363.22
-        }
+        { text: "Repayment Date", value: "date" },
+        { text: "Paid Date", value: "paiddate" },
+        { text: "Principal Due", value: "principaldue" },
+        { text: "Loan Balance", value: "loanbalance" },
+        { text: "Interest", value: "interest", filterable: false },
+        { text: "Loan Balance", value: "loanbalance" },
+        { text: "Total", value: "total", filterable: false }
       ],
-    
-      loan_amount: 0,
-      amortization: '',
-      interestMoratorium: '',
-      principalMoratorium: '',
-      interestFreePeriod: '',
-      repaymetfreqUnit: '',
-      numberOfRepayments: '',
-      loan_term_value: '',
-      interest_rate: '',
-      loanTermsUnit : '',
-      repaymentFreq: '',
-      loading: false,
-      search:''
+      repayments: [],
 
+      value_loan_amount: '',
+      value_interest_rate:'',
+      value_loan_term_value:'',
+      value_interest_free_period:'',
+      value_num_of_repayments:'',
+      value_repayments_freq:'',
+      value_amortization:'',
+      value_interest_moratorium:'',
+      value_principal_moratorium:'',
+      value_interest_free_period:'',
+      value_loan_term_units:'',
+      value_repayment_freq_unit:'',
+
+      loading: false,
+      search: "",
+      valueRules: [
+        v => !!v || 'Value is required',
+        v => (v && v.length <= 1) || 'Value must be less than 2 characters',
+      ],
+      numberRules:[
+        v => !!v || 'Invalid value',
+      ],
     };
   },
   methods: {
     loanAmount(){
       if(parseFloat(this.loan_amount) > 4){
         this.$nextTick(() => {
-          this.loan_amount
-          console.log(this.loan_amount)
+          this.value_loan_amount
         })
       }
-
     },
-    calculateRepayments(){
+   
+    calculate() {
+      if (this.$refs.form.validate()) {
       this.datarequired = false;
-    }
-
-  },
-  computed: {
-    createRepaymentSchedule: function(
-      amount,
-      rate,
-      period,
-      loanTerm,
-      nRepayments
-    ) {
-      var totalAmout = amount * rate * period;
-      var numRepayments = totalAmout / loanTerm;
-      for (i = 0; 1 < nRepayments; i++) {
-        repaymetsObj("", "31 oct 2019", "27 sept 2019", "", "", "");
+      this.loading = true;
+      this.$nextTick(() => {
+        const items = [];
+        var mInterest = (this.value_loan_amount * this.value_interest_rate * this.value_loan_term_value)/100;
+        var balance = this.value_loan_amount + mInterest;
+      
+        for(var i=0;i < this.value_num_of_repayments;i++) {
+          const item = new Object();
+          
+          item.days = 1 + i;
+          item.date = new Date(Date.now()).toLocaleString();
+          item.paiddate = new Date(Date.now()).toLocaleString();
+          item.principaldue = this.value_loan_amount/this.value_num_of_repayments;
+          
+          item.interest = mInterest/this.value_num_of_repayments;
+          item.total = item.principaldue + item.interest;
+          balance = balance - (item.principaldue + item.interest);
+          item.loanbalance = balance;
+          items.push(item);
+          console.log(balance)
+        }
+        this.repayments = items;
+      });
+      this.loading = false;
       }
-
-      var obj = {
-        amount: amount,
-        date: period
-      };
-      return obj;
     },
-    repaymetsObj: function(
-      days,
-      date,
-      paidDate,
-      principalDue,
-      loanBalance,
-      interest
-    ) {
-      this.rDays = days;
-      this.rDate = date;
-      this.rPaiddate = paidDate;
-      this.rPrincipalDue = principalDue;
-      this.rLoanBalance = loanBalance;
-      this.rInterest = interest;
-    }
-  }
+    clear () {
+        this.$refs.form.reset()
+      },
+      cancel () {
+        this.datarequired = true
+      },
+  },
+  computed: {  }
 };
 </script>
 <style scoped>
