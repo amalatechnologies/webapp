@@ -7,7 +7,7 @@
           <v-spacer></v-spacer>
           <v-menu bottom left :offset-x="offset">
             <template v-slot:activator="{ on }">
-              <v-btn color="primary" dark v-on="on">{{ $t('change.languages') }}</v-btn>
+              <v-btn color="primary" dark v-on="on">{{ $t('label.button.btnchangelanguages') }}</v-btn>
             </template>
 
             <v-list>
@@ -21,19 +21,19 @@
           <v-col cols="12" sm="6">
             <div class="text-center">
               <p class="text-center font-weight-bold">
-                Hello there.
+                {{$t('label.tooltip.tooltiphello')}}
                 <br />
-                Welcome to {{ $t('appName') }}
+                {{$t('label.tooltip.tooltipwelcometo')}} {{ $t('appName') }}
               </p>
             </div>
           </v-col>
           <v-col cols="12" sm="6">
             <div class="text-center">
               <div class="my-2 pa-1">
-                <v-btn color="primary" dark to="/calculator" router exact>{{ $t('goToCalculator') }}</v-btn>
+                <v-btn color="primary" dark to="/calculator" router exact>{{ $t('label.button.btncalculator') }}</v-btn>
               </div>
               <div class="my-2 pa-1">
-                <v-btn color="primary" to="/signin" dark>{{ $t('signIn') }}</v-btn>
+                <v-btn color="primary" to="/signin" dark>{{ $t('label.button.btnsignin') }}</v-btn>
               </div>
             </div>
           </v-col>

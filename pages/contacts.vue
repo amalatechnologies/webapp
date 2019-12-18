@@ -1,5 +1,5 @@
 <template>
-    <h1>COntatc Us</h1>
+    <h1>{{ $t('label.heading.contactus')}}</h1>
 </template>
 <script>
 export default {
