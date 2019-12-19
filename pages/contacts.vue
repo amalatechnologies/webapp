@@ -3,8 +3,8 @@
     <v-container fluid>
       
       <v-row justify="center">
-    <v-col cols="12" sm="10" md="8" lg="6">
-      <v-card ref="form" ripple>
+    <v-col cols="12" sm="10" md="12" lg="12">
+      <v-card ref="form" flat>
         <v-card-text>
           <v-text-field
             ref="name"
