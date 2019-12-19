@@ -1,16 +1,8 @@
 <template>
-<v-container>
-    <h1>{{ $t('label.heading.aboutus')}}</h1>
-    <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
+<v-app class="app">
+<v-container fluid>
+  
+    
       
       <v-card>
         <v-card-title class="headline">
@@ -70,9 +62,11 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-flex>
-  </v-layout>
+    
+  
+   
 </v-container>
+</v-app>
     
 </template>
 <script>

@@ -30,7 +30,6 @@
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
-              <v-list-item-subtitle  >{{ item.subtitle }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         
@@ -141,7 +140,7 @@ export default {
           title: "Calculator",
           subtitle: "Repayment Schedule generator",
           to: "/calculator",
-          iconClass: 'info white--text'
+          iconClass: 'error white--text'
         }
       ],
       miniVariant: false,

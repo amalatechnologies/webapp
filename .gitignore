@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Report file 
+report.20191219.163001.7530.0.001.json

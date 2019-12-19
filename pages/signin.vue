@@ -1,11 +1,12 @@
 <template>
   <v-app class="app">
-    <v-card class="mx-auto" style flat>
+   <v-container fluid>
+ <v-card class="mx-auto" style flat>
       <v-toolbar color="primary" cards dark flat>
         <v-btn icon>
           <!--<v-icon>mdi-arrow-left</v-icon>-->
         </v-btn>
-        <v-card-title class="title font-weight-regular">{{ $t('signIn')}}</v-card-title>
+        <v-card-title class=" font-weight-regular">{{ $t('signIn')}}</v-card-title>
         <v-spacer></v-spacer>
         <!--<v-btn icon>
         <v-icon>mdi-magnify</v-icon>
@@ -36,7 +37,7 @@
               ></v-text-field>
 
               <div class="my-2">
-                <v-btn color="primary" dark>{{ $t('signIn') }}</v-btn>
+                <v-btn color="primary" dark to="/homepage">{{ $t('signIn') }}</v-btn>
               </div>
 
               <p>{{ $t('qnNewToKopasmart') }}</p>
@@ -53,6 +54,9 @@
         </v-container>
       </v-form>
     </v-card>
+
+
+   </v-container>
   </v-app>
 </template>
 <script>
