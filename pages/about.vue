@@ -4,7 +4,7 @@
   
     
       
-      <v-card>
+      <v-card flat >
         <v-card-title class="headline">
            {{ $t('appName')}} {{ $t('application')}}
         </v-card-title>

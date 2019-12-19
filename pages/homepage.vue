@@ -2,7 +2,7 @@
   <v-app class="app">
       <v-container fluid>
           <v-card
-    class="mx-auto">
+    class="mx-auto" flat>
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="headline">Dar es Salaam</v-list-item-title>
