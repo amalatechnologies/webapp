@@ -288,7 +288,7 @@ export default {
           const item = new Object();
           
           item.days = 1 + i;
-          item.paiddate = this.getNextWeekDay((i+1) * this.value_repayments_freq * this.value_frequency.value).toLocaleString();
+          item.paiddate = this.getNextWeekDay((i+1) * this.value_repayments_freq * this.value_frequency.value).toLocaleString().split(' ')[0];;
           item.principaldue = this.value_loan_amount/this.value_num_of_repayments;
           item.loanamount = this.value_loan_amount;
           item.interest = totalInterest/this.value_num_of_repayments;
