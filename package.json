@@ -9,7 +9,6 @@
     "build": "NODE_ENV=dev nuxt build ",
     "start": "nuxt start",
     "generate": "NODE_ENV=production nuxt generate ",
-    "deploy": "gh-pages --dist --dotfiles=true"
   },
   "dependencies": {
     "@nuxtjs/bulma": "^1.2.6",
