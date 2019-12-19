@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors';
 export default {
   mode: 'spa',
   router: {
-    base: '/'
+    base: process.env.NODE_ENV === 'production' ? '/kopasmart-webapp/':'/'
   },
   /*
    ** Headers of the page
@@ -82,6 +82,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    publicPath: process.env.NODE_ENV === 'production' ? '/assets/':'',
     extend(config, ctx) {},
     postcss: {
       preset: {
