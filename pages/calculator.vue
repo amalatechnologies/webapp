@@ -168,15 +168,36 @@
               :items-per-page="5"
               :search="search"
               class="elevation-0"
+              :dense="dense"
+              :dark="dark"
               multi-sort
               :loading="loading"
               loading-text="Loading... Please wait"
-            ></v-data-table>
+            >
+            <template v-slot:top>
+              <v-row no-gutters>
+                <v-col 
+                cols="6"
+        sm="6"
+        >
+
+      <v-switch v-model="dense" label="Dense" class="pa-1" ></v-switch>
+                </v-col>
+                <v-col
+                cols="6"
+        sm="6">
+       <v-switch v-model="dark" label="Dark" class="pa-1"></v-switch>
+              </v-col>
+              </v-row>
+    </template>
+            
+            </v-data-table>
             </v-container>
 
             <v-row>
               <v-col class="d-flex" cols="12" sm="6"></v-col>
                 <v-col class="d-flex" cols="12" sm="6">
+                  &nbsp;
                   <v-btn
                   v-if="datarequired"
                     color="success"
@@ -225,6 +246,8 @@ export default {
     return {
       valid: true,
       title: "Home",
+      dense: false,
+      dark: false,
       datarequired: true,
       loan_terms: [{name:"Days",value:1}, {name:"Weeks",value:7}, {name:"Months",value:30}, {name:"Year", value:366}],
       iterest_methods: [{name:"Flat", value:1}, {name:"Reducing Balance", value:2}, {name:"Straight Method",value:3}],
