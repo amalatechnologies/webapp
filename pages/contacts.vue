@@ -17,6 +17,7 @@
           ></v-text-field>
 
           <v-text-field
+          ref="email"
            v-model="email"
            :rules="emailRules" 
            label="E-mail"
