@@ -59,7 +59,7 @@ export default {
     selectedLocale: null,
     select: { locale: "English", lang: "en" },
     locales: [
-      { locale: "English", lang: "en" },
+      { locale: "English", lang: "en" }, 
       { locale: "Swahili", lang: "sw" },
       { locale: "French", lang: "fr" },
       { locale: "Arabic", lang: "ar" }

@@ -20,7 +20,6 @@
                     type="number"
                     label="Loan Amount"
                     single-line
-                  @input="loanAmount"
                     dense
                     required
                     :counter="4"
@@ -39,20 +38,42 @@
                   ></v-text-field>
                 </v-col>
                 <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="iterest_methods" :rules="[v => !!v || 'Item is required']" chips label="Interest Methods" dense></v-select>
+                  <v-select 
+                  v-model="method"
+                  :items="iterest_methods" 
+                  item-text="name"
+                  item-value="value"
+                  :rules="[v => !!v || 'Item is required']" 
+                  label="Interest Method"
+                  required
+                  persistent-hint
+                  return-object
+                  single-line
+                   dense></v-select>
                 </v-col>
                 <v-col class="d-flex" cols="12" sm="6">
                   <v-text-field
-                    v-model="value_loan_term_value"
+                    v-model="value_loan_term"
                     type="number"
                     single-line
                     label="Loan Terms"
                     dense
-                      required
+                    required
                     :rules="numberRules"
                   ></v-text-field>
                   <v-spacer></v-spacer>
-                  <v-select :items="loan_terms" v-model="value_loan_term_units" label="Units" dense></v-select>
+                  <v-select 
+                  :items="loan_terms" 
+                  v-model="value_loan_term_unit" 
+                  :rules="[(v) => !!v || 'Item is required']" 
+                  item-value="value"
+                  item-text="name"
+                  label="Units" 
+                  dense
+                  persistent-hint
+                  return-object
+                  single-line
+                  ></v-select>
                 </v-col>
 
                 <v-col class="d-flex" cols="12" sm="6">
@@ -76,7 +97,19 @@
                     dense
                   ></v-text-field>
                   <v-spacer></v-spacer>
-                  <v-select :items="loan_terms" v-model="value_repayment_freq_unit" label="Units" dense></v-select>
+                  <v-select
+                   v-model="value_frequency" 
+                   :items="loan_terms" 
+                   item-text="name"
+                   item-value="value"
+                   label="Units" 
+                  :rules="[v => !!v || 'Item is required']" 
+                   dense
+                   required
+                  persistent-hint
+                  return-object
+                  single-line
+                  ></v-select>
                 </v-col>
                 <v-col class="d-flex" cols="12" sm="6">
                   <v-select
@@ -193,8 +226,8 @@ export default {
       valid: true,
       title: "Home",
       datarequired: true,
-      loan_terms: ["Days", "Weeks", "Months", "Year"],
-      iterest_methods: ["Flat", "Reducing Balance", "Straight Method"],
+      loan_terms: [{name:"Days",value:1}, {name:"Weeks",value:7}, {name:"Months",value:30}, {name:"Year", value:366}],
+      iterest_methods: [{name:"Flat", value:1}, {name:"Reducing Balance", value:2}, {name:"Straight Method",value:3}],
       amortizations: ["Equal Installment", "Equal principal"],
       headers: [
         {
@@ -211,10 +244,12 @@ export default {
         { text: "Total", value: "total", filterable: false }
       ],
       repayments: [],
+      method:{},
+      value_frequency:{},
 
       value_loan_amount: '',
       value_interest_rate:'',
-      value_loan_term_value:'',
+      value_loan_term:'',
       value_interest_free_period:'',
       value_num_of_repayments:'',
       value_repayments_freq:'',
@@ -222,8 +257,8 @@ export default {
       value_interest_moratorium:'',
       value_principal_moratorium:'',
       value_interest_free_period:'',
-      value_loan_term_units:'',
-      value_repayment_freq_unit:'',
+      value_loan_term_unit:{  },
+      value_repayment_freq_unit:{},
 
       loading: false,
       search: "",
@@ -237,29 +272,23 @@ export default {
     };
   },
   methods: {
-    loanAmount(){
-      if(parseFloat(this.loan_amount) > 4){
-        this.$nextTick(() => {
-          this.value_loan_amount
-        })
-      }
-    },
-   
+ 
     calculate() {
       if (this.$refs.form.validate()) {
       this.datarequired = false;
       this.loading = true;
       this.$nextTick(() => {
         const items = [];
-        
-        var totalInterest = (this.value_loan_amount * this.value_interest_rate * this.value_loan_term_value)/100;
+        if(this.method.value==1){
+          var totalInterest = (this.value_loan_amount * this.value_interest_rate * this.value_loan_term)/100;
         var balance = parseInt(this.value_loan_amount) + parseInt(totalInterest);
+       
       
         for(var i=0;i < this.value_num_of_repayments;i++) {
           const item = new Object();
           
           item.days = 1 + i;
-          item.paiddate = this.getNextWeekDay(i+1).toLocaleString();
+          item.paiddate = this.getNextWeekDay((i+1) * this.value_repayments_freq * this.value_frequency.value).toLocaleString();
           item.principaldue = this.value_loan_amount/this.value_num_of_repayments;
           item.loanamount = this.value_loan_amount;
           item.interest = totalInterest/this.value_num_of_repayments;
@@ -267,8 +296,13 @@ export default {
           balance = balance - (item.principaldue + item.interest);
           item.loanbalance = balance;
           items.push(item);
-          console.log(balance)
         }
+
+        }else if(this.method.value==2){
+          console.log(this.method.value);
+        }
+        
+        
         this.repayments = items;
       });
       this.loading = false;
@@ -282,7 +316,7 @@ export default {
       },
      getNextWeekDay (i){
     var firstDay = new Date(Date.now());
-    var nextWeek = new Date(firstDay.getTime() + parseInt(i) * 7 * 24 * 60 * 60 * 1000);
+    var nextWeek = new Date(firstDay.getTime() + parseInt(i) * 1 * 24 * 60 * 60 * 1000);
 
     return nextWeek;
 }
