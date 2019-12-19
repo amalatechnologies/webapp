@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-container>
-
       <v-card class="mx-auto" style="max-width=540">
       <v-toolbar color="primary" dark flat>
         <v-btn icon>

@@ -1,6 +1,9 @@
 .app{
     padding: 0;
-}
-v-btn{
-    text-transform: none;
+    justify-content: center;
+    .mx-auto{
+        .padding{
+            padding: 2%;
+        }
+    }
 }
