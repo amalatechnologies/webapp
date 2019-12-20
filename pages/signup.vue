@@ -15,7 +15,6 @@
            ref="email"
           v-model="email"
           :rules="[rules.email]"
-          color="deep-purple"
           label="Email address"
           placeholder="email@example.com"
           type="email">
