@@ -8,4 +8,9 @@
 .app .mx-auto .padding {
   padding: 2%;
 }
+
+tr .table_footer {
+  background-color: yellowgreen;
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */

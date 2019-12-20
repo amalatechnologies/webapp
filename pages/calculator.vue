@@ -180,6 +180,23 @@
                       </v-col>
                     </v-row>
                   </template>
+                  <template v-slot:body.append v-if="$vuetify.breakpoint.smAndUp">
+                    <tr class="table_footer">
+                      <td>Total#</td>
+                      <td></td>
+                      <td>
+                        <p class="font-weight-black">{{value_loan_amount}}</p>
+                      </td>
+                      <td></td>
+                      <td>
+                        <p class="font-weight-black">{{ttInterest}}</p>
+                      </td>
+                      <td></td>
+                      <td>
+                        <p class="font-weight-black">{{ttBalance}}</p>
+                      </td>
+                    </tr>
+                  </template>
                 </v-data-table>
               </v-container>
 
@@ -187,10 +204,30 @@
                 <v-col class="d-flex" cols="12" sm="6"></v-col>
                 <v-col class="d-flex" cols="12" sm="6">
                   &nbsp; &nbsp;
-                  <v-btn v-if="datarequired" color="success" small outlined depressed  :disabled="!valid"  @click="calculate" >{{ $t('label.button.btncalculate') }}</v-btn>&nbsp;
-                  <v-btn v-if="datarequired"  color="secondary" outlined small depressed @click="clear" >{{ $t('label.button.btnclear') }}</v-btn>&nbsp;
-                  <v-btn v-if="!datarequired" color="error" small depressed @click="cancel">{{ $t('label.button.btnback') }}</v-btn>&nbsp;
-                  
+                  <v-btn
+                    v-if="datarequired"
+                    color="success"
+                    small
+                    outlined
+                    depressed
+                    :disabled="!valid"
+                    @click="calculate"
+                  >{{ $t('label.button.btncalculate') }}</v-btn>&nbsp;
+                  <v-btn
+                    v-if="datarequired"
+                    color="secondary"
+                    outlined
+                    small
+                    depressed
+                    @click="clear"
+                  >{{ $t('label.button.btnclear') }}</v-btn>&nbsp;
+                  <v-btn
+                    v-if="!datarequired"
+                    color="error"
+                    small
+                    depressed
+                    @click="cancel"
+                  >{{ $t('label.button.btnback') }}</v-btn>&nbsp;
                   <v-btn color="secondary" small depressed to="/">{{ $t('label.button.btnhome') }}</v-btn>
                 </v-col>
               </v-row>
@@ -248,6 +285,8 @@ export default {
       repayments: [],
       method: {},
       value_frequency: {},
+      ttInterest: "",
+      ttBalance: "",
 
       value_loan_amount: "",
       value_interest_rate: "",
@@ -284,6 +323,9 @@ export default {
                 this.value_interest_rate *
                 this.value_loan_term) /
               100;
+            this.ttInterest = totalInterest;
+            this.ttBalance =
+              parseInt(this.value_loan_amount) + parseInt(totalInterest);
             var balance =
               parseInt(this.value_loan_amount) + parseInt(totalInterest);
             for (var i = 0; i < this.value_num_of_repayments; i++) {
