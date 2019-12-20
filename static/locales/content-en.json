@@ -18,7 +18,9 @@
             "contactus": "Contact Us",
             "aboutus": "About Us",
             "help": "Help",
-            "hompage": "Home Page"
+            "hompage": "Home Page",
+            "totalinterest":"Total Interest",
+            "totalprincipal":"Total Principal"
         },
         "button": {
             "btncontactus": "Contact Us",
