@@ -14,13 +14,13 @@ export default ({ app }) => {
     // Set the fallback locale in case the current locale can't be found
     fallbackLocale: "en",
 
-    // Associate each locale to a content file    
+    // Associate each locale to a content file
     messages: {
-      en: require("~/static/content-en.json"),
-      sw: require("~/static/content-sw.json"),
-      fr: require("~/static/content-fr.json"),
-      ar: require("~/static/content-ar.json"),
-      
+      en: require("~/static/locales/content-en.json"),
+      sw: require("~/static/locales/content-sw.json"),
+      fr: require("~/static/locales/content-fr.json"),
+      ar: require("~/static/locales/content-ar.json"),
+
     }
   });
 };
