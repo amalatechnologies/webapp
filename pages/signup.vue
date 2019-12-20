@@ -1,48 +1,53 @@
 <template>
-  <v-app>
-    <v-container>
+  <v-app class="app">
+    <v-container fluid>
       <v-card class="mx-auto" style="max-width=540">
       <v-toolbar color="primary" dark flat>
-        <v-btn icon>
-          <!--<v-icon>mdi-arrow-left</v-icon>-->
-        </v-btn>
-        <v-card-title class="title font-weight-regular">{{ $t('signUp')}}</v-card-title>
+    
+        <v-subheader  class=" font-weight-regular">{{ $t('label.button.buttonsignup') }}</v-subheader>
         <v-spacer></v-spacer>
-        <!--<v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>-->
+        
       </v-toolbar>
       <v-form ref="form" v-model="form" class="pa-4 pt-6">
       <v-row>
         <v-col cols="12" sm="6">
-  <v-text-field
-          v-model="password"
-          :rules="[rules.password, rules.length(6)]"
-          filled
-          color="deep-purple"
-          counter="6"
-          label="Password"
-          style="min-height: 96px"
-          type="password">
+           <v-text-field
+           ref="email"
+          v-model="email"
+          :rules="[rules.email]"
+          label="Email address"
+          placeholder="email@example.com"
+          type="email">
           </v-text-field>
-        <v-text-field v-model="phone" filled color="primary" label="Phone number"></v-text-field>
+
+        <v-text-field
+        ref="phone"
+         v-model="phone"
+           label="Phone number"
+           placeholder="e.g. +255716 000 000"
+           >
+        </v-text-field>
        
 
         </v-col>
         <v-col cols="12" sm="6">
-
-           <v-text-field
-          v-model="email"
-          :rules="[rules.email]"
-          filled
+          <v-text-field
+          v-model="password"
+          :rules="[rules.password, rules.length(8)]"
           color="deep-purple"
-          label="Email address"
-          type="email"
-        ></v-text-field>
-        <v-textarea v-model="bio" auto-grow filled color="deep-purple" label="Bio" rows="1"></v-textarea>
+          counter="8"
+          label="Password"
+          placeholder="........"
+          type="password">
+          </v-text-field>
+          
+        <v-textarea
+         v-model="biography" 
+         auto-grow  
+         placeholder="Who are you ?"
+         color="deep-purple"
+        label="Bio" rows="1">
+          </v-textarea>
         </v-col>
       </v-row>
         <v-checkbox v-model="agreement" :rules="[rules.required]" color="deep-purple">

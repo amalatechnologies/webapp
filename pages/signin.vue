@@ -3,17 +3,10 @@
    <v-container fluid>
  <v-card class="mx-auto" style flat>
       <v-toolbar color="primary" cards dark flat>
-        <v-btn icon>
-          <!--<v-icon>mdi-arrow-left</v-icon>-->
-        </v-btn>
-        <v-card-title class=" font-weight-regular">{{ $t('signIn')}}</v-card-title>
+      
+        <v-subheader class=" font-weight-regular">{{ $t('label.button.buttonsignin')}}</v-subheader >
         <v-spacer></v-spacer>
-        <!--<v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>-->
+        
       </v-toolbar>
       <v-form ref="form" v-model="form" class="pa-4 pt-6 text-center">
         <v-container fluid>
