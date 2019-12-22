@@ -27,7 +27,12 @@ export default {
     return {
       locales: ["English", "Kiswahili"]
     };
-  }
+  },
+   head () {
+    return{
+      title: 'Home Page'
+    }
+  },
 };
 </script>
 <style scoped>

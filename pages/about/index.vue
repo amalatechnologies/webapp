@@ -1,9 +1,6 @@
 <template>
 <v-app class="app">
 <v-container fluid>
-  
-    
-      
       <v-card flat >
         <v-card-title class="headline">
            {{ $t('appName')}} {{ $t('application')}}
@@ -69,14 +66,4 @@
 </v-app>
     
 </template>
-<script>
-export default {
-    data(){
-        return{
-            title: 'About Us',
-            app_name: 'Kopasmart Application',
-            
-        };
-    }
-}
-</script>
+<script lang="js" src="./about.js"></script>
