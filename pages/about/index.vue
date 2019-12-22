@@ -66,4 +66,4 @@
 </v-app>
     
 </template>
-<script lang="js" src="./about.js"></script>
+<script lang="js" src="~/static/js/about.js"></script>

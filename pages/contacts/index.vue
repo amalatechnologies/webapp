@@ -110,6 +110,6 @@
   </v-app>
 </template>
 Name
-<script lang="js" src="./contacts.js">
+<script lang="js" src="~/static/js/contacts.js">
 
 </script>

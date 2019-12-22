@@ -96,6 +96,6 @@
   </v-app>
 </template>
 
-<script lang="js" src="./signup.js">
+<script lang="js" src="~/static/js/signup.js">
 
 </script>

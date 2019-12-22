@@ -52,6 +52,6 @@
    </v-container>
   </v-app>
 </template>
-<script lang="js" src="./signin.js">
+<script lang="js" src="~/static/js/signin.js">
 
 </script>
