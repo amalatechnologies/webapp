@@ -15,6 +15,7 @@ export default {
       dense: false,
       dark: false,
       advanced: false,
+
       datarequired: true,
       ttInterest: "",
       ttBalance: "",
@@ -125,6 +126,7 @@ export default {
     },
     displayAdvanceOptions(){
       this.advanced = !this.advanced;
+
     },
     clear() {
       this.$refs.form.reset();
