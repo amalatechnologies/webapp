@@ -108,7 +108,8 @@
                       single-line
                     ></v-select>
                   </v-col>
-                  <v-col class="d-flex" cols="12" sm="6">
+                 
+                  <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
                     <v-select
                       :items="amortizations"
                       v-model="value_amortization"
@@ -117,7 +118,7 @@
                     ></v-select>
                   </v-col>
 
-                  <v-col class="d-flex" cols="12" sm="6">
+                  <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
                     <v-text-field
                       v-model="value_interest_moratorium"
                       type="number"
@@ -126,7 +127,7 @@
                       dense
                     ></v-text-field>
                   </v-col>
-                  <v-col class="d-flex" cols="12" sm="6">
+                  <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
                     <v-text-field
                       v-model="value_principal_moratorium"
                       type="number"
@@ -135,7 +136,7 @@
                       dense
                     ></v-text-field>
                   </v-col>
-                  <v-col class="d-flex" cols="12" sm="6">
+                  <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
                     <v-text-field
                       v-model="value_interest_free_period"
                       type="number"
@@ -143,6 +144,12 @@
                       label="Interest Free Period"
                       dense
                     ></v-text-field>
+                  </v-col>
+                   <v-col class="d-flex" cols="12" sm="6"></v-col>
+                  <v-col class="d-flex" cols="12" sm="6">
+                    <v-spacer></v-spacer>
+                    <v-btn text small color="primary" @click="displayAdvanceOptions">
+                      {{ advanced ? "Less" : "Advanced"}}</v-btn>
                   </v-col>
                 </v-row>
               </v-container>

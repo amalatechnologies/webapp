@@ -14,7 +14,11 @@ export default {
       title: "Home",
       dense: false,
       dark: false,
+      advanced: false,
+      advTitle: "Advanced",
       datarequired: true,
+      ttInterest: "",
+      ttBalance: "",
       loan_terms: [
         { name: "Days", value: 1 },
         { name: "Weeks", value: 7 },
@@ -44,8 +48,7 @@ export default {
       repayments: [],
       method: {},
       value_frequency: {},
-      ttInterest: "",
-      ttBalance: "",
+     
 
       value_loan_amount: "",
       value_interest_rate: "",
@@ -120,6 +123,10 @@ export default {
         });
         this.loading = false;
       }
+    },
+    displayAdvanceOptions(){
+      this.advanced = !this.advanced;
+      this.advTitle = "Less";
     },
     clear() {
       this.$refs.form.reset();
