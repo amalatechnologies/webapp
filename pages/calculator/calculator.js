@@ -69,6 +69,11 @@ export default {
       numberRules: [v => !!v || "Invalid value"]
     };
   },
+  head () {
+    return{
+      title: 'Calculator'
+    }
+  },
   methods: {
     calculate() {
       if (this.$refs.form.validate()) {

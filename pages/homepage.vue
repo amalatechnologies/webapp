@@ -87,5 +87,11 @@
         ],
       }
     },
+    head () {
+    return{
+      title: 'Home Page'
+    }
+  },
+
   }
 </script>

@@ -65,6 +65,11 @@ export default {
       { locale: "Arabic", lang: "ar" }
     ]
   }),
+  head () {
+    return{
+      title: 'Home'
+    }
+  },
   computed: {},
   methods: {
     changeLanguage(lang) {
