@@ -35,5 +35,10 @@ export default {
      
         ]
       };
-    }
+    },
+    head () {
+      return{
+        title: 'Help'
+      }
+    },
   };

@@ -31,6 +31,11 @@ export default {
         country: null,
         formHasErrors: false,
     }),
+    head () {
+      return{
+        title: 'Contact Us'
+      }
+    },
   
     methods: {
       validate() {
