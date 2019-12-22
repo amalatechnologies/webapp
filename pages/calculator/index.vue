@@ -239,7 +239,7 @@
   </v-app>
 </template>
 
-<script lang="js" src="./calculator.js">
+<script lang="js" src="~/static/js/calculator.js">
 </script>
 <style scoped>
 pa-sm-2 {
