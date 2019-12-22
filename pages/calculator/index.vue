@@ -108,7 +108,13 @@
                       single-line
                     ></v-select>
                   </v-col>
-                 
+
+                  <v-col class="d-flex" cols="12" sm="6"></v-col>
+                  <v-col class="d-flex" cols="12" sm="6">
+                    <v-spacer></v-spacer>
+                    <v-btn text small color="primary" @click="displayAdvanceOptions">Advanced</v-btn>
+                  </v-col>
+
                   <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
                     <v-select
                       :items="amortizations"
