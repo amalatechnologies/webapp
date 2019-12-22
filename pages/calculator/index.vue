@@ -149,7 +149,7 @@
                   <v-col class="d-flex" cols="12" sm="6">
                     <v-spacer></v-spacer>
                     <v-btn text small color="primary" @click="displayAdvanceOptions">
-                      {{ advanced ? "Less" : "Advanced"}}</v-btn>
+                      {{ advanced ? "Show Less" : "Advanced"}}</v-btn>
                   </v-col>
                 </v-row>
               </v-container>
