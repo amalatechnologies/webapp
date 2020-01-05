@@ -1,48 +1,29 @@
 {
     "AboutSession":[
         {
-            "LinkName":"GDG Jalandhar",
-            "Link":"/"
+            "LinkName":"Kopasmart App",
+            "Link":"/about"
         },
         {
-            "LinkName":"Google Developers Groups",
-            "Link":"https://developers.google.com/programs/community/gdg/"
-        },
-        {
-            "LinkName":"WomenTechamkers",
-            "Link":"https://www.womentechmakers.com/"
-        },
-        {
-            "LinkName":"Become a Member",
-            "Link":"https://www.meetup.com/GDG-Jalandhar/"
+            "LinkName":"Developers Groups",
+            "Link":"https://app.slack.com/client/TC9AJDQMN/GQN93JKM2"
         }
+     
     ],
     "ChapterResourcesSession":[
         {
             "LinkName" : "Become a Sponsor",
-            "Link" : "mailto:gdgjalandhar@gmail.com"
+            "Link" : "mailto:finspointa@gmail.com"
         },
         {
-            "LinkName" : "Call for Speaker",
-            "Link" : "mailto:gdgjalandhar@gmail.com"
-        },
-        {
-            "LinkName" : "Media Kit",
-            "Link" : "https://drive.google.com/drive/folders/16rHDaHbuS_YApMWgJHUxygpd-A5gCkLK"
+            "LinkName" : "Email Us",
+            "Link" : "mailto: finspointa@gmail.com"
         }
     ],
     "DevConsole":[
         {
             "LinkName" : "Google API Console",
             "Link" : "https://console.developers.google.com/"
-        },
-        {
-            "LinkName" : "GCP Console",
-            "Link" : "https://console.cloud.google.com/"
-        },
-        {
-            "LinkName" : "Google Play Console",
-            "Link" : "https://console.cloud.google.com/"
         },
         {
             "LinkName" : "Firebase Console",
