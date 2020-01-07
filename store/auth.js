@@ -41,6 +41,8 @@ export const actions = {
       .then(response => {
         console.log(response);
         commit(mutation.LOGIN_SUCCESS, response);
+        const token = response.token;
+        localStorage.setItem('qAccessToken', token);
 
       }).catch(error => {
         commit(mutation.LOGIN_ERROR);

@@ -2,8 +2,11 @@ export default function ({
   $axios,
   redirect
 }, inject) {
+
+
   // Create a custom axios instance
   const api = $axios.create({
+
     headers: {
       common: {
         Accept: 'text/plain, */*'
