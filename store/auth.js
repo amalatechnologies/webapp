@@ -37,9 +37,10 @@ export const actions = {
     commit
   }, payload) {
     commit(mutation.LOGIN);
-    await this.$axios.$post(base.REMOTE_API_BASE + `/auth/`, payload)
+    await this.$axios.$post(`/auth/`, payload)
       .then(response => {
-        console.log(response.data);
+        console.log(response);
+        commit(mutation.LOGIN_SUCCESS, response);
 
       }).catch(error => {
         commit(mutation.LOGIN_ERROR);
