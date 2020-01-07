@@ -59,7 +59,8 @@ export default {
    */
   plugins: [
     "~/plugins/i18n.js",
-    '@plugins/vuetify.js'
+    '@plugins/vuetify.js',
+    '~/plugins/axios'
   ],
   /*
    ** Nuxt.js dev-modules
