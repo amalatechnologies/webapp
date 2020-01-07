@@ -1,4 +1,52 @@
+import * as mutation from './mutation-types';
+import * as base from '../static/config/http-config';
 export const state = () => ({
-  auths: [],
-  auth: {}
+  userdata: null,
+  isLoggedIn: null,
+  showLoader: Boolean,
+
 });
+
+export const mutations = {
+
+  [mutation.LOGIN](state) {
+    state.showLoader = true;
+  },
+  [mutation.LOGIN_FAILED](state) {
+    state.showLoader = false;
+    state.isLoggedIn = false;
+  },
+  [mutation.LOGIN_SUCCESS](state, payload) {
+    state.showLoader = false;
+    state.userdata = payload;
+
+  },
+  [mutation.LOGOUT](state) {
+    state.showLoader = true;
+  },
+  [mutation.LOGOUT_SUCCESS](state) {
+    state.showLoader = false;
+    state.userdata = null;
+  },
+  [mutation.LOGOUT_FAILED](state) {
+    state.showLoader = false;
+  },
+};
+export const actions = {
+  async login({
+    commit
+  }, payload) {
+    commit(mutation.LOGIN);
+    await this.$axios.$post(base.REMOTE_API_BASE + `/auth/`, payload)
+      .then(response => {
+        console.log(response.data);
+
+      }).catch(error => {
+        commit(mutation.LOGIN_ERROR);
+        localStorage.removeItem('qAccessToken');
+        PromiseRejectionEvent(error);
+
+      });
+  }
+};
+export const getters = {};
