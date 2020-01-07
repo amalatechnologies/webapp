@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors';
 export default {
   mode: 'spa',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/kopasmart-webapp/':'/',
+    base: process.env.NODE_ENV === 'production' ? '/kopasmart-webapp/' : '/',
     routerNameSplitter: '/'
   },
   /*
@@ -71,8 +71,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-  '@nuxtjs/bulma',
+    '@nuxtjs/bulma',
     '@nuxtjs/pwa',
+    '@nuxtjs/axios',
   ],
   /*
    ** vuetify module configuration
@@ -86,7 +87,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    publicPath: process.env.NODE_ENV === 'production' ? '/assets/':'',
+    publicPath: process.env.NODE_ENV === 'production' ? '/assets/' : '',
     extend(config, ctx) {},
     postcss: {
       preset: {
@@ -102,11 +103,14 @@ export default {
       lang: 'en'
     },
     meta: {
-        /* meta options */
+      /* meta options */
     },
-    icon:{
+    icon: {
       iconSrc: '/static/icon.png'
     }
+  },
+  axios: {
+    //proxyHeaders: false
   },
   server: {
     port: 8000, // default: 3000
