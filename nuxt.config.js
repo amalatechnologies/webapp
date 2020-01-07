@@ -74,7 +74,7 @@ export default {
   modules: [
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   /*
    ** vuetify module configuration
