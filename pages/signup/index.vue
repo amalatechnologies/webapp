@@ -69,6 +69,7 @@
             class="white--text"
             color="deep-purple accent-4"
             depressed
+            @click="signUpWithCredentials"
           >Submit</v-btn>
         </v-card-actions>
         <v-dialog v-model="dialog" absolute max-width="400" persistent>

@@ -17,5 +17,21 @@ export default {
         "Password must contain an upper case letter, a numeric character, and a special character",
       required: v => !!v || "This field is required"
     }
-  })
+  }),
+  computed: {
+
+  },
+  methods: {
+    signUpWithCredentials() {
+      let data = {
+        username: this.username,
+        password: this.password,
+        email: this.email
+      };
+      if (this.password === this.rePassword) {
+        this.$store.dispatch('signup/register', data);
+      }
+    }
+
+  }
 };

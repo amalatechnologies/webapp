@@ -23,8 +23,7 @@ export default {
         username: this.username,
         password: this.password
       };
-      console.log("Data");
-      this.$store.dispatch('auth/login', data);
+      this.$store.dispatch('signin/login', data);
 
     }
   }
