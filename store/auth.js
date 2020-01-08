@@ -1,5 +1,4 @@
 import * as mutation from './mutation-types';
-import * as base from '../static/config/http-config';
 export const state = () => ({
   userdata: null,
   isLoggedIn: null,
@@ -37,7 +36,7 @@ export const actions = {
     commit
   }, payload) {
     commit(mutation.LOGIN);
-    await this.$axios.$post(`/auth/`, payload)
+    await this.$api.$post(`auth/`, payload)
       .then(response => {
         console.log(response);
         commit(mutation.LOGIN_SUCCESS, response);

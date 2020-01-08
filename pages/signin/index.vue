@@ -26,6 +26,7 @@
                   :rules="[rules.required, rules.min]"
                   :prepend-icon=" show1 ? 'mdi-eye':'mdi-eye-off'"
                   single-line
+                  autocomplete
                 ></v-text-field>
 
                 <div class="my-2">
