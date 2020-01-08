@@ -10,6 +10,11 @@ export default {
 
   },
   methods: {
+    getSchedule: function (id) {
+      var data = this.$store.getters['schedule/getterschedule'];
+      console.log(data);
+      return data;
+    }
 
   },
   beforeMount: function () {
@@ -17,7 +22,7 @@ export default {
   },
   computed: {
     schedules() {
-      return this.$store.getters['schedule/scheduledata'];
+      return this.$store.getters['schedule/schedulesdata'];
     }
 
   }

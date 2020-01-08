@@ -21,7 +21,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in schedules" :key="item.id">
+                <tr v-for="item in schedules" :key="item.id" @click="getSchedule(item.id)">
                   <td class="font-weight-light">{{ item.id }}/{{ item.name }}</td>
                   <td class="font-weight-light">{{ item.amount }}</td>
                   <td class="font-weight-light">{{ item.interest_rate }}</td>

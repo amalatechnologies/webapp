@@ -46,7 +46,7 @@ export const actions = {
       }).catch(error => {
         commit(mutation.LOGIN_ERROR);
         localStorage.removeItem('qAccessToken');
-        PromiseRejectionEvent(error);
+        console.log(error);
 
       });
   }
