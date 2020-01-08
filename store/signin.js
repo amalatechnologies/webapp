@@ -38,7 +38,9 @@ export const actions = {
         console.log(response);
         commit(mutation.LOGIN_SUCCESS, response);
         const token = response.token;
+        const uuId = response.id;
         localStorage.setItem('qAccessToken', token);
+        localStorage.setItem('uuId', uuId);
 
 
       }).catch(error => {

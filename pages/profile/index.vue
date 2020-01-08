@@ -11,22 +11,18 @@
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-text-field
-                    v-model="userdata.username"
+                    :value="userdata.username"
                     class="purple-input"
                     label="User Name"
                     disabled
                   />
                 </v-flex>
                 <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.email"
-                    label="Email Address"
-                    class="purple-input"
-                  />
+                  <v-text-field :value="userdata.email" label="Email Address" class="purple-input" />
                 </v-flex>
                 <v-flex xs12 md6>
                   <v-text-field
-                    v-model="userdata.first_name"
+                    :value="userdata.first_name"
                     label="First Name"
                     class="purple-input"
                   />
@@ -64,7 +60,11 @@
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn class="mx-0 font-weight-light" color="success">Update Profile</v-btn>
+                  <v-btn
+                    class="mx-0 font-weight-light"
+                    @click="updateProfileWithCreadentials"
+                    color="success"
+                  >Update Profile</v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
