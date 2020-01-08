@@ -24,7 +24,9 @@ export default {
         password: this.password
       };
       this.$store.dispatch('signin/login', data);
-
+      if (this.$store.getters["signin/isLoggedIn"] === true) {
+        this.$router.push('/homepage');
+      }
     }
   }
 };

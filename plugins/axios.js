@@ -8,8 +8,16 @@ export default function ({
 
     headers: {
       common: {
-        Accept: 'text/plain, */*'
-      }
+        'Accept': 'text/plain, */*',
+        'Authorization': 'Token ' + localStorage.getItem('qAccessToken')
+      },
+      delete: {},
+      get: {},
+      head: {},
+      post: {},
+      put: {},
+      patch: {}
+
     }
   });
   api.onRequest(config => {

@@ -1,17 +1,18 @@
 <template>
   <v-app dark class="app">
-    <v-navigation-drawer  v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
-     
+    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list>
-        <v-list-item>
+        <v-list-item to="/profile">
           <v-list-item-avatar>
-            <v-img src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"></v-img>
+            <v-img
+              src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+            ></v-img>
           </v-list-item-avatar>
         </v-list-item>
 
         <v-list-item link>
           <v-list-item-content>
-            <v-list-item-title class="title">Your Name</v-list-item-title>
+            <v-list-item-title class="subtitle">Your Name</v-list-item-title>
             <v-list-item-subtitle>youremail@example.com</v-list-item-subtitle>
           </v-list-item-content>
 
@@ -20,22 +21,24 @@
           </v-list-item-action>
         </v-list-item>
       </v-list>
-      <v-list subheader shaped >
-        
-          <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-            <v-list-item-avatar>
-              <v-icon
-              :class="[item.iconClass]"
-              v-text="item.icon"></v-icon>
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        
+      <v-list subheader shaped>
+        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
+          <v-list-item-avatar>
+            <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar elevation="1" :clipped-left="clipped" fixed app :collapse-on-scroll="collapseOnScroll">
+    <v-app-bar
+      elevation="1"
+      :clipped-left="clipped"
+      fixed
+      app
+      :collapse-on-scroll="collapseOnScroll"
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <!--<v-btn
         icon
@@ -64,7 +67,7 @@
         contain
       ></v-img>
       <v-spacer />
-     <!-- <v-list v-if="$vuetify.breakpoint.smAndUp">
+      <!-- <v-list v-if="$vuetify.breakpoint.smAndUp">
         <v-list-item>
           <v-btn
           small
@@ -93,89 +96,110 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-     <v-footer
-    color="white"
-    height="auto"
-    class="hidden-sm-and-down"
-  >
-    <v-container fluid>
-      <v-layout wrap align-center justify-center row fill-height class="my-0 py-0">
-        <v-flex xs12 md10 sm10 lg10 class="py-0 my-0">
-          <p class="google-font" style="font-size:130%" >Follow Us:
-            <span v-for="(item,i) in ChapterDetails.socialLinks" :key="i">
-              <v-tooltip top>
+    <v-footer color="white" height="auto" class="hidden-sm-and-down">
+      <v-container fluid>
+        <v-layout wrap align-center justify-center row fill-height class="my-0 py-0">
+          <v-flex xs12 md10 sm10 lg10 class="py-0 my-0">
+            <p class="google-font" style="font-size:130%">
+              Follow Us:
+              <span v-for="(item,i) in ChapterDetails.socialLinks" :key="i">
+                <v-tooltip top>
                   <v-btn flat icon :href="item.link" target="_blank" slot="activator">
                     <v-icon>{{item.icon}}</v-icon>
                   </v-btn>
                   <span>{{item.name}}</span>
-              </v-tooltip>
-            </span>
-          </p>
-          <v-divider></v-divider>
-        </v-flex>
-      </v-layout>
+                </v-tooltip>
+              </span>
+            </p>
+            <v-divider></v-divider>
+          </v-flex>
+        </v-layout>
 
-      <v-layout wrap justify-center row>
-        <v-flex xs12 md10 lg10>
-           <v-layout wrap align-start justify-start row class="my-2">
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;"><b>About</b></p>  
-              <div v-for="(item,i) in FooterData.AboutSession" :key="i" class="mt-1">
-                <a :href="item.Link" class="google-font" target="_blank" style="color: #3E4551;text-decoration: none;font-size:100%">{{item.LinkName}}</a><br>
-              </div>
-            </v-flex>
+        <v-layout wrap justify-center row>
+          <v-flex xs12 md10 lg10>
+            <v-layout wrap align-start justify-start row class="my-2">
+              <v-flex xs12 md3 sm4 lg3 class="py-2">
+                <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;">
+                  <b>About</b>
+                </p>
+                <div v-for="(item,i) in FooterData.AboutSession" :key="i" class="mt-1">
+                  <a
+                    :href="item.Link"
+                    class="google-font"
+                    target="_blank"
+                    style="color: #3E4551;text-decoration: none;font-size:100%"
+                  >{{item.LinkName}}</a>
+                  <br />
+                </div>
+              </v-flex>
 
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;"><b>Resources</b></p>  
-              <div v-for="(item,i) in FooterData.ChapterResourcesSession" :key="i" class="mt-1">
-                <a :href="item.Link" class="google-font" target="_blank" style="color: #3E4551;text-decoration: none;font-size:100%">{{item.LinkName}}</a><br>
-              </div>
-            </v-flex>
+              <v-flex xs12 md3 sm4 lg3 class="py-2">
+                <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;">
+                  <b>Resources</b>
+                </p>
+                <div v-for="(item,i) in FooterData.ChapterResourcesSession" :key="i" class="mt-1">
+                  <a
+                    :href="item.Link"
+                    class="google-font"
+                    target="_blank"
+                    style="color: #3E4551;text-decoration: none;font-size:100%"
+                  >{{item.LinkName}}</a>
+                  <br />
+                </div>
+              </v-flex>
 
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;"><b>Developer Console</b></p>  
-              <div v-for="(item,i) in FooterData.DevConsole" :key="i" class="mt-1">
-                <a :href="item.Link" target="_blank" class="google-font" style="color: #3E4551;text-decoration: none;font-size:100%">{{item.LinkName}}</a><br>
-              </div>
-            </v-flex>
-           </v-layout>
-        </v-flex>
+              <v-flex xs12 md3 sm4 lg3 class="py-2">
+                <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;">
+                  <b>Developer Console</b>
+                </p>
+                <div v-for="(item,i) in FooterData.DevConsole" :key="i" class="mt-1">
+                  <a
+                    :href="item.Link"
+                    target="_blank"
+                    class="google-font"
+                    style="color: #3E4551;text-decoration: none;font-size:100%"
+                  >{{item.LinkName}}</a>
+                  <br />
+                </div>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
 
-      </v-layout>
-
-      <v-layout wrap justify-center row class="mb-0">
-        <v-flex xs12 md10 lg10>
-          <v-divider></v-divider>
-           <v-toolbar flat color="white" class="pa-0 mx-0" style="padding:0 !important" >
-              <v-toolbar-title class="google-font pl-0 ml-0 mr-3" style="font-size:140%">{{ChapterDetails.ChapterName}}</v-toolbar-title>
+        <v-layout wrap justify-center row class="mb-0">
+          <v-flex xs12 md10 lg10>
+            <v-divider></v-divider>
+            <v-toolbar flat color="white" class="pa-0 mx-0" style="padding:0 !important">
+              <v-toolbar-title
+                class="google-font pl-0 ml-0 mr-3"
+                style="font-size:140%"
+              >{{ChapterDetails.ChapterName}}</v-toolbar-title>
 
               <v-btn
-                  v-for="(item,i) in FooterData.FooterEndSession" 
-                  :key="i"
-                  :to="item.Link" target="_blank" 
-                  class="ml-0 google-font primary hidden-sm-and-down"
-                  style="text-transform: capitalize;font-size:100%" 
-                  flat
-                >
-                  {{ item.LinkName }}
-              </v-btn>
+                v-for="(item,i) in FooterData.FooterEndSession"
+                :key="i"
+                :to="item.Link"
+                target="_blank"
+                class="ml-0 google-font primary hidden-sm-and-down"
+                style="text-transform: capitalize;font-size:100%"
+                flat
+              >{{ item.LinkName }}</v-btn>
             </v-toolbar>
-        </v-flex>
-      </v-layout>
-
-    </v-container>
-  </v-footer>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import ChapterDetails from '@/assets/data/chapterDetails.json'
-import FooterData from '@/assets/data/footer.json'
+import ChapterDetails from "@/assets/data/chapterDetails.json";
+import FooterData from "@/assets/data/footer.json";
 export default {
   data() {
     return {
-      ChapterDetails:ChapterDetails,
-        FooterData:FooterData,
+      ChapterDetails: ChapterDetails,
+      FooterData: FooterData,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -185,35 +209,35 @@ export default {
           title: "Home",
           subtitle: "Go to Home Page",
           to: "/homepage",
-           iconClass: 'blue white--text', 
+          iconClass: "blue white--text"
         },
         {
           icon: "mdi-help-circle-outline",
           title: "Help",
           subtitle: "Are you in need of help ?",
           to: "/help",
-          iconClass: 'info white--text'
+          iconClass: "info white--text"
         },
         {
           icon: "mdi-information-variant",
           title: "About Us",
           subtitle: "Read more about us",
           to: "/about",
-          iconClass: 'info white--text'
+          iconClass: "info white--text"
         },
         {
           icon: "mdi-deskphone",
           title: "Contact Us",
           subtitle: "Contact kopasmart team/community",
           to: "/contacts",
-          iconClass: 'info white--text'
+          iconClass: "info white--text"
         },
-         {
+        {
           icon: "mdi-calculator",
           title: "Calculator",
           subtitle: "Repayment Schedule generator",
           to: "/calculator",
-          iconClass: 'error white--text'
+          iconClass: "error white--text"
         }
       ],
       miniVariant: false,
@@ -229,7 +253,5 @@ export default {
 <style>
 .app {
   font-family: "Montserrat", sans-serif;
-
 }
-
 </style>

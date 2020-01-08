@@ -1,8 +1,6 @@
 import * as mutation from './mutation-types';
 export const state = () => ({
-  userdata: null,
-  isLoggedIn: null,
-  showLoader: Boolean,
+  userdata: {},
 
 });
 
@@ -13,7 +11,6 @@ export const mutations = {
   },
   [mutation.LOGIN_FAILED](state) {
     state.showLoader = false;
-    state.isLoggedIn = false;
   },
   [mutation.LOGIN_SUCCESS](state, payload) {
     state.showLoader = false;
@@ -43,6 +40,7 @@ export const actions = {
         const token = response.token;
         localStorage.setItem('qAccessToken', token);
 
+
       }).catch(error => {
         commit(mutation.LOGIN_ERROR);
         localStorage.removeItem('qAccessToken');
@@ -51,4 +49,11 @@ export const actions = {
       });
   }
 };
-export const getters = {};
+export const getters = {
+  isLoggedIn: function (state) {
+    return state.userdata != null;
+  },
+  userInfos: function (state) {
+    return state.userdata;
+  }
+};
