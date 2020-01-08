@@ -13,3 +13,9 @@ export const REGISTER = 'REGISTER';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_FAILED = 'REGISTER_FAILED';
+
+/** User profile Mutattion types **/
+export const PROFILE = 'PPROFILE';
+export const PROFILE_SUCCESS = 'PROFILE_SUCCESS';
+export const PROFILE_FAILED = 'PROFILE_FAILED';
+export const PROFILE_ERROR = 'PROFILE_ERROR';
