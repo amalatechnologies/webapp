@@ -2,7 +2,7 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
-        <material-card color="green" title="Edit Profile" text="Complete your profile">
+        <v-card title="Edit Profile" text="Complete your profile" flat>
           <v-form>
             <v-container py-0>
               <v-layout wrap>
@@ -69,13 +69,15 @@
               </v-layout>
             </v-container>
           </v-form>
-        </material-card>
+        </v-card>
       </v-flex>
       <v-flex xs12 md4>
-        <material-card class="v-card-profile">
-          <v-avatar slot="offset" class="mx-auto d-block" size="130">
-            <img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" />
-          </v-avatar>
+        <v-card class="v-card-profile">
+          <v-row justify="space-around">
+            <v-avatar slot="offset" class="mx-auto d-block" size="130">
+              <img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" />
+            </v-avatar>
+          </v-row>
           <v-card-text class="text-xs-center">
             <h6 class="category text-gray font-weight-thin mb-3">CEO / CO-FOUNDER</h6>
             <h4 class="card-title font-weight-light">Alec Thompson</h4>
@@ -84,7 +86,7 @@
             >Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
             <v-btn color="success" round class="font-weight-light">Follow</v-btn>
           </v-card-text>
-        </material-card>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>

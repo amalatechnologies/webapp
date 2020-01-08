@@ -1,4 +1,5 @@
 import * as mutation from './mutation-types';
+import schedule from '../static/js/schedule';
 export const state = () => ({
   count: null,
   schedule: {},
@@ -42,7 +43,7 @@ export const actions = {
 
       }).catch(error => {
         commit(mutation.REPAYMENT_SCHEDULES_FAILED);
-        PromiseRejectionEvent(error);
+        console.log(error);
 
       });
   },
@@ -58,14 +59,17 @@ export const actions = {
 
       }).catch(error => {
         commit(mutation.REPAYMENT_SCHEDULE_FAILED);
-        PromiseRejectionEvent(error);
+        console.log(error);
 
       });
   }
 };
 export const getters = {
-  scheduledata: function (state) {
+  schedulesdata: function (state) {
     return state.schedules;
+  },
+  getterschedule: function (state) {
+    return state.schedules.filter(schedule => schedule.id === id);
   }
 
 };

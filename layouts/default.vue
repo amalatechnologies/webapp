@@ -13,9 +13,26 @@
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
 
-              <v-btn dark icon>
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
+              <v-menu bottom left>
+                <template v-slot:activator="{ on }">
+                  <v-btn dark icon v-on="on">
+                    <v-icon>mdi-dots-vertical</v-icon>
+                  </v-btn>
+                </template>
+
+                <v-list dense>
+                  <v-list-item
+                    v-for="(item, i) in actions"
+                    :key="i"
+                    @click="selectedItemAction(item.title)"
+                  >
+                    <v-list-item-avatar width="36" height="35">
+                      <v-icon class="success white--text" v-text="item.icon"></v-icon>
+                    </v-list-item-avatar>
+                    <v-list-item-title class="font-weight-light">{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
             </v-card-title>
 
             <v-spacer></v-spacer>
@@ -29,9 +46,9 @@
           </v-row>
         </v-img>
       </v-card>
-      <v-list subheader tile dense>
+      <v-list subheader tile>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-          <v-list-item-avatar width="36" height="36">
+          <v-list-item-avatar width="36" height="35">
             <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
@@ -256,6 +273,10 @@ export default {
           iconClass: "success white--text"
         }
       ],
+      actions: [
+        { title: "Update profile", icon: "mdi-update" },
+        { title: "Logout", icon: "mdi-logout-variant" }
+      ],
       miniVariant: false,
       right: true,
       shaped: true,
@@ -268,6 +289,11 @@ export default {
     let vm = this;
     vm.$store.dispatch("profile/getProfile");
     vm.userdata = vm.$store.getters["profile/userInfo"];
+  },
+  methods: {
+    selectedItemAction: function(item) {
+      console.log(item);
+    }
   }
 };
 </script>
