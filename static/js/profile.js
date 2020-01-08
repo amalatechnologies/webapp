@@ -5,12 +5,14 @@ export default {
     email: "",
     firstname: "",
     lastname: "",
+    middlename: "",
+    phonenumber: "",
     address: "",
     city: "",
     country: "",
     postal: "",
     about: "",
-    user: {},
+    userdata: {},
     rules: {
       required: value => !!value || "Required.",
       min: v => v.length >= 8 || "Min 8 characters",
@@ -18,17 +20,19 @@ export default {
     }
   }),
   created: function () {
-    this.$store.dispatch('profile/getProfile');
+    let vm = this;
+    vm.$store.dispatch('profile/getProfile');
+    vm.userdata = vm.$store.getters['profile/userInfo'];
   },
   computed: {
-    userdata: function () {
-      return this.$store.getters['profile/userInfo'];
-    },
-    userinfo() {
-      return this.$store.getters['signin/userInfos'];
-    }
-
 
   },
-  methods: {}
+  methods: {
+    updateProfileWithCreadentials() {
+      this.$store.dispatch('profile/updateProfile', this.userdata);
+    }
+  },
+  beforeMount() {
+
+  }
 };
