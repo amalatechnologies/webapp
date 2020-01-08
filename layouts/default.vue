@@ -1,33 +1,41 @@
 <template>
   <v-app dark class="app">
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
-      <v-list>
-        <v-list-item to="/profile">
-          <v-list-item-avatar>
-            <v-img
-              src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-            ></v-img>
-          </v-list-item-avatar>
-        </v-list-item>
+      <v-card max-width="375" class="mx-auto" flat>
+        <v-img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" dark>
+          <v-row class="fill-height">
+            <v-card-title>
+              <v-btn dark icon @click="drawer = !drawer">
+                <v-icon>mdi-chevron-left</v-icon>
+              </v-btn>
+              <v-spacer></v-spacer>
+              <v-btn dark icon class="mr-4" to="/profile">
+                <v-icon>mdi-pencil</v-icon>
+              </v-btn>
 
-        <v-list-item link>
-          <v-list-item-content>
-            <v-list-item-title class="subtitle">Your Name</v-list-item-title>
-            <v-list-item-subtitle>youremail@example.com</v-list-item-subtitle>
-          </v-list-item-content>
+              <v-btn dark icon>
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </v-card-title>
 
-          <v-list-item-action>
-            <v-icon>mdi-menu-down</v-icon>
-          </v-list-item-action>
-        </v-list-item>
-      </v-list>
-      <v-list subheader shaped>
+            <v-spacer></v-spacer>
+
+            <v-card-title class="white--text pl-12 pt-12">
+              <span class="font-weight-light display-1" color="primary">{{userdata.username}}</span>
+            </v-card-title>
+            <v-card-subtitle class="white--text">
+              <span class="font-weight-light">{{userdata.email}}</span>
+            </v-card-subtitle>
+          </v-row>
+        </v-img>
+      </v-card>
+      <v-list subheader tile dense>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-          <v-list-item-avatar>
+          <v-list-item-avatar width="36" height="36">
             <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="font-weight-light">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -203,41 +211,49 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
+      userdata: {},
       items: [
         {
           icon: "mdi-view-dashboard",
           title: "Home",
           subtitle: "Go to Home Page",
           to: "/homepage",
-          iconClass: "blue white--text"
+          iconClass: "success white--text"
         },
         {
           icon: "mdi-help-circle-outline",
           title: "Help",
           subtitle: "Are you in need of help ?",
           to: "/help",
-          iconClass: "info white--text"
+          iconClass: "success white--text"
         },
         {
           icon: "mdi-information-variant",
           title: "About Us",
           subtitle: "Read more about us",
           to: "/about",
-          iconClass: "info white--text"
+          iconClass: "success white--text"
         },
         {
           icon: "mdi-deskphone",
           title: "Contact Us",
           subtitle: "Contact kopasmart team/community",
           to: "/contacts",
-          iconClass: "info white--text"
+          iconClass: "success white--text"
+        },
+        {
+          icon: "mdi-format-list-text",
+          title: "Repayment Schedules",
+          subtitle: "Repayment Schedule list",
+          to: "/schedule",
+          iconClass: "success white--text"
         },
         {
           icon: "mdi-calculator",
           title: "Calculator",
           subtitle: "Repayment Schedule generator",
           to: "/calculator",
-          iconClass: "error white--text"
+          iconClass: "success white--text"
         }
       ],
       miniVariant: false,
@@ -247,6 +263,11 @@ export default {
       rightDrawer: false,
       year: new Date().getFullYear()
     };
+  },
+  created: function() {
+    let vm = this;
+    vm.$store.dispatch("profile/getProfile");
+    vm.userdata = vm.$store.getters["profile/userInfo"];
   }
 };
 </script>
