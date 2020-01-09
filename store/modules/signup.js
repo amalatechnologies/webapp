@@ -27,7 +27,6 @@ const actions = {
     commit(mutation.REGISTER);
     await this.$api.$post(`register/`, payload)
       .then(response => {
-        console.log(response);
         commit(mutation.REGISTER_SUCCESS, response);
 
 

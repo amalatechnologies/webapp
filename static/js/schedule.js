@@ -13,6 +13,7 @@ export default {
     getSchedule: function (id) {
       var data = this.$store.getters.getterschedule(id);
       console.log(data);
+      this.$router.push('/schedule/' + id);
       return data;
     }
 

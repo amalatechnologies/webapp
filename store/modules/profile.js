@@ -58,8 +58,6 @@ const actions = {
     commit(mutation.PROFILE_UPDATE);
     await this.$api.$patch(`users/` + localStorage.getItem('uuId') + `/`, payload)
       .then(response => {
-        console.log(payload);
-        console.log(response);
         commit(mutation.PROFILE_UPDATE_SUCCESS, response);
 
       }).catch(error => {

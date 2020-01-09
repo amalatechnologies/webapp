@@ -12,7 +12,6 @@ export default {
     country: "",
     postal: "",
     about: "",
-    userdata: {},
     dialog: false,
     rules: {
       required: value => !!value || "Required.",
@@ -22,10 +21,12 @@ export default {
   }),
   created: function () {
     let vm = this;
-    vm.$store.dispatch('getProfile');
-    vm.userdata = vm.$store.getters.userInfo;
+    vm.$store.dispatch("getProfile");
   },
   computed: {
+    userdata() {
+      return this.$store.getters.userInfo;
+    }
 
   },
   methods: {
