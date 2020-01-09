@@ -1,11 +1,11 @@
 import * as mutation from './mutation-types';
-export const state = () => ({
+const state = () => ({
   userdata: {},
   showLoader: Boolean,
 
 });
 
-export const mutations = {
+const mutations = {
 
   [mutation.PROFILE](state) {
     state.showLoader = true;
@@ -36,14 +36,13 @@ export const mutations = {
     state.showLoader = false;
   }
 };
-export const actions = {
+const actions = {
   async getProfile({
     commit
   }) {
     commit(mutation.PROFILE);
     await this.$api.$get(`users/`)
       .then(response => {
-        console.log(response.results[0]);
         commit(mutation.PROFILE_SUCCESS, response.results[0]);
 
 
@@ -57,8 +56,9 @@ export const actions = {
     commit
   }, payload) {
     commit(mutation.PROFILE_UPDATE);
-    await this.$api.$patch(`users/` + localStorage.getItem('uuId'))
+    await this.$api.$patch(`users/` + localStorage.getItem('uuId') + `/`, payload)
       .then(response => {
+        console.log(payload);
         console.log(response);
         commit(mutation.PROFILE_UPDATE_SUCCESS, response);
 
@@ -69,8 +69,14 @@ export const actions = {
       });
   }
 };
-export const getters = {
+const getters = {
   userInfo: function (state) {
     return state.userdata;
   }
+};
+export default {
+  state,
+  getters,
+  mutations,
+  actions,
 };

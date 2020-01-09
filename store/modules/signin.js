@@ -1,15 +1,18 @@
 import * as mutation from './mutation-types';
-export const state = () => ({
+const state = () => ({
   userdata: {},
 
 });
 
-export const mutations = {
+const mutations = {
 
   [mutation.LOGIN](state) {
     state.showLoader = true;
   },
   [mutation.LOGIN_FAILED](state) {
+    state.showLoader = false;
+  },
+  [mutation.LOGIN_ERROR](state) {
     state.showLoader = false;
   },
   [mutation.LOGIN_SUCCESS](state, payload) {
@@ -28,7 +31,7 @@ export const mutations = {
     state.showLoader = false;
   },
 };
-export const actions = {
+const actions = {
   async login({
     commit
   }, payload) {
@@ -36,11 +39,13 @@ export const actions = {
     await this.$api.$post(`auth/`, payload)
       .then(response => {
         console.log(response);
-        commit(mutation.LOGIN_SUCCESS, response);
-        const token = response.token;
-        const uuId = response.id;
-        localStorage.setItem('qAccessToken', token);
-        localStorage.setItem('uuId', uuId);
+        if (response.token != null) {
+          commit(mutation.LOGIN_SUCCESS, response);
+          const token = response.token;
+          const uuId = response.id;
+          localStorage.setItem('qAccessToken', token);
+          localStorage.setItem('uuId', uuId);
+        }
 
 
       }).catch(error => {
@@ -51,11 +56,17 @@ export const actions = {
       });
   }
 };
-export const getters = {
+const getters = {
   isLoggedIn: function (state) {
     return state.userdata != null;
   },
   userInfos: function (state) {
     return state.userdata;
   }
+};
+export default {
+  state,
+  getters,
+  mutations,
+  actions,
 };

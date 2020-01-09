@@ -23,10 +23,8 @@ export default {
         username: this.username,
         password: this.password
       };
-      this.$store.dispatch('signin/login', data);
-      if (this.$store.getters["signin/isLoggedIn"] === true) {
-        this.$router.push('/homepage');
-      }
+      this.$store.dispatch('login', data);
+
     }
   }
 };

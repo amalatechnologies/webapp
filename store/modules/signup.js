@@ -1,11 +1,11 @@
 import * as mutation from './mutation-types';
-export const registration = () => ({
+const state = () => ({
   registration: {},
   isLoading: Boolean,
   userdata: {}
 });
 
-export const mutations = {
+const mutations = {
   [mutation.REGISTER](state) {
     state.isLoading = true;
   },
@@ -20,7 +20,7 @@ export const mutations = {
     state.isLoading = false;
   }
 };
-export const actions = {
+const actions = {
   async register({
     commit
   }, payload) {
@@ -39,4 +39,10 @@ export const actions = {
   }
 
 };
-export const getters = {};
+const getters = {};
+export default {
+  state,
+  getters,
+  mutations,
+  actions,
+};
