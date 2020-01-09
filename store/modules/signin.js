@@ -36,6 +36,7 @@ const actions = {
     commit
   }, payload) {
     commit(mutation.LOGIN);
+    console.log(payload);
     await this.$api.$post(`auth/`, payload)
       .then(response => {
         console.log(response);

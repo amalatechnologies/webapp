@@ -29,7 +29,7 @@ export default {
         email: this.email
       };
       if (this.password === this.rePassword) {
-        this.$store.dispatch('signup/register', data);
+        this.$store.dispatch('register', data);
       }
     }
 

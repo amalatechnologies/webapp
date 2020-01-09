@@ -11,7 +11,8 @@ export default {
   },
   methods: {
     getSchedule: function (id) {
-      var data = this.$store.getters.getterschedule;
+      var data = this.$store.getters.getterschedule(id);
+      console.log(data);
       return data;
     }
 

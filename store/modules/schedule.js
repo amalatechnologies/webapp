@@ -3,7 +3,8 @@ const state = () => ({
   count: null,
   schedule: {},
   schedules: [],
-  isLoading: Boolean
+  isLoading: Boolean,
+  authToken: true
 
 });
 
@@ -67,7 +68,7 @@ const getters = {
   schedulesdata: function (state) {
     return state.schedules;
   },
-  getterschedule: function (state) {
+  getterschedule: (state) => (id) => {
     return state.schedules.filter(schedule => schedule.id === id);
   }
 
