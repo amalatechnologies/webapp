@@ -1,6 +1,5 @@
 import * as mutation from './mutation-types';
-import schedule from '../static/js/schedule';
-export const state = () => ({
+const state = () => ({
   count: null,
   schedule: {},
   schedules: [],
@@ -8,7 +7,7 @@ export const state = () => ({
 
 });
 
-export const mutations = {
+const mutations = {
   [mutation.REPAYMENT_SCHEDULES](state) {
     state.isLoggedIn = true;
   },
@@ -30,7 +29,7 @@ export const mutations = {
     state.isLoading = false;
   }
 };
-export const actions = {
+const actions = {
   async getSchedules({
     commit
   }) {
@@ -64,7 +63,7 @@ export const actions = {
       });
   }
 };
-export const getters = {
+const getters = {
   schedulesdata: function (state) {
     return state.schedules;
   },
@@ -72,4 +71,10 @@ export const getters = {
     return state.schedules.filter(schedule => schedule.id === id);
   }
 
+};
+export default {
+  state,
+  getters,
+  mutations,
+  actions,
 };

@@ -287,8 +287,8 @@ export default {
   },
   created: function() {
     let vm = this;
-    vm.$store.dispatch("profile/getProfile");
-    vm.userdata = vm.$store.getters["profile/userInfo"];
+    vm.$store.dispatch("getProfile");
+    vm.userdata = vm.$store.getters["userInfo"];
   },
   methods: {
     selectedItemAction: function(item) {

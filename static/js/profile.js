@@ -13,6 +13,7 @@ export default {
     postal: "",
     about: "",
     userdata: {},
+    dialog: false,
     rules: {
       required: value => !!value || "Required.",
       min: v => v.length >= 8 || "Min 8 characters",
@@ -21,15 +22,22 @@ export default {
   }),
   created: function () {
     let vm = this;
-    vm.$store.dispatch('profile/getProfile');
-    vm.userdata = vm.$store.getters['profile/userInfo'];
+    vm.$store.dispatch('getProfile');
+    vm.userdata = vm.$store.getters.userInfo;
   },
   computed: {
 
   },
   methods: {
     updateProfileWithCreadentials() {
-      this.$store.dispatch('profile/updateProfile', this.userdata);
+      if (this.userdata.picture == null) {
+        delete this.userdata.picture;
+        console.log(this.userdata);
+        this.dialog = false;
+        this.$store.dispatch('updateProfile', this.userdata);
+      }
+
+
     }
   },
   beforeMount() {

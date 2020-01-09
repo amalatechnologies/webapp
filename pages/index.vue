@@ -94,7 +94,7 @@ export default {
       this.label = "Go Home";
     },
     routingAction() {
-      if (this.$store.getters["signin/isLoggedIn"] === true) {
+      if (this.$store.getters.isLoggedIn === true) {
         this.$router.push("/homepage");
       } else {
         this.$router.push("/signin");
@@ -102,7 +102,7 @@ export default {
     }
   },
   beforeMount() {
-    if (this.$store.getters["signin/isLoggedIn"] === true) {
+    if (this.$store.getters.isLoggedIn === true) {
       this.changeLabel();
     }
   }

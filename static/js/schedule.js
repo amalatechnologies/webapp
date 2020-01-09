@@ -6,13 +6,12 @@ export default {
   },
   created: function () {
     let vm = this;
-    vm.$store.dispatch('schedule/getSchedules');
+    vm.$store.dispatch('getSchedules');
 
   },
   methods: {
     getSchedule: function (id) {
-      var data = this.$store.getters['schedule/getterschedule'];
-      console.log(data);
+      var data = this.$store.getters.getterschedule;
       return data;
     }
 
@@ -22,7 +21,7 @@ export default {
   },
   computed: {
     schedules() {
-      return this.$store.getters['schedule/schedulesdata'];
+      return this.$store.getters.schedulesdata;
     }
 
   }

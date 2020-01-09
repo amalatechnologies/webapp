@@ -1,55 +1,56 @@
 {
-    "appName": "KopaSmart",
-    "application": "Application",
-    "userName": "Username",
-    "qnNewToKopasmart": "New to Kopasmart ?",
-    "createAccount": "Create Account",
-    "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    "homeDescriptionTitle": "What is Kopasmart ",
-    "homePage": "Home",
-    "change": {
-        "languages": "Change Language"
-    },
-    "label": {
-        "heading": {
-            "repaymentschedule": "Repayment Schedule",
+  "appName": "KopaSmart",
+  "application": "Application",
+  "userName": "Username",
+  "qnNewToKopasmart": "New to Kopasmart ?",
+  "createAccount": "Create Account",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "homeDescriptionTitle": "What is Kopasmart ",
+  "homePage": "Home",
+  "change": {
+    "languages": "Change Language"
+  },
+  "label": {
+    "heading": {
+      "repaymentschedule": "Repayment Schedule",
 
-            "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
-            "contactus": "Contact Us",
-            "aboutus": "About Us",
-            "help": "Help",
-            "hompage": "Home Page",
-            "totalinterest":"Total Interest",
-            "totalprincipal":"Total Principal"
-        },
-        "button": {
-            "btncontactus": "Contact Us",
-            "btncalculator": "Go to Calculator",
-            "btnsignin": "Sign In",
-            "btnsignup": "Sign Up",
-            "btnchangelanguages": "Change Language",
-            "buttonsignin":"Sign In",
-            "buttonsignup": "Sign Up",
-            "btncalculate":"Submit",
-            "btncancel":"Cancel",
-            "btnclear":"Clear",
-            "btnback":"Back",
-            "btnhome":"Home"
-        },
-        "message": {
-            "aboutusmessage": "Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-            "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
-            "motto": "Making awesome stuffs"
-        },
-        "contacts": {
-            "community": "Community",
-            "developer": "Developer",
-            "slack": "slack community"
-        },
-        "tooltip":{
-            "tooltiphello":"Hello there",
-            "tooltipwelcometo":"Welcome to",
-            "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
-        }
+      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
+      "contactus": "Contact Us",
+      "aboutus": "About Us",
+      "help": "Help",
+      "hompage": "Home Page",
+      "totalinterest": "Total Interest",
+      "totalprincipal": "Total Principal"
+    },
+    "button": {
+      "btncontactus": "Contact Us",
+      "btncalculator": "Go to Calculator",
+      "btnsignin": "Sign In",
+      "btnsignup": "Sign Up",
+      "btnchangelanguages": "Change Language",
+      "buttonsignin": "Sign In",
+      "buttonsignup": "Sign Up",
+      "btncalculate": "Submit",
+      "btncancel": "Cancel",
+      "btnclear": "Clear",
+      "btnback": "Back",
+      "btnhome": "Home"
+    },
+    "message": {
+      "aboutusmessage": "Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
+      "motto": "Making awesome stuffs",
+      "profileupdate": "By clicking *I Agree* you are agreeing to the Terms and Conditions and your profile informattions will be updated with a newly data you provide and your login infomations will also be updated. So you will be requested to re-login with new username if any. \n\n Do you agree ?"
+    },
+    "contacts": {
+      "community": "Community",
+      "developer": "Developer",
+      "slack": "slack community"
+    },
+    "tooltip": {
+      "tooltiphello": "Hello there",
+      "tooltipwelcometo": "Welcome to",
+      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
     }
+  }
 }
