@@ -39,7 +39,6 @@ const actions = {
     console.log(payload);
     await this.$api.$post(`auth/`, payload)
       .then(response => {
-        console.log(response);
         if (response.token != null) {
           commit(mutation.LOGIN_SUCCESS, response);
           const token = response.token;

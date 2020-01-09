@@ -53,7 +53,6 @@ const actions = {
     commit(mutation.REPAYMENT_SCHEDULE);
     await this.$api.$get(`repayment-schedules/` + payload)
       .then(response => {
-        console.log(response);
         commit(mutation.REPAYMENT_SCHEDULE_SUCCESS, response);
 
 
@@ -68,8 +67,12 @@ const getters = {
   schedulesdata: function (state) {
     return state.schedules;
   },
-  getterschedule: (state) => (id) => {
-    return state.schedules.filter(schedule => schedule.id === id);
+  getterschedule: (state, getters) => (id) => {
+    if (getters.schedulesdata.length > 0) {
+      return state.schedules.filter(schedule => schedule.id === id);
+    } else {
+      return state.schedule;
+    }
   }
 
 };
