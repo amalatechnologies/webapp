@@ -17,6 +17,7 @@ export default {
       (v && v.length < 30) ||
       "Message must be greater than 30 texts to be valid"
     ],
+    addressCheck: [],
     select: null,
     items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
@@ -28,6 +29,7 @@ export default {
     state: null,
     zip: null,
     country: null,
+    message: null,
     formHasErrors: false,
   }),
   head() {
@@ -47,6 +49,9 @@ export default {
     },
     resetValidation() {
       this.$refs.form.resetValidation();
+    },
+    submit() {
+
     }
   },
   computed: {
