@@ -2,8 +2,8 @@
   <v-app class="app">
     <v-container fluid>
       <v-card class="mx-auto" style flat>
-        <v-toolbar color="primary" cards dark flat>
-          <v-subheader class="font-weight-regular">{{ $t('label.button.buttonsignin')}}</v-subheader>
+        <v-toolbar color="info" cards dark flat>
+          <v-subheader class="font-weight-light">{{ $t('label.button.buttonsignin')}}</v-subheader>
           <v-spacer></v-spacer>
         </v-toolbar>
         <v-form ref="form" class="pa-4 pt-6 text-center">
@@ -31,21 +31,24 @@
 
                 <div class="my-2">
                   <v-btn
-                    color="primary"
+                    color="info"
                     dark
+                    rounded
+                    small
+                    class="font-weight-light"
                     @click="signInWithCredential"
                   >{{ $t('label.button.buttonsignin') }}</v-btn>
                 </div>
 
-                <p>{{ $t('qnNewToKopasmart') }}</p>
+                <p class="font-weight-light">{{ $t('qnNewToKopasmart') }}</p>
                 <router-link to="/signup" tag="a">
                   <a>{{ $t('createAccount') }}</a>
                 </router-link>
               </v-col>
               <v-col cols="12" sm="6">
-                <p class="font-weight-bold">{{ $t('homeDescriptionTitle') }}</p>
+                <p class="font-weight-regular">{{ $t('homeDescriptionTitle') }}</p>
 
-                <p>{{ $t('homeDescription') }}</p>
+                <p class="font-weight-light">{{ $t('homeDescription') }}</p>
               </v-col>
             </v-row>
           </v-container>

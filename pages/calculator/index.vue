@@ -145,11 +145,15 @@
                       dense
                     ></v-text-field>
                   </v-col>
-                   <v-col class="d-flex" cols="12" sm="6"></v-col>
+                  <v-col class="d-flex" cols="12" sm="6"></v-col>
                   <v-col class="d-flex" cols="12" sm="6">
                     <v-spacer></v-spacer>
-                    <v-btn text small color="primary" @click="displayAdvanceOptions">
-                      {{ advanced ? "Show Less" : "Advanced"}}</v-btn>
+                    <v-btn
+                      text
+                      small
+                      color="primary"
+                      @click="displayAdvanceOptions"
+                    >{{ advanced ? "Show Less" : "Advanced"}}</v-btn>
                   </v-col>
                 </v-row>
               </v-container>
@@ -165,46 +169,18 @@
                     hide-details
                   ></v-text-field>
                 </v-card-title>
-                <v-data-table
-                  :headers="headers"
-                  :items="repayments"
+                <datatable-component
+                  v-bind:headers="headers"
+                  v-bind:repayments="repayments"
                   :items-per-page="5"
-                  :search="search"
+                  v-bind:search="search"
                   class="elevation-0"
-                  :dense="dense"
-                  :dark="dark"
+                  v-bind:dense="dense"
+                  v-bind:dark="dark"
                   multi-sort
-                  :loading="loading"
+                  v-bind:loading="loading"
                   loading-text="Loading... Please wait"
-                >
-                  <template v-slot:top>
-                    <v-row no-gutters>
-                      <v-col cols="6" sm="6">
-                        <v-switch v-model="dense" label="Dense" class="pa-1"></v-switch>
-                      </v-col>
-                      <v-col cols="6" sm="6">
-                        <v-switch v-model="dark" label="Dark" class="pa-1"></v-switch>
-                      </v-col>
-                    </v-row>
-                  </template>
-                  <template v-slot:body.append v-if="$vuetify.breakpoint.smAndUp">
-                    <tr class="table_footer">
-                      <td>Total#</td>
-                      <td></td>
-                      <td>
-                        <p class="font-weight-black">{{value_loan_amount}}</p>
-                      </td>
-                      <td></td>
-                      <td>
-                        <p class="font-weight-black">{{ttInterest}}</p>
-                      </td>
-                      <td></td>
-                      <td>
-                        <p class="font-weight-black">{{ttBalance}}</p>
-                      </td>
-                    </tr>
-                  </template>
-                </v-data-table>
+                ></datatable-component>
               </v-container>
 
               <v-row>
