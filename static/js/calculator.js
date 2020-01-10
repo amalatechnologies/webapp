@@ -15,7 +15,11 @@ export default {
       title: "Home",
       dense: false,
       dark: false,
+      dialog: false,
       advanced: false,
+      name: null,
+      interest_methods: ["FLAT", "STRAIGHT", "REDUCING_BALANCE"],
+      amortization_methods: ["EQUAL_INSTALLMENT", "EQUAL_PRINCIPAL"],
 
       datarequired: true,
       ttInterest: "",
@@ -113,6 +117,10 @@ export default {
         v => !!v || "Value is required",
         v => (v && v.length <= 1) || "Value must be less than 2 characters"
       ],
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
       numberRules: [v => !!v || "Invalid value"]
     };
   },
@@ -186,7 +194,46 @@ export default {
       );
 
       return nextWeek;
-    }
+    },
+
+    saveRepaymentSchedule() {
+      let data = {
+        name: this.name || new Date(Date.now()),
+        amount: this.value_loan_amount,
+        interest_rate: this.value_interest_rate,
+        interest_method: this.interest_methods[this.method.value - 1],
+        loan_term: this.value_loan_term,
+        loan_term_unit: this.getSelectedTerm(this.value_loan_term_unit),
+        repaid_every: this.value_repayments_freq,
+        repaid_every_unit: this.getSelectedTerm(this.value_frequency),
+        number_of_repayments: this.value_num_of_repayments,
+        amortization: "EQUAL_INSTALLMENT",
+        interest_moratorium: parseInt(this.value_interest_moratorium) || 0,
+        principal_moratorium: parseInt(this.value_principal_moratorium) || 0,
+        interest_free_period: parseInt(this.value_interest_free_period) || 0
+      };
+      if (this.$refs.forms.validate()) {
+        console.log(data);
+        this.$store.dispatch('saveSchedule', data);
+      }
+    },
+    getSelectedTerm(i) {
+      switch (i.value) {
+        case 1:
+          return "D";
+        case 7:
+          return "W";
+        case 30:
+          return "M";
+        case 366:
+          return "Y";
+      }
+    },
+
   },
-  computed: {}
+  computed: {
+    isLoggedIn() {
+      return localStorage.getItem("qAccessToken") != null;
+    }
+  }
 };
