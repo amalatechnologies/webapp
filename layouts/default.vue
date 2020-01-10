@@ -17,7 +17,7 @@
           dark
           v-if="picture"
         ></v-img>
-        <v-card-actions class="success lighten-0">
+        <v-card-actions class="info lighten-1">
           <v-btn dark icon @click="drawer = !drawer">
             <v-icon>mdi-chevron-left</v-icon>
           </v-btn>
@@ -140,42 +140,42 @@ export default {
           title: "Home",
           subtitle: "Go to Home Page",
           to: "/homepage",
-          iconClass: "success white--text"
+          iconClass: "info lighten-1 white--text"
         },
         {
           icon: "mdi-help-circle-outline",
           title: "Help",
           subtitle: "Are you in need of help ?",
           to: "/help",
-          iconClass: "success white--text"
+          iconClass: "info lighten-1 white--text"
         },
         {
           icon: "mdi-information-outline",
           title: "About Us",
           subtitle: "Read more about us",
           to: "/about",
-          iconClass: "success white--text"
+          iconClass: "info lighten-1 white--text"
         },
         {
           icon: "mdi-alpha-c-circle-outline",
           title: "Contact Us",
           subtitle: "Contact kopasmart team/community",
           to: "/contacts",
-          iconClass: "success white--text"
+          iconClass: "info lighten-1 white--text"
         },
         {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
           subtitle: "Repayment Schedule list",
           to: "/schedule",
-          iconClass: "success white--text"
+          iconClass: "info lighten-1 white--text"
         },
         {
           icon: "mdi-calculator-variant",
           title: "Calculator",
           subtitle: "Repayment Schedule generator",
           to: "/calculator",
-          iconClass: "success white--text"
+          iconClass: "info lighten-1 white--text"
         }
       ],
       actions: [

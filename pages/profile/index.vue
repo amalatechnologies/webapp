@@ -30,7 +30,7 @@
                     placeholder="e.g example@email.com"
                   />
                 </v-flex>
-                <v-flex xs12 md6>
+                <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.first_name"
                     label="First Name"
@@ -38,7 +38,15 @@
                     placeholder="John"
                   />
                 </v-flex>
-                <v-flex xs12 md6>
+                <v-flex xs12 md4>
+                  <v-text-field
+                    v-model="userdata.middle_name"
+                    label="Last Name"
+                    class="purple-input"
+                    placeholder="Doe"
+                  />
+                </v-flex>
+                <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.last_name"
                     label="Last Name"
@@ -46,6 +54,7 @@
                     placeholder="Doe"
                   />
                 </v-flex>
+
                 <v-flex xs12 md8>
                   <v-text-field
                     v-model="address"
@@ -99,7 +108,7 @@
                   <div>
                     <v-btn
                       v-if="userdata.username != null"
-                      color="success"
+                      color="info lighten-1"
                       class="mx-0 font-weight-light"
                       dark
                       @click.stop="dialog = true"
@@ -148,12 +157,17 @@
           </v-row>
           <v-card-text class="text-xs-center">
             <h6 class="category text-gray font-weight-thin mb-3">CEO / CO-FOUNDER</h6>
-            <h4 class="card-title font-weight-light">Alec Thompson</h4>
+            <h4 class="card-title font-weight-light">
+              {{userdata.first_name}} {{userdata.last_name}}
+              <strong
+                style="color: blue"
+              >{ @{{userdata.username}} }</strong>
+            </h4>
             <p
               class="card-description font-weight-light"
             >Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
 
-            <v-btn color="success" round class="font-weight-light">Follow</v-btn>
+            <v-btn color="info lighten-1" small depressed round class="font-weight-light">Follow</v-btn>
           </v-card-text>
           <v-divider class="ma-1 mx-4"></v-divider>
           <v-card-text>
@@ -161,7 +175,7 @@
               pill
               light
               class="ma-2 font-weight-light"
-              color="success"
+              color="info lighten-1"
               text-color="white"
               v-if="userdata.is_active"
             >
