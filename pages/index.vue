@@ -40,7 +40,7 @@
                 <v-btn
                   color="info"
                   small
-                  round
+                  rounded
                   to="/calculator"
                   router
                   exact
@@ -51,7 +51,7 @@
                 <v-btn
                   color="success"
                   class="font-weight-light"
-                  round
+                  rounded
                   small
                   @click="routingAction"
                   dark
