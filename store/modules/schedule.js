@@ -97,6 +97,9 @@ const getters = {
   schedulesdata: function (state) {
     return state.schedules;
   },
+  getsavedschedule: function (state) {
+    return state.saveSchedule;
+  },
   getterschedule: (state, getters) => (id) => {
     if (getters.schedulesdata.length > 0) {
       return state.schedules.filter(schedule => schedule.id === id);
