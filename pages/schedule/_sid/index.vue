@@ -2,10 +2,17 @@
   <v-app class="app">
     <v-container>
       <v-card>
-        <v-card-title>{{schedule.name}}</v-card-title>
-        <v-card-subtitle>Selected Repayment Schedule {{schedule.name}}</v-card-subtitle>
+        <v-card-title>
+          <span>{{schedule.name}}</span>
+          <v-spacer></v-spacer>
+          <v-icon @click="data = !data" v-if="data">mdi-eye-off</v-icon>
+          <v-icon @click="data = !data" v-if="!data">mdi-eye</v-icon>
+        </v-card-title>
+        <v-card-subtitle
+          class="title font-weight-light"
+        >Selected Repayment Schedule {{schedule.name}}</v-card-subtitle>
 
-        <v-row>
+        <v-row v-if="data">
           <list-item title="Name" v-bind:subtitle="schedule.name + ` { ID:`+ [schedule.id]+ ` }`"></list-item>
 
           <list-item title="Amount" v-bind:subtitle="schedule.amount"></list-item>
