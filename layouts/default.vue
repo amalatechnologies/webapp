@@ -190,7 +190,10 @@ export default {
       year: new Date().getFullYear()
     };
   },
-  created: function() {},
+  created: function() {
+    let vm = this;
+    vm.$store.dispatch("getProfile");
+  },
   methods: {
     selectedItemAction: function(item) {
       switch (item) {
@@ -204,10 +207,7 @@ export default {
       }
     }
   },
-  beforeMount: function() {
-    let vm = this;
-    vm.$store.dispatch("getProfile");
-  },
+  beforeMount: function() {},
   computed: {
     userdata() {
       return this.$store.getters.userInfo;

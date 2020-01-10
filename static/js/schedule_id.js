@@ -72,7 +72,6 @@ export default {
   },
   methods: {
     calculateRepaymentSchedule() {
-      console.log(this.schedule);
       this.data = false;
       this.table = true;
 
@@ -128,7 +127,6 @@ export default {
       return nextWeek;
     },
     getTermsValue(parameter) {
-      console.log(parameter);
       switch (parameter) {
         case "D":
           return 1;

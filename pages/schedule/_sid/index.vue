@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
-    <v-container>
-      <v-card>
+    <v-container fluid>
+      <v-card flat outlined>
         <v-card-title>
           <span>{{schedule.name}}</span>
           <v-spacer></v-spacer>
@@ -34,13 +34,13 @@
           <list-item title="Interest Free period" v-bind:subtitle="schedule.interest_free_period "></list-item>
         </v-row>
 
-        <v-container fluid>
+        <v-container fluid v-if="table">
           <datatable-component
             v-bind:headers="headers"
             v-bind:repayments="repayments"
             :items-per-page="5"
             v-bind:search="search"
-            class="elevation-0"
+            class="elevation-0 font-weight-light"
             v-bind:dense="dense"
             v-bind:dark="dark"
             v-bind:ttInterest="ttInterest"
@@ -56,6 +56,7 @@
           <v-btn
             depressed
             v-if="!table"
+            style="text-transform: capitalize"
             class="info lighten-1 font-weight-light"
             @click="calculateRepaymentSchedule"
           >Calculate</v-btn>

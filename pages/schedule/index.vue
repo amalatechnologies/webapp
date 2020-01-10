@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <v-container>
-      <v-card flat>
+      <v-card flat outlined>
         <v-container fluid>
           <v-simple-table>
             <template v-slot:default>

@@ -2,7 +2,7 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
-        <v-card title="Edit Profile" text="Complete your profile" flat>
+        <v-card flat outlined class="pa-1">
           <v-form>
             <v-container py-0>
               <v-layout wrap>
@@ -110,7 +110,7 @@
                       v-if="userdata.username != null"
                       color="info lighten-1"
                       class="mx-0 font-weight-light"
-                      dark
+                      style="text-transform: capitalize"
                       @click.stop="dialog = true"
                     >Update profile</v-btn>
 
@@ -167,7 +167,14 @@
               class="card-description font-weight-light"
             >Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
 
-            <v-btn color="info lighten-1" small depressed round class="font-weight-light">Follow</v-btn>
+            <v-btn
+              color="info lighten-1"
+              style="text-transform: capitalize"
+              small
+              depressed
+              round
+              class="font-weight-light"
+            >Follow</v-btn>
           </v-card-text>
           <v-divider class="ma-1 mx-4"></v-divider>
           <v-card-text>
@@ -186,7 +193,7 @@
             <v-chip
               class="ma-2 font-weight-light"
               @click="lights"
-              color="warning"
+              color="warning  lighten-1"
               text-color="white"
               v-if="userdata.is_staff"
             >
