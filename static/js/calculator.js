@@ -213,7 +213,7 @@ export default {
         interest_free_period: parseInt(this.value_interest_free_period) || 0
       };
       if (this.$refs.forms.validate()) {
-        console.log(data);
+
         this.$store.dispatch('saveSchedule', data);
       }
     },
