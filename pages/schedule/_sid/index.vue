@@ -5,8 +5,8 @@
         <v-card-title>
           <span>{{schedule.name}}</span>
           <v-spacer></v-spacer>
-          <v-icon @click="data = !data" color="info" v-if="data">mdi-chevron-up-box</v-icon>
-          <v-icon @click="data = !data" color="info" v-if="!data">mdi-chevron-down-box</v-icon>
+          <v-icon @click="data = !data" color="info lighten-1" v-if="data">mdi-chevron-up-box</v-icon>
+          <v-icon @click="data = !data" color="info lighten-1" v-if="!data">mdi-chevron-down-box</v-icon>
         </v-card-title>
         <v-card-subtitle
           class="title font-weight-light"
@@ -34,7 +34,7 @@
           <list-item title="Interest Free period" v-bind:subtitle="schedule.interest_free_period "></list-item>
         </v-row>
 
-        <v-container fluid v-if="table">
+        <v-container fluid>
           <datatable-component
             v-bind:headers="headers"
             v-bind:repayments="repayments"
@@ -56,7 +56,7 @@
           <v-btn
             depressed
             v-if="!table"
-            class="info font-weight-light"
+            class="info lighten-1 font-weight-light"
             @click="calculateRepaymentSchedule"
           >Calculate</v-btn>
         </v-card-actions>
