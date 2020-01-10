@@ -14,6 +14,9 @@ export default {
 
   },
   methods: {
+    calculateRepaymentSchedule() {
+      console.log(this.schedule);
+    }
 
   },
   computed: {

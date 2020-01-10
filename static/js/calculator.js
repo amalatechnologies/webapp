@@ -1,11 +1,13 @@
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
+import DatatableComponent from "~/components/items/datatable-component";
 
 export default {
   layout: "home",
   components: {
     Logo,
-    VuetifyLogo
+    VuetifyLogo,
+    DatatableComponent
   },
   data() {
     return {
@@ -154,38 +156,16 @@ export default {
               balance = balance - (item.principaldue + item.interest);
               item.loanbalance = balance;
               items.push(item);
+
             }
           } else if (this.method.value == 2) {
-            var totalInterest = (this.value_loan_amount * interestRate * this.value_loan_term);
-            this.ttInterest = totalInterest;
-            this.ttBalance =
-              parseInt(this.value_loan_amount) + parseInt(totalInterest);
-            var balance =
-              parseInt(this.value_loan_amount) + parseInt(totalInterest);
-            for (var i = 0; i < this.value_num_of_repayments; i++) {
-              const item = new Object();
 
-              item.days = 1 + i;
-              item.paiddate = this.getNextWeekDay(
-                  (i + 1) *
-                  this.value_repayments_freq *
-                  this.value_frequency.value
-                )
-                .toLocaleString()
-                .split(" ")[0];
-              item.principaldue = this.value_loan_amount / this.value_num_of_repayments;
-              item.loanamount = this.value_loan_amount;
-              item.interest = totalInterest / this.value_num_of_repayments;
-              item.total = item.principaldue + item.interest;
-              balance = balance - (item.principaldue + item.interest);
-              item.loanbalance = balance;
-              item.interrest = item.loanbalance * interestRate;
-              items.push(item);
-            }
           }
-
           this.repayments = items;
+
+
         });
+
         this.loading = false;
       }
     },

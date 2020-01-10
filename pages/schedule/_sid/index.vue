@@ -5,8 +5,8 @@
         <v-card-title>
           <span>{{schedule.name}}</span>
           <v-spacer></v-spacer>
-          <v-icon @click="data = !data" v-if="data">mdi-eye-off</v-icon>
-          <v-icon @click="data = !data" v-if="!data">mdi-eye</v-icon>
+          <v-icon @click="data = !data" color="info" v-if="data">mdi-chevron-up-box</v-icon>
+          <v-icon @click="data = !data" color="info" v-if="!data">mdi-chevron-down-box</v-icon>
         </v-card-title>
         <v-card-subtitle
           class="title font-weight-light"
@@ -37,7 +37,7 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn class="success" small>Calculate</v-btn>
+          <v-btn class="info font-weight-light" @click="calculateRepaymentSchedule">Calculate</v-btn>
         </v-card-actions>
       </v-card>
     </v-container>
