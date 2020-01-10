@@ -1,4 +1,9 @@
 export default {
+  meta: {
+    auth: {
+      requiresAuth: false
+    }
+  },
   layout: "home",
   data: () => ({
     show1: false,
@@ -25,6 +30,11 @@ export default {
       };
       this.$store.dispatch('login', data);
 
+    }
+  },
+  beforeMount() {
+    if (localStorage.getItem("qAccessToken") != null) {
+      this.$router.push("/homepage");
     }
   }
 };

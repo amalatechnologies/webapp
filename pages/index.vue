@@ -66,6 +66,9 @@
 </template>
 <script>
 export default {
+  meta: {
+    auth: { requiresAuth: false }
+  },
   layout(context) {
     return "home";
   },
@@ -88,13 +91,12 @@ export default {
       // Change the i18n context object's locale
       // This makes it so the correct locale file is used
       this.$i18n.locale = lang;
-      console.log(lang);
     },
     changeLabel() {
       this.label = "Go Home";
     },
     routingAction() {
-      if (this.$store.getters.isLoggedIn === true) {
+      if (!(localStorage.getItem("qAccessToken") === null)) {
         this.$router.push("/homepage");
       } else {
         this.$router.push("/signin");
@@ -102,7 +104,7 @@ export default {
     }
   },
   beforeMount() {
-    if (this.$store.getters.isLoggedIn === true) {
+    if (!(localStorage.getItem("qAccessToken") == null)) {
       this.changeLabel();
     }
   }

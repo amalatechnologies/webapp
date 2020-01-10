@@ -33,11 +33,7 @@
             </template>
 
             <v-list dense>
-              <v-list-item
-                v-for="(item, i) in actions"
-                :key="i"
-                @click="selectedItemAction(item.title)"
-              >
+              <v-list-item v-for="(item, i) in actions" :key="i" @click="selectedItemAction(i)">
                 <v-list-item-avatar width="36" height="35">
                   <v-icon class="success white--text" v-text="item.icon"></v-icon>
                 </v-list-item-avatar>
@@ -194,18 +190,27 @@ export default {
       year: new Date().getFullYear()
     };
   },
-  created: function() {
+  created: function() {},
+  methods: {
+    selectedItemAction: function(item) {
+      switch (item) {
+        case 0:
+          break;
+        case 1:
+          localStorage.removeItem("qAccessToken");
+          localStorage.removeItem("uuId");
+          this.$router.push("/");
+          break;
+      }
+    }
+  },
+  beforeMount: function() {
     let vm = this;
     vm.$store.dispatch("getProfile");
   },
-  methods: {
-    selectedItemAction: function(item) {
-      console.log(item);
-    }
-  },
   computed: {
     userdata() {
-      return this.$store.getters["userInfo"];
+      return this.$store.getters.userInfo;
     }
   }
 };
