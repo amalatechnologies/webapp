@@ -59,6 +59,9 @@ const actions = {
     await this.$api.$patch(`users/` + localStorage.getItem('uuId') + `/`, payload)
       .then(response => {
         commit(mutation.PROFILE_UPDATE_SUCCESS, response);
+        localStorage.removeItem('qAccessToken');
+        localStorage.removeItem('uuId');
+        this.$router.push('/homepage');
 
       }).catch(error => {
         commit(mutation.PROFILE_UPDATE_FAILED);

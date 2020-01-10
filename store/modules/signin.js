@@ -51,6 +51,7 @@ const actions = {
       }).catch(error => {
         commit(mutation.LOGIN_ERROR);
         localStorage.removeItem('qAccessToken');
+        localStorage.removeItem('uuId', uuId);
         console.log(error);
 
       });
