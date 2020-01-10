@@ -6,7 +6,7 @@ export default function ({
   redirect
 }) {
   app.router.beforeEach((to, from, next) => {
-    if (localStorage.getItem('qAccessToken') === null && to.path !== '/signin' && to.path !== '/signup') {
+    if (localStorage.getItem('qAccessToken') === null && to.path !== '/signin' && to.path !== '/signup' && to.path !== '/' && to.path !== '/calculator') {
       console.log("Entering the route:  " + to.path);
 
       next('/signin');
