@@ -3,12 +3,12 @@
     <v-container fluid>
       <v-layout wrap align-center justify-center row fill-height class="my-0 py-0">
         <v-flex xs12 md10 sm10 lg10 class="py-0 my-0">
-          <p class="google-font" style="font-size:130%">
+          <p class="google-font" style="font-size:130%; color: blue">
             Follow Us:
             <span v-for="(item,i) in ChapterDetails.socialLinks" :key="i">
               <v-tooltip top>
                 <v-btn text icon :href="item.link" target="_blank" slot="activator">
-                  <v-icon>{{item.icon}}</v-icon>
+                  <v-icon color="info lighten-1">{{item.icon}}</v-icon>
                 </v-btn>
                 <span>{{item.name}}</span>
               </v-tooltip>
@@ -21,7 +21,7 @@
       <v-layout wrap justify-center row>
         <v-flex xs12 md10 lg10>
           <v-layout wrap align-start justify-start row class="my-2">
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
+            <v-flex xs12 md4 sm4 lg4 class="py-2">
               <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;">
                 <b>About</b>
               </p>
@@ -36,7 +36,7 @@
               </div>
             </v-flex>
 
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
+            <v-flex xs12 md4 sm4 lg4 class="py-2">
               <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;">
                 <b>Resources</b>
               </p>
@@ -51,7 +51,7 @@
               </div>
             </v-flex>
 
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
+            <v-flex xs12 md4 sm4 lg4 class="py-2">
               <p class="google-font mb-0" style="font-size: 100%;font-weight: 300;">
                 <b>Developer Console</b>
               </p>
@@ -83,8 +83,9 @@
               :key="i"
               :to="item.Link"
               target="_blank"
-              class="ml-0 google-font primary hidden-sm-and-down"
-              style="text-transform: capitalize;font-size:100%"
+              outlined
+              class="ml-1 info lighten-1 font-weight-light white--text"
+              style="text-transform: capitalize"
               flat
             >{{ item.LinkName }}</v-btn>
           </v-toolbar>

@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <v-container fluid>
-      <v-card class="mx-auto" style flat>
+      <v-card class="mx-auto" style flat outlined>
         <v-toolbar color="info" cards dark flat>
           <v-subheader class="font-weight-light">{{ $t('label.button.buttonsignin')}}</v-subheader>
           <v-spacer></v-spacer>
