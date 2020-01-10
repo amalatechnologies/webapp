@@ -26,7 +26,7 @@
         <td>Total#</td>
         <td></td>
         <td>
-          <p class="font-weight-black">{{value_loan_amount}}</p>
+          <p class="font-weight-black">{{amount}}</p>
         </td>
         <td></td>
         <td>
@@ -42,6 +42,16 @@
 </template>
 <script>
 export default {
-  props: ["headers", "repayments", "loading", "search", "dense", "dark"]
+  props: [
+    "headers",
+    "repayments",
+    "loading",
+    "search",
+    "dense",
+    "dark",
+    "amount",
+    "ttInterest",
+    "ttBalance"
+  ]
 };
 </script>

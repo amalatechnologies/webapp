@@ -34,10 +34,31 @@
           <list-item title="Interest Free period" v-bind:subtitle="schedule.interest_free_period "></list-item>
         </v-row>
 
-        <v-divider></v-divider>
+        <v-container fluid v-if="table">
+          <datatable-component
+            v-bind:headers="headers"
+            v-bind:repayments="repayments"
+            :items-per-page="5"
+            v-bind:search="search"
+            class="elevation-0"
+            v-bind:dense="dense"
+            v-bind:dark="dark"
+            v-bind:ttInterest="ttInterest"
+            v-bind:ttBalance="ttBalance"
+            v-bind:amount="amount"
+            multi-sort
+            v-bind:loading="loading"
+            loading-text="Loading... Please wait"
+          ></datatable-component>
+        </v-container>
 
         <v-card-actions>
-          <v-btn class="info font-weight-light" @click="calculateRepaymentSchedule">Calculate</v-btn>
+          <v-btn
+            depressed
+            v-if="!table"
+            class="info font-weight-light"
+            @click="calculateRepaymentSchedule"
+          >Calculate</v-btn>
         </v-card-actions>
       </v-card>
     </v-container>
