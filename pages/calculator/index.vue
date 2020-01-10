@@ -174,6 +174,9 @@
                   v-bind:repayments="repayments"
                   :items-per-page="5"
                   v-bind:search="search"
+                  v-bind:amount="value_loan_amount"
+                  v-bind:ttInterest="ttInterest"
+                  v-bind:ttBalance="ttBalance"
                   class="elevation-0"
                   v-bind:dense="dense"
                   v-bind:dark="dark"
@@ -211,7 +214,63 @@
                     depressed
                     @click="cancel"
                   >{{ $t('label.button.btnback') }}</v-btn>&nbsp;
-                  <v-btn color="secondary" small depressed to="/">{{ $t('label.button.btnhome') }}</v-btn>
+                  <div v-if="isLoggedIn">
+                    <v-btn
+                      small
+                      v-if="!datarequired"
+                      class="error lighten-1 white--text"
+                      style="text-transform: capitalize"
+                      @click.stop="dialog = true"
+                    >Save</v-btn>&nbsp;
+                    <v-dialog v-model="dialog" max-width="290">
+                      <v-form ref="forms" v-model="valid" lazy-validation>
+                        <v-card>
+                          <v-card-title class="headline error white--text">Do you agree ?</v-card-title>
+
+                          <v-card-text class="mt-1 pt-1">{{ $t('label.message.saveschedule')}}</v-card-text>
+
+                          <v-text-field
+                            class="ma-2"
+                            filled
+                            :counter="10"
+                            required
+                            v-model="name"
+                            label="Repayment Schedule Name"
+                            placeholder="e.g Bank ABC "
+                          ></v-text-field>
+
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+
+                            <v-btn
+                              style="text-transform: capitalize"
+                              color="green darken-1"
+                              outlined
+                              small
+                              @click="dialog = false"
+                            >No</v-btn>
+
+                            <v-btn
+                              class="warning darken-1 white--text"
+                              style="text-transform: capitalize"
+                              small
+                              outlined
+                              :rules="nameRules"
+                              :disabled="!valid"
+                              @click="saveRepaymentSchedule"
+                            >Save</v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-form>
+                    </v-dialog>
+                  </div>
+
+                  <v-btn
+                    class="info lighten-1"
+                    small
+                    depressed
+                    to="/"
+                  >{{ $t('label.button.btnhome') }}</v-btn>
                 </v-col>
               </v-row>
             </v-card>

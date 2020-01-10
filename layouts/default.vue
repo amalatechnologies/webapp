@@ -122,6 +122,9 @@ import ChapterDetails from "@/assets/data/chapterDetails.json";
 import FooterData from "@/assets/data/footer.json";
 import FooterComponent from "~/components/footer/FooterComponent.vue";
 export default {
+  async fetch({ store, params }) {
+    await this.$store.dispatch("getProfile");
+  },
   components: {
     FooterComponent
   },
