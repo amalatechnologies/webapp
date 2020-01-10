@@ -63,7 +63,7 @@ export default {
         state: this.state,
         zip: this.zip,
         country: this.country,
-      }
+      };
     },
   }
 };

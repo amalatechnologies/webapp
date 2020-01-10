@@ -7,7 +7,7 @@
             Follow Us:
             <span v-for="(item,i) in ChapterDetails.socialLinks" :key="i">
               <v-tooltip top>
-                <v-btn flat icon :href="item.link" target="_blank" slot="activator">
+                <v-btn text icon :href="item.link" target="_blank" slot="activator">
                   <v-icon>{{item.icon}}</v-icon>
                 </v-btn>
                 <span>{{item.name}}</span>
