@@ -33,7 +33,6 @@ export default {
     updateProfileWithCreadentials() {
       if (this.userdata.picture == null) {
         delete this.userdata.picture;
-        console.log(this.userdata);
         this.dialog = false;
         this.$store.dispatch('updateProfile', this.userdata);
       }

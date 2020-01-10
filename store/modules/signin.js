@@ -36,7 +36,6 @@ const actions = {
     commit
   }, payload) {
     commit(mutation.LOGIN);
-    console.log(payload);
     await this.$api.$post(`auth/`, payload)
       .then(response => {
         if (response.token != null) {
@@ -45,6 +44,7 @@ const actions = {
           const uuId = response.id;
           localStorage.setItem('qAccessToken', token);
           localStorage.setItem('uuId', uuId);
+          this.$router.push('/homepage');
         }
 
 

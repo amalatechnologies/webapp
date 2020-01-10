@@ -1,4 +1,9 @@
 export default {
+  meta: {
+    auth: {
+      requiresAuth: false
+    }
+  },
   layout: "home",
   data: () => ({
     agreement: false,

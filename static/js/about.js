@@ -1,4 +1,9 @@
 export default {
+  meta: {
+    auth: {
+      requiresAuth: true
+    }
+  },
   data() {
     return {
       title: 'About Us',

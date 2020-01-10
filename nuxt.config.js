@@ -4,7 +4,7 @@ export default {
   mode: 'spa',
   router: {
     base: process.env.NODE_ENV === 'production' ? '/kopasmart-webapp/' : '/',
-    routerNameSplitter: '/'
+    routerNameSplitter: '/',
   },
   /*
    ** Headers of the page
@@ -60,7 +60,8 @@ export default {
   plugins: [
     "~/plugins/i18n.js",
     '@plugins/vuetify.js',
-    '~/plugins/axios'
+    '~/plugins/axios',
+    '~/plugins/route'
   ],
   /*
    ** Nuxt.js dev-modules
