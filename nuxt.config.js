@@ -62,7 +62,8 @@ export default {
     "~/plugins/i18n.js",
     '@plugins/vuetify.js',
     '~/plugins/axios',
-    '~/plugins/route'
+    '~/plugins/route',
+    '~/plugins/pwa.client.js'
   ],
   /*
    ** Nuxt.js dev-modules
