@@ -193,10 +193,7 @@ export default {
       year: new Date().getFullYear()
     };
   },
-  created: function() {
-    let vm = this;
-    vm.$store.dispatch("getProfile");
-  },
+
   methods: {
     selectedItemAction: function(item) {
       switch (item) {

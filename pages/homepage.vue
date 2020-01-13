@@ -85,6 +85,10 @@ export default {
     return {
       title: "Home Page"
     };
+  },
+  created: function() {
+    let vm = this;
+    vm.$store.dispatch("getProfile");
   }
 };
 </script>
