@@ -15,7 +15,6 @@
                       v-model="value_loan_amount"
                       type="number"
                       label="Loan Amount"
-                      single-line
                       dense
                       required
                       :counter="4"
@@ -26,7 +25,6 @@
                     <v-text-field
                       v-model="value_interest_rate"
                       type="number"
-                      single-line
                       label="Interest Rate"
                       dense
                       required
@@ -44,7 +42,6 @@
                       required
                       persistent-hint
                       return-object
-                      single-line
                       dense
                     ></v-select>
                   </v-col>
@@ -52,7 +49,6 @@
                     <v-text-field
                       v-model="value_loan_term"
                       type="number"
-                      single-line
                       label="Loan Terms"
                       dense
                       required
@@ -69,7 +65,6 @@
                       dense
                       persistent-hint
                       return-object
-                      single-line
                     ></v-select>
                   </v-col>
 
@@ -77,7 +72,6 @@
                     <v-text-field
                       v-model="value_num_of_repayments"
                       type="number"
-                      single-line
                       label="Number of Repayments"
                       dense
                       required
@@ -89,7 +83,6 @@
                     <v-text-field
                       v-model="value_repayments_freq"
                       type="number"
-                      single-line
                       label="Repayment Frequency"
                       dense
                     ></v-text-field>
@@ -105,7 +98,6 @@
                       required
                       persistent-hint
                       return-object
-                      single-line
                     ></v-select>
                   </v-col>
 
@@ -122,7 +114,6 @@
                     <v-text-field
                       v-model="value_interest_moratorium"
                       type="number"
-                      single-line
                       label="Interest Moratorium"
                       dense
                     ></v-text-field>
@@ -131,7 +122,6 @@
                     <v-text-field
                       v-model="value_principal_moratorium"
                       type="number"
-                      single-line
                       label="Principal Moratorium"
                       dense
                     ></v-text-field>
@@ -140,7 +130,6 @@
                     <v-text-field
                       v-model="value_interest_free_period"
                       type="number"
-                      single-line
                       label="Interest Free Period"
                       dense
                     ></v-text-field>
@@ -165,7 +154,6 @@
                     v-model="search"
                     append-icon="mdi-magnify"
                     label="Search"
-                    single-line
                     hide-details
                   ></v-text-field>
                 </v-card-title>
