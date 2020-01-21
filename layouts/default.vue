@@ -1,11 +1,13 @@
 <template>
-  <v-app dark class="app">
+  <v-app class="app">
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-card class="mx-auto" flat>
         <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" dark></v-img>
-          </v-list-item-avatar>
+          <v-router-link to="/profile">
+            <v-list-item-avatar>
+              <v-img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" dark></v-img>
+            </v-list-item-avatar>
+          </v-router-link>
           <v-list-item-content>
             <v-list-item-title class="headline">@{{userdata.username}}</v-list-item-title>
             <v-list-item-subtitle>{{userdata.email}}</v-list-item-subtitle>
@@ -21,8 +23,9 @@
           <v-btn dark icon @click="drawer = !drawer">
             <v-icon>mdi-chevron-left</v-icon>
           </v-btn>
-          <v-btn dark icon class="mr-4" color="transparent" to="/profile">
-            <v-icon color="white">mdi-pencil</v-icon>
+          <v-btn dark icon @click="changemode">
+            <v-icon v-if="!dark">mdi-brightness-6</v-icon>
+            <v-icon v-if="dark">mdi-brightness-5</v-icon>
           </v-btn>
 
           <v-menu bottom left>
@@ -58,33 +61,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      elevation="1"
-      :clipped-left="clipped"
-      fixed
-      app
-      :collapse-on-scroll="collapseOnScroll"
-    >
+    <v-app-bar elevation="1" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <!--<v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />-->
+
       <v-img
         class="mx-1"
         :src="require('~/assets/images/logo_gold.png')"
@@ -93,27 +72,18 @@
         contain
       ></v-img>
       <v-spacer />
-      <!-- <v-list v-if="$vuetify.breakpoint.smAndUp">
-        <v-list-item>
-          <v-btn
-          small
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-          text
-        >{{item.title}}</v-btn>
-        </v-list-item>
-      </v-list>-->
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>
 
-    <footer-component v-bind:ChapterDetails="ChapterDetails" v-bind:FooterData="FooterData"></footer-component>
+    <footer-component
+      class="hidden-sm-and-down"
+      v-bind:ChapterDetails="ChapterDetails"
+      v-bind:FooterData="FooterData"
+    ></footer-component>
   </v-app>
 </template>
 
@@ -136,6 +106,7 @@ export default {
       drawer: false,
       fixed: false,
       picture: true,
+      dark: false,
 
       items: [
         {
@@ -182,7 +153,7 @@ export default {
         }
       ],
       actions: [
-        { title: "Update profile", icon: "mdi-update" },
+        { title: "View profile", icon: "mdi-account-circle" },
         { title: "Logout", icon: "mdi-logout-variant" }
       ],
       miniVariant: false,
@@ -198,6 +169,7 @@ export default {
     selectedItemAction: function(item) {
       switch (item) {
         case 0:
+          this.$router.push("/profile");
           break;
         case 1:
           localStorage.removeItem("qAccessToken");
@@ -205,6 +177,10 @@ export default {
           this.$router.push("/");
           break;
       }
+    },
+    changemode: function() {
+      this.dark = !this.dark;
+      this.$vuetify.theme.dark = this.dark;
     }
   },
   beforeMount: function() {},
