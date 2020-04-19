@@ -3,11 +3,11 @@
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-card class="mx-auto" flat>
         <v-list-item>
-          <v-router-link to="/profile">
+          <NuxtLink to="/profile">
             <v-list-item-avatar>
               <v-img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" dark></v-img>
             </v-list-item-avatar>
-          </v-router-link>
+          </NuxtLink>
           <v-list-item-content>
             <v-list-item-title class="headline">@{{userdata.username}}</v-list-item-title>
             <v-list-item-subtitle>{{userdata.email}}</v-list-item-subtitle>

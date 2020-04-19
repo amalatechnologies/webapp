@@ -81,7 +81,7 @@
             outlined
             class="ml-1 info lighten-1 font-weight-light white--text"
             style="text-transform: capitalize"
-            flat
+            text
           >{{ item.LinkName }}</v-btn>
         </v-flex>
       </v-layout>
