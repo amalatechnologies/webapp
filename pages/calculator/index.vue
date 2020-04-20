@@ -16,6 +16,7 @@
                       type="number"
                       label="Loan Amount"
                       dense
+                      min="0"
                       required
                       :counter="4"
                       :rules="numberRules"
@@ -28,6 +29,7 @@
                       label="Interest Rate"
                       dense
                       required
+                      min="0"
                       :rules="numberRules"
                     ></v-text-field>
                   </v-col>
@@ -52,6 +54,7 @@
                       label="Loan Terms"
                       dense
                       required
+                      min="0"
                       :rules="numberRules"
                     ></v-text-field>
                     <v-spacer></v-spacer>
@@ -75,6 +78,7 @@
                       label="Number of Repayments"
                       dense
                       required
+                      min="0"
                       :rules="numberRules"
                     ></v-text-field>
                   </v-col>
@@ -85,6 +89,7 @@
                       type="number"
                       label="Repayment Frequency"
                       dense
+                      min="0"
                     ></v-text-field>
                     <v-spacer></v-spacer>
                     <v-select
@@ -116,6 +121,7 @@
                       type="number"
                       label="Interest Moratorium"
                       dense
+                      min="0"
                     ></v-text-field>
                   </v-col>
                   <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
@@ -124,6 +130,7 @@
                       type="number"
                       label="Principal Moratorium"
                       dense
+                      min="0"
                     ></v-text-field>
                   </v-col>
                   <v-col class="d-flex" cols="12" sm="6" v-if="advanced">
@@ -132,6 +139,7 @@
                       type="number"
                       label="Interest Free Period"
                       dense
+                      min="0"
                     ></v-text-field>
                   </v-col>
                   <v-col class="d-flex" cols="12" sm="6"></v-col>
