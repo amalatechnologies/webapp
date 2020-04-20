@@ -105,7 +105,7 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      picture: true,
+      picture: false,
       dark: false,
 
       items: [
