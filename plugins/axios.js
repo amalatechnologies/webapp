@@ -28,7 +28,7 @@ export default function ({
   });
 
   // Set baseURL to something different
-  api.setBaseURL('https://kopasmart.herokuapp.com/api/');
+  api.setBaseURL('https://api.kopasmart.app/');
 
   // Inject to context as $api
   inject('api', api);

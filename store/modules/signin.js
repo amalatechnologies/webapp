@@ -39,6 +39,7 @@ const actions = {
     await this.$api.$post(`auth/`, payload)
       .then(response => {
         if (response.token != null) {
+          console.log(response);
           commit(mutation.LOGIN_SUCCESS, response);
           const token = response.token;
           const uuId = response.id;
