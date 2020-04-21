@@ -63,7 +63,8 @@ export default {
     '@plugins/vuetify.js',
     '~/plugins/axios',
     '~/plugins/route',
-    '~/plugins/pwa.client.js'
+    '~/plugins/pwa.client.js',
+    { src: '~plugins/ga.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules

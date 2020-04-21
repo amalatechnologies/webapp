@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.finspointer.kopasmart",
+      "sha256_cert_fingerprints": [
+        "06:F4:D9:60:3B:20:95:C3:E2:AD:2B:1D:8C:6C:A3:2C:5A:36:3A:16:08:A2:31:CA:95:6E:F3:0B:98:C4:39:42"
+      ]
+    }
+  }
+]
