@@ -12,7 +12,7 @@
             </v-list-item-avatar>
           </NuxtLink>
           <v-list-item-content>
-            <v-list-item-title class="headline">@{{userdata.username}}</v-list-item-title>
+            <v-list-item-title class="headline">@{{userdata.first_name}}</v-list-item-title>
             <v-list-item-subtitle>{{userdata.email}}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
