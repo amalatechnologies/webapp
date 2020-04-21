@@ -152,7 +152,9 @@
         <v-card class="v-card-profile">
           <v-row justify="space-around">
             <v-avatar slot="offset" class="mx-auto d-block" size="130">
-              <img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" />
+              <img
+                src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
+              />
             </v-avatar>
           </v-row>
           <v-card-text class="text-xs-center">

@@ -5,7 +5,10 @@
         <v-list-item>
           <NuxtLink to="/profile">
             <v-list-item-avatar>
-              <v-img src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg" dark></v-img>
+              <v-img
+                src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
+                dark
+              ></v-img>
             </v-list-item-avatar>
           </NuxtLink>
           <v-list-item-content>
@@ -15,7 +18,7 @@
         </v-list-item>
         <v-img
           height="250"
-          src="https://answersafrica.com/wp-content/uploads/2015/01/somalia.jpg"
+          src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
           dark
           v-if="picture"
         ></v-img>
