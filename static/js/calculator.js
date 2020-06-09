@@ -3,7 +3,7 @@ import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import DatatableComponent from "~/components/items/datatable-component";
 
 export default {
-  layout: "home",
+  layout: localStorage.getItem("qAccessToken") != null ? "default" : "home",
   components: {
     Logo,
     VuetifyLogo,
@@ -25,74 +25,74 @@ export default {
       ttInterest: "",
       ttBalance: "",
       loan_terms: [{
-          name: "Days",
-          value: 1
-        },
-        {
-          name: "Weeks",
-          value: 7
-        },
-        {
-          name: "Months",
-          value: 30
-        },
-        {
-          name: "Year",
-          value: 366
-        }
+        name: "Days",
+        value: 1
+      },
+      {
+        name: "Weeks",
+        value: 7
+      },
+      {
+        name: "Months",
+        value: 30
+      },
+      {
+        name: "Year",
+        value: 366
+      }
       ],
       iterest_methods: [{
-          name: "Flat",
-          value: 1
-        },
-        {
-          name: "Reducing Balance",
-          value: 2
-        },
-        {
-          name: "Straight Method",
-          value: 3
-        }
+        name: "Flat",
+        value: 1
+      },
+      {
+        name: "Reducing Balance",
+        value: 2
+      },
+      {
+        name: "Straight Method",
+        value: 3
+      }
       ],
       amortizations: ["Equal Installment", "Equal principal"],
       headers: [{
-          text: "Day",
-          align: "left",
-          sortable: false,
-          value: "days"
-        },
-        {
-          text: "Paid Date",
-          value: "paiddate"
-        },
-        {
-          text: "Principal",
-          value: "loanamount"
-        },
-        {
-          text: "Principal due",
-          value: "principaldue"
-        },
-        {
-          text: "Interest",
-          value: "interest",
-          filterable: false
-        },
+        text: "Day",
+        align: "left",
+        sortable: false,
+        value: "days"
+      },
+      {
+        text: "Paid Date",
+        value: "paiddate"
+      },
+      {
+        text: "Principal",
+        value: "loanamount"
+      },
+      {
+        text: "Principal due",
+        value: "principaldue"
+      },
+      {
+        text: "Interest",
+        value: "interest",
+        filterable: false
+      },
 
-        {
-          text: "Interrest",
-          value: "interrest",
-          filterable: false
-        },
-        {
-          text: "Loan Balance",
-          value: "loanbalance"
-        },
-        {
-          text: "Total",
-          value: "total",
-          filterable: false
-        }
+      {
+        text: "Interrest",
+        value: "interrest",
+        filterable: false
+      },
+      {
+        text: "Loan Balance",
+        value: "loanbalance"
+      },
+      {
+        text: "Total",
+        value: "total",
+        filterable: false
+      }
       ],
       repayments: [],
       method: {},
@@ -150,10 +150,10 @@ export default {
 
               item.days = 1 + i;
               item.paiddate = this.getNextWeekDay(
-                  (i + 1) *
-                  this.value_repayments_freq *
-                  this.value_frequency.value
-                )
+                (i + 1) *
+                this.value_repayments_freq *
+                this.value_frequency.value
+              )
                 .toLocaleString()
                 .split(" ")[0];
               item.principaldue =

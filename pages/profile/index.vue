@@ -174,7 +174,7 @@
               style="text-transform: capitalize"
               small
               depressed
-              round
+              rounded
               class="font-weight-light"
             >Follow</v-btn>
           </v-card-text>

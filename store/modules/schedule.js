@@ -11,7 +11,7 @@ const state = () => ({
 
 const mutations = {
   [mutation.REPAYMENT_SCHEDULES](state) {
-    state.isLoggedIn = true;
+    state.isLoading = true;
   },
   [mutation.REPAYMENT_SCHEDULES_SUCCESS](state, payload) {
     state.isLoading = false;
@@ -22,7 +22,7 @@ const mutations = {
   },
 
   [mutation.REPAYMENT_SCHEDULE](state) {
-    state.isLoggedIn = true;
+    state.isLoading = true;
   },
   [mutation.REPAYMENT_SCHEDULE_SUCCESS](state, payload) {
     state.isLoading = false;
@@ -33,7 +33,7 @@ const mutations = {
   },
 
   [mutation.SAVE_REPAYMENT_SCHEDULE](state) {
-    state.isLoggedIn = true;
+    state.isLoading = true;
   },
   [mutation.SAVE_REPAYMENT_SCHEDULE_SUCCESS](state, payload) {
     state.isLoading = false;
@@ -50,6 +50,7 @@ const actions = {
     commit(mutation.REPAYMENT_SCHEDULES);
     await this.$api.$get(`repayment-schedules/`)
       .then(response => {
+        console.log(response);
         commit(mutation.REPAYMENT_SCHEDULES_SUCCESS, response.results);
 
 
