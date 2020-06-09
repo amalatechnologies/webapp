@@ -6,6 +6,10 @@ export default {
     base: process.env.NODE_ENV === 'production' ? '/kopasmart-webapp/' : '/',
     routerNameSplitter: '/',
   },
+  env: {
+    developmentUrl: process.env.BASE_URL || 'https://kopasmart.herokuapp.com/api/',
+    releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
+  },
   /*
    ** Headers of the page
    */

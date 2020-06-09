@@ -5,10 +5,10 @@
   "author": "=elirehema",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "NODE_ENV=dev nuxt",
     "build": "NODE_ENV=dev nuxt build ",
     "start": "nuxt start",
-    "generate": "NODE_ENV=production nuxt generate "
+    "generate": "NODE_ENV =production nuxt generate "
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.9.2",

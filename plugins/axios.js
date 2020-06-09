@@ -27,8 +27,8 @@ export default function ({
     }
   });
 
-  // Set baseURL to something different
-  api.setBaseURL('https://api.kopasmart.app/');
+  console.log(process.env.NODE_ENV);
+  api.setBaseURL(process.env.NODE_ENV == 'development' ? process.env.developmentUrl : process.env.releaseUrl);
 
   // Inject to context as $api
   inject('api', api);

@@ -32,14 +32,13 @@ const mutations = {
   },
 };
 const actions = {
-  async login({
-    commit
-  }, payload) {
+  async login({ commit }, payload) {
     commit(mutation.LOGIN);
     await this.$api.$post(`auth/`, payload)
       .then(response => {
+        console.log(response);
         if (response.token != null) {
-          console.log(response);
+
           commit(mutation.LOGIN_SUCCESS, response);
           const token = response.token;
           const uuId = response.id;

@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
-      <v-card class="mx-auto" flat>
+      <v-card class="mx-auto" color="info lighten-1" dark tile flat>
         <v-list-item>
           <NuxtLink to="/profile">
             <v-list-item-avatar>
@@ -12,7 +12,7 @@
             </v-list-item-avatar>
           </NuxtLink>
           <v-list-item-content>
-            <v-list-item-title class="headline">@{{userdata.first_name}}</v-list-item-title>
+            <v-list-item-title class="headline">@{{userdata.username}}</v-list-item-title>
             <v-list-item-subtitle>{{userdata.email}}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -64,8 +64,8 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar elevation="1" :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    <v-app-bar color="info lighten-1" elevation="1" flat :clipped-left="clipped" fixed app>
+      <v-app-bar-nav-icon color="white" @click.stop="drawer = !drawer" />
 
       <v-img
         class="mx-1"
@@ -112,7 +112,7 @@ export default {
       dark: false,
 
       items: [
-        {
+        /*{
           icon: "mdi-home-circle-outline",
           title: "Home",
           subtitle: "Go to Home Page",
@@ -139,7 +139,7 @@ export default {
           subtitle: "Contact kopasmart team/community",
           to: "/contacts",
           iconClass: "info lighten-1 white--text"
-        },
+        },*/
         {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
