@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors';
 export default {
   mode: 'spa',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/kopasmart-webapp/' : '/',
+    base: process.env.NODE_ENV !== 'dev' ? '/kopasmart-webapp/' : '/',
     routerNameSplitter: '/',
   },
   env: {
@@ -96,7 +96,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    publicPath: process.env.NODE_ENV === 'production' ? '/assets/' : '',
+    publicPath: process.env.NODE_ENV !== 'dev' ? '/assets/' : '',
     extend(config, ctx) { },
     postcss: {
       preset: {
