@@ -11,11 +11,11 @@
         </v-col>
       </v-row>
 
-      <v-content>
+      <v-main>
         <v-container class="container">
           <nuxt />
         </v-container>
-      </v-content>
+      </v-main>
     </v-container>
   </v-app>
 </template>
