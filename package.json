@@ -5,7 +5,7 @@
   "author": "=elirehema",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV = dev nuxt",
+    "dev": "nuxt",
     "build": "NODE_ENV=dev nuxt build ",
     "start": "nuxt start",
     "generate": " nuxt generate "
