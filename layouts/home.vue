@@ -1,22 +1,14 @@
-
 <template>
-  <v-app dark class="app">
-    <v-container fluid>
-      <v-row class="hidden-md-and-up">
-        <v-col cols="4" sm="4" class="d-flex child-flex"></v-col>
-        <v-col cols="4" sm="4" class="d-flex child-flex">
-          <img :src="require('~/assets/images/logo_gold.png')" alt="Kopasmat" />
-        </v-col>
-        <v-col cols="4" sm="4" class="d-flex child-flex">
-        </v-col>
-      </v-row>
-
-      <v-main>
-        <v-container class="container">
-          <nuxt />
-        </v-container>
-      </v-main>
-    </v-container>
+  <v-app
+    class="aspire"
+    style="
+    background: #3A1C71;
+    background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+  ">
+    <v-main>
+      <nuxt/>
+    </v-main>
   </v-app>
 </template>
 
@@ -28,15 +20,15 @@ export default {
       locales: ["English", "Kiswahili"]
     };
   },
-   head () {
-    return{
+  head() {
+    return {
       title: 'Home Page'
     }
   },
 };
 </script>
 <style scoped>
-.container{
+.container {
   padding: 0%
 }
 </style>
