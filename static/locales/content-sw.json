@@ -1,15 +1,59 @@
 {
-    "appName": "KopaSmart",
-    "goToCalculator": "Kikokotozi",
-    "signIn": "Ingia",
-    "signUp": "Jiunge",
-    "userName": "Jina ",
-    "qnNewToKopasmart": "Wewe ni mgeni ?",
-    "createAccount": "Unda akaunti",
-    "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-    "homeDescriptionTitle": "Kopasmart ni nini ? ",
-    "homePage": "Nyumbani",
-    "change":{
-        "languages": "Badili Lugha"
+  "appName": "KopaSmart",
+  "goToCalculator": "Kikokotozi",
+  "signIn": "Ingia",
+  "signUp": "Jiunge",
+  "userName": "Jina ",
+  "qnNewToKopasmart": "Wewe ni mgeni ?",
+  "createAccount": "Unda akaunti",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "homeDescriptionTitle": "Kopasmart ni nini ? ",
+  "homePage": "Nyumbani",
+  "change": {
+    "languages": "Badili Lugha"
+  },
+  "label": {
+    "heading": {
+      "repaymentschedule": "Ratiba ya malipo",
+      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
+      "contactus": "Wasiliana nasi",
+      "aboutus": "Kuhusu",
+      "help": "Msaada",
+      "hompage": "Ukurasa wa Mwanzo",
+      "totalinterest": "Jumla ya riba",
+      "totalprincipal": "Total Principal"
+    },
+    "button": {
+      "btncontactus": "Wasiliana Nasi",
+      "btncalculator": "Kikokotoo",
+      "btnsignin": "Ingia",
+      "btnsignup": "Jiandikishe",
+      "btnchangelanguages": "Badili Lugha",
+      "buttonsignin": "Ingia",
+      "buttonsignup": "Jiandikishe",
+      "btncalculate": "Wasilisha",
+      "btncancel": "Sitisha",
+      "btnclear": "Safisha",
+      "btnback": "Nyuma",
+      "btnhome": "Mwanzo",
+      "btnsave": "Hifadhi"
+    },
+    "message": {
+      "aboutusmessage": "Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
+      "motto": "Making awesome stuffs",
+      "saveschedule": "By Clicking save this repayment schedule will be saved and can be re-calculated later. \n\n Are you sure you want to save this ? \n\n If yes Provide the Name below and click save button to save ",
+      "profileupdate": "By clicking *I Agree* you are agreeing to the Terms and Conditions and your profile informattions will be updated with a newly data you provide and your login infomations will also be updated. So you will be requested to re-login with new username if any. \n\n Do you agree ?"
+    },
+    "contacts": {
+      "community": "Washirika",
+      "developer": "Developer",
+      "slack": "Slack"
+    },
+    "tooltip": {
+      "tooltiphello": "Habari yako",
+      "tooltipwelcometo": "Karibu kwenye",
+      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
     }
+  }
 }
