@@ -59,7 +59,7 @@
             <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title class="font-weight-light">{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="font-weight-light">{{ $t( item.definition) }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -75,6 +75,19 @@
         contain
       ></v-img>
       <v-spacer />
+      <div cols="6" md="1">
+        <v-select
+          v-model="select"
+          :items="locales"
+          item-text="locale"
+          item-value="lang"
+          persistent-hint
+          return-object
+          single-line
+          dense
+          @change="changeLanguage(select.lang)"
+        ></v-select>
+      </div>
     </v-app-bar>
     <v-content>
       <v-container fluid>
@@ -110,6 +123,16 @@ export default {
       fixed: false,
       picture: false,
       dark: false,
+      locale: "",
+      selectedLocale: null,
+      select: { locale: "English", lang: "en" },
+      label: "Sign In",
+      locales: [
+        { locale: "English", lang: "en" },
+        { locale: "Swahili", lang: "sw" },
+        { locale: "French", lang: "fr" },
+        { locale: "Arabic", lang: "ar" }
+      ],
 
       items: [
         /*{
@@ -144,6 +167,7 @@ export default {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
           subtitle: "Repayment Schedule list",
+          definition:'label.menu.repaymentchedules',
           to: "/schedule",
           iconClass: "info lighten-1 white--text"
         },
@@ -151,6 +175,7 @@ export default {
           icon: "mdi-calculator-variant",
           title: "Calculator",
           subtitle: "Repayment Schedule generator",
+          definition: 'label.menu.calculator',
           to: "/calculator",
           iconClass: "info lighten-1 white--text"
         }
@@ -180,6 +205,11 @@ export default {
           this.$router.push("/");
           break;
       }
+    },
+    changeLanguage(lang) {
+      // Change the i18n context object's locale
+      // This makes it so the correct locale file is used
+      this.$i18n.locale = lang;
     },
     changemode: function() {
       this.dark = !this.dark;

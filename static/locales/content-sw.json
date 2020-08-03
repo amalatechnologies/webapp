@@ -54,6 +54,10 @@
       "tooltiphello": "Habari yako",
       "tooltipwelcometo": "Karibu kwenye",
       "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+    },
+    "menu": {
+      "repaymentchedules": "Ratiba za malipo",
+      "calculator": "Kikokotoo"
     }
   }
 }

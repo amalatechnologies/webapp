@@ -53,6 +53,10 @@
       "tooltiphello": "Hello there",
       "tooltipwelcometo": "Welcome to",
       "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+    },
+    "menu": {
+      "repaymentchedules": "Repayment Schedules",
+      "calculator": "Calculator"
     }
   }
 }
