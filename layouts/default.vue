@@ -1,6 +1,11 @@
 <template>
   <v-app class="app">
-    <v-navigation-drawer v-model="drawer" :mini-variant="true" expand-on-hover :clipped="clipped" fixed app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :mini-variant="true"
+      expand-on-hover
+      color="info lighten-1"
+      :clipped="clipped" fixed app>
       <v-list-item>
         <NuxtLink to="/profile">
           <v-list-item-avatar>
@@ -15,28 +20,6 @@
           <v-list-item-subtitle class="font-weight-light">{{ userdata.email }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-      <!--<v-img
-        height="250"
-        src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
-        dark
-        v-if="picture"
-      ></v-img>
-      <v-card-actions class="info lighten-1">
-        <v-btn dark icon @click="drawer = !drawer">
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-        <v-btn dark icon @click="changemode">
-          <v-icon v-if="!dark">mdi-brightness-6</v-icon>
-          <v-icon v-if="dark">mdi-brightness-5</v-icon>
-        </v-btn>
-
-
-        <v-btn dark icon @click="picture = !picture">
-          <v-icon v-if="picture">mdi-eye-off</v-icon>
-          <v-icon v-if="!picture">mdi-eye</v-icon>
-        </v-btn>
-      </v-card-actions>-->
-
       <v-list dense subheader tile>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-avatar width="36" height="35">
@@ -63,6 +46,7 @@
                     return-object
                     single-line
                     dense
+                    lass="font-weight-light"
                     @change="changeLanguage(select.lang)"
                   ></v-select>
                 </div>
@@ -74,18 +58,20 @@
     </v-navigation-drawer>
     <v-app-bar
       absolute
-      color="info lighten-1" elevation="1"
+      color="info lighten-1"
       flat :clipped-left="clipped"
       dark
+      dense
       fixed app>
-      <v-img
-        class="mx-1"
-        :src="require('~/assets/images/icon.png')"
-        max-height="40"
-        max-width="80"
-        contain
-        @click.stop="drawer = !drawer"
-      ></v-img>
+      <v-app-bar-nav-icon>
+        <v-avatar size="36px">
+          <img
+            class="mx-1"
+            :src="require('~/assets/images/icon.png')"
+            alt="Kopasmart"
+            @click.stop="drawer = !drawer">
+        </v-avatar>
+      </v-app-bar-nav-icon>
       <v-spacer/>
       <v-btn dark icon @click="changemode">
         <v-icon v-if="!dark">mdi-brightness-6</v-icon>
@@ -141,7 +127,7 @@ export default {
       ChapterDetails: ChapterDetails,
       FooterData: FooterData,
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       picture: false,
       dark: false,
@@ -163,7 +149,7 @@ export default {
           subtitle: "Go to Home Page",
           definition: 'label.menu.homepage',
           to: "/home",
-          iconClass: "info lighten-1 white--text"
+          iconClass: "info darken-1 white--text"
         },
         /* {
            icon: "mdi-help-circle-outline",
@@ -192,7 +178,7 @@ export default {
           subtitle: "Repayment Schedule list",
           definition: 'label.menu.repaymentchedules',
           to: "/schedule",
-          iconClass: "info lighten-1 white--text"
+          iconClass: "info darken-1 white--text"
         },
         {
           icon: "mdi-calculator-variant",
@@ -200,7 +186,7 @@ export default {
           subtitle: "Repayment Schedule generator",
           definition: 'label.menu.calculator',
           to: "/calculator",
-          iconClass: "info lighten-1 white--text"
+          iconClass: "info darken-1 white--text"
         }
       ],
       actions: [
