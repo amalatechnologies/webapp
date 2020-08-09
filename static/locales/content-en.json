@@ -56,7 +56,9 @@
     },
     "menu": {
       "repaymentchedules": "Repayment Schedules",
-      "calculator": "Calculator"
+      "calculator": "Calculator",
+      "profile": "Profile",
+      "logout": "Logout"
     }
   }
 }
