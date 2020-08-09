@@ -58,7 +58,8 @@
       "repaymentchedules": "Repayment Schedules",
       "calculator": "Calculator",
       "profile": "Profile",
-      "logout": "Logout"
+      "logout": "Logout",
+      "homepage": "Homepage"
     }
   }
 }

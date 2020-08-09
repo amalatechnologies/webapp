@@ -1,44 +1,43 @@
 <template>
   <v-app class="app">
     <v-navigation-drawer v-model="drawer" :mini-variant="true" expand-on-hover :clipped="clipped" fixed app>
-      <v-card class="mx-auto" color="info lighten-1" dark tile flat>
-        <v-list-item>
-          <NuxtLink to="/profile">
-            <v-list-item-avatar>
-              <v-img
-                src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
-                dark
-              ></v-img>
-            </v-list-item-avatar>
-          </NuxtLink>
-          <v-list-item-content>
-            <v-list-item-title class="headline">@{{ userdata.username }}</v-list-item-title>
-            <v-list-item-subtitle>{{ userdata.email }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-img
-          height="250"
-          src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
-          dark
-          v-if="picture"
-        ></v-img>
-        <v-card-actions class="info lighten-1">
-          <v-btn dark icon @click="drawer = !drawer">
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
-          <v-btn dark icon @click="changemode">
-            <v-icon v-if="!dark">mdi-brightness-6</v-icon>
-            <v-icon v-if="dark">mdi-brightness-5</v-icon>
-          </v-btn>
+      <v-list-item>
+        <NuxtLink to="/profile">
+          <v-list-item-avatar>
+            <v-img
+              src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
+              dark
+            ></v-img>
+          </v-list-item-avatar>
+        </NuxtLink>
+        <v-list-item-content>
+          <v-list-item-title class="headline">{{ userdata.username }}</v-list-item-title>
+          <v-list-item-subtitle class="font-weight-light">{{ userdata.email }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <!--<v-img
+        height="250"
+        src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
+        dark
+        v-if="picture"
+      ></v-img>
+      <v-card-actions class="info lighten-1">
+        <v-btn dark icon @click="drawer = !drawer">
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
+        <v-btn dark icon @click="changemode">
+          <v-icon v-if="!dark">mdi-brightness-6</v-icon>
+          <v-icon v-if="dark">mdi-brightness-5</v-icon>
+        </v-btn>
 
 
-          <v-btn dark icon @click="picture = !picture">
-            <v-icon v-if="picture">mdi-eye-off</v-icon>
-            <v-icon v-if="!picture">mdi-eye</v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-list subheader tile>
+        <v-btn dark icon @click="picture = !picture">
+          <v-icon v-if="picture">mdi-eye-off</v-icon>
+          <v-icon v-if="!picture">mdi-eye</v-icon>
+        </v-btn>
+      </v-card-actions>-->
+
+      <v-list dense subheader tile>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-avatar width="36" height="35">
             <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
@@ -47,24 +46,31 @@
             <v-list-item-title class="font-weight-light">{{ $t(item.definition) }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <div cols="6" md="1">
-              <v-select
-                v-model="select"
-                :items="locales"
-                item-text="locale"
-                item-value="lang"
-                persistent-hint
-                return-object
-                single-line
-                dense
-                @change="changeLanguage(select.lang)"
-              ></v-select>
-            </div>
-          </v-list-item-content>
-        </v-list-item>
+
       </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-list>
+            <v-list-item>
+              <v-list-item-content>
+                <div cols="6" md="1">
+                  <v-select
+                    v-model="select"
+                    :items="locales"
+                    item-text="locale"
+                    item-value="lang"
+                    persistent-hint
+                    return-object
+                    single-line
+                    dense
+                    @change="changeLanguage(select.lang)"
+                  ></v-select>
+                </div>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </div>
+      </template>
     </v-navigation-drawer>
     <v-app-bar
       absolute
@@ -85,14 +91,7 @@
         <v-icon v-if="!dark">mdi-brightness-6</v-icon>
         <v-icon v-if="dark">mdi-brightness-5</v-icon>
       </v-btn>
-      <NuxtLink to="/profile">
-        <v-list-item-avatar>
-          <v-img
-            src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
-            dark
-          ></v-img>
-        </v-list-item-avatar>
-      </NuxtLink>
+
       <v-menu bottom left>
         <template v-slot:activator="{ on }">
           <v-btn dark icon v-on="on">
@@ -158,34 +157,35 @@ export default {
       ],
 
       items: [
-        /*{
-          icon: "mdi-home-circle-outline",
+        {
+          icon: "mdi-home-outline",
           title: "Home",
           subtitle: "Go to Home Page",
-          to: "/homepage",
+          definition: 'label.menu.homepage',
+          to: "/home",
           iconClass: "info lighten-1 white--text"
         },
-        {
-          icon: "mdi-help-circle-outline",
-          title: "Help",
-          subtitle: "Are you in need of help ?",
-          to: "/help",
-          iconClass: "info lighten-1 white--text"
-        },
-        {
-          icon: "mdi-information-outline",
-          title: "About Us",
-          subtitle: "Read more about us",
-          to: "/about",
-          iconClass: "info lighten-1 white--text"
-        },
-        {
-          icon: "mdi-alpha-c-circle-outline",
-          title: "Contact Us",
-          subtitle: "Contact kopasmart team/community",
-          to: "/contacts",
-          iconClass: "info lighten-1 white--text"
-        },*/
+        /* {
+           icon: "mdi-help-circle-outline",
+           title: "Help",
+           subtitle: "Are you in need of help ?",
+           to: "/help",
+           iconClass: "info lighten-1 white--text"
+         },
+         {
+           icon: "mdi-information-outline",
+           title: "About Us",
+           subtitle: "Read more about us",
+           to: "/about",
+           iconClass: "info lighten-1 white--text"
+         },
+         {
+           icon: "mdi-alpha-c-circle-outline",
+           title: "Contact Us",
+           subtitle: "Contact kopasmart team/community",
+           to: "/contacts",
+           iconClass: "info lighten-1 white--text"
+         },*/
         {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
@@ -240,6 +240,7 @@ export default {
     }
   },
   beforeMount: function () {
+    vm.$store.dispatch("getProfile");
   },
   computed: {
     userdata() {
