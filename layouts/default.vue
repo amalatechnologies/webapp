@@ -65,14 +65,13 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar color="info lighten-1" elevation="1" flat :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon color="white" @click.stop="drawer = !drawer" />
-
       <v-img
         class="mx-1"
-        :src="require('~/assets/images/logo_gold.png')"
-        max-height="80"
+        :src="require('~/assets/images/icon.png')"
+        max-height="40"
         max-width="80"
         contain
+        @click.stop="drawer = !drawer"
       ></v-img>
       <v-spacer />
       <div cols="6" md="1">
