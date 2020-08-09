@@ -57,7 +57,9 @@
     },
     "menu": {
       "repaymentchedules": "Ratiba za malipo",
-      "calculator": "Kikokotoo"
+      "calculator": "Kikokotoo",
+      "profile": "Wasifu",
+      "logout": "Toka"
     }
   }
 }

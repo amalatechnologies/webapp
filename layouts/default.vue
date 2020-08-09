@@ -43,7 +43,7 @@
                 <v-list-item-avatar width="36" height="35">
                   <v-icon class="success white--text" v-text="item.icon"></v-icon>
                 </v-list-item-avatar>
-                <v-list-item-title class="font-weight-light">{{ item.title }}</v-list-item-title>
+                <v-list-item-title class="font-weight-light">{{ $t( item.label) }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -181,8 +181,8 @@ export default {
         }
       ],
       actions: [
-        { title: "View profile", icon: "mdi-account-circle" },
-        { title: "Logout", icon: "mdi-logout-variant" }
+        { title: "View profile", icon: "mdi-account-circle", label: 'label.menu.profile'},
+        { title: "Logout", icon: "mdi-logout-variant", label: 'label.menu.logout'}
       ],
       miniVariant: false,
       right: true,
