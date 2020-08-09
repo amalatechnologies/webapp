@@ -61,7 +61,7 @@ const actions = {
         commit(mutation.PROFILE_UPDATE_SUCCESS, response);
         localStorage.removeItem('qAccessToken');
         localStorage.removeItem('uuId');
-        this.$router.push('/homepage');
+        this.$router.push('/home');
 
       }).catch(error => {
         commit(mutation.PROFILE_UPDATE_FAILED);

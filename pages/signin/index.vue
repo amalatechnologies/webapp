@@ -48,7 +48,7 @@
               <v-col cols="12" sm="6">
                 <p class="font-weight-regular">{{ $t('homeDescriptionTitle') }}</p>
 
-                <p class="font-weight-light">{{ $t('homeDescription') }}</p>
+                <p class="font-weight-light">{{ $t('label.message.aboutusmessage') }}</p>
               </v-col>
             </v-row>
           </v-container>

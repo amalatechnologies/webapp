@@ -172,7 +172,7 @@ export default {
     },
     routingAction() {
       if (!(localStorage.getItem("qAccessToken") === null)) {
-        this.$router.push("/homepage");
+        this.$router.push("/home");
       } else {
         this.$router.push("/signin");
       }

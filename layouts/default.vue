@@ -1,6 +1,6 @@
 <template>
   <v-app class="app">
-    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
+    <v-navigation-drawer v-model="drawer" :mini-variant="true" expand-on-hover :clipped="clipped" fixed app>
       <v-card class="mx-auto" color="info lighten-1" dark tile flat>
         <v-list-item>
           <NuxtLink to="/profile">
@@ -12,8 +12,8 @@
             </v-list-item-avatar>
           </NuxtLink>
           <v-list-item-content>
-            <v-list-item-title class="headline">@{{userdata.username}}</v-list-item-title>
-            <v-list-item-subtitle>{{userdata.email}}</v-list-item-subtitle>
+            <v-list-item-title class="headline">@{{ userdata.username }}</v-list-item-title>
+            <v-list-item-subtitle>{{ userdata.email }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-img
@@ -31,22 +31,7 @@
             <v-icon v-if="dark">mdi-brightness-5</v-icon>
           </v-btn>
 
-          <v-menu bottom left>
-            <template v-slot:activator="{ on }">
-              <v-btn dark icon v-on="on">
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
-            </template>
 
-            <v-list dense>
-              <v-list-item v-for="(item, i) in actions" :key="i" @click="selectedItemAction(i)">
-                <v-list-item-avatar width="36" height="35">
-                  <v-icon class="success white--text" v-text="item.icon"></v-icon>
-                </v-list-item-avatar>
-                <v-list-item-title class="font-weight-light">{{ $t( item.label) }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
           <v-btn dark icon @click="picture = !picture">
             <v-icon v-if="picture">mdi-eye-off</v-icon>
             <v-icon v-if="!picture">mdi-eye</v-icon>
@@ -59,12 +44,34 @@
             <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title class="font-weight-light">{{ $t( item.definition) }}</v-list-item-title>
+            <v-list-item-title class="font-weight-light">{{ $t(item.definition) }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <div cols="6" md="1">
+              <v-select
+                v-model="select"
+                :items="locales"
+                item-text="locale"
+                item-value="lang"
+                persistent-hint
+                return-object
+                single-line
+                dense
+                @change="changeLanguage(select.lang)"
+              ></v-select>
+            </div>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar color="info lighten-1" elevation="1" flat :clipped-left="clipped" fixed app>
+    <v-app-bar
+      absolute
+      color="info lighten-1" elevation="1"
+      flat :clipped-left="clipped"
+      dark
+      fixed app>
       <v-img
         class="mx-1"
         :src="require('~/assets/images/icon.png')"
@@ -73,26 +80,42 @@
         contain
         @click.stop="drawer = !drawer"
       ></v-img>
-      <v-spacer />
-      <div cols="6" md="1">
-        <v-select
-          v-model="select"
-          :items="locales"
-          item-text="locale"
-          item-value="lang"
-          persistent-hint
-          return-object
-          single-line
-          dense
-          @change="changeLanguage(select.lang)"
-        ></v-select>
-      </div>
+      <v-spacer/>
+      <v-btn dark icon @click="changemode">
+        <v-icon v-if="!dark">mdi-brightness-6</v-icon>
+        <v-icon v-if="dark">mdi-brightness-5</v-icon>
+      </v-btn>
+      <NuxtLink to="/profile">
+        <v-list-item-avatar>
+          <v-img
+            src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
+            dark
+          ></v-img>
+        </v-list-item-avatar>
+      </NuxtLink>
+      <v-menu bottom left>
+        <template v-slot:activator="{ on }">
+          <v-btn dark icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list dense>
+          <v-list-item v-for="(item, i) in actions" :key="i" @click="selectedItemAction(i)">
+            <v-list-item-avatar width="36" height="35">
+              <v-icon class="success white--text" v-text="item.icon"></v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title class="font-weight-light">{{ $t(item.label) }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container fluid>
-        <nuxt />
+        <nuxt/>
       </v-container>
-    </v-content>
+    </v-main>
 
     <footer-component
       class="hidden-sm-and-down"
@@ -106,8 +129,9 @@
 import ChapterDetails from "@/assets/data/chapterDetails.json";
 import FooterData from "@/assets/data/footer.json";
 import FooterComponent from "~/components/footer/FooterComponent.vue";
+
 export default {
-  async fetch({ store, params }) {
+  async fetch({store, params}) {
     await this.$store.dispatch("getProfile");
   },
   components: {
@@ -124,13 +148,13 @@ export default {
       dark: false,
       locale: "",
       selectedLocale: null,
-      select: { locale: "English", lang: "en" },
+      select: {locale: "English", lang: "en"},
       label: "Sign In",
       locales: [
-        { locale: "English", lang: "en" },
-        { locale: "Swahili", lang: "sw" },
-        { locale: "French", lang: "fr" },
-        { locale: "Arabic", lang: "ar" }
+        {locale: "English", lang: "en"},
+        {locale: "Swahili", lang: "sw"},
+        {locale: "French", lang: "fr"},
+        {locale: "Arabic", lang: "ar"}
       ],
 
       items: [
@@ -166,7 +190,7 @@ export default {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
           subtitle: "Repayment Schedule list",
-          definition:'label.menu.repaymentchedules',
+          definition: 'label.menu.repaymentchedules',
           to: "/schedule",
           iconClass: "info lighten-1 white--text"
         },
@@ -180,8 +204,8 @@ export default {
         }
       ],
       actions: [
-        { title: "View profile", icon: "mdi-account-circle", label: 'label.menu.profile'},
-        { title: "Logout", icon: "mdi-logout-variant", label: 'label.menu.logout'}
+        {title: "View profile", icon: "mdi-account-circle", label: 'label.menu.profile'},
+        {title: "Logout", icon: "mdi-logout-variant", label: 'label.menu.logout'}
       ],
       miniVariant: false,
       right: true,
@@ -193,7 +217,7 @@ export default {
   },
 
   methods: {
-    selectedItemAction: function(item) {
+    selectedItemAction: function (item) {
       switch (item) {
         case 0:
           this.$router.push("/profile");
@@ -210,12 +234,13 @@ export default {
       // This makes it so the correct locale file is used
       this.$i18n.locale = lang;
     },
-    changemode: function() {
+    changemode: function () {
       this.dark = !this.dark;
       this.$vuetify.theme.dark = this.dark;
     }
   },
-  beforeMount: function() {},
+  beforeMount: function () {
+  },
   computed: {
     userdata() {
       return this.$store.getters.userInfo;
