@@ -58,6 +58,7 @@
     <v-app-bar
       absolute
       flat
+      class="info lighten-1"
       :clipped-left="clipped"
       fixed app>
       <v-app-bar-nav-icon>
@@ -94,9 +95,12 @@
 
     </v-app-bar>
     <v-main>
-      <v-container fluid class="pa-0 ma-0">
+      <v-app class="app" >
         <nuxt/>
-      </v-container>
+
+      </v-app>
+
+
     </v-main>
 
     <footer-component
@@ -250,7 +254,6 @@ export default {
 
   font-family: "Montserrat", sans-serif;
 }
-.v-container{
-  background-color: #F44336;
-}
+*{ text-transform: none !important; }
+
 </style>
