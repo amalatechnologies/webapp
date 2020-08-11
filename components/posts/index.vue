@@ -7,10 +7,28 @@
             <v-col cols="12" md="3" sm="12" wrap v-for="(post, index) in posts" :key="index">
               <post-card :post="post"></post-card>
             </v-col>
+            <v-fab-transition>
+              <v-btn
+                fab
+                small
+                bottom
+                right
+                fixed
+                class="primary darken-3 v-btn--example"
+                to="/post"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </v-fab-transition>
           </v-row>
         </v-flex>
       </v-layout>
+
     </v-container>
+
+
+
+
 
 </template>
 

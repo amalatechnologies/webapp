@@ -82,7 +82,6 @@ const actions = {
     commit(mutation.SAVE_REPAYMENT_SCHEDULE);
     await this.$api.$post(`repayment-schedules/`, payload)
       .then(response => {
-        console.log(response);
         commit(mutation.SAVE_REPAYMENT_SCHEDULE_SUCCESS, response);
         this.$router.push('/schedule');
 

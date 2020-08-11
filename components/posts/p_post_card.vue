@@ -11,11 +11,34 @@
 
 
     <v-card-subtitle class="pb-0">
-      <v-btn x-small rounded depressed  class="font-weight-medium" color="primary">
+
+      <v-btn x-small  depressed  class="font-weight-medium" color="primary">
         {{post.type}}
       </v-btn>
-    </v-card-subtitle>
-    <v-card-title> Top 10 australian beaches</v-card-title>
+      <!-- <v-row no-gutters>
+       <v-btn x-small rounded depressed  class="font-weight-medium" color="primary">
+         {{post.type}}
+       </v-btn>
+          <v-spacer></v-spacer>
+          <v-row
+            align="center"
+            justify="end"
+
+          >
+            <v-btn text x-small>
+              <v-icon class="mr-0 text-caption">mdi-heart</v-icon>
+              <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
+            </v-btn>
+            <span class="mr-1">·</span>
+            <v-btn text x-small>
+              <v-icon class=" text-caption">mdi-comment</v-icon>
+              <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
+            </v-btn>
+          </v-row>
+          </v-row>-->
+
+       </v-card-subtitle>
+    <v-card-title class="font-weight-bold"> Top 10 australian beaches</v-card-title>
     <v-card-text class="text--primary">{{post.text_content }}</v-card-text>
 
 
@@ -30,6 +53,24 @@
             class="font-weight-medium text-caption">{{ post.created_at |  DateFormat  }}
           </v-list-item-subtitle>
         </v-list-item-content>
+        <v-row no-gutters>
+          <v-row
+            align="center"
+            justify="end"
+
+          >
+            <v-btn text x-small @click.stop="likePost(post.id)">
+              <v-icon class="mr-0 text-caption">mdi-heart</v-icon>
+              <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
+            </v-btn>
+            <span class="mr-1">·</span>
+            <v-btn text x-small :to="'/post/'+post.id" @click.stop="commentPost(post.id)">
+              <v-icon class=" text-caption">mdi-comment</v-icon>
+              <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
+            </v-btn>
+          </v-row>
+        </v-row>
+
 
       </v-list-item>
     </v-card-actions>
@@ -50,7 +91,14 @@ export default {
     ]
 
   }),
-  methods: {},
+  methods: {
+    likePost(i){
+      console.log(i)
+    },
+    commentPost(i){
+      console.log(i)
+    }
+  },
   beforeMount() {
   }
 }

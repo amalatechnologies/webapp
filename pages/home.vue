@@ -1,6 +1,6 @@
 <template>
   <v-app class="app">
-    <v-container fluid>
+    <v-container fluid color="primary">
       <posts-component></posts-component>
     </v-container>
   </v-app>
