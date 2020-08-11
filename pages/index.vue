@@ -67,10 +67,10 @@
       <v-row justify="center" align="center" align-content="center">
         <v-col cols="12">
           <div class="typewriter">
-            <h1 class="home_tool_lg">
+            <div class="home_tool_lg">
               {{$t('label.tooltip.tooltiphello')}} 	&#128521;
               {{$t('label.tooltip.tooltipwelcometo')}} {{ $t('appName') }} !!!
-            </h1>
+            </div>
           </div>
 
         </v-col>

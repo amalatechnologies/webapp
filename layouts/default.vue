@@ -4,7 +4,6 @@
       v-model="drawer"
       :mini-variant="true"
       expand-on-hover
-      color="info lighten-1"
       :clipped="clipped" fixed app>
       <v-list-item>
         <NuxtLink to="/profile">
@@ -58,10 +57,8 @@
     </v-navigation-drawer>
     <v-app-bar
       absolute
-      color="info lighten-1"
-      flat :clipped-left="clipped"
-      dark
-      dense
+      flat
+      :clipped-left="clipped"
       fixed app>
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
@@ -73,14 +70,14 @@
         </v-avatar>
       </v-app-bar-nav-icon>
       <v-spacer/>
-      <v-btn dark icon @click="changemode">
+      <v-btn icon @click="changemode">
         <v-icon v-if="!dark">mdi-brightness-6</v-icon>
         <v-icon v-if="dark">mdi-brightness-5</v-icon>
       </v-btn>
 
       <v-menu bottom left>
         <template v-slot:activator="{ on }">
-          <v-btn dark icon v-on="on">
+          <v-btn  icon v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
@@ -97,7 +94,7 @@
 
     </v-app-bar>
     <v-main>
-      <v-container fluid>
+      <v-container fluid class="pa-0 ma-0">
         <nuxt/>
       </v-container>
     </v-main>
@@ -223,10 +220,23 @@ export default {
     changemode: function () {
       this.dark = !this.dark;
       this.$vuetify.theme.dark = this.dark;
+    },
+    syncro: async function () {
+      const vm = this;
+      vm.sync = !vm.sync;
+      await Promise.all([
+        vm.$store.dispatch("getProfile"),
+        vm.$store.dispatch("getBlogPosts"),
+      ]).then(function () {
+        console.log("Loading complete...");
+      });
+      setTimeout(() => {
+        vm.sync = !vm.sync;
+      }, 2000);
     }
   },
   beforeMount: function () {
-    vm.$store.dispatch("getProfile");
+    this.syncro()
   },
   computed: {
     userdata() {
@@ -237,6 +247,10 @@ export default {
 </script>
 <style>
 .app {
+
   font-family: "Montserrat", sans-serif;
+}
+.v-container{
+  background-color: #F44336;
 }
 </style>
