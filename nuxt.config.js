@@ -68,6 +68,7 @@ export default {
     '~/plugins/axios',
     '~/plugins/route',
     '~/plugins/pwa.client.js',
+    '~/plugins/moment.js',
     { src: '~plugins/ga.js', mode: 'client' }
   ],
   /*
