@@ -1,42 +1,7 @@
 <template>
   <v-app class="app">
-    <v-container>
-      <v-card flat outlined>
+    <v-container fluid>
         <v-container fluid>
-          <!--<v-simple-table>
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left font-weight-bold">Name</th>
-                  <th class="text-left font-weight-bold">Amount</th>
-                  <th class="text-left font-weight-bold">Interest</th>
-                  <th class="text-left font-weight-bold">Method</th>
-                  <th class="text-left font-weight-bold">Amortization</th>
-                  <th class="text-left font-weight-bold">Repayments</th>
-                  <th class="text-left font-weight-bold">Loan Term</th>
-                  <th class="text-left font-weight-bold">Repayed Every</th>
-                  <th class="text-left font-weight-bold">I.M</th>
-                  <th class="text-left font-weight-bold">P.M</th>
-                  <th class="text-left font-weight-bold">I.F.P</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in schedules" :key="item.id" @click="getSchedule(item.id)">
-                  <td class="font-weight-light">{{ item.id }}/{{ item.name }}</td>
-                  <td class="font-weight-light">{{ item.amount }}</td>
-                  <td class="font-weight-light">{{ item.interest_rate }}</td>
-                  <td class="font-weight-light">{{ item.interest_method }}</td>
-                  <td class="font-weight-light">{{ item.amortization }}</td>
-                  <td class="font-weight-light">{{ item.number_of_repayments }}</td>
-                  <td class="font-weight-light">{{ item.loan_term }} {{ item.loan_term_unit }}</td>
-                  <td class="font-weight-light">{{ item.repaid_every}}{{ item.repaid_every_unit}}</td>
-                  <td class="font-weight-light">{{ item.interest_moratorium }}</td>
-                  <td class="font-weight-light">{{ item.principal_moratorium }}</td>
-                  <td class="font-weight-light">{{ item.interest_free_period }}</td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>-->
           <v-data-table
             :headers="headers"
             :items="schedules"
@@ -45,6 +10,12 @@
             @click:row="getSchedule(item)"
             class="elevation-1"
           >
+            <template v-slot:top>
+              <v-toolbar flat>
+                <v-toolbar-title>{{ $t('label.heading.repaymentschedulelist') }}</v-toolbar-title>
+                <v-spacer></v-spacer>
+              </v-toolbar>
+            </template>
             <template v-slot:item.term="{ item }">
               <v-chip dark>{{ item.loan_term }} {{ item.loan_term_unit }}</v-chip>
             </template>
@@ -64,7 +35,7 @@
             </v-col>
           </v-row>
         </v-container>
-      </v-card>
+
     </v-container>
   </v-app>
 </template>

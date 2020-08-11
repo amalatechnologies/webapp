@@ -226,6 +226,7 @@ export default {
     }
   },
   beforeMount: function () {
+    let vm = this;
     vm.$store.dispatch("getProfile");
   },
   computed: {
