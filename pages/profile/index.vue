@@ -41,7 +41,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.middle_name"
-                    label="Last Name"
+                    label="Middle Name"
                     class="purple-input"
                     placeholder="Doe"
                   />
