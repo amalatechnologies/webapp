@@ -38,7 +38,7 @@
           </v-row>-->
 
        </v-card-subtitle>
-    <v-card-title class="font-weight-bold"> Top 10 australian beaches</v-card-title>
+    <v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>
     <v-card-text class="text--primary">{{post.text_content }}</v-card-text>
 
 

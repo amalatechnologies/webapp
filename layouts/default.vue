@@ -97,10 +97,7 @@
     <v-main>
       <v-app class="app" >
         <nuxt/>
-
       </v-app>
-
-
     </v-main>
 
     <footer-component

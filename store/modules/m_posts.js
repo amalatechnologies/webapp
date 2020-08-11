@@ -2,6 +2,8 @@ import * as mutation from './mutation-types';
 const state = () => ({
   posts: [],
   post: {},
+  comments: [],
+  comment:{},
   showLoader: Boolean,
 });
 
@@ -38,7 +40,20 @@ const mutations = {
   },
   [mutation.POST_NEW_BLOG_CONTENT_ERROR](state){
     state.showLoader = false;
+  },
 
+  [mutation.COMMENT_BLOG_POST](state){
+    state.showLoader = true;
+  },
+  [mutation.COMMENT_BLOG_POST_SUCCESS](state, payload){
+    state.showLoader = false;
+    state.comment = payload;
+  },
+  [mutation.COMMENT_BLOG_POST_FAILED](state){
+    state.showLoader = false;
+  },
+  [mutation.COMMENT_BLOG_POST_ERROR](state){
+    state.showLoader = false;
   }
 
 };
@@ -67,6 +82,18 @@ const actions = {
 
       });
   },
+  async commentOnBlogPosts({commit}, payload) {
+    commit(mutation.COMMENT_BLOG_POST);
+    await this.$api.$post(`comments/`, payload)
+      .then(response => {
+        console.log(response)
+        commit(mutation.COMMENT_BLOG_POST_SUCCESS, response);
+      }).catch(error => {
+        commit(mutation.COMMENT_BLOG_POST_ERROR);
+        console.log(error);
+
+      });
+  },
 
 
 };
@@ -74,6 +101,9 @@ const actions = {
 const getters = {
   posts: function (state) {
     return state.posts;
+  },
+  post: (state) => (id) =>{
+    return state.posts.find(post => post.id === parseInt(id));
   }
 
 };
