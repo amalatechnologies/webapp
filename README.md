@@ -1,4 +1,4 @@
-# Kopasmart [![Build Status](https://travis-ci.com/finspointa/kopasmart-webapp.svg?branch=master)](https://travis-ci.com/finspointa/kopasmart-webapp)
+# Kopasmart [![Build Status](https://travis-ci.com/finspointa/kopasmart-webapp.svg?branch=master)](https://travis-ci.com/finspointa/kopasmart-webapp) ![Auto Assign to Project(s)](https://github.com/finspointa/kopasmart-webapp/workflows/Auto%20Assign%20to%20Project(s)/badge.svg)
 
 > Kopasmart Web Application
 
