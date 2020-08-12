@@ -1,9 +1,10 @@
 import * as mutation from './mutation-types';
+
 const state = () => ({
   posts: [],
   post: {},
   comments: [],
-  comment:{},
+  comment: {},
   showLoader: Boolean,
 });
 
@@ -13,7 +14,7 @@ const mutations = {
   },
   [mutation.GET_BLOG_POSTS_SUCCESS](state, payload) {
     state.showLoader = false;
-    if (payload != null){
+    if (payload != null) {
       state.posts.length = 0;
       state.posts = payload;
     }
@@ -26,65 +27,77 @@ const mutations = {
     state.showLoader = false;
   },
 
-  [mutation.POST_NEW_BLOG_CONTENT](state){
+  [mutation.POST_NEW_BLOG_CONTENT](state) {
     state.showLoader = true;
 
   },
-  [mutation.POST_NEW_BLOG_CONTENT_SUCCESS](state,payload){
+  [mutation.POST_NEW_BLOG_CONTENT_SUCCESS](state, payload) {
     state.showLoader = false;
-    if (payload.id != null){
+    if (payload.id != null) {
       state.post = payload;
       state.posts.push(payload);
-      this.$router.push('/post/'+payload.id);
+      this.$router.push('/post/' + payload.id);
     }
   },
-  [mutation.POST_NEW_BLOG_CONTENT_FAILED](state){
+  [mutation.POST_NEW_BLOG_CONTENT_FAILED](state) {
     state.showLoader = false;
   },
-  [mutation.POST_NEW_BLOG_CONTENT_ERROR](state){
+  [mutation.POST_NEW_BLOG_CONTENT_ERROR](state) {
     state.showLoader = false;
   },
 
-  [mutation.COMMENT_BLOG_POST](state){
+  [mutation.COMMENT_BLOG_POST](state) {
     state.showLoader = true;
   },
-  [mutation.COMMENT_BLOG_POST_SUCCESS](state, payload){
+  [mutation.COMMENT_BLOG_POST_SUCCESS](state, payload) {
     state.showLoader = false;
     state.comment = payload;
   },
-  [mutation.COMMENT_BLOG_POST_FAILED](state){
+  [mutation.COMMENT_BLOG_POST_FAILED](state) {
     state.showLoader = false;
   },
-  [mutation.COMMENT_BLOG_POST_ERROR](state){
+  [mutation.COMMENT_BLOG_POST_ERROR](state) {
     state.showLoader = false;
   },
 
 
-  [mutation.LIKE_POST_OR_COMMENT](state){
+  [mutation.LIKE_POST_OR_COMMENT](state) {
     state.showLoader = true;
   },
-  [mutation.LIKE_POST_OR_COMMENT_SUCCESS](state, payload){
+  [mutation.LIKE_POST_OR_COMMENT_SUCCESS](state, payload) {
     state.showLoader = false;
-    state.comment = payload;
+    var index = state.posts.results.findIndex(post => post.id === payload.id)
+    if (index === -1) {
+      state.posts.results.push(payload)
+    } else {
+      state.posts.results[index] = payload;
+    }
+    return state.posts;
   },
-  [mutation.LIKE_POST_OR_COMMENT_FAILED](state){
+  [mutation.LIKE_POST_OR_COMMENT_FAILED](state) {
     state.showLoader = false;
   },
-  [mutation.LIKE_POST_OR_COMMENT_ERROR](state){
+  [mutation.LIKE_POST_OR_COMMENT_ERROR](state) {
     state.showLoader = false;
   },
 
-  [mutation.DISLIKE_POST_OR_COMMENT](state){
+  [mutation.DISLIKE_POST_OR_COMMENT](state) {
     state.showLoader = true;
   },
-  [mutation.DISLIKE_POST_OR_COMMENT_SUCCESS](state, payload){
+  [mutation.DISLIKE_POST_OR_COMMENT_SUCCESS](state, payload) {
     state.showLoader = false;
-    state.comment = payload;
+    var index = state.posts.results.findIndex(post => post.id === payload.id)
+    if (index === -1) {
+      state.posts.results.push(payload)
+    } else {
+      state.posts.results[index] = payload;
+    }
+    return state.posts;
   },
-  [mutation.DISLIKE_POST_OR_COMMENT_FAILED](state){
+  [mutation.DISLIKE_POST_OR_COMMENT_FAILED](state) {
     state.showLoader = false;
   },
-  [mutation.DISLIKE_POST_OR_COMMENT_ERROR](state){
+  [mutation.DISLIKE_POST_OR_COMMENT_ERROR](state) {
     state.showLoader = false;
   }
 
@@ -92,7 +105,7 @@ const mutations = {
 };
 
 const actions = {
-  async getBlogPosts({commit},payload) {
+  async getBlogPosts({commit}, payload) {
     commit(mutation.GET_BLOG_POSTS);
     await this.$api.$get(`posts/?${payload}`)
       .then(response => {
@@ -105,7 +118,7 @@ const actions = {
   },
   async postNewBlogPosts({commit}, payload) {
     commit(mutation.POST_NEW_BLOG_CONTENT);
-    await this.$api.$post(`posts/`,payload)
+    await this.$api.$post(`posts/`, payload)
       .then(response => {
         commit(mutation.POST_NEW_BLOG_CONTENT_SUCCESS, response);
       }).catch(error => {
@@ -127,9 +140,8 @@ const actions = {
   },
   async likeBlogPosts({commit}, payload) {
     commit(mutation.LIKE_POST_OR_COMMENT);
-    await this.$api.$patch(`like-post/`, payload)
+    await this.$api.$post(`like-post/`, payload)
       .then(response => {
-        console.log(response)
         commit(mutation.LIKE_POST_OR_COMMENT_SUCCESS, response);
       }).catch(error => {
         commit(mutation.LIKE_POST_OR_COMMENT_ERROR);
@@ -140,9 +152,8 @@ const actions = {
 
   async unlikeBlogPosts({commit}, payload) {
     commit(mutation.DISLIKE_POST_OR_COMMENT);
-    await this.$api.$patch(`unlike-post/`, payload)
+    await this.$api.$post(`unlike-post/`, payload)
       .then(response => {
-        console.log(response)
         commit(mutation.DISLIKE_POST_OR_COMMENT_SUCCESS, response);
       }).catch(error => {
         commit(mutation.DISLIKE_POST_OR_COMMENT_ERROR);
@@ -152,14 +163,13 @@ const actions = {
   },
 
 
-
 };
 
 const getters = {
   posts: function (state) {
     return state.posts;
   },
-  post: (state) => (id) =>{
+  post: (state) => (id) => {
     return state.posts.results.find(post => post.id === parseInt(id));
   }
 

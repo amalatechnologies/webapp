@@ -3,11 +3,9 @@
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
-
             <v-col v-if="posts.results.length !==0" cols="12" lg="3"  md="4" sm="12" wrap v-for="(post, index) in posts.results" :key="index">
               <post-card :post="post"></post-card>
             </v-col>
-
           <div v-else>
             No Data
           </div>
@@ -45,7 +43,6 @@
 <script>
 import postCard from "./p_post_card"
 
-const axios = require('axios');
 export default {
   components: {
     'post-card': postCard
@@ -58,12 +55,18 @@ export default {
   methods: {
     getThisPage(it) {
       console.log(it)
-      this.$store.dispatch('getBlogPosts','page='+it)
+      this.$store.dispatch('getBlogPosts','page='+it).then(response=>{
+        console.log(response)
+        this.$forceUpdate();
+      })
 
     },
 
   },
   beforeMount() {
+  },
+  mounted() {
+    //this.posts = this.$store.getters.posts;
   },
   computed: {
     posts() {
