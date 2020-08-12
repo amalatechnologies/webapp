@@ -59,8 +59,9 @@
             justify="end"
 
           >
-            <v-btn text x-small @click.stop="likePost(post.id)">
-              <v-icon class="mr-0 text-caption">mdi-heart</v-icon>
+            <v-btn text x-small @click.stop="likePost(post)">
+              <v-icon  class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
+              <v-icon color="success" class="mr-0 text-caption" v-else >mdi-heart</v-icon>
               <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
             </v-btn>
             <span class="mr-1">·</span>
@@ -77,8 +78,10 @@
   </v-card>
 </template>
 
-<script>
+<script lang="js">
+import mixin from "@/plugins/mixins.js";
 export default {
+  mixins:[mixin],
   props: ["post"],
   data: () => ({
     view: false,
@@ -92,8 +95,10 @@ export default {
 
   }),
   methods: {
-    likePost(i){
-      console.log(i)
+    likePost(post){
+      console.log(post)
+      console.log(localStorage.getItem("uuId"))
+     // post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts',post.id) : this.like_this_post('likeBlogPosts',post.id)
     },
     commentPost(i){
       console.log(i)
