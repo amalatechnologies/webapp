@@ -39,7 +39,11 @@
 
        </v-card-subtitle>
     <v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>
-    <v-card-text class="text--primary">{{post.text_content }}</v-card-text>
+    <v-card-text class="text--primary">{{post.text_content.slice(0, 100) }}&nbsp;
+      <NuxtLink :to="'/post/'+post.id">
+        <span class="info--text" >Read More...</span>
+      </NuxtLink>
+    </v-card-text>
 
 
     <v-card-actions>
