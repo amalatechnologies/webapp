@@ -127,7 +127,7 @@ const actions = {
   },
   async likeBlogPosts({commit}, payload) {
     commit(mutation.LIKE_POST_OR_COMMENT);
-    await this.$api.$patch(`posts/${payload.pid}/`, {"likes":{"add": [parseInt(payload.my_user_id)]}})
+    await this.$api.$patch(`like-post/`, payload)
       .then(response => {
         console.log(response)
         commit(mutation.LIKE_POST_OR_COMMENT_SUCCESS, response);
@@ -140,7 +140,7 @@ const actions = {
 
   async unlikeBlogPosts({commit}, payload) {
     commit(mutation.DISLIKE_POST_OR_COMMENT);
-    await this.$api.$patch(`posts/${payload.pid}/`, {"likes": {"remove": [payload.my_user_id]}})
+    await this.$api.$patch(`unlike-post/`, payload)
       .then(response => {
         console.log(response)
         commit(mutation.DISLIKE_POST_OR_COMMENT_SUCCESS, response);
@@ -160,7 +160,7 @@ const getters = {
     return state.posts;
   },
   post: (state) => (id) =>{
-    return state.posts.find(post => post.id === parseInt(id));
+    return state.posts.results.find(post => post.id === parseInt(id));
   }
 
 };

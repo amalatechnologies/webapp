@@ -4,7 +4,7 @@
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
 
-            <v-col v-if="posts.results.length !==0" cols="12" md="3" sm="12" wrap v-for="(post, index) in posts.results" :key="index">
+            <v-col v-if="posts.results.length !==0" cols="12" lg="3"  md="4" sm="12" wrap v-for="(post, index) in posts.results" :key="index">
               <post-card :post="post"></post-card>
             </v-col>
 
