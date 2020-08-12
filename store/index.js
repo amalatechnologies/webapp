@@ -6,6 +6,7 @@ import Schedules from "./modules/schedule";
 import Repayments from "./modules/repayments";
 import BlogPosts from "./modules/m_posts";
 import Profile from "./modules/profile";
+import Comments from "./modules/m_comments";
 
 Vue.use(Vuex);
 
@@ -20,7 +21,8 @@ const store = () => {
       Schedules,
       Repayments,
       Profile,
-      BlogPosts
+      BlogPosts,
+      Comments
 
     }
   });

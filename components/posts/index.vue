@@ -55,7 +55,7 @@ export default {
   methods: {
     getThisPage(it) {
       console.log(it)
-      this.$store.dispatch('getBlogPosts','page='+it).then(response=>{
+      this.$store.dispatch('getBlogPosts','type=post&page='+it).then(response=>{
         console.log(response)
         this.$forceUpdate();
       })
