@@ -89,6 +89,23 @@
               <v-icon>mdi-plus</v-icon>
             </v-btn>
           </v-fab-transition>-->
+          <p>Comments</p>
+          <v-progress-circular
+            v-if="comments === null"
+            :width="2"
+            color="primary"
+            size="20"
+            indeterminate
+          ></v-progress-circular>
+
+          <v-list v-else-if="comments.results.length !== 0" dense three-line>
+            <template v-for="(item, index) in comments.results">
+              <comment-tile :comment="item" :index="index"></comment-tile>
+              <v-divider light inset></v-divider>
+            </template>
+          </v-list>
+          <p v-else></p>
+
         </v-row>
       </v-flex>
     </v-layout>
@@ -97,7 +114,12 @@
 </template>
 <script lang="js">
 import mixin from "@/plugins/mixins.js";
+import CommentCard from "@/components/posts/p_post_comment_tile"
+import * as mutation from "@/store/modules/mutation-types";
 export default {
+  components:{
+    'comment-tile': CommentCard
+  },
   mixins:[mixin],
   validate({ params }) {
     // Must be a number
@@ -107,30 +129,48 @@ export default {
     return {
       action: false,
       comment: null,
+      comments: null,
       images:[
         "https://freepsdmock-up.com/wp-content/uploads/2018/06/Free-Wine-Bottle-Label-Mockups-1.jpg",
         "https://wpepitome.com/wp-content/uploads/2019/07/29_wine-bottle-mockups.jpg",
         "https://worldbranddesign.com/wp-content/uploads/2020/02/design-for-vida-wine-brand.jpg",
-        "https://www.mbsnapa.com/wp-content/uploads/2018/02/mbs18-136.jpg",
+        "https://s23444.pcdn.co/wp-content/uploads/2020/01/Africa-general-pic.jpg.optimal.jpg",
         "https://secure.img1-fg.wfcdn.com/im/80685197/resize-h800-w800%5Ecompr-r85/3073/30739909/Siera+4+Bottle+Wall+Mounted+Wine+Bottle+and+Glass+Rack+in+White.jpg"
-      ]
+      ],
     }
+  },
+  created() {
+    this.getcomments();
+  },
+  beforeCreate() {
+    //this.$store.dispatch('getThisPostComments',this.$route.params.id);
   },
   methods:{
     commentThisPost(){
-      let post = {"post": parseInt(this.$route.params.id), "text_content": this.comment, "type":"comment"};
+      let post = {"post": parseInt(this.$route.params.id), "text_content": this.comment};
       this.$store.dispatch('commentOnBlogPosts', post);
     },
     likePost(post){
       console.log(post.is_liked_by_me)
       post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts',post.id) : this.like_this_post('likeBlogPosts',post.id)
     },
+   async getcomments(){
+    return  await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
+       .then(response => {
+         console.log(response)
+         this.comments = response;
+       }).catch(error => {
+         console.log(error);
+
+       });
+    }
   },
   computed:{
     post(){
       console.log(this.$route.params.id)
       return this.$store.getters.post(this.$route.params.id)
-    }
+    },
+
   }
 }
 </script>

@@ -130,7 +130,7 @@ const actions = {
   },
   async commentOnBlogPosts({commit}, payload) {
     commit(mutation.COMMENT_BLOG_POST);
-    await this.$api.$post(`comment/`, payload)
+    await this.$api.$post(`comments/`, payload)
       .then(response => {
         commit(mutation.COMMENT_BLOG_POST_SUCCESS, response);
       }).catch(error => {
