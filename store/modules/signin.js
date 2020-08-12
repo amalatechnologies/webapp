@@ -62,6 +62,9 @@ const getters = {
   },
   userInfos: function (state) {
     return state.userdata;
+  },
+  userId: (state) => {
+    return state.userdata.id;
   }
 };
 export default {

@@ -13,7 +13,10 @@ const mutations = {
   },
   [mutation.GET_BLOG_POSTS_SUCCESS](state, payload) {
     state.showLoader = false;
-    state.posts = payload;
+    if (payload != null){
+      state.posts.length = 0;
+      state.posts = payload;
+    }
 
   },
   [mutation.GET_BLOG_POSTS_FAILED](state) {
@@ -54,7 +57,37 @@ const mutations = {
   },
   [mutation.COMMENT_BLOG_POST_ERROR](state){
     state.showLoader = false;
+  },
+
+
+  [mutation.LIKE_POST_OR_COMMENT](state){
+    state.showLoader = true;
+  },
+  [mutation.LIKE_POST_OR_COMMENT_SUCCESS](state, payload){
+    state.showLoader = false;
+    state.comment = payload;
+  },
+  [mutation.LIKE_POST_OR_COMMENT_FAILED](state){
+    state.showLoader = false;
+  },
+  [mutation.LIKE_POST_OR_COMMENT_ERROR](state){
+    state.showLoader = false;
+  },
+
+  [mutation.DISLIKE_POST_OR_COMMENT](state){
+    state.showLoader = true;
+  },
+  [mutation.DISLIKE_POST_OR_COMMENT_SUCCESS](state, payload){
+    state.showLoader = false;
+    state.comment = payload;
+  },
+  [mutation.DISLIKE_POST_OR_COMMENT_FAILED](state){
+    state.showLoader = false;
+  },
+  [mutation.DISLIKE_POST_OR_COMMENT_ERROR](state){
+    state.showLoader = false;
   }
+
 
 };
 
@@ -74,7 +107,6 @@ const actions = {
     commit(mutation.POST_NEW_BLOG_CONTENT);
     await this.$api.$post(`posts/`,payload)
       .then(response => {
-        console.log(response)
         commit(mutation.POST_NEW_BLOG_CONTENT_SUCCESS, response);
       }).catch(error => {
         commit(mutation.POST_NEW_BLOG_CONTENT_ERROR);
@@ -86,7 +118,6 @@ const actions = {
     commit(mutation.COMMENT_BLOG_POST);
     await this.$api.$post(`comments/`, payload)
       .then(response => {
-        console.log(response)
         commit(mutation.COMMENT_BLOG_POST_SUCCESS, response);
       }).catch(error => {
         commit(mutation.COMMENT_BLOG_POST_ERROR);
@@ -94,6 +125,32 @@ const actions = {
 
       });
   },
+  async likeBlogPosts({commit}, payload) {
+    commit(mutation.LIKE_POST_OR_COMMENT);
+    await this.$api.$patch(`posts/${payload.pid}/`, {"likes":{"add": [parseInt(payload.my_user_id)]}})
+      .then(response => {
+        console.log(response)
+        commit(mutation.LIKE_POST_OR_COMMENT_SUCCESS, response);
+      }).catch(error => {
+        commit(mutation.LIKE_POST_OR_COMMENT_ERROR);
+        console.log(error);
+
+      });
+  },
+
+  async unlikeBlogPosts({commit}, payload) {
+    commit(mutation.DISLIKE_POST_OR_COMMENT);
+    await this.$api.$patch(`posts/${payload.pid}/`, {"likes": {"remove": [payload.my_user_id]}})
+      .then(response => {
+        console.log(response)
+        commit(mutation.DISLIKE_POST_OR_COMMENT_SUCCESS, response);
+      }).catch(error => {
+        commit(mutation.DISLIKE_POST_OR_COMMENT_ERROR);
+        console.log(error);
+
+      });
+  },
+
 
 
 };
