@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors';
 export default {
   mode: 'spa',
   router: {
-    base: process.env.NODE_ENV !== 'dev' ? '/kopasmart-webapp/' : '/',
+    base: process.env.NODE_ENV !== 'development' ? '/kopasmart-webapp/' : '/',
     routerNameSplitter: '/',
   },
   env: {
