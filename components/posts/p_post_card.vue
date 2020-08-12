@@ -64,7 +64,7 @@
           >
             <v-btn text x-small @click.stop="likePost(post)">
               <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
-              <v-icon  class="mr-0 text-caption" v-else >mdi-heart</v-icon>
+              <v-icon  class="mr-0 text-caption" v-else >mdi-heart-outline</v-icon>
               <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
             </v-btn>
             <span class="mr-1">·</span>

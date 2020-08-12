@@ -1,5 +1,5 @@
 import * as mutation from './mutation-types';
-
+import Vue from "vue";
 const state = () => ({
   posts: [],
   post: {},
@@ -70,9 +70,9 @@ const mutations = {
     if (index === -1) {
       state.posts.results.push(payload)
     } else {
-      state.posts.results[index] = payload;
+      Vue.set(state.posts.results, index, payload);
+      //state.posts.resultsindex] = payload;
     }
-    return state.posts;
   },
   [mutation.LIKE_POST_OR_COMMENT_FAILED](state) {
     state.showLoader = false;
@@ -90,7 +90,8 @@ const mutations = {
     if (index === -1) {
       state.posts.results.push(payload)
     } else {
-      state.posts.results[index] = payload;
+
+      Vue.set(state.posts.results, index, payload);
     }
     return state.posts;
   },
@@ -129,7 +130,7 @@ const actions = {
   },
   async commentOnBlogPosts({commit}, payload) {
     commit(mutation.COMMENT_BLOG_POST);
-    await this.$api.$post(`comments/`, payload)
+    await this.$api.$post(`comment/`, payload)
       .then(response => {
         commit(mutation.COMMENT_BLOG_POST_SUCCESS, response);
       }).catch(error => {

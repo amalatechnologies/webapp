@@ -42,15 +42,14 @@
                 Bookmark
               </v-btn>
               <v-spacer></v-spacer>
-              <v-btn small text>
-                <v-icon>mdi-heart</v-icon>
-                <span class="font-weight-light text-caption">{{ post.likes_count }}</span>
+              <v-btn text small @click.stop="likePost(post)">
+                <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
+                <v-icon  class="mr-0 text-caption" v-else >mdi-heart-outline</v-icon>
+                <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
               </v-btn>
-              <span class="mr-2">.</span>
-              <v-btn small text>
-                <v-icon @click="action = !action">mdi-comment</v-icon>
+              <v-btn text small >
+                <v-icon @click.stop="action = !action" class="text-caption">mdi-comment</v-icon>
                 <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
-
               </v-btn>
             </v-card-actions>
             <v-text-field
@@ -96,8 +95,10 @@
 
   </v-container>
 </template>
-<script>
+<script lang="js">
+import mixin from "@/plugins/mixins.js";
 export default {
+  mixins:[mixin],
   validate({ params }) {
     // Must be a number
     return /^\d+$/.test(params.id)
@@ -118,9 +119,12 @@ export default {
   methods:{
     commentThisPost(){
       let post = {"post": parseInt(this.$route.params.id), "text_content": this.comment, "type":"comment"};
-      console.log(post)
       this.$store.dispatch('commentOnBlogPosts', post);
-    }
+    },
+    likePost(post){
+      console.log(post.is_liked_by_me)
+      post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts',post.id) : this.like_this_post('likeBlogPosts',post.id)
+    },
   },
   computed:{
     post(){
