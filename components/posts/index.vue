@@ -3,9 +3,14 @@
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
-          <v-col cols="12" md="3" sm="12" wrap v-for="(post, index) in posts" :key="index">
-            <post-card :post="post"></post-card>
-          </v-col>
+
+            <v-col v-if="posts.results.length !==0" cols="12" md="3" sm="12" wrap v-for="(post, index) in posts.results" :key="index">
+              <post-card :post="post"></post-card>
+            </v-col>
+
+          <div v-else>
+            No Data
+          </div>
           <v-fab-transition>
             <v-btn
               fab
@@ -22,6 +27,15 @@
         </v-row>
       </v-flex>
     </v-layout>
+    <div class="text-center">
+      <v-pagination
+        v-model="page"
+        :length="posts.total_pages"
+        circle
+        @input="getThisPage(page)"
+        @next="getThisPage(page)"
+      ></v-pagination>
+    </div>
 
   </v-container>
 
@@ -31,16 +45,24 @@
 <script>
 import postCard from "./p_post_card"
 
+const axios = require('axios');
 export default {
   components: {
     'post-card': postCard
   },
   data: () => ({
     view: false,
-    p: [{}, {}, {}, {}]
+    page: 1,
 
   }),
-  methods: {},
+  methods: {
+    getThisPage(it) {
+      console.log(it)
+      this.$store.dispatch('getBlogPosts','page='+it)
+
+    },
+
+  },
   beforeMount() {
   },
   computed: {
