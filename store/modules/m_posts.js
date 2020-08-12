@@ -92,11 +92,11 @@ const mutations = {
 };
 
 const actions = {
-  async getBlogPosts({commit}) {
+  async getBlogPosts({commit},payload) {
     commit(mutation.GET_BLOG_POSTS);
-    await this.$api.$get(`posts/`)
+    await this.$api.$get(`posts/?${payload}`)
       .then(response => {
-        commit(mutation.GET_BLOG_POSTS_SUCCESS, response.results);
+        commit(mutation.GET_BLOG_POSTS_SUCCESS, response);
       }).catch(error => {
         commit(mutation.GET_BLOG_POSTS_FAILED);
         console.log(error);
