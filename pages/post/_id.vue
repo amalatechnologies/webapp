@@ -3,7 +3,6 @@
 
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
-
         <v-row>
           <v-card
             flat
@@ -29,66 +28,37 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn
-                text
-                color="deep-purple accent-4"
-              >
-                Read
-              </v-btn>
-              <v-btn
-                text
-                color="deep-purple accent-4"
-              >
-                Bookmark
-              </v-btn>
-              <v-spacer></v-spacer>
               <v-btn text small @click.stop="likePost(post)">
                 <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
-                <v-icon  class="mr-0 text-caption" v-else >mdi-heart-outline</v-icon>
+                <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
                 <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
               </v-btn>
-              <v-btn text small >
-                <v-icon @click.stop="action = !action" class="text-caption">mdi-comment</v-icon>
+              <v-btn text small>
+                <v-icon class="text-caption">mdi-comment</v-icon>
                 <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
               </v-btn>
+              <v-spacer></v-spacer>
+              <v-text-field
+                class="my-1"
+                v-model="comment"
+                id="comment"
+                placeholder="Reply ..."
+                type="text"
+                filled
+                dense
+                rounded
+                no-details
+                append-outer-icon="mdi-send"
+                @click:append-outer="commentThisPost()"
+                hide-details
+              />
             </v-card-actions>
-            <v-text-field
-              class="pa-1 "
-              v-if="action"
-              v-model="comment"
-              label="Reply"
-              type="text"
-              no-details
-              outlined
-              append-outer-icon="mdi-send"
-              @keyup.enter="commentThisPost"
-              @click:append-outer="commentThisPost"
-              hide-details
-            />
+
           </v-card>
         </v-row>
       </v-flex>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
-
-          <!--<v-col cols="12" md="3" sm="12" wrap v-for="(post, index) in posts" :key="index">
-            <post-card :post="post"></post-card>
-          </v-col>-->
-          <!--<v-fab-transition>
-            <v-btn
-              text
-             block
-              bottom
-              fixed
-              large
-              class="">
-              <v-text-field
-                v-model="comment"
-                label="Comment"
-              ></v-text-field>
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </v-fab-transition>-->
           <p>Comments</p>
           <v-progress-circular
             v-if="comments === null"
@@ -98,10 +68,10 @@
             indeterminate
           ></v-progress-circular>
 
-          <v-list v-else-if="comments.results.length !== 0" dense three-line>
-            <template v-for="(item, index) in comments.results.reverse()">
+          <v-list v-else-if="comments.results.length !== 0" dense two-line>
+            <template class="ma-0 pa-0" v-for="(item, index) in comments.results.reverse()">
               <comment-tile :comment="item" :index="index"></comment-tile>
-              <v-divider light inset></v-divider>
+              <v-divider light inset class="my-0 py-0"></v-divider>
             </template>
           </v-list>
           <p v-else></p>
@@ -116,21 +86,22 @@
 import mixin from "@/plugins/mixins.js";
 import CommentCard from "@/components/posts/p_post_comment_tile"
 import * as mutation from "@/store/modules/mutation-types";
+
 export default {
-  components:{
+  components: {
     'comment-tile': CommentCard
   },
-  mixins:[mixin],
-  validate({ params }) {
+  mixins: [mixin],
+  validate({params}) {
     // Must be a number
     return /^\d+$/.test(params.id)
   },
   data() {
     return {
       action: false,
-      comment: null,
+      comment: '',
       comments: null,
-      images:[
+      images: [
         "https://freepsdmock-up.com/wp-content/uploads/2018/06/Free-Wine-Bottle-Label-Mockups-1.jpg",
         "https://wpepitome.com/wp-content/uploads/2019/07/29_wine-bottle-mockups.jpg",
         "https://worldbranddesign.com/wp-content/uploads/2020/02/design-for-vida-wine-brand.jpg",
@@ -145,33 +116,59 @@ export default {
   beforeCreate() {
     //this.$store.dispatch('getThisPostComments',this.$route.params.id);
   },
-  methods:{
-    commentThisPost(){
+  methods: {
+    commentThisPost() {
       let post = {"post": parseInt(this.$route.params.id), "text_content": this.comment};
-      this.$store.dispatch('commentOnBlogPosts', post).then(()=>{
-        this.getcomments()
-      })
+      console.log(post);
+     if (this.comment.length > 3){
+      var pot =  this.$store.dispatch('commentOnBlogPosts', post);
+      console.log(pot.then(alert))
+     }
+      //this.getcomments();
     },
-    likePost(post){
+    likePost(post) {
       console.log(post.is_liked_by_me)
-      post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts',post.id) : this.like_this_post('likeBlogPosts',post.id)
+      post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts', post.id) : this.like_this_post('likeBlogPosts', post.id)
     },
-   async getcomments(){
-    return  await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
-       .then(response => {
-         console.log(response)
-         this.comments = response;
-       }).catch(error => {
-         console.log(error);
+    init_comment_action(){
+      if (this.action === true){
+        this.action = false;
+      }else if (this.action === false){
+        this.action = true;
+      }else {
+        this.action = false;
+      }
 
-       });
+    },
+    async getpost() {
+      return await this.$api.$get(`posts/${this.$route.params.id}/`)
+        .then(response => {
+          console.log(response)
+          this.post = response;
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+    async getcomments() {
+      return await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
+        .then(response => {
+          console.log(response)
+          this.comments = response;
+        }).catch(error => {
+          console.log(error);
+
+        });
     }
   },
-  computed:{
-    post(){
-      console.log(this.$route.params.id)
+  computed: {
+    post() {
       return this.$store.getters.post(this.$route.params.id)
     },
+    isDisabled(){
+      return this.comment.length > 0;
+    }
+
 
   }
 }
@@ -180,6 +177,7 @@ export default {
 .fix {
   position: relative;
 }
+
 .fix code {
   position: static;
 }

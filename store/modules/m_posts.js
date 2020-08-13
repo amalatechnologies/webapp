@@ -55,7 +55,6 @@ const mutations = {
     if (index === -1) {
       state.posts.results.push(payload)
     } else {
-
       Vue.set(state.posts.results, index, payload);
     }
   },
@@ -113,9 +112,10 @@ const mutations = {
 const actions = {
   async getBlogPosts({commit}, payload) {
     commit(mutation.GET_BLOG_POSTS);
-    await this.$api.$get(`posts/?${payload}`)
+    await this.$api.$get(`posts/?${payload}&type=post`)
       .then(response => {
         commit(mutation.GET_BLOG_POSTS_SUCCESS, response);
+        return 1;
       }).catch(error => {
         commit(mutation.GET_BLOG_POSTS_FAILED);
         console.log(error);
@@ -176,7 +176,7 @@ const getters = {
     return state.posts;
   },
   post: (state) => (id) => {
-    return state.posts.results.find(post => post.id === parseInt(id));
+    return state.posts.length !== null ? state.posts.results.find(post => post.id === parseInt(id)) : null;
   }
 
 };

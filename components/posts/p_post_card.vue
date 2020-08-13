@@ -57,7 +57,8 @@
 
        </v-card-subtitle>
     <!--<v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>-->
-    <v-card-text class="text--primary ma-0 mt-2 py-0">{{post.text_content.slice(0, 200) }}&nbsp;
+    <v-card-text class="text--primary ma-0 mt-2 py-0">
+      {{text_truncate(post.text_content, null,null)}}
       <NuxtLink :to="'/post/'+post.id">
         <span class="info--text" >...</span>
       </NuxtLink>
@@ -119,9 +120,19 @@ export default {
       console.log(post.is_liked_by_me)
       post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts',post.id) : this.like_this_post('likeBlogPosts',post.id)
     },
-    commentPost(i){
-      console.log(i)
-    }
+    text_truncate : function(str, length, ending) {
+      if (length == null) {
+        length = 100;
+      }
+      if (ending == null) {
+        ending = '';
+      }
+      if (str.length > length) {
+        return str.substring(0, length - ending.length) + ending;
+      } else {
+        return str;
+      }
+    },
   },
   beforeMount() {
   }
@@ -129,4 +140,12 @@ export default {
 </script>
 <style>
 *{ text-transform: none !important; }
+
+.trancate {
+  white-space: nowrap;
+  width: 100%;                   /* IE6 needs any width */
+  overflow: hidden;              /* "overflow" value must be different from  visible"*/
+  -o-text-overflow: ellipsis;    /* Opera < 11*/
+  text-overflow:    ellipsis;    /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
+}
 </style>
