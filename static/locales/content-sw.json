@@ -22,7 +22,19 @@
       "help": "Msaada",
       "hompage": "Ukurasa wa Mwanzo",
       "totalinterest": "Jumla ya riba",
-      "totalprincipal": "Total Principal"
+      "totalprincipal": "Total Principal",
+      "company": "Kampuni",
+      "username": "Jina la Utambulishi",
+      "emailaddress": "Barua Pepe",
+      "firstname": "Jina la kwanza",
+      "middlename": "Jina la Kati",
+      "lastname": "Jina la mwisho",
+      "addressline": "Anwani",
+      "phonenumber": "Nambari ya simu",
+      "city": "Mji",
+      "country": "Nchi",
+      "postalcode": "Anwani ya posta",
+      "biography": "Wasifu"
     },
     "button": {
       "btncontactus": "Wasiliana Nasi",
@@ -62,6 +74,9 @@
       "profile": "Wasifu",
       "logout": "Toka",
       "homepage": "Nyumbani"
+    },
+    "checkbox":{
+      "isactive": "Yu hai"
     }
   }
 }

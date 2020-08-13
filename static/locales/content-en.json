@@ -20,7 +20,19 @@
       "help": "Help",
       "hompage": "Home Page",
       "totalinterest": "Total Interest",
-      "totalprincipal": "Total Principal"
+      "totalprincipal": "Total Principal",
+      "company": "Company",
+      "username": "Username",
+      "emailaddress": "Email Address",
+      "firstname": "First Name",
+      "middlename": "Middle Name",
+      "lastname": "Last Name",
+      "addressline": "Address Line",
+      "phonenumber": "Phone No.",
+      "city": "City",
+      "country": "Country",
+      "postalcode": "Postal Code",
+      "biography": "Biography"
     },
     "button": {
       "btncontactus": "Contact Us",
@@ -60,6 +72,9 @@
       "profile": "Profile",
       "logout": "Logout",
       "homepage": "Homepage"
+    },
+    "checkbox":{
+      "isactive": "Is Active"
     }
   }
 }
