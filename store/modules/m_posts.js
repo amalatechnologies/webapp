@@ -51,7 +51,13 @@ const mutations = {
   },
   [mutation.COMMENT_BLOG_POST_SUCCESS](state, payload) {
     state.showLoader = false;
-    state.comment = payload;
+    var index = state.posts.results.findIndex(post => post.id === payload.id)
+    if (index === -1) {
+      state.posts.results.push(payload)
+    } else {
+
+      Vue.set(state.posts.results, index, payload);
+    }
   },
   [mutation.COMMENT_BLOG_POST_FAILED](state) {
     state.showLoader = false;
@@ -93,7 +99,6 @@ const mutations = {
 
       Vue.set(state.posts.results, index, payload);
     }
-    return state.posts;
   },
   [mutation.DISLIKE_POST_OR_COMMENT_FAILED](state) {
     state.showLoader = false;

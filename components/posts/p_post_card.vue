@@ -9,11 +9,30 @@
     </v-img>
 
 
-    <v-card-subtitle class="pb-0">
+    <v-card-subtitle class="ma-0 pa-0">
+      <NuxtLink  :to="'/post/'+post.id" v-show="post.type === 'comment'">
+       <v-list dense  class="ma-0 pa-0">
+         <v-list-item dense class="ml-1 pa-0">
+           <v-list-item-content class="ma-0 pa-0" >
+             <v-list-item-title ma-0 pa-0>
+               <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0" >
+                 <v-avatar  size="20px">
+                   <img
 
-      <v-btn x-small  depressed  class="font-weight-medium" color="primary">
-        {{post.type}}
-      </v-btn>
+                     :src="images[Math.floor(Math.random() * images.length)]"
+                     alt="post.owner.username" >
+                 </v-avatar>
+                 &nbsp;
+                 {{ post.owner.first_name }}&nbsp;{{ post.owner.last_name }} replied</v-btn>&nbsp;
+               <span class="font-weight-light text-caption" caption>{{ post.created_at | DateFormat}}</span>
+             </v-list-item-title>
+           </v-list-item-content>
+
+         </v-list-item>
+       </v-list>
+      </NuxtLink>
+
+
       <!-- <v-row no-gutters>
        <v-btn x-small rounded depressed  class="font-weight-medium" color="primary">
          {{post.type}}
@@ -37,31 +56,28 @@
           </v-row>-->
 
        </v-card-subtitle>
-    <v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>
-    <v-card-text class="text--primary">{{post.text_content.slice(0, 100) }}&nbsp;
+    <!--<v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>-->
+    <v-card-text class="text--primary ma-0 mt-2 py-0">{{post.text_content.slice(0, 200) }}&nbsp;
       <NuxtLink :to="'/post/'+post.id">
-        <span class="info--text" >Read More...</span>
+        <span class="info--text" >...</span>
       </NuxtLink>
     </v-card-text>
 
 
     <v-card-actions>
-      <v-list-item dense>
-        <v-list-item-avatar color="grey">
+      <v-list-item dense >
+        <v-list-item-avatar color="grey"v-show="post.type === 'post'">
           <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username"/>
         </v-list-item-avatar>
-        <v-list-item-content>
+        <v-list-item-content v-show="post.type === 'post'">
           <v-list-item-title class="subhead text-caption" >{{ post.owner.first_name }} {{ post.owner.last_name }}</v-list-item-title>
           <v-list-item-subtitle
             class="font-weight-medium text-caption">{{ post.created_at |  DateFormat  }}
           </v-list-item-subtitle>
         </v-list-item-content>
-        <v-row no-gutters>
-          <v-row
-            align="center"
-            justify="end"
-
-          >
+        <v-row no-gutters >
+          <v-row align="center"
+            justify="end">
             <v-btn text x-small @click.stop="likePost(post)">
               <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
               <v-icon  class="mr-0 text-caption" v-else >mdi-heart-outline</v-icon>

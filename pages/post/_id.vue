@@ -99,7 +99,7 @@
           ></v-progress-circular>
 
           <v-list v-else-if="comments.results.length !== 0" dense three-line>
-            <template v-for="(item, index) in comments.results">
+            <template v-for="(item, index) in comments.results.reverse()">
               <comment-tile :comment="item" :index="index"></comment-tile>
               <v-divider light inset></v-divider>
             </template>
@@ -148,7 +148,9 @@ export default {
   methods:{
     commentThisPost(){
       let post = {"post": parseInt(this.$route.params.id), "text_content": this.comment};
-      this.$store.dispatch('commentOnBlogPosts', post);
+      this.$store.dispatch('commentOnBlogPosts', post).then(()=>{
+        this.getcomments()
+      })
     },
     likePost(post){
       console.log(post.is_liked_by_me)
