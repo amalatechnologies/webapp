@@ -3,6 +3,8 @@ import Vue from 'vue';
 
 Vue.filter('DateFormat', function(value) {
   if (value) {
-    return moment(String(value)).format('MM/DD/YYYY')
+    var from = new  moment(String(value)).fromNow();
+    return from;
+
   }
 });

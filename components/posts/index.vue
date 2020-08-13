@@ -2,6 +2,9 @@
   <v-container fluid grid-list-md>
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
+        <div class="font-weight-bold text-caption">
+          Posts
+        </div>
         <v-row>
             <v-col v-if="posts.results.length !==0" cols="12" lg="3"  md="4" sm="12" wrap v-for="(post, index) in posts.results" :key="index">
               <post-card :post="post"></post-card>
@@ -55,7 +58,7 @@ export default {
   methods: {
     getThisPage(it) {
       console.log(it)
-      this.$store.dispatch('getBlogPosts','type=post&page='+it).then(response=>{
+      this.$store.dispatch('getBlogPosts','page='+it).then(response=>{
         console.log(response)
         this.$forceUpdate();
       })
