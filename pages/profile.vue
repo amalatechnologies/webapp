@@ -9,7 +9,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="company"
-                    label="Company (disabled)"
+                    :label="$t('label.heading.company')"
                     placeholder="e.g Singo Africa"
                     disabled
                   />
@@ -18,14 +18,14 @@
                   <v-text-field
                     v-model="userdata.username"
                     class="purple-input"
-                    label="User Name"
+                    :label="$t('label.heading.username')"
                     placeholder="e.g johnDoe"
                   />
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.email"
-                    label="Email Address"
+                    :label="$t('label.heading.emailaddress')"
                     class="purple-input"
                     placeholder="e.g example@email.com"
                   />
@@ -33,7 +33,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.first_name"
-                    label="First Name"
+                    :label="$t('label.heading.firstname')"
                     class="purple-input"
                     placeholder="John"
                   />
@@ -41,7 +41,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.middle_name"
-                    label="Middle Name"
+                    :label="$t('label.heading.middlename')"
                     class="purple-input"
                     placeholder="Doe"
                   />
@@ -49,7 +49,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.last_name"
-                    label="Last Name"
+                    :label="$t('label.heading.lastname')"
                     class="purple-input"
                     placeholder="Doe"
                   />
@@ -58,7 +58,7 @@
                 <v-flex xs12 md8>
                   <v-text-field
                     v-model="address"
-                    label="Adress Line"
+                    :label="$t('label.heading.addressline')"
                     placeholder="Snow Rock PI"
                     class="purple-input"
                   />
@@ -66,7 +66,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="userdata.phone"
-                    label="Phone No."
+                    :label="$t('label.heading.phonenumber')"
                     placeholder="e.g 0716 xxx xxx"
                     class="purple-input"
                   />
@@ -74,7 +74,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="city"
-                    label="City"
+                    :label="$t('label.heading.city')"
                     placeholder="Snow Rocky"
                     class="purple-input"
                   />
@@ -82,7 +82,7 @@
                 <v-flex xs12 md4>
                   <v-text-field
                     v-model="country"
-                    label="Country"
+                    :label="$t('label.heading.country')"
                     placeholder="e.g Tanzania"
                     class="purple-input"
                   />
@@ -91,7 +91,7 @@
                   <v-text-field
                     v-model="postal"
                     class="purple-input"
-                    label="Postal Code"
+                    :label="$t('label.heading.postalcode')"
                     placeholder="0610 Snow Rocky"
                     type="number"
                   />
@@ -99,7 +99,7 @@
                 <v-flex xs12>
                   <v-textarea
                     class="purple-input"
-                    label="Biography"
+                    :label="$t('label.heading.biography')"
                     v-model="userdata.biography"
                     placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                   />
@@ -190,7 +190,8 @@
             >
               <v-avatar left>
                 <v-icon>mdi-checkbox-marked-circle</v-icon>
-              </v-avatar>Is Active
+              </v-avatar>
+              {{ $t('label.checkbox.isactive') }} ?
             </v-chip>
             <v-chip
               class="ma-2 font-weight-light"
