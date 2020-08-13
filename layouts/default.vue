@@ -227,7 +227,7 @@ export default {
       vm.sync = !vm.sync;
       await Promise.all([
         vm.$store.dispatch("getProfile"),
-        vm.$store.dispatch("getBlogPosts"),
+        vm.$store.dispatch("getBlogPosts",'page=1'),
       ]).then(function () {
         console.log("Loading complete...");
       });
