@@ -1,6 +1,5 @@
 <template >
-  <card-info></card-info>
-
+  <card-info :userdata="userdata"></card-info>
 </template>
 
 <script>
@@ -11,9 +10,25 @@ export default {
   },
   data(){
     return{
+      userdata: ''
 
     }
-  }
+  },
+
+  methods:{
+    async viewusedata() {
+      return await this.$api.$get(`users/${this.$route.params.id}/`)
+        .then(response => {
+          this.userdata = response;
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+  },
+  created() {
+    this.viewusedata();
+  },
 }
 </script>
 
