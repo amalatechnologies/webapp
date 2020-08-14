@@ -2,24 +2,26 @@
   <v-app class="app">
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="true"
-      expand-on-hover
-      :clipped="clipped" fixed app>
-      <v-list-item>
-        <NuxtLink to="/profile">
+      class="grey lighten-5"
+      :mini-variant="$vuetify.breakpoint.mdAndDown"
+      :expand-on-hover="$vuetify.breakpoint.mdAndDown"
+      overlay-color="primary"
+      :permanent="$vuetify.breakpoint.mdAndUp"
+      clipped fixed app>
+    <v-list dense subheader tile>
+      <v-list-item to="/profile">
           <v-list-item-avatar>
             <v-img
               src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
               dark
             ></v-img>
           </v-list-item-avatar>
-        </NuxtLink>
         <v-list-item-content>
-          <v-list-item-title class="headline">{{ userdata.username }}</v-list-item-title>
+          <v-list-item-title class="headline text-h6">{{ userdata.username }}</v-list-item-title>
           <v-list-item-subtitle class="font-weight-light">{{ userdata.email }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-      <v-list dense subheader tile>
+
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-avatar width="36" height="35">
             <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
@@ -27,7 +29,9 @@
           <v-list-item-content>
             <v-list-item-title class="font-weight-light">{{ $t(item.definition) }}</v-list-item-title>
           </v-list-item-content>
+
         </v-list-item>
+
 
       </v-list>
       <template v-slot:append>
@@ -57,9 +61,9 @@
     </v-navigation-drawer>
     <v-app-bar
       absolute
-      flat
-      class="info lighten-1"
-      :clipped-left="clipped"
+      class="grey lighten-5"
+      clipped-left
+      outlined
       fixed app>
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
@@ -90,6 +94,7 @@
             </v-list-item-avatar>
             <v-list-item-title class="font-weight-light">{{ $t(item.label) }}</v-list-item-title>
           </v-list-item>
+
         </v-list>
       </v-menu>
 

@@ -9,9 +9,12 @@
             class="mx-auto"
           >
             <v-list-item>
+
+              <NuxtLink :to="'/profile/'+post.owner.id">
               <v-list-item-avatar color="grey">
                 <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username"/>
               </v-list-item-avatar>
+              </NuxtLink>
               <v-list-item-content>
                 <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
                 <v-list-item-subtitle>By: {{ post.owner.first_name }} {{ post.owner.last_name }}</v-list-item-subtitle>
