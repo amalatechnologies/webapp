@@ -113,7 +113,8 @@
                                         :half-icon="halfIcon"
                                         :empty-icon="emptyIcon"
                                         background-color="primary"
-                                        @input="addRating()"
+                                        v-model="rating"
+                                        @input="addRating"
                                         :value="parseInt(userdata.lender_profile.rtotal_rating_score)"></v-rating>
                             </v-col>
                             <v-col sm="1" v-show="userdata.is_lender">
@@ -318,7 +319,7 @@ export default {
       dialog: false,
       rate: false,
       tab: null,
-      rating: 3.5,
+      rating: 2,
       posts: null,
       comments: null,
       followers: null,
@@ -427,9 +428,9 @@ export default {
       this.rate = true;
     },
     async rateThisPersonLanderProfile(){
-      return await this.$api.$patch(`/lender-profile-ratings/`,{
+      return await this.$api.$post(`/lender-profile-ratings/`,{
         "profile": parseInt(this.userdata.lender_profile.id),
-        "score": this.rating
+        "score": Math.round(this.rating)
       })
         .then(response => {
           if (response !== null){
