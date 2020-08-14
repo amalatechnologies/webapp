@@ -15,16 +15,14 @@
          <v-list-item dense class="ml-1 pa-0">
            <v-list-item-content class="ma-0 pa-0" >
              <v-list-item-title ma-0 pa-0>
-               <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0" >
-                 <v-avatar  size="20px">
-                   <img
-
-                     :src="images[Math.floor(Math.random() * images.length)]"
-                     alt="post.owner.username" >
-                 </v-avatar>
-                 &nbsp;
-                 {{ post.owner.first_name }}&nbsp;{{ post.owner.last_name }} replied</v-btn>&nbsp;
-               <span class="font-weight-light text-caption" caption>{{ post.created_at | DateFormat}}</span>
+                <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0" >
+                  <v-avatar  size="20px">
+                    <img :src="images[Math.floor(Math.random() * images.length)]"
+                      alt="post.owner.username" >
+                  </v-avatar>
+                  &nbsp;
+                  {{ post.owner.first_name }}&nbsp;{{ post.owner.last_name }} replied</v-btn>&nbsp;
+                <span class="font-weight-light text-caption" caption>{{ post.created_at | DateFormat}}</span>
              </v-list-item-title>
            </v-list-item-content>
 
@@ -67,9 +65,11 @@
 
     <v-card-actions>
       <v-list-item dense >
-        <v-list-item-avatar color="grey"v-show="post.type === 'post'">
+        <NuxtLink :to="'/profile/'+post.owner.id">
+        <v-list-item-avatar color="grey" v-show="post.type === 'post'">
           <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username"/>
         </v-list-item-avatar>
+        </NuxtLink>
         <v-list-item-content v-show="post.type === 'post'">
           <v-list-item-title class="subhead text-caption" >{{ post.owner.first_name }} {{ post.owner.last_name }}</v-list-item-title>
           <v-list-item-subtitle
