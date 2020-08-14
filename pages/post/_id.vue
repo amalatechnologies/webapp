@@ -4,6 +4,16 @@
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
+          <v-col align="center"  v-if="post === null">
+            <v-progress-circular
+
+              :width="2"
+              color="primary"
+              size="20"
+              indeterminate
+            ></v-progress-circular>
+          </v-col>
+          <v-col v-else-if="post !== null">
           <v-card
             flat
             class="mx-auto"
@@ -58,6 +68,8 @@
             </v-card-actions>
 
           </v-card>
+          </v-col>
+          <v-col v-else></v-col>
         </v-row>
       </v-flex>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
@@ -71,9 +83,9 @@
             indeterminate
           ></v-progress-circular>
 
-          <v-list v-else-if="comments.results.length !== 0" dense two-line>
+          <v-list v-else-if="comments.results.length !== 0" dense two-line :key="childKey">
             <template class="ma-0 pa-0" v-for="(item, index) in comments.results.reverse()">
-              <comment-tile :comment="item" :index="index"></comment-tile>
+              <comment-tile :comment="item" :index="index" ></comment-tile>
               <v-divider light inset class="my-0 py-0"></v-divider>
             </template>
           </v-list>
@@ -104,6 +116,8 @@ export default {
       action: false,
       comment: '',
       comments: null,
+      post: null,
+      childKey: 2,
       images: [
         "https://freepsdmock-up.com/wp-content/uploads/2018/06/Free-Wine-Bottle-Label-Mockups-1.jpg",
         "https://wpepitome.com/wp-content/uploads/2019/07/29_wine-bottle-mockups.jpg",
@@ -115,22 +129,22 @@ export default {
   },
   created() {
     this.getcomments();
+    this.getpost();
   },
   beforeCreate() {
     //this.$store.dispatch('getThisPostComments',this.$route.params.id);
   },
   methods: {
-    commentThisPost() {
-      let post = {"post": parseInt(this.$route.params.id), "text_content": this.comment};
-      console.log(post);
+    async commentThisPost() {
+      let comment = {"post": parseInt(this.$route.params.id), "text_content": this.comment};
+
      if (this.comment.length > 3){
-      var pot =  this.$store.dispatch('commentOnBlogPosts', post);
-      console.log(pot.then(alert))
+      var pot =  this.$store.dispatch('commentOnBlogPosts', comment);
      }
-      //this.getcomments();
+      setTimeout( this.getcomments, 5000);
+
     },
     likePost(post) {
-      console.log(post.is_liked_by_me)
       post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts', post.id) : this.like_this_post('likeBlogPosts', post.id)
     },
     init_comment_action(){
@@ -146,7 +160,6 @@ export default {
     async getpost() {
       return await this.$api.$get(`posts/${this.$route.params.id}/`)
         .then(response => {
-          console.log(response)
           this.post = response;
         }).catch(error => {
           console.log(error);
@@ -156,18 +169,35 @@ export default {
     async getcomments() {
       return await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
         .then(response => {
-          console.log(response)
-          this.comments = response;
+          if (response.results.length !==0 ) {
+            this.childKey += response.results.length;
+            this.$forceUpdate();
+            document.getElementById('comment').value = '';
+            this.comments = response;
+          }
+
         }).catch(error => {
           console.log(error);
 
         });
-    }
+    },
+    async reloadcomments() {
+      return await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
+        .then(response => {
+          //this.comments = response;
+          Vue.set(this.comment,0, response);
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+
   },
   computed: {
-    post() {
+    /*post() {
       return this.$store.getters.post(this.$route.params.id)
     },
+    */
     isDisabled(){
       return this.comment.length > 0;
     }

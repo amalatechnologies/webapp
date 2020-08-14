@@ -2,8 +2,6 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
-        <v-card flat outlined class="pa-1">
-          <v-form>
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md4>
@@ -145,8 +143,6 @@
                 </v-flex>
               </v-layout>
             </v-container>
-          </v-form>
-        </v-card>
       </v-flex>
       <v-flex xs12 md4>
         <v-card class="v-card-profile">
