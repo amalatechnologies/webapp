@@ -95,15 +95,17 @@
                         </v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
-                    <v-list-item two-line inactive :ripple="false" class="mt-8">
+                    <v-list-item v-if="userdata !== undefined" two-line inactive :ripple="false" class="mt-8">
                       <v-list-item-content>
                         <v-list-item-subtitle class="text-overline">
                           Rankings
                         </v-list-item-subtitle>
-                        <v-list-item-title>
+                        <v-list-item-title v-if="userdata.lender_profile">
                           <v-row align="center" justify="start">
-                            <v-col cols="2">
-                              <span class="font-weight-bold text-h5">8.6M</span>
+                            <v-col cols="2" v-if="userdata.lender_profile">
+                              <span class="font-weight-bold text-h5">
+                                {{userdata.lender_profile.raters_count }}
+                              </span>
                             </v-col>
                             <v-col cols="4">
                               <v-rating half-increments
@@ -111,7 +113,11 @@
                                         :half-icon="halfIcon"
                                         :empty-icon="emptyIcon"
                                         background-color="primary"
-                                        v-model="rating"></v-rating>
+                                        @input="addRating()"
+                                        :value="parseInt(userdata.lender_profile.rtotal_rating_score)"></v-rating>
+                            </v-col>
+                            <v-col sm="1" v-show="userdata.is_lender">
+                              <v-btn x-small color="primary" v-show="rate" @click.stop="rateThisPersonLanderProfile()">Rate</v-btn>
                             </v-col>
                           </v-row>
                         </v-list-item-title>
@@ -162,8 +168,6 @@
                           grow
                           center-active
                           class="elevation-2"
-                          :prev-icon="prevIcon ? 'mdi-arrow-left-bold-box-outline' : undefined"
-                          :next-icon="nextIcon ? 'mdi-arrow-right-bold-box-outline' : undefined"
                         >
                           <v-tab class="font-weight-light">
                             <span ><v-icon small left>mdi-eye</v-icon>Timeline</span>
@@ -312,6 +316,7 @@ export default {
   data() {
     return {
       dialog: false,
+      rate: false,
       tab: null,
       rating: 3.5,
       posts: null,
@@ -412,6 +417,23 @@ export default {
           if (response !== null){
             this.followings = response;
             this.followings = response;
+          }
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+    addRating() {
+      this.rate = true;
+    },
+    async rateThisPersonLanderProfile(){
+      return await this.$api.$patch(`/lender-profile-ratings/`,{
+        "profile": parseInt(this.userdata.lender_profile.id),
+        "score": this.rating
+      })
+        .then(response => {
+          if (response !== null){
+            this.$parent.viewuserdata();
           }
         }).catch(error => {
           console.log(error);
