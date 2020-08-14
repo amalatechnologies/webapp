@@ -1,5 +1,5 @@
 <template>
-  <v-list-item dense :key="index" @click="">
+  <v-list-item dense :key="index" :to="'/post/'+comment.id" @click="">
     <v-list-item-avatar>
       <v-img src="https://i.pinimg.com/originals/96/90/ca/9690cabed5d0a12fa6bfbe4f2d17d65d.jpg"></v-img>
     </v-list-item-avatar>
