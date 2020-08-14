@@ -141,7 +141,7 @@ export default {
      if (this.comment.length > 3){
       var pot =  this.$store.dispatch('commentOnBlogPosts', comment);
      }
-      setTimeout( this.getcomments, 5000);
+      setTimeout( this.reloadcomments(), 5000);
 
     },
     likePost(post) {
@@ -169,13 +169,8 @@ export default {
     async getcomments() {
       return await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
         .then(response => {
-          if (response.results.length !==0 ) {
-            this.childKey += response.results.length;
-            this.$forceUpdate();
-            document.getElementById('comment').value = '';
             this.comments = response;
-          }
-
+          
         }).catch(error => {
           console.log(error);
 
@@ -184,8 +179,10 @@ export default {
     async reloadcomments() {
       return await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
         .then(response => {
-          //this.comments = response;
-          Vue.set(this.comment,0, response);
+          this.comments = response;
+          this.childKey += response.results.length;
+          this.$forceUpdate();
+          document.getElementById('comment').value = '';
         }).catch(error => {
           console.log(error);
 
