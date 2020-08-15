@@ -4,9 +4,8 @@
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
-          <v-col align="center"  v-if="post === null">
+          <v-col align="center" v-if="post === null">
             <v-progress-circular
-
               :width="2"
               color="primary"
               size="20"
@@ -14,60 +13,63 @@
             ></v-progress-circular>
           </v-col>
           <v-col v-else-if="post !== null">
-          <v-card
-            flat
-            class="mx-auto"
-          >
-            <v-list-item>
+            <v-card
+              flat
+              class="mx-auto"
+            >
+              <v-list-item>
 
-              <NuxtLink :to="'/profile/'+post.owner.id">
-              <v-list-item-avatar color="grey">
-                <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username"/>
-              </v-list-item-avatar>
-              </NuxtLink>
-              <v-list-item-content>
-                <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
-                <v-list-item-subtitle>By: {{ post.owner.first_name }} {{ post.owner.last_name }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
+                <NuxtLink :to="'/profile/'+post.owner.id">
+                  <v-list-item-avatar color="grey">
+                    <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username"/>
+                  </v-list-item-avatar>
+                </NuxtLink>
+                <v-list-item-content>
+                  <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
+                  <v-list-item-subtitle>By: {{ post.owner.first_name }} {{
+                      post.owner.last_name
+                    }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
 
-            <v-img
-              :src="images[Math.floor(Math.random() * images.length)]"
-              height="194"
-            ></v-img>
+              <v-img
+                :src="images[Math.floor(Math.random() * images.length)]"
+                height="194"
+              ></v-img>
 
-            <v-card-text>
-              {{ post.text_content }}
-            </v-card-text>
+              <v-card-text>
+                {{ post.text_content }}
+              </v-card-text>
 
-            <v-card-actions>
-              <v-btn text small @click.stop="likePost(post)">
-                <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
-                <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
-                <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
-              </v-btn>
-              <v-btn text small>
-                <v-icon class="text-caption">mdi-comment</v-icon>
-                <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
-              </v-btn>
-              <v-spacer></v-spacer>
-              <v-text-field
-                class="my-1"
-                v-model="comment"
-                id="comment"
-                placeholder="Reply ..."
-                type="text"
-                filled
-                dense
-                rounded
-                no-details
-                append-outer-icon="mdi-send"
-                @click:append-outer="commentThisPost()"
-                hide-details
-              />
-            </v-card-actions>
+              <v-card-actions>
+                <v-btn text small @click.stop="likePost(post)">
+                  <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
+                  <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
+                  <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
+                </v-btn>
+                <v-btn text small>
+                  <v-icon class="text-caption">mdi-comment</v-icon>
+                  <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-text-field
+                  class="my-1"
+                  v-model="comment"
+                  id="comment"
+                  placeholder="Reply ..."
+                  type="text"
+                  filled
+                  dense
+                  rounded
+                  no-details
+                  append-outer-icon="mdi-send"
+                  @click:append-outer="commentThisPost()"
+                  hide-details
+                />
+              </v-card-actions>
 
-          </v-card>
+            </v-card>
           </v-col>
           <v-col v-else></v-col>
         </v-row>
@@ -85,7 +87,7 @@
 
           <v-list v-else-if="comments.results.length !== 0" dense two-line :key="childKey">
             <template class="ma-0 pa-0" v-for="(item, index) in comments.results.reverse()">
-              <comment-tile :comment="item" :index="index" ></comment-tile>
+              <comment-tile :comment="item" :index="index"></comment-tile>
               <v-divider light inset class="my-0 py-0"></v-divider>
             </template>
           </v-list>
@@ -127,32 +129,31 @@ export default {
       ],
     }
   },
-  created() {
+  created: function () {
     this.getcomments();
     this.getpost();
   },
   beforeCreate() {
-    //this.$store.dispatch('getThisPostComments',this.$route.params.id);
+
   },
   methods: {
     async commentThisPost() {
       let comment = {"post": parseInt(this.$route.params.id), "text_content": this.comment};
-
-     if (this.comment.length > 3){
-      var pot =  this.$store.dispatch('commentOnBlogPosts', comment);
-     }
-      setTimeout( this.reloadcomments(), 5000);
+      if (this.comment.length > 3) {
+        var pot = this.$store.dispatch('commentOnBlogPosts', comment);
+      }
+      setTimeout(this.reloadcomments(), 5000);
 
     },
     likePost(post) {
       post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts', post.id) : this.like_this_post('likeBlogPosts', post.id)
     },
-    init_comment_action(){
-      if (this.action === true){
+    init_comment_action() {
+      if (this.action === true) {
         this.action = false;
-      }else if (this.action === false){
+      } else if (this.action === false) {
         this.action = true;
-      }else {
+      } else {
         this.action = false;
       }
 
@@ -169,8 +170,8 @@ export default {
     async getcomments() {
       return await this.$api.$get(`posts/${this.$route.params.id}/comments/`)
         .then(response => {
-            this.comments = response;
-          
+          this.comments = response;
+
         }).catch(error => {
           console.log(error);
 
@@ -181,8 +182,9 @@ export default {
         .then(response => {
           this.comments = response;
           this.childKey += response.results.length;
-          this.$forceUpdate();
           document.getElementById('comment').value = '';
+          this.comment = null;
+          this.$forceUpdate();
         }).catch(error => {
           console.log(error);
 
@@ -195,7 +197,8 @@ export default {
       return this.$store.getters.post(this.$route.params.id)
     },
     */
-    isDisabled(){
+
+    isDisabled() {
       return this.comment.length > 0;
     }
 
