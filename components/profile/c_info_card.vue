@@ -28,7 +28,7 @@
                   {{ userdata.username }}
                   <v-icon color="primary" size="20" v-show="userdata.is_active">mdi-check-decagram</v-icon>
                 </v-card-title>
-                <v-card-subtitle >
+                <v-card-subtitle>
                   {{ userdata.role }}
                 </v-card-subtitle>
               </v-card>
@@ -77,14 +77,16 @@
           <v-container py-0>
             <v-layout wrap>
               <v-flex xs12 md12>
-                <v-list >
-                  <v-list-item-group  color="primary">
+                <v-list>
+                  <v-list-item-group color="primary">
                     <v-list-item two-line inactive :ripple="false">
                       <v-list-item-content>
                         <v-list-item-title>
                           <v-row>
                             <v-col>
-                              <span class="font-weight-bold text-h5" > {{ userdata.first_name }}&nbsp; {{ userdata.last_name }}</span>
+                              <span class="font-weight-bold text-h5"> {{
+                                  userdata.first_name
+                                }}&nbsp; {{ userdata.last_name }}</span>
                             </v-col>
                             <v-col>
                               <span class="font-weight-light text-caption"><v-icon>mdi-map-marker</v-icon>New York, NY</span>
@@ -104,7 +106,7 @@
                           <v-row align="center" justify="start">
                             <v-col cols="2" v-if="userdata.lender_profile">
                               <span class="font-weight-bold text-h5">
-                                {{userdata.lender_profile.raters_count }}
+                                {{ userdata.lender_profile.raters_count }}
                               </span>
                             </v-col>
                             <v-col cols="4">
@@ -114,11 +116,13 @@
                                         :empty-icon="emptyIcon"
                                         background-color="primary"
                                         v-model="rating"
-                                        @input="addRating"
+                                        @input="rate = true"
                                         :value="parseInt(userdata.lender_profile.rtotal_rating_score)"></v-rating>
                             </v-col>
                             <v-col sm="1" v-show="userdata.is_lender">
-                              <v-btn x-small color="primary" v-show="rate" @click.stop="rateThisPersonLanderProfile()">Rate</v-btn>
+                              <v-btn x-small color="primary" v-show="rate" @click.stop="rateThisPersonLanderProfile()">
+                                Rate
+                              </v-btn>
                             </v-col>
                           </v-row>
                         </v-list-item-title>
@@ -127,9 +131,9 @@
                     <v-list-item inactive :ripple="false">
                       <v-container fluid>
                         <v-row no-gutters>
-                              <v-col class="font-weight-bold text-overline primary--text">
-                                {{ userdata.follows_count }} followers
-                              </v-col>
+                          <v-col class="font-weight-bold text-overline primary--text">
+                            {{ userdata.follows_count }} followers
+                          </v-col>
                           <v-col class="font-weight-bold text-overline primary--text">
                             {{ userdata.following_count }} follows
                           </v-col>
@@ -142,9 +146,11 @@
                         <v-container fluid>
                           <v-row no-gutters>
                             <v-col xs="12" md="3" class="ma-1">
-                              <v-btn v-if="userdata.is_following_me" @click.stop="unfollowThisPerson" small rounded  cols="auto" color="primary" block>Following
+                              <v-btn v-if="userdata.is_following_me" @click.stop="unfollowThisPerson" small rounded
+                                     cols="auto" color="primary" block>Following
                               </v-btn>
-                              <v-btn v-else small rounded  outlined cols="auto" @click.stop="followThisPerson" color="primary" block>Follow
+                              <v-btn v-else small rounded outlined cols="auto" @click.stop="followThisPerson"
+                                     color="primary" block>Follow
                               </v-btn>
                             </v-col>
                             <v-col sm="12" md="3" class="ma-1">
@@ -171,37 +177,45 @@
                           class="elevation-2"
                         >
                           <v-tab class="font-weight-light">
-                            <span ><v-icon small left>mdi-eye</v-icon>Timeline</span>
+                            <span><v-icon small left>mdi-eye</v-icon>Timeline</span>
                           </v-tab>
                           <v-tab class="font-weight-light">
                             <span><v-icon small left>mdi-account</v-icon>About</span>
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisUserPosts()">
-                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>Posts
+                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>
+                            Posts
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisUserComments()">
-                            <v-icon small left>mdi-chat</v-icon>Comments
+                            <v-icon small left>mdi-chat</v-icon>
+                            Comments
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisPersonFollowers">
-                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>Followers
+                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>
+                            Followers
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisPersonFollowings()">
-                            <v-icon small left>mdi-chat</v-icon>Followings
+                            <v-icon small left>mdi-chat</v-icon>
+                            Followings
                           </v-tab>
 
                           <v-tab-item>
                             <v-card flat>
                               <v-card-text>
                                 <p>
-                                  Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam feugiat lorem non metus. Sed a libero.
+                                  Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam
+                                  feugiat lorem non metus. Sed a libero.
                                 </p>
 
                                 <p>
-                                  Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis. Aliquam lobortis. Suspendisse non nisl sit amet velit hendrerit rutrum.
+                                  Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Aenean tellus
+                                  metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis. Aliquam lobortis.
+                                  Suspendisse non nisl sit amet velit hendrerit rutrum.
                                 </p>
 
                                 <p class="mb-0">
-                                  Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Phasellus blandit leo ut odio.
+                                  Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero
+                                  tortor, tincidunt et, tincidunt eget, semper nec, quam. Phasellus blandit leo ut odio.
                                 </p>
                               </v-card-text>
                             </v-card>
@@ -216,16 +230,17 @@
                           <v-tab-item>
                             <v-row>
 
-                             <v-col align="center"  v-if="posts === null">
-                               <v-progress-circular
+                              <v-col align="center" v-if="posts === null">
+                                <v-progress-circular
 
-                                 :width="2"
-                                 color="primary"
-                                 size="20"
-                                 indeterminate
-                               ></v-progress-circular>
-                             </v-col>
-                              <v-col v-else-if="posts.results.length !== 0" cols="12" lg="6"  md="6" sm="12" wrap v-for="(post, index) in posts.results" :key="index">
+                                  :width="2"
+                                  color="primary"
+                                  size="20"
+                                  indeterminate
+                                ></v-progress-circular>
+                              </v-col>
+                              <v-col v-else-if="posts.results.length !== 0" cols="12" lg="6" md="6" sm="12" wrap
+                                     v-for="(post, index) in posts.results" :key="index">
                                 <post-card :post="post"></post-card>
                               </v-col>
                               <p v-else></p>
@@ -233,7 +248,7 @@
                           </v-tab-item>
                           <v-tab-item>
                             <v-row>
-                              <v-col align="center"  v-if="comments === null">
+                              <v-col align="center" v-if="comments === null">
                                 <v-progress-circular
 
                                   :width="2"
@@ -242,7 +257,8 @@
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="comments.results.length !== 0" cols="12" lg="6"  md="6" sm="12" wrap v-for="(comment, index) in comments.results" :key="index">
+                              <v-col v-else-if="comments.results.length !== 0" cols="12" lg="6" md="6" sm="12" wrap
+                                     v-for="(comment, index) in comments.results" :key="index">
                                 <post-card :post="comment"></post-card>
                               </v-col>
                               <p v-else></p>
@@ -250,7 +266,7 @@
                           </v-tab-item>
                           <v-tab-item>
                             <v-row>
-                              <v-col align="center"  v-if="followers === null">
+                              <v-col align="center" v-if="followers === null">
                                 <v-progress-circular
 
                                   :width="2"
@@ -259,7 +275,8 @@
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="followers.results.length !== 0" cols="12" lg="6"  md="6" sm="12" wrap v-for="(follower, index) in followers.results" :key="index">
+                              <v-col v-else-if="followers.results.length !== 0" cols="12" lg="6" md="6" sm="12" wrap
+                                     v-for="(follower, index) in followers.results" :key="index">
                                 <v-follows :follow="follower"></v-follows>
                               </v-col>
                               <p v-else></p>
@@ -267,7 +284,7 @@
                           </v-tab-item>
                           <v-tab-item>
                             <v-row>
-                              <v-col align="center"  v-if="followings === null">
+                              <v-col align="center" v-if="followings === null">
                                 <v-progress-circular
 
                                   :width="2"
@@ -276,7 +293,8 @@
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="followings.results.length !== 0"  sm="12" wrap v-for="(follow, index) in followings.results" :key="index">
+                              <v-col v-else-if="followings.results.length !== 0" sm="12" wrap
+                                     v-for="(follow, index) in followings.results" :key="index">
                                 <v-follows :follow="follow"></v-follows>
                               </v-col>
                               <p v-else></p>
@@ -307,7 +325,7 @@ import postCard from "@/components/posts/p_post_card"
 import c_follows from "@/components/follows/c_follows";
 
 export default {
-  props:["userdata"],
+  props: ["userdata"],
   components: {
     'post-card': postCard,
     'v-type-divider': c_type_divider,
@@ -353,13 +371,13 @@ export default {
   created() {
     this.address.location = this.userdata.username;
     this.address.class = "Home Address";
-    this.address.street_name = "Phone No. "+ this.userdata.phone;
-    this.address.street_address = "Email Address " +this.userdata.email;
+    this.address.street_name = "Phone No. " + this.userdata.phone;
+    this.address.street_address = "Email Address " + this.userdata.email;
 
   },
-  methods:{
-    async getThisUserPosts(){
-      console.log("Clicked" +this.$route.params.id)
+  methods: {
+    async getThisUserPosts() {
+      console.log("Clicked" + this.$route.params.id)
       return await this.$api.$get(`users/${this.$route.params.id}/posts/?type=post`)
         .then(response => {
           this.posts = response;
@@ -368,8 +386,8 @@ export default {
 
         });
     },
-    async getThisUserComments(){
-      console.log("Clicked" +this.$route.params.id)
+    async getThisUserComments() {
+      console.log("Clicked" + this.$route.params.id)
       return await this.$api.$get(`users/${this.$route.params.id}/comments/`)
         .then(response => {
           this.comments = response;
@@ -378,10 +396,10 @@ export default {
 
         });
     },
-    async unfollowThisPerson(){
-      return await this.$api.$post(`/unfollow-user/`, {"id":this.$route.params.id})
+    async unfollowThisPerson() {
+      return await this.$api.$post(`/unfollow-user/`, {"id": this.$route.params.id})
         .then(response => {
-          if (response !== null){
+          if (response !== null) {
             this.$parent.viewusedata();
           }
         }).catch(error => {
@@ -390,21 +408,21 @@ export default {
         });
 
     },
-    async followThisPerson(){
-      return await this.$api.$post(`/follow-user/`, {"id":this.$route.params.id})
+    async followThisPerson() {
+      return await this.$api.$post(`/follow-user/`, {"id": this.$route.params.id})
         .then(response => {
-         if (response !== null){
-           this.$parent.viewusedata();
-         }
+          if (response !== null) {
+            this.$parent.viewusedata();
+          }
         }).catch(error => {
           console.log(error);
 
         });
     },
-    async getThisPersonFollowers(){
+    async getThisPersonFollowers() {
       return await this.$api.$get(`users/${this.$route.params.id}/follows/`)
         .then(response => {
-          if (response !== null){
+          if (response !== null) {
             this.followers = response;
           }
         }).catch(error => {
@@ -412,10 +430,10 @@ export default {
 
         });
     },
-    async getThisPersonFollowings(){
+    async getThisPersonFollowings() {
       return await this.$api.$get(`users/${this.$route.params.id}/following/`)
         .then(response => {
-          if (response !== null){
+          if (response !== null) {
             this.followings = response;
             this.followings = response;
           }
@@ -427,18 +445,18 @@ export default {
     addRating() {
       this.rate = true;
     },
-    async rateThisPersonLanderProfile(){
-      return await this.$api.$post(`/lender-profile-ratings/`,{
+    async rateThisPersonLanderProfile() {
+      let rate_dta = {
         "profile": parseInt(this.userdata.lender_profile.id),
         "score": Math.round(this.rating)
-      })
+      };
+      return await this.userdata.lender_profile.my_rating ? this.$api.$patch(`/lender-profile-ratings/${this.$route.params.id}/`, rate_dta) : this.$api.$post(`/lender-profile-ratings/`, rate_dta)
         .then(response => {
-          if (response !== null){
-            this.$parent.viewuserdata();
+          if (response !== null) {
+            this.$parent.viewusedata();
           }
         }).catch(error => {
           console.log(error);
-
         });
     }
 
@@ -449,6 +467,7 @@ export default {
 .basil {
   background-color: #FFFBE6 !important;
 }
+
 .basil--text {
   color: #356859 !important;
 }

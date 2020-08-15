@@ -2,12 +2,13 @@
   <v-app class="app">
     <v-navigation-drawer
       v-model="drawer"
-      class="grey lighten-5"
       :mini-variant="$vuetify.breakpoint.mdAndDown"
       :expand-on-hover="$vuetify.breakpoint.mdAndDown"
       overlay-color="primary"
       :permanent="$vuetify.breakpoint.mdAndUp"
-      clipped fixed app>
+      clipped
+      :absolute="$vuetify.breakpoint.mdAndUp"
+    fixed app>
     <v-list dense subheader tile>
       <v-list-item to="/profile">
           <v-list-item-avatar>
@@ -61,9 +62,7 @@
     </v-navigation-drawer>
     <v-app-bar
       absolute
-      class="grey lighten-5"
       clipped-left
-      outlined
       fixed app>
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
@@ -100,11 +99,10 @@
 
     </v-app-bar>
     <v-main>
-      <v-app class="app" >
+      <v-container fluid >
         <nuxt/>
-      </v-app>
+      </v-container>
     </v-main>
-
     <footer-component
       class="hidden-sm-and-down"
       v-bind:ChapterDetails="ChapterDetails"
@@ -153,29 +151,8 @@ export default {
           definition: 'label.menu.homepage',
           to: "/home",
           iconClass: "info darken-1 white--text"
-        },
-        /* {
-           icon: "mdi-help-circle-outline",
-           title: "Help",
-           subtitle: "Are you in need of help ?",
-           to: "/help",
-           iconClass: "info lighten-1 white--text"
-         },
-         {
-           icon: "mdi-information-outline",
-           title: "About Us",
-           subtitle: "Read more about us",
-           to: "/about",
-           iconClass: "info lighten-1 white--text"
-         },
-         {
-           icon: "mdi-alpha-c-circle-outline",
-           title: "Contact Us",
-           subtitle: "Contact kopasmart team/community",
-           to: "/contacts",
-           iconClass: "info lighten-1 white--text"
-         },*/
-        {
+
+        }, {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
           subtitle: "Repayment Schedule list",
@@ -203,6 +180,9 @@ export default {
       rightDrawer: false,
       year: new Date().getFullYear()
     };
+  },
+  created() {
+    this.syncro();
   },
 
   methods: {
@@ -242,8 +222,9 @@ export default {
     }
   },
   beforeMount: function () {
-    this.syncro()
+
   },
+
   computed: {
     userdata() {
       return this.$store.getters.userInfo;
