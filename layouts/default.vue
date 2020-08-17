@@ -60,6 +60,7 @@
         </div>
       </template>
     </v-navigation-drawer>
+
     <v-app-bar
       absolute
       clipped-left
@@ -99,15 +100,33 @@
 
     </v-app-bar>
     <v-main>
-      <v-container fluid >
+      <v-container  class="mb-7" fluid >
         <nuxt/>
       </v-container>
     </v-main>
-    <footer-component
-      class="hidden-sm-and-down"
-      v-bind:ChapterDetails="ChapterDetails"
-      v-bind:FooterData="FooterData"
-    ></footer-component>
+    <v-bottom-navigation
+      v-show="$vuetify.breakpoint.smAndDown"
+      horizontal
+      fixed
+      scroll-threshold="1"
+      hide-on-scroll
+      color="purple lighten-1"
+    >
+      <v-btn>
+        <span>Recents</span>
+        <v-icon>mdi-history</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Favorites</span>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Nearby</span>
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 

@@ -130,8 +130,8 @@ export default {
     }
   },
   created: function () {
+    //this.getpost();
     this.getcomments();
-    this.getpost();
   },
   beforeCreate() {
 
