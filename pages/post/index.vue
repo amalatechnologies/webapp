@@ -14,7 +14,11 @@
           ></v-textarea>
         </v-form>
         <v-card-actions>
-          <v-btn outlined class="accent white--text" @click="$refs.form.reset()">Clear</v-btn>
+          <v-btn
+            outlined
+            class="accent white--text"
+            @click="$refs.form.reset()"
+          >{{ $t('label.button.btnclear')}}</v-btn>
           <v-spacer></v-spacer>
           <v-btn
             :disabled="!form"
