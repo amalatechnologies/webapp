@@ -28,7 +28,7 @@
             depressed
             @click.stop="createNewPost()"
             to="/home"
-          >Submit</v-btn>
+          >{{ $t('label.button.btnsubmit')}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-container>
