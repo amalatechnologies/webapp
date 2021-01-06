@@ -58,6 +58,7 @@ export default {
   },
   methods: {
     createNewPost() {
+      mi;
       this.$store.dispatch("postNewBlogPosts", {
         text_content: this.text_content,
       });
