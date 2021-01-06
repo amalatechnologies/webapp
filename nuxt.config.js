@@ -9,6 +9,8 @@ export default {
   env: {
     developmentUrl: process.env.BASE_URL || 'https://kopasmart.herokuapp.com/api/',
     releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
+    //  developmentUrl: process.env.BASE_URL || 'http://127.0.0.1:8000/',
+    //releaseUrl: process.env.LIVE_URL || 'http://127.0.0.1:8000/'
   },
   /*
    ** Headers of the page
