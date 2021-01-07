@@ -2,147 +2,147 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
-            <v-container py-0>
-              <v-layout wrap>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="company"
-                    :label="$t('label.heading.company')"
-                    placeholder="e.g Singo Africa"
-                    disabled
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.username"
-                    class="purple-input"
-                    :label="$t('label.heading.username')"
-                    placeholder="e.g johnDoe"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.email"
-                    :label="$t('label.heading.emailaddress')"
-                    class="purple-input"
-                    placeholder="e.g example@email.com"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.first_name"
-                    :label="$t('label.heading.firstname')"
-                    class="purple-input"
-                    placeholder="John"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.middle_name"
-                    :label="$t('label.heading.middlename')"
-                    class="purple-input"
-                    placeholder="Doe"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.last_name"
-                    :label="$t('label.heading.lastname')"
-                    class="purple-input"
-                    placeholder="Doe"
-                  />
-                </v-flex>
+        <v-container py-0>
+          <v-layout wrap>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="company"
+                :label="$t('label.heading.company')"
+                placeholder="e.g Singo Africa"
+                disabled
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.username"
+                class="purple-input"
+                :label="$t('label.heading.username')"
+                placeholder="e.g johnDoe"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.email"
+                :label="$t('label.heading.emailaddress')"
+                class="purple-input"
+                placeholder="e.g example@email.com"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.first_name"
+                :label="$t('label.heading.firstname')"
+                class="purple-input"
+                placeholder="John"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.middle_name"
+                :label="$t('label.heading.middlename')"
+                class="purple-input"
+                placeholder="Doe"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.last_name"
+                :label="$t('label.heading.lastname')"
+                class="purple-input"
+                placeholder="Doe"
+              />
+            </v-flex>
 
-                <v-flex xs12 md8>
-                  <v-text-field
-                    v-model="address"
-                    :label="$t('label.heading.addressline')"
-                    placeholder="Snow Rock PI"
-                    class="purple-input"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="userdata.phone"
-                    :label="$t('label.heading.phonenumber')"
-                    placeholder="e.g 0716 xxx xxx"
-                    class="purple-input"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="city"
-                    :label="$t('label.heading.city')"
-                    placeholder="Snow Rocky"
-                    class="purple-input"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="country"
-                    :label="$t('label.heading.country')"
-                    placeholder="e.g Tanzania"
-                    class="purple-input"
-                  />
-                </v-flex>
-                <v-flex xs12 md4>
-                  <v-text-field
-                    v-model="postal"
-                    class="purple-input"
-                    :label="$t('label.heading.postalcode')"
-                    placeholder="0610 Snow Rocky"
-                    type="number"
-                  />
-                </v-flex>
-                <v-flex xs12>
-                  <v-textarea
-                    class="purple-input"
-                    :label="$t('label.heading.biography')"
-                    v-model="userdata.biography"
-                    placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                  />
-                </v-flex>
-                <v-flex xs12 text-xs-right>
-                  <div>
-                    <v-btn
-                      v-if="userdata.username != null"
-                      color="info lighten-1"
-                      class="mx-0 font-weight-light"
-                      style="text-transform: capitalize"
-                      @click.stop="dialog = true"
-                    >Update profile</v-btn>
+            <v-flex xs12 md8>
+              <v-text-field
+                v-model="address"
+                :label="$t('label.heading.addressline')"
+                placeholder="Snow Rock PI"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.phone"
+                :label="$t('label.heading.phonenumber')"
+                placeholder="e.g 0716 xxx xxx"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="city"
+                :label="$t('label.heading.city')"
+                placeholder="Snow Rocky"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="country"
+                :label="$t('label.heading.country')"
+                placeholder="e.g Tanzania"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="postal"
+                class="purple-input"
+                :label="$t('label.heading.postalcode')"
+                placeholder="0610 Snow Rocky"
+                type="number"
+              />
+            </v-flex>
+            <v-flex xs12>
+              <v-textarea
+                class="purple-input"
+                :label="$t('label.heading.biography')"
+                v-model="userdata.biography"
+                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+            </v-flex>
+            <v-flex xs12 text-xs-right>
+              <div>
+                <v-btn
+                  v-if="userdata.username != null"
+                  color="info lighten-1"
+                  class="mx-0 font-weight-light"
+                  style="text-transform: capitalize"
+                  @click.stop="dialog = true"
+                >{{ $t("label.button.btnupdateprofile") }}</v-btn>
 
-                    <v-dialog v-model="dialog" max-width="290">
-                      <v-card>
-                        <v-card-title class="headline error white--text">Do you agree ?</v-card-title>
+                <v-dialog v-model="dialog" max-width="290">
+                  <v-card>
+                    <v-card-title class="headline error white--text">Do you agree ?</v-card-title>
 
-                        <v-card-text class="mt-1 pt-1">{{ $t('label.message.profileupdate')}}</v-card-text>
+                    <v-card-text class="mt-1 pt-1">{{ $t('label.message.profileupdate')}}</v-card-text>
 
-                        <v-card-actions>
-                          <v-spacer></v-spacer>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
 
-                          <v-btn
-                            style="text-transform: capitalize"
-                            color="green darken-1"
-                            outlined
-                            small
-                            @click="dialog = false"
-                          >I Disagree</v-btn>
+                      <v-btn
+                        style="text-transform: capitalize"
+                        color="green darken-1"
+                        outlined
+                        small
+                        @click="dialog = false"
+                      >I Disagree</v-btn>
 
-                          <v-btn
-                            color="error darken-1"
-                            style="text-transform: capitalize"
-                            small
-                            outlined
-                            @click="updateProfileWithCreadentials"
-                          >I Agree</v-btn>
-                        </v-card-actions>
-                      </v-card>
-                    </v-dialog>
-                  </div>
-                </v-flex>
-              </v-layout>
-            </v-container>
+                      <v-btn
+                        color="error darken-1"
+                        style="text-transform: capitalize"
+                        small
+                        outlined
+                        @click="updateProfileWithCreadentials"
+                      >I Agree</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </div>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-flex>
       <v-flex xs12 md4>
         <v-card class="v-card-profile">
@@ -172,7 +172,7 @@
               depressed
               rounded
               class="font-weight-light"
-            >Follow</v-btn>
+            >{{ $t('label.button.btnFollow')}}</v-btn>
           </v-card-text>
           <v-divider class="ma-1 mx-4"></v-divider>
           <v-card-text>
