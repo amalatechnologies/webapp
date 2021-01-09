@@ -1,7 +1,5 @@
 <template>
-  <div class="search-wrapper">
-    <input type="text" v-model="search" />
-    <button @click="searches()" style="color:blue">search</button>
+  <div>
     <div></div>
     <ul>
       <li v-for="item in  searcheditem" :key="item.id">aaa</li>
