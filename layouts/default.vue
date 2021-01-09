@@ -183,10 +183,10 @@ export default {
           iconClass: "info darken-1 white--text",
         },
         {
-          icon: "mdi-calculator-variant",
+          icon: "mdi:account-search",
           title: "Search",
-          subtitle: "",
-          definition: "label.menu.search",
+          subtitle: "Searching",
+          definition: "label.menu.Search",
           to: "/search",
           iconClass: "info darken-1 white--text",
         },
