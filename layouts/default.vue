@@ -8,20 +8,22 @@
       :permanent="$vuetify.breakpoint.mdAndUp"
       clipped
       :absolute="$vuetify.breakpoint.mdAndUp"
-    fixed app>
-    <v-list dense subheader tile>
-      <v-list-item to="/profile">
+      fixed
+      app
+    >
+      <v-list dense subheader tile>
+        <v-list-item to="/profile">
           <v-list-item-avatar>
             <v-img
               src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
               dark
             ></v-img>
           </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title class="headline text-h6">{{ userdata.username }}</v-list-item-title>
-          <v-list-item-subtitle class="font-weight-light">{{ userdata.email }}</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="headline text-h6">{{ userdata.username }}</v-list-item-title>
+            <v-list-item-subtitle class="font-weight-light">{{ userdata.email }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
 
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-avatar width="36" height="35">
@@ -30,10 +32,7 @@
           <v-list-item-content>
             <v-list-item-title class="font-weight-light">{{ $t(item.definition) }}</v-list-item-title>
           </v-list-item-content>
-
         </v-list-item>
-
-
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
@@ -61,20 +60,18 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar
-      absolute
-      clipped-left
-      fixed app>
+    <v-app-bar absolute clipped-left fixed app>
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
           <img
             class="mx-1"
             :src="require('~/assets/images/icon.png')"
             alt="Kopasmart"
-            @click.stop="drawer = !drawer">
+            @click.stop="drawer = !drawer"
+          />
         </v-avatar>
       </v-app-bar-nav-icon>
-      <v-spacer/>
+      <v-spacer />
       <v-btn icon @click="changemode">
         <v-icon v-if="!dark">mdi-brightness-6</v-icon>
         <v-icon v-if="dark">mdi-brightness-5</v-icon>
@@ -82,7 +79,7 @@
 
       <v-menu bottom left>
         <template v-slot:activator="{ on }">
-          <v-btn  icon v-on="on">
+          <v-btn icon v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
@@ -94,14 +91,12 @@
             </v-list-item-avatar>
             <v-list-item-title class="font-weight-light">{{ $t(item.label) }}</v-list-item-title>
           </v-list-item>
-
         </v-list>
       </v-menu>
-
     </v-app-bar>
     <v-main>
-      <v-container  class="mb-7" fluid >
-        <nuxt/>
+      <v-container class="mb-7" fluid>
+        <nuxt />
       </v-container>
     </v-main>
     <v-bottom-navigation
@@ -136,11 +131,11 @@ import FooterData from "@/assets/data/footer.json";
 import FooterComponent from "~/components/footer/FooterComponent.vue";
 
 export default {
-  async fetch({store, params}) {
+  async fetch({ store, params }) {
     await this.$store.dispatch("getProfile");
   },
   components: {
-    FooterComponent
+    FooterComponent,
   },
   data() {
     return {
@@ -153,13 +148,13 @@ export default {
       dark: false,
       locale: "",
       selectedLocale: null,
-      select: {locale: "English", lang: "en"},
+      select: { locale: "English", lang: "en" },
       label: "Sign In",
       locales: [
-        {locale: "English", lang: "en"},
-        {locale: "Swahili", lang: "sw"},
-        {locale: "French", lang: "fr"},
-        {locale: "Arabic", lang: "ar"}
+        { locale: "English", lang: "en" },
+        { locale: "Swahili", lang: "sw" },
+        { locale: "French", lang: "fr" },
+        { locale: "Arabic", lang: "ar" },
       ],
 
       items: [
@@ -167,37 +162,53 @@ export default {
           icon: "mdi-home-outline",
           title: "Home",
           subtitle: "Go to Home Page",
-          definition: 'label.menu.homepage',
+          definition: "label.menu.homepage",
           to: "/home",
-          iconClass: "info darken-1 white--text"
-
-        }, {
+          iconClass: "info darken-1 white--text",
+        },
+        {
           icon: "mdi-format-list-text",
           title: "Repayment Schedules",
           subtitle: "Repayment Schedule list",
-          definition: 'label.menu.repaymentchedules',
+          definition: "label.menu.repaymentchedules",
           to: "/schedule",
-          iconClass: "info darken-1 white--text"
+          iconClass: "info darken-1 white--text",
         },
         {
           icon: "mdi-calculator-variant",
           title: "Calculator",
           subtitle: "Repayment Schedule generator",
-          definition: 'label.menu.calculator',
+          definition: "label.menu.calculator",
           to: "/calculator",
-          iconClass: "info darken-1 white--text"
-        }
+          iconClass: "info darken-1 white--text",
+        },
+        {
+          icon: "mdi-calculator-variant",
+          title: "Search",
+          subtitle: "",
+          definition: "label.menu.search",
+          to: "/search",
+          iconClass: "info darken-1 white--text",
+        },
       ],
       actions: [
-        {title: "View profile", icon: "mdi-account-circle", label: 'label.menu.profile'},
-        {title: "Logout", icon: "mdi-logout-variant", label: 'label.menu.logout'}
+        {
+          title: "View profile",
+          icon: "mdi-account-circle",
+          label: "label.menu.profile",
+        },
+        {
+          title: "Logout",
+          icon: "mdi-logout-variant",
+          label: "label.menu.logout",
+        },
       ],
       miniVariant: false,
       right: true,
       shaped: true,
       collapseOnScroll: true,
       rightDrawer: false,
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     };
   },
   created() {
@@ -231,31 +242,29 @@ export default {
       vm.sync = !vm.sync;
       await Promise.all([
         vm.$store.dispatch("getProfile"),
-        vm.$store.dispatch("getBlogPosts",'page=1'),
+        vm.$store.dispatch("getBlogPosts", "page=1"),
       ]).then(function () {
         console.log("Loading complete...");
       });
       setTimeout(() => {
         vm.sync = !vm.sync;
       }, 2000);
-    }
+    },
   },
-  beforeMount: function () {
-
-  },
+  beforeMount: function () {},
 
   computed: {
     userdata() {
       return this.$store.getters.userInfo;
-    }
-  }
+    },
+  },
 };
 </script>
 <style>
 .app {
-
   font-family: "Montserrat", sans-serif;
 }
-*{ text-transform: none !important; }
-
+* {
+  text-transform: none !important;
+}
 </style>

@@ -74,7 +74,8 @@
       "calculator": "Calculator",
       "profile": "Profile",
       "logout": "Logout",
-      "homepage": "Homepage"
+      "homepage": "Homepage",
+      "Search": "Search"
     },
     "checkbox": {
       "isactive": "Is Active"
