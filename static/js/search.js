@@ -1,4 +1,4 @@
-import searchs from "@/componets/"
+import searchs from "@/components/searchs/index"
 export default {
   components: {
     'searchs': searchs
