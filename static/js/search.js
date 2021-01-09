@@ -1,4 +1,10 @@
+
 export default {
+  components: {
+    'searchs': searchs
+  },
+
+
   data: () => ({
     search: "",
     searcheditems: []
