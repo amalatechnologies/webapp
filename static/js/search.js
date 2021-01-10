@@ -8,7 +8,13 @@ export default {
   data: () => ({
     search: "",
     searcheditems: [],
-    nameRules: [v => !!v || 'Name is required'],
+    nameRules: {
+      name: v => !!v || 'Name is required',
+      length: (len) => (v) =>
+        (v || "").length >= len ||
+        `Invalid character length, required ${len}`,
+
+    },
   }),
 
   methods: {
