@@ -7,7 +7,8 @@ export default {
 
   data: () => ({
     search: "",
-    searcheditems: []
+    searcheditems: [],
+    nameRules: [v => !!v || 'Name is required'],
   }),
 
   methods: {
@@ -15,7 +16,7 @@ export default {
       let search = "";
       search = this.search;
 
-      this.$store.dispatch("searching", search);
+      this.$store.dispatch("search", search);
     },
   },
 
