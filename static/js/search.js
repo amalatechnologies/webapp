@@ -7,6 +7,7 @@ export default {
 
   data: () => ({
     search: "",
+    show: false,
     searcheditems: [],
     nameRules: {
       name: v => !!v || 'Name is required',
@@ -27,12 +28,14 @@ export default {
   },
 
   computed: {
-    searcheditem() {
 
+    error() {
+      //  console.log(this.$store.getters.searcheditems);
+      return this.$store.getters.error;
+    },
+    searcheditem() {
       //  console.log(this.$store.getters.searcheditems);
       return this.$store.getters.getitems;
-
-
     }
   },
 };

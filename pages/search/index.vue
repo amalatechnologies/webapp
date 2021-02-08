@@ -14,15 +14,7 @@
     </v-row>
 
     <div>
-      <v-col
-        v-if="searcheditem.length !== 0"
-        wrap
-        v-for="(item, index) in searcheditem"
-        :key="index"
-      >
-        <searchs :item="item"></searchs>
-      </v-col>
-      <div v-else>No Data</div>
+      <searchs :error="error" :item="searcheditem"></searchs>
     </div>
   </div>
 </template>

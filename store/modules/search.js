@@ -1,49 +1,55 @@
 import * as mutation from './mutation-types';
 import Vue from "vue";
 const state = () => ({
+  error: '',
   search: '',
-  searcheditems: []
+  notfound: '',
+  searcheditems: ""
 });
 
-
 const mutations = {
-
-
-
-  done(state, response) {
-
-    state.searcheditems.push(response.data.results);
+  error(state, data) {
+    state.error = data;
   },
-
+  done(state, response) {
+    response == "" ? state.searcheditems = [] : state.searcheditems = response.data.results;
+  },
 
 };
 
 const actions = {
+
   async search({ commit }, payload) {
-    // commit('searching')
-    await this.$api.get(`/users/?search=${payload}`)
-      .then(response => {
-        console.log(response.data.results);
 
-        commit('done', response);
+    commit('done', "");
+    if (payload == "") {
 
-      }).catch(error => {
-
-        console.log(error);
-      });
-
-
-
+    }
+    else {
+      await this.$api.get(`/users/?search=${payload}`)
+        .then(response => {
+          if (response.data.results == "") {
+            commit("error", "Data not found.");
+            // commit('done', response);
+          } else {
+            commit("error", "");
+            commit('done', response);
+          }
+        }).catch(error => {
+          console.log(error);
+        });
+    }
   }
 };
-
 
 const getters = {
   getitems: function (state) {
     return state.searcheditems;
-  }
+  },
+  error: function (state) {
+    return state.error;
+  },
 };
-
 
 
 export default {
