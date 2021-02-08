@@ -7,7 +7,7 @@ import Repayments from "./modules/repayments";
 import BlogPosts from "./modules/m_posts";
 import Profile from "./modules/profile";
 import Comments from "./modules/m_comments";
-
+import search from "./modules/search";
 Vue.use(Vuex);
 
 const store = () => {
@@ -22,7 +22,8 @@ const store = () => {
       Repayments,
       Profile,
       BlogPosts,
-      Comments
+      Comments,
+      search
 
     }
   });

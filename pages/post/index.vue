@@ -10,7 +10,7 @@
             color="deep-purple"
             label="New Post"
             rows="1"
-            :rules="[rules.required, rules.length(20)]"
+            :rules="[rules.name, rules.length(20)]"
           ></v-textarea>
         </v-form>
         <v-card-actions>
