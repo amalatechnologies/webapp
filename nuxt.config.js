@@ -49,6 +49,13 @@ export default {
     color: '#333333',
     throttle: 0
   },
+
+  //This indicator is imported from SpinKit project https://tobiasahlin.com/spinkit/
+  loadingIndicator: {
+    name: 'rotating-plane',
+    color: ' #FFFFFF',
+    background: '#021E34'
+  },
   /*
    ** Global CSS
    */

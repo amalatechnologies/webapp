@@ -71,7 +71,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar hide-on-scroll dense fixed app>
+    <v-app-bar dense fixed flat>
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
           <img
@@ -84,14 +84,14 @@
       </v-app-bar-nav-icon>
       <v-spacer />
       <v-btn icon @click="changemode">
-        <v-icon v-if="!dark">mdi-brightness-6</v-icon>
-        <v-icon v-if="dark">mdi-brightness-5</v-icon>
+        <v-icon v-if="!dark" color="primary">mdi-brightness-6</v-icon>
+        <v-icon v-if="dark" color="primary">mdi-brightness-5</v-icon>
       </v-btn>
 
       <v-menu bottom left>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
+            <v-icon color="primary">mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
@@ -112,7 +112,7 @@
       </v-menu>
     </v-app-bar>
     <v-main>
-      <v-container class="mb-7" fluid>
+      <v-container class="mt-6" fluid>
         <nuxt />
       </v-container>
     </v-main>
