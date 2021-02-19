@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Oxygen";
+  src: local("Oxygen"), url(../fonts/oxygen/Oxygen-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Fira Sans"), url(../fonts/fira/FiraSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "ProductSans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Product Sans"), url(../fonts/productsans/ProductSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "MontSerrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("MontSerrat"), url(../fonts/motserrat/Montserrat-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), url(../fonts/roboto/Roboto-Regular.ttf) format("truetype");
+}
+
+#__nuxt .app {
+  font-family: "MontSerrat";
+}
+
+.app {
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app .mx-auto .padding {
+  padding: 2%;
+}
+
+tr .table_footer {
+  background-color: yellowgreen;
+  text-align: center;
+}
+
+.repeating-gradient {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 230, 0, 0.25), rgba(255, 0, 0, 0.25) 5px, rgba(0, 0, 255, 0.25) 5px, rgba(0, 0, 255, 0.25) 10px);
+}
+/*# sourceMappingURL=styles.css.map */
