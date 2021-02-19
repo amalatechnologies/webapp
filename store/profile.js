@@ -76,6 +76,7 @@ const getters = {
   }
 };
 export default {
+  namespaced: false,
   state,
   getters,
   mutations,

@@ -26,7 +26,7 @@ const mutations = {
 };
 
 const actions = {
-  async getSAmpleData(){
+  async getSAmpleData() {
 
   }
 
@@ -36,6 +36,7 @@ const getters = {
 
 };
 export default {
+  namespaced: false,
   state,
   getters,
   mutations,

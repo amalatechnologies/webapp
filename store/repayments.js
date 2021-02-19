@@ -12,7 +12,8 @@
  const getters = {
 
  };
- export default {
+export default {
+  namespaced: false,
    state,
    getters,
    mutations,

@@ -2,7 +2,7 @@ import * as mutation from './mutation-types';
 import Vue from "vue";
 const state = () => ({
   comments: [],
-  response:{},
+  response: {},
   comment: {},
   showLoader: Boolean,
 
@@ -14,8 +14,8 @@ const mutations = {
   },
   [mutation.GET_LIST_OF_POST_COMMENTS_SUCCESS](state, payload) {
     state.showLoader = false;
-    state.comments.length=0;
-    Vue.set(state.comments,0, payload.results);
+    state.comments.length = 0;
+    Vue.set(state.comments, 0, payload.results);
   },
   [mutation.GET_LIST_OF_POST_COMMENTS_FAILED](state) {
     state.showLoader = false;
@@ -27,7 +27,7 @@ const mutations = {
 };
 
 const actions = {
-  async getThisPostComments({commit}, payload) {
+  async getThisPostComments({ commit }, payload) {
     commit(mutation.GET_LIST_OF_POST_COMMENTS);
     await this.$api.$get(`posts/${payload}/comments/`)
       .then(response => {
@@ -42,12 +42,13 @@ const actions = {
 };
 
 const getters = {
-  comments: function (state){
+  comments: function (state) {
     return state.comments;
   }
 
 };
 export default {
+  namespaced: false,
   state,
   getters,
   mutations,
