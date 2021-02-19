@@ -1,6 +1,5 @@
 <template>
   <v-container fluid grid-list-md>
-
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
@@ -13,22 +12,22 @@
             ></v-progress-circular>
           </v-col>
           <v-col v-else-if="post !== null">
-            <v-card
-              flat
-              class="mx-auto"
-            >
+            <v-card flat class="mx-auto">
               <v-list-item>
-
-                <NuxtLink :to="'/profile/'+post.owner.id">
+                <NuxtLink :to="'/profile/' + post.owner.id">
                   <v-list-item-avatar color="grey">
-                    <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username"/>
+                    <img
+                      :src="images[Math.floor(Math.random() * images.length)]"
+                      alt="post.owner.username"
+                    />
                   </v-list-item-avatar>
                 </NuxtLink>
                 <v-list-item-content>
-                  <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
-                  <v-list-item-subtitle>By: {{ post.owner.first_name }} {{
-                      post.owner.last_name
-                    }}
+                  <v-list-item-title class="headline"
+                    >Our Changing Planet</v-list-item-title
+                  >
+                  <v-list-item-subtitle
+                    >By: {{ post.owner.first_name }} {{ post.owner.last_name }}
                   </v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
@@ -44,13 +43,24 @@
 
               <v-card-actions>
                 <v-btn text small @click.stop="likePost(post)">
-                  <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
-                  <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
-                  <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
+                  <v-icon
+                    color="success"
+                    class="mr-0 text-caption"
+                    v-if="post.is_liked_by_me"
+                    >mdi-heart</v-icon
+                  >
+                  <v-icon class="mr-0 text-caption" v-else
+                    >mdi-heart-outline</v-icon
+                  >
+                  <span class=" font-weight-light text-caption">{{
+                    post.likes_count
+                  }}</span>
                 </v-btn>
                 <v-btn text small>
                   <v-icon class="text-caption">mdi-comment</v-icon>
-                  <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
+                  <span class="font-weight-light text-caption">{{
+                    post.comments_count
+                  }}</span>
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-text-field
@@ -68,7 +78,6 @@
                   hide-details
                 />
               </v-card-actions>
-
             </v-card>
           </v-col>
           <v-col v-else></v-col>
@@ -85,24 +94,29 @@
             indeterminate
           ></v-progress-circular>
 
-          <v-list v-else-if="comments.results.length !== 0" dense two-line :key="childKey">
-            <template class="ma-0 pa-0" v-for="(item, index) in comments.results.reverse()">
+          <v-list
+            v-else-if="comments.results.length !== 0"
+            dense
+            two-line
+            :key="childKey"
+          >
+            <template
+              class="ma-0 pa-0"
+              v-for="(item, index) in comments.results.reverse()"
+            >
               <comment-tile :comment="item" :index="index"></comment-tile>
               <v-divider light inset class="my-0 py-0"></v-divider>
             </template>
           </v-list>
           <p v-else></p>
-
         </v-row>
       </v-flex>
     </v-layout>
-
   </v-container>
 </template>
 <script lang="js">
 import mixin from "@/plugins/mixins.js";
 import CommentCard from "@/components/posts/p_post_comment_tile"
-import * as mutation from "@/store/modules/mutation-types";
 
 export default {
   components: {

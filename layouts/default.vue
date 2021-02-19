@@ -1,5 +1,5 @@
 <template>
-  <v-app class="app">
+  <v-app class="app" style="background-color: #F5F5F5;">
     <v-navigation-drawer
       v-model="drawer"
       mini-variant.sync="mini"
@@ -71,7 +71,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar dense fixed flat>
+    <v-app-bar dense fixed app color="primary">
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
           <img
@@ -84,14 +84,14 @@
       </v-app-bar-nav-icon>
       <v-spacer />
       <v-btn icon @click="changemode">
-        <v-icon v-if="!dark" color="primary">mdi-brightness-6</v-icon>
-        <v-icon v-if="dark" color="primary">mdi-brightness-5</v-icon>
+        <v-icon v-if="!dark" color="white">mdi-brightness-6</v-icon>
+        <v-icon v-if="dark" color="white">mdi-brightness-5</v-icon>
       </v-btn>
 
       <v-menu bottom left>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
-            <v-icon color="primary">mdi-dots-vertical</v-icon>
+            <v-icon color="white">mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
@@ -112,7 +112,12 @@
       </v-menu>
     </v-app-bar>
     <v-main>
-      <v-container class="mt-6" fluid>
+      <v-container
+        style="background-color: #F5F5F5;"
+        class="mx-3 px-6"
+        fluid
+        mx-auto
+      >
         <nuxt />
       </v-container>
     </v-main>
@@ -277,11 +282,3 @@ export default {
   }
 };
 </script>
-<style>
-.app {
-  font-family: "Montserrat", sans-serif;
-}
-* {
-  text-transform: none !important;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-md>
+  <div>
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
@@ -41,7 +41,7 @@
         @next="getThisPage(page)"
       ></v-pagination>
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>

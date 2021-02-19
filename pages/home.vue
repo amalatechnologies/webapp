@@ -1,16 +1,12 @@
 <template>
-  <v-app class="app">
-    <v-container fluid color="primary">
-      <posts-component></posts-component>
-    </v-container>
-  </v-app>
+  <posts-component></posts-component>
 </template>
 
 <script>
-import PostsComponent from "~/components/posts/index"
+import PostsComponent from "~/components/posts/index";
 export default {
-  components:{
-    'posts-component':PostsComponent
+  components: {
+    "posts-component": PostsComponent
   },
   data() {
     return {
@@ -38,8 +34,6 @@ export default {
   },
   created: function() {
     let vm = this;
-
-  },
-
+  }
 };
 </script>
