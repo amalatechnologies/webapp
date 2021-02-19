@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <div>
     <v-data-table
       :headers="headers"
       :items="schedules"
@@ -39,7 +39,7 @@
         <p class="font-weight-bold">I.F.P : Interest Free Period</p>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 <script>
 export default {
