@@ -2,17 +2,15 @@
   <v-app class="app">
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="$vuetify.breakpoint.mdAndDown"
-      :expand-on-hover="$vuetify.breakpoint.mdAndDown"
+      mini-variant.sync="mini"
       overlay-color="primary"
-      :permanent="$vuetify.breakpoint.mdAndUp"
-      clipped
-      :absolute="$vuetify.breakpoint.mdAndUp"
-      fixed
       app
+      expand-on-hover
+      width="220"
+      height="100%"
     >
       <v-list dense subheader tile>
-        <v-list-item to="/profile">
+        <v-list-item dense to="/profile" class="list-item ma-0">
           <v-list-item-avatar>
             <v-img
               src="https://cdn4.vectorstock.com/i/1000x1000/50/68/avatar-icon-of-girl-in-a-baseball-cap-vector-16225068.jpg"
@@ -20,18 +18,31 @@
             ></v-img>
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title class="headline text-h6">{{ userdata.username }}</v-list-item-title>
-            <v-list-item-subtitle class="font-weight-light">{{ userdata.email }}</v-list-item-subtitle>
+            <v-list-item-title class="headline text-h6">{{
+              userdata.username
+            }}</v-list-item-title>
+            <v-list-item-subtitle class="font-weight-light">{{
+              userdata.email
+            }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
-          <v-list-item-avatar width="36" height="35">
-            <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title class="font-weight-light">{{ $t(item.definition) }}</v-list-item-title>
-          </v-list-item-content>
+        <v-list-item
+          class="list-item ma-0"
+          dense
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
+        >
+          <v-list-item-icon class="ml-1 mr-1">
+            <v-icon color="primary" v-text="item.icon"></v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-title class="font-weight-bold">{{
+            $t(item.definition)
+          }}</v-list-item-title>
         </v-list-item>
       </v-list>
       <template v-slot:append>
@@ -60,7 +71,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar absolute clipped-left fixed app>
+    <v-app-bar hide-on-scroll dense fixed app>
       <v-app-bar-nav-icon>
         <v-avatar size="36px">
           <img
@@ -85,11 +96,17 @@
         </template>
 
         <v-list dense>
-          <v-list-item v-for="(item, i) in actions" :key="i" @click="selectedItemAction(i)">
+          <v-list-item
+            v-for="(item, i) in actions"
+            :key="i"
+            @click="selectedItemAction(i)"
+          >
             <v-list-item-avatar width="36" height="35">
               <v-icon class="success white--text" v-text="item.icon"></v-icon>
             </v-list-item-avatar>
-            <v-list-item-title class="font-weight-light">{{ $t(item.label) }}</v-list-item-title>
+            <v-list-item-title class="font-weight-light">{{
+              $t(item.label)
+            }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -135,7 +152,7 @@ export default {
     await this.$store.dispatch("getProfile");
   },
   components: {
-    FooterComponent,
+    FooterComponent
   },
   data() {
     return {
@@ -154,7 +171,7 @@ export default {
         { locale: "English", lang: "en" },
         { locale: "Swahili", lang: "sw" },
         { locale: "French", lang: "fr" },
-        { locale: "Arabic", lang: "ar" },
+        { locale: "Arabic", lang: "ar" }
       ],
 
       items: [
@@ -164,15 +181,15 @@ export default {
           subtitle: "Go to Home Page",
           definition: "label.menu.homepage",
           to: "/home",
-          iconClass: "info darken-1 white--text",
+          iconClass: "info darken-1 white--text"
         },
         {
-          icon: "mdi-format-list-text",
+          icon: "mdi-clipboard-list",
           title: "Repayment Schedules",
           subtitle: "Repayment Schedule list",
           definition: "label.menu.repaymentchedules",
           to: "/schedule",
-          iconClass: "info darken-1 white--text",
+          iconClass: "info darken-1 white--text"
         },
         {
           icon: "mdi-calculator-variant",
@@ -180,35 +197,35 @@ export default {
           subtitle: "Repayment Schedule generator",
           definition: "label.menu.calculator",
           to: "/calculator",
-          iconClass: "info darken-1 white--text",
+          iconClass: "info darken-1 white--text"
         },
         {
-          icon: "mdi:account-search",
+          icon: "mdi-account-search",
           title: "Search",
           subtitle: "Searching",
           definition: "label.menu.Search",
           to: "/search",
-          iconClass: "info darken-1 white--text",
-        },
+          iconClass: "info darken-1 white--text"
+        }
       ],
       actions: [
         {
           title: "View profile",
           icon: "mdi-account-circle",
-          label: "label.menu.profile",
+          label: "label.menu.profile"
         },
         {
           title: "Logout",
           icon: "mdi-logout-variant",
-          label: "label.menu.logout",
-        },
+          label: "label.menu.logout"
+        }
       ],
       miniVariant: false,
       right: true,
       shaped: true,
       collapseOnScroll: true,
       rightDrawer: false,
-      year: new Date().getFullYear(),
+      year: new Date().getFullYear()
     };
   },
   created() {
@@ -216,7 +233,7 @@ export default {
   },
 
   methods: {
-    selectedItemAction: function (item) {
+    selectedItemAction: function(item) {
       switch (item) {
         case 0:
           this.$router.push("/profile");
@@ -233,31 +250,31 @@ export default {
       // This makes it so the correct locale file is used
       this.$i18n.locale = lang;
     },
-    changemode: function () {
+    changemode: function() {
       this.dark = !this.dark;
       this.$vuetify.theme.dark = this.dark;
     },
-    syncro: async function () {
+    syncro: async function() {
       const vm = this;
       vm.sync = !vm.sync;
       await Promise.all([
         vm.$store.dispatch("getProfile"),
-        vm.$store.dispatch("getBlogPosts", "page=1"),
-      ]).then(function () {
+        vm.$store.dispatch("getBlogPosts", "page=1")
+      ]).then(function() {
         console.log("Loading complete...");
       });
       setTimeout(() => {
         vm.sync = !vm.sync;
       }, 2000);
-    },
+    }
   },
-  beforeMount: function () {},
+  beforeMount: function() {},
 
   computed: {
     userdata() {
       return this.$store.getters.userInfo;
-    },
-  },
+    }
+  }
 };
 </script>
 <style>
