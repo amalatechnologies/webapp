@@ -2,7 +2,7 @@
   <v-data-table
     :headers="headers"
     :items="repayments"
-    :items-per-page="5"
+    :items-per-page="15"
     :search="search"
     class="elevation-0"
     :dense="dense"
@@ -13,12 +13,7 @@
   >
     <template v-slot:top>
       <v-row no-gutters>
-        <v-col cols="6" sm="6">
-          <v-switch v-model="dense" label="Dense" class="pa-1"></v-switch>
-        </v-col>
-        <v-col cols="6" sm="6">
-          <v-switch v-model="dark" label="Dark" class="pa-1"></v-switch>
-        </v-col>
+        <h3 class="font-weight-black">Repayment schedule</h3>
       </v-row>
     </template>
     <template v-slot:body.append v-if="$vuetify.breakpoint.smAndUp">
@@ -26,15 +21,15 @@
         <td>Total#</td>
         <td></td>
         <td>
-          <p class="font-weight-black">{{amount}}</p>
+          <p class="font-weight-black">{{ amount }}</p>
         </td>
         <td></td>
         <td>
-          <p class="font-weight-black">{{ttInterest}}</p>
+          <p class="font-weight-black">{{ ttInterest }}</p>
         </td>
         <td></td>
         <td>
-          <p class="font-weight-black">{{ttBalance}}</p>
+          <p class="font-weight-black">{{ ttBalance }}</p>
         </td>
       </tr>
     </template>

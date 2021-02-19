@@ -15,7 +15,7 @@ export default {
       search: "",
       valid: true,
       title: "Home",
-      dense: false,
+      dense: true,
       dark: false,
       advanced: false,
       method: {},
@@ -26,43 +26,43 @@ export default {
 
       datarequired: true,
       headers: [{
-          text: "Day",
-          align: "left",
-          sortable: false,
-          value: "days"
-        },
-        {
-          text: "Paid Date",
-          value: "paiddate"
-        },
-        {
-          text: "Principal",
-          value: "loanamount"
-        },
-        {
-          text: "Principal due",
-          value: "principaldue"
-        },
-        {
-          text: "Interest",
-          value: "interest",
-          filterable: false
-        },
+        text: "Day",
+        align: "left",
+        sortable: false,
+        value: "days"
+      },
+      {
+        text: "Paid Date",
+        value: "paiddate"
+      },
+      {
+        text: "Principal",
+        value: "loanamount"
+      },
+      {
+        text: "Principal due",
+        value: "principaldue"
+      },
+      {
+        text: "Interest",
+        value: "interest",
+        filterable: false
+      },
 
-        {
-          text: "Interrest",
-          value: "interrest",
-          filterable: false
-        },
-        {
-          text: "Loan Balance",
-          value: "loanbalance"
-        },
-        {
-          text: "Total",
-          value: "total",
-          filterable: false
-        }
+      {
+        text: "Interrest",
+        value: "interrest",
+        filterable: false
+      },
+      {
+        text: "Loan Balance",
+        value: "loanbalance"
+      },
+      {
+        text: "Total",
+        value: "total",
+        filterable: false
+      }
       ],
 
     };
@@ -95,9 +95,9 @@ export default {
 
           item.days = 1 + i;
           item.paiddate = this.getNextWeekDay(
-              (i + 1) *
-              parseInt(this.getTermsValue(data.repaid_every_unit)) * parseInt(data.repaid_every)
-            )
+            (i + 1) *
+            parseInt(this.getTermsValue(data.repaid_every_unit)) * parseInt(data.repaid_every)
+          )
             .toLocaleString()
             .split(" ")[0];
           item.principaldue =
