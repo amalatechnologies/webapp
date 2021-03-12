@@ -18,7 +18,7 @@
     "fibers": "^5.0.0",
     "moment": "^2.27.0",
     "nuxt": "^2.15.3",
-    "vue-i18n": "^8.23.0"
+    "vue-i18n": "^8.24.1"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3",
