@@ -1,6 +1,6 @@
 const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/';
 export default {
-  mode: 'spa',
+  ssr: false,
   router: {
     base: routerBase,
     routerNameSplitter: '/',
