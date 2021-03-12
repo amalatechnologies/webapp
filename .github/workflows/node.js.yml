@@ -22,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,11 +32,11 @@ jobs:
       uses: actions/setup-node@v1
       with: 
         node-version: ${{ matrix.node-version }}
-        
-    - name: Install npm modules
-      run: npm install 
-    - run: npm ci
-    - run: npm run deploy --if-present
+
+    - run: npm cache verify
+    - run: rm -rf node_modules package-lock.json 
+    - run: npm i --save
+    - run: npm run deploy
     - run: npm test
     - name: Deploy to gihub pages 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
