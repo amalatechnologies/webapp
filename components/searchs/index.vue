@@ -10,29 +10,15 @@
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-left" id="name">
-              Name
-            </th>
-            <th class="text-left" id="name">
-              Phone
-            </th>
-            <th class="text-left" id="email">
-              Email
-            </th>
-            <th class="text-left" id="role">
-              Role
-            </th>
-            <th class="text-left" id="joindate">
-              Joined
-            </th>
+            <th class="text-left" id="name">Name</th>
+            <th class="text-left" id="name">Phone</th>
+            <th class="text-left" id="email">Email</th>
+            <th class="text-left" id="role">Role</th>
+            <th class="text-left" id="joindate">Joined</th>
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="(item, index) in item"
-            :key="index"
-            @click="viewuser(item)"
-          >
+          <tr v-for="(item, index) in item" :key="index" @click="viewuser(item)">
             <td>{{ item.first_name }}&nbsp;{{ item.last_name }}</td>
             <td>{{ item.phone }}</td>
             <td>{{ item.email }}</td>
@@ -47,11 +33,11 @@
 </template>
 <script>
 export default {
-  props: ["item", "error"],
+  props: { item: Array, error: String },
   methods: {
     viewuser(item) {
       this.$router.push(`/search/${item.id}`);
-    }
-  }
+    },
+  },
 };
 </script>
