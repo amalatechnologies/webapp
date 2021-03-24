@@ -27,7 +27,6 @@
             color="deep-purple accent-4"
             depressed
             @click.stop="createNewPost()"
-            to="/home"
           >{{ $t('label.button.btnsubmit')}}</v-btn>
         </v-card-actions>
       </v-card>
@@ -58,9 +57,13 @@ export default {
   },
   methods: {
     createNewPost() {
-      this.$store.dispatch("postNewBlogPosts", {
+      console.log(this.text_content);
+      this.$store.dispatch("new_post", {
         text_content: this.text_content,
-      });
+      }).then(()=>{
+        this.$router.push("/home");
+      })
+      
     },
   },
 };

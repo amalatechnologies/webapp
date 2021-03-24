@@ -35,7 +35,6 @@ const mutations = {
     state.showLoader = false;
     if (payload.id != null) {
       state.post = payload;
-      state.posts.push(payload);
       this.$router.push('/post/' + payload.id);
     }
   },
@@ -122,7 +121,7 @@ const actions = {
 
       });
   },
-  async postNewBlogPosts({commit}, payload) {
+  async new_post({commit}, payload) {
     commit(mutation.POST_NEW_BLOG_CONTENT);
     await this.$api.$post(`posts/`, payload)
       .then(response => {
