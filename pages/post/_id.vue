@@ -4,12 +4,7 @@
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
         <v-row>
           <v-col align="center" v-if="post === null">
-            <v-progress-circular
-              :width="2"
-              color="primary"
-              size="20"
-              indeterminate
-            ></v-progress-circular>
+            <v-progress-circular :width="2" color="primary" size="20" indeterminate></v-progress-circular>
           </v-col>
           <v-col v-else-if="post !== null">
             <v-card flat class="mx-auto">
@@ -23,23 +18,14 @@
                   </v-list-item-avatar>
                 </NuxtLink>
                 <v-list-item-content>
-                  <v-list-item-title class="headline"
-                    >Our Changing Planet</v-list-item-title
-                  >
-                  <v-list-item-subtitle
-                    >By: {{ post.owner.first_name }} {{ post.owner.last_name }}
-                  </v-list-item-subtitle>
+                  <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
+                  <v-list-item-subtitle>By: {{ post.owner.first_name }} {{ post.owner.last_name }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
 
-              <v-img
-                :src="images[Math.floor(Math.random() * images.length)]"
-                height="194"
-              ></v-img>
+              <v-img :src="images[Math.floor(Math.random() * images.length)]" height="194"></v-img>
 
-              <v-card-text>
-                {{ post.text_content }}
-              </v-card-text>
+              <v-card-text>{{ post.text_content }}</v-card-text>
 
               <v-card-actions>
                 <v-btn text small @click.stop="likePost(post)">
@@ -47,20 +33,21 @@
                     color="success"
                     class="mr-0 text-caption"
                     v-if="post.is_liked_by_me"
-                    >mdi-heart</v-icon
-                  >
-                  <v-icon class="mr-0 text-caption" v-else
-                    >mdi-heart-outline</v-icon
-                  >
-                  <span class=" font-weight-light text-caption">{{
+                  >mdi-heart</v-icon>
+                  <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
+                  <span class="font-weight-light text-caption">
+                    {{
                     post.likes_count
-                  }}</span>
+                    }}
+                  </span>
                 </v-btn>
                 <v-btn text small>
                   <v-icon class="text-caption">mdi-comment</v-icon>
-                  <span class="font-weight-light text-caption">{{
+                  <span class="font-weight-light text-caption">
+                    {{
                     post.comments_count
-                  }}</span>
+                    }}
+                  </span>
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-text-field
@@ -94,16 +81,8 @@
             indeterminate
           ></v-progress-circular>
 
-          <v-list
-            v-else-if="comments.results.length !== 0"
-            dense
-            two-line
-            :key="childKey"
-          >
-            <template
-              class="ma-0 pa-0"
-              v-for="(item, index) in comments.results.reverse()"
-            >
+          <v-list v-else-if="comments.results.length !== 0" dense two-line :key="childKey">
+            <template class="ma-0 pa-0" v-for="(item, index) in comments.results.reverse()">
               <comment-tile :comment="item" :index="index"></comment-tile>
               <v-divider light inset class="my-0 py-0"></v-divider>
             </template>
