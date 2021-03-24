@@ -4,8 +4,7 @@
       class="white--text align-end"
       height="200px"
       :src="images[Math.floor(Math.random() * images.length)]"
-    >
-    </v-img>
+    ></v-img>
 
     <v-card-subtitle class="ma-0 pa-0">
       <NuxtLink :to="'/post/' + post.id" v-show="post.type === 'comment'">
@@ -13,13 +12,7 @@
           <v-list-item dense class="ml-1 pa-0">
             <v-list-item-content class="ma-0 pa-0">
               <v-list-item-title ma-0 pa-0>
-                <v-btn
-                  x-small
-                  rounded
-                  depressed
-                  color="primary"
-                  class="mb-1 ps-0"
-                >
+                <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0">
                   <v-avatar size="20px">
                     <img
                       :src="images[Math.floor(Math.random() * images.length)]"
@@ -28,13 +21,15 @@
                   </v-avatar>
                   &nbsp;
                   {{ post.owner.first_name }}&nbsp;{{
-                    post.owner.last_name
+                  post.owner.last_name
                   }}
-                  replied</v-btn
-                >&nbsp;
-                <span class="font-weight-light text-caption" caption>{{
+                  replied
+                </v-btn>&nbsp;
+                <span class="font-weight-light text-caption" caption>
+                  {{
                   post.created_at | DateFormat
-                }}</span>
+                  }}
+                </span>
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -61,7 +56,7 @@
               <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
             </v-btn>
           </v-row>
-          </v-row>-->
+      </v-row>-->
     </v-card-subtitle>
     <!--<v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>-->
     <v-card-text class="text--primary ma-0 mt-2 py-0">
@@ -75,48 +70,37 @@
       <v-list-item dense>
         <NuxtLink :to="'/profile/' + post.owner.id">
           <v-list-item-avatar color="grey" v-show="post.type === 'post'">
-            <img
-              :src="images[Math.floor(Math.random() * images.length)]"
-              alt="post.owner.username"
-            />
+            <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username" />
           </v-list-item-avatar>
         </NuxtLink>
         <v-list-item-content v-show="post.type === 'post'">
-          <v-list-item-title class="subhead text-caption"
-            >{{ post.owner.first_name }}
-            {{ post.owner.last_name }}</v-list-item-title
-          >
-          <v-list-item-subtitle class="font-weight-medium text-caption"
-            >{{ post.created_at | DateFormat }}
-          </v-list-item-subtitle>
+          <v-list-item-title class="subhead text-caption">
+            {{ post.owner.first_name }}
+            {{ post.owner.last_name }}
+          </v-list-item-title>
+          <v-list-item-subtitle
+            class="font-weight-medium text-caption"
+          >{{ post.created_at | DateFormat }}</v-list-item-subtitle>
         </v-list-item-content>
         <v-row no-gutters>
           <v-row align="center" justify="end">
             <v-btn text x-small @click.stop="likePost(post)">
-              <v-icon
-                color="success"
-                class="mr-0 text-caption"
-                v-if="post.is_liked_by_me"
-                >mdi-heart</v-icon
-              >
-              <v-icon class="mr-0 text-caption" v-else
-                >mdi-heart-outline</v-icon
-              >
-              <span class=" font-weight-light text-caption">{{
+              <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
+              <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
+              <span class="font-weight-light text-caption">
+                {{
                 post.likes_count
-              }}</span>
+                }}
+              </span>
             </v-btn>
             <span class="mr-1">·</span>
-            <v-btn
-              text
-              x-small
-              :to="'/post/' + post.id"
-              @click.stop="commentPost(post.id)"
-            >
-              <v-icon class=" text-caption">mdi-comment</v-icon>
-              <span class="font-weight-light text-caption">{{
+            <v-btn text x-small :to="'/post/' + post.id" @click.stop="commentPost(post.id)">
+              <v-icon class="text-caption">mdi-comment</v-icon>
+              <span class="font-weight-light text-caption">
+                {{
                 post.comments_count
-              }}</span>
+                }}
+              </span>
             </v-btn>
           </v-row>
         </v-row>
@@ -129,7 +113,7 @@
 import mixin from "@/plugins/mixins.js";
 export default {
   mixins:[mixin],
-  props: ["post"],
+  props: {post:Object},
   data: () => ({
     view: false,
     images:[

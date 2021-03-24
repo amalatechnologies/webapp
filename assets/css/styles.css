@@ -49,7 +49,7 @@ th {
 }
 
 #__nuxt .app {
-  font-family: "MontSerrat";
+  font-family: "Oxygen";
 }
 
 .app {
@@ -70,5 +70,17 @@ tr .table_footer {
 
 .repeating-gradient {
   background-image: repeating-linear-gradient(-45deg, rgba(255, 230, 0, 0.25), rgba(255, 0, 0, 0.25) 5px, rgba(0, 0, 255, 0.25) 5px, rgba(0, 0, 255, 0.25) 10px);
+}
+
+body {
+  background-color: #fafafa;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(63, 203, 98, 0);
+  box-shadow: inset 0 0 0 1000px rgba(63, 203, 98, 0);
+  zoom: 75%;
 }
 /*# sourceMappingURL=styles.css.map */

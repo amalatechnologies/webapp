@@ -1,5 +1,6 @@
 const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/';
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   router: {
     base: routerBase,
@@ -8,12 +9,8 @@ export default {
   env: {
     developmentUrl: process.env.BASE_URL || 'https://kopasmart.herokuapp.com/api/',
     releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
-    // developmentUrl: process.env.BASE_URL || 'http://127.0.0.1:8000/',
-    //releaseUrl: process.env.LIVE_URL || 'http://127.0.0.1:8000/'
   },
-  /*
-   ** Headers of the page
-   */
+
   head: {
     titleTemplate: 'Kopasmart',
     title: process.env.npm_package_name || '',
@@ -41,9 +38,7 @@ export default {
     }
     ]
   },
-  /*
-   ** Customize the progress-bar color
-   */
+
   loading: {
     color: '#333333',
     throttle: 0
@@ -55,19 +50,13 @@ export default {
     color: ' #FFFFFF',
     background: '#021E34'
   },
-  /*
-   ** Global CSS
-   */
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // Load a Node.js module directly (here it's a Sass file)
     'bulma',
-    // CSS file in the project
     '@/assets/css/styles.css'
   ],
-  /*
-   ** Plugins to load before mounting the App
-   ** Added Vuetify as plugin
-   */
+
   plugins: [
     "~/plugins/i18n.js",
     '@plugins/vuetify.js',
@@ -77,28 +66,27 @@ export default {
     '~/plugins/moment.js',
     { src: '~plugins/ga.js', mode: 'client' }
   ],
-  /*
-   ** Nuxt.js dev-modules
-   */
+
+  components: true,
+
   buildModules: [
     '@nuxtjs/vuetify',
   ],
-  /*
-   ** Nuxt.js modules
-   */
+
   modules: [
-    '@nuxtjs/bulma',
+   '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/axios'
   ],
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
 
-  /*
-   ** Build configuration
-   */
+  axios: {},
+
+  pwa: {
+    manifest: {
+      lang: 'en'
+    }
+  },
+
   build: {
     /*
      ** You can extend webpack config here
@@ -125,11 +113,8 @@ export default {
       iconSrc: '/static/icon.png'
     }
   },
-  axios: {
-    //proxyHeaders: false
-  },
   server: {
     port: 8000, // default: 3000
     host: '0.0.0.0', // default: localhost
   },
-};
+}

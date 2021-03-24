@@ -83,8 +83,13 @@
 
           <v-list v-else-if="comments.results.length !== 0" dense two-line :key="childKey">
             <template class="ma-0 pa-0" v-for="(item, index) in comments.results.reverse()">
+<<<<<<< HEAD
               <comment-tile :comment="item" :index="index"></comment-tile>
               <v-divider light inset class="my-0 py-0"></v-divider>
+=======
+              <comment-tile :comment="item" :index="index" :key="index"></comment-tile>
+              <v-divider light inset class="my-0 py-0" :key="index"></v-divider>
+>>>>>>> eb426216191a52b6e051ad62a6006e366add9ca9
             </template>
           </v-list>
           <p v-else></p>

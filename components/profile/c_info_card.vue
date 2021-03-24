@@ -15,11 +15,7 @@
                   max-height="400"
                 >
                   <template v-slot:placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
-                    >
+                    <v-row class="fill-height ma-0" align="center" justify="center">
                       <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                     </v-row>
                   </template>
@@ -28,9 +24,7 @@
                   {{ userdata.username }}
                   <v-icon color="primary" size="20" v-show="userdata.is_active">mdi-check-decagram</v-icon>
                 </v-card-title>
-                <v-card-subtitle>
-                  {{ userdata.role }}
-                </v-card-subtitle>
+                <v-card-subtitle>{{ userdata.role }}</v-card-subtitle>
               </v-card>
             </v-flex>
 
@@ -55,19 +49,19 @@
               <v-type-divider type="Skills"></v-type-divider>
             </v-flex>
             <v-flex xs12 md12>
-              <span class="text-caption font-weight-medium ">UI/UX</span>
+              <span class="text-caption font-weight-medium">UI/UX</span>
             </v-flex>
             <v-flex xs12 md12>
-              <span class="text-caption font-weight-medium ">Branding</span>
+              <span class="text-caption font-weight-medium">Branding</span>
             </v-flex>
             <v-flex xs12 md12>
-              <h6 class="text-caption font-weight-medium ">Web - Design</h6>
+              <h6 class="text-caption font-weight-medium">Web - Design</h6>
             </v-flex>
             <v-flex xs12 md12>
-              <span class="text-caption font-weight-medium ">Packaging</span>
+              <span class="text-caption font-weight-medium">Packaging</span>
             </v-flex>
             <v-flex xs12 md12>
-              <span class="text-caption font-weight-medium ">Print & Editorial</span>
+              <span class="text-caption font-weight-medium">Print & Editorial</span>
             </v-flex>
           </v-layout>
         </v-container>
@@ -84,45 +78,59 @@
                         <v-list-item-title>
                           <v-row>
                             <v-col>
-                              <span class="font-weight-bold text-h5"> {{
-                                  userdata.first_name
-                                }}&nbsp; {{ userdata.last_name }}</span>
+                              <span class="font-weight-bold text-h5">
+                                {{
+                                userdata.first_name
+                                }}&nbsp; {{ userdata.last_name }}
+                              </span>
                             </v-col>
                             <v-col>
-                              <span class="font-weight-light text-caption"><v-icon>mdi-map-marker</v-icon>New York, NY</span>
+                              <span class="font-weight-light text-caption">
+                                <v-icon>mdi-map-marker</v-icon>New York, NY
+                              </span>
                             </v-col>
                           </v-row>
                         </v-list-item-title>
-                        <v-list-item-subtitle class="primary--text text-caption font-weight-medium"> {{ userdata.role }}
-                        </v-list-item-subtitle>
+                        <v-list-item-subtitle
+                          class="primary--text text-caption font-weight-medium"
+                        >{{ userdata.role }}</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
-                    <v-list-item v-if="userdata !== undefined" two-line inactive :ripple="false" class="mt-8">
+                    <v-list-item
+                      v-if="userdata !== undefined"
+                      two-line
+                      inactive
+                      :ripple="false"
+                      class="mt-8"
+                    >
                       <v-list-item-content>
-                        <v-list-item-subtitle class="text-overline">
-                          Rankings
-                        </v-list-item-subtitle>
+                        <v-list-item-subtitle class="text-overline">Rankings</v-list-item-subtitle>
                         <v-list-item-title v-if="userdata.lender_profile">
                           <v-row align="center" justify="start">
                             <v-col cols="2" v-if="userdata.lender_profile">
-                              <span class="font-weight-bold text-h5">
-                                {{ userdata.lender_profile.raters_count }}
-                              </span>
+                              <span
+                                class="font-weight-bold text-h5"
+                              >{{ userdata.lender_profile.raters_count }}</span>
                             </v-col>
                             <v-col cols="4">
-                              <v-rating half-increments
-                                        :full-icon="fullIcon"
-                                        :half-icon="halfIcon"
-                                        :empty-icon="emptyIcon"
-                                        background-color="primary"
-                                        v-model="rating"
-                                        @input="rate = true"
-                                        :value="parseInt(userdata.lender_profile.rtotal_rating_score)"></v-rating>
+                              <v-rating
+                                half-increments
+                                :full-icon="fullIcon"
+                                :half-icon="halfIcon"
+                                :empty-icon="emptyIcon"
+                                background-color="primary"
+                                v-model="rating"
+                                @input="rate = true"
+                                :value="parseInt(userdata.lender_profile.rtotal_rating_score)"
+                              ></v-rating>
                             </v-col>
                             <v-col sm="1" v-show="userdata.is_lender">
-                              <v-btn x-small color="primary" v-show="rate" @click.stop="rateThisPersonLanderProfile()">
-                                Rate
-                              </v-btn>
+                              <v-btn
+                                x-small
+                                color="primary"
+                                v-show="rate"
+                                @click.stop="rateThisPersonLanderProfile()"
+                              >Rate</v-btn>
                             </v-col>
                           </v-row>
                         </v-list-item-title>
@@ -131,13 +139,12 @@
                     <v-list-item inactive :ripple="false">
                       <v-container fluid>
                         <v-row no-gutters>
-                          <v-col class="font-weight-bold text-overline primary--text">
-                            {{ userdata.follows_count }} followers
-                          </v-col>
-                          <v-col class="font-weight-bold text-overline primary--text">
-                            {{ userdata.following_count }} follows
-                          </v-col>
-
+                          <v-col
+                            class="font-weight-bold text-overline primary--text"
+                          >{{ userdata.follows_count }} followers</v-col>
+                          <v-col
+                            class="font-weight-bold text-overline primary--text"
+                          >{{ userdata.following_count }} follows</v-col>
                         </v-row>
                       </v-container>
                     </v-list-item>
@@ -146,12 +153,25 @@
                         <v-container fluid>
                           <v-row no-gutters>
                             <v-col xs="12" md="3" class="ma-1">
-                              <v-btn v-if="userdata.is_following_me" @click.stop="unfollowThisPerson" small rounded
-                                     cols="auto" color="primary" block>Following
-                              </v-btn>
-                              <v-btn v-else small rounded outlined cols="auto" @click.stop="followThisPerson"
-                                     color="primary" block>Follow
-                              </v-btn>
+                              <v-btn
+                                v-if="userdata.is_following_me"
+                                @click.stop="unfollowThisPerson"
+                                small
+                                rounded
+                                cols="auto"
+                                color="primary"
+                                block
+                              >Following</v-btn>
+                              <v-btn
+                                v-else
+                                small
+                                rounded
+                                outlined
+                                cols="auto"
+                                @click.stop="followThisPerson"
+                                color="primary"
+                                block
+                              >Follow</v-btn>
                             </v-col>
                             <v-col sm="12" md="3" class="ma-1">
                               <v-btn small cols="auto" block>
@@ -159,44 +179,46 @@
                               </v-btn>
                             </v-col>
                             <v-col sm="12" md="3" class="ma-1">
-                              <v-btn small text outlined color="primary" class="font-weight-normal" cols="auto" block>
+                              <v-btn
+                                small
+                                text
+                                outlined
+                                color="primary"
+                                class="font-weight-normal"
+                                cols="auto"
+                                block
+                              >
                                 <v-icon small>mdi-bug</v-icon>&nbsp;Report User
                               </v-btn>
                             </v-col>
                           </v-row>
                         </v-container>
-
                       </v-list-item-content>
                     </v-list-item>
                     <v-list-item inactive class="ma-0 pa-0" :ripple="false">
                       <v-list-item-content class="ma-0 pa-0">
-                        <v-tabs
-                          right
-                          grow
-                          center-active
-                          class="elevation-2"
-                        >
+                        <v-tabs right grow center-active class="elevation-2">
                           <v-tab class="font-weight-light">
-                            <span><v-icon small left>mdi-eye</v-icon>Timeline</span>
+                            <span>
+                              <v-icon small left>mdi-eye</v-icon>Timeline
+                            </span>
                           </v-tab>
                           <v-tab class="font-weight-light">
-                            <span><v-icon small left>mdi-account</v-icon>About</span>
+                            <span>
+                              <v-icon small left>mdi-account</v-icon>About
+                            </span>
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisUserPosts()">
-                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>
-                            Posts
+                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>Posts
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisUserComments()">
-                            <v-icon small left>mdi-chat</v-icon>
-                            Comments
+                            <v-icon small left>mdi-chat</v-icon>Comments
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisPersonFollowers">
-                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>
-                            Followers
+                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>Followers
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisPersonFollowings()">
-                            <v-icon small left>mdi-chat</v-icon>
-                            Followings
+                            <v-icon small left>mdi-chat</v-icon>Followings
                           </v-tab>
 
                           <v-tab-item>
@@ -229,18 +251,24 @@
                           </v-tab-item>
                           <v-tab-item>
                             <v-row>
-
                               <v-col align="center" v-if="posts === null">
                                 <v-progress-circular
-
                                   :width="2"
                                   color="primary"
                                   size="20"
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="posts.results.length !== 0" cols="12" lg="6" md="6" sm="12" wrap
-                                     v-for="(post, index) in posts.results" :key="index">
+                              <v-col
+                                v-else-if="posts.results.length !== 0"
+                                cols="12"
+                                lg="6"
+                                md="6"
+                                sm="12"
+                                wrap
+                                v-for="(post, index) in posts.results"
+                                :key="index"
+                              >
                                 <post-card :post="post"></post-card>
                               </v-col>
                               <p v-else></p>
@@ -250,15 +278,22 @@
                             <v-row>
                               <v-col align="center" v-if="comments === null">
                                 <v-progress-circular
-
                                   :width="2"
                                   color="primary"
                                   size="20"
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="comments.results.length !== 0" cols="12" lg="6" md="6" sm="12" wrap
-                                     v-for="(comment, index) in comments.results" :key="index">
+                              <v-col
+                                v-else-if="comments.results.length !== 0"
+                                cols="12"
+                                lg="6"
+                                md="6"
+                                sm="12"
+                                wrap
+                                v-for="(comment, index) in comments.results"
+                                :key="index"
+                              >
                                 <post-card :post="comment"></post-card>
                               </v-col>
                               <p v-else></p>
@@ -268,15 +303,22 @@
                             <v-row>
                               <v-col align="center" v-if="followers === null">
                                 <v-progress-circular
-
                                   :width="2"
                                   color="primary"
                                   size="20"
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="followers.results.length !== 0" cols="12" lg="6" md="6" sm="12" wrap
-                                     v-for="(follower, index) in followers.results" :key="index">
+                              <v-col
+                                v-else-if="followers.results.length !== 0"
+                                cols="12"
+                                lg="6"
+                                md="6"
+                                sm="12"
+                                wrap
+                                v-for="(follower, index) in followers.results"
+                                :key="index"
+                              >
                                 <v-follows :follow="follower"></v-follows>
                               </v-col>
                               <p v-else></p>
@@ -286,37 +328,36 @@
                             <v-row>
                               <v-col align="center" v-if="followings === null">
                                 <v-progress-circular
-
                                   :width="2"
                                   color="primary"
                                   size="20"
                                   indeterminate
                                 ></v-progress-circular>
                               </v-col>
-                              <v-col v-else-if="followings.results.length !== 0" sm="12" wrap
-                                     v-for="(follow, index) in followings.results" :key="index">
+                              <v-col
+                                v-else-if="followings.results.length !== 0"
+                                sm="12"
+                                wrap
+                                v-for="(follow, index) in followings.results"
+                                :key="index"
+                              >
                                 <v-follows :follow="follow"></v-follows>
                               </v-col>
                               <p v-else></p>
                             </v-row>
                           </v-tab-item>
                         </v-tabs>
-
                       </v-list-item-content>
-
                     </v-list-item>
                   </v-list-item-group>
                 </v-list>
               </v-flex>
-
-
             </v-layout>
           </v-container>
         </v-card>
       </v-flex>
     </v-layout>
   </v-container>
-
 </template>
 <script lang="js">
 import c_type_divider from "@/components/profile/c_type_divider";
@@ -325,7 +366,7 @@ import postCard from "@/components/posts/p_post_card"
 import c_follows from "@/components/follows/c_follows";
 
 export default {
-  props: ["userdata"],
+  props: {userdata:Object},
   components: {
     'post-card': postCard,
     'v-type-divider': c_type_divider,
@@ -465,7 +506,7 @@ export default {
 </script>
 <style>
 .basil {
-  background-color: #FFFBE6 !important;
+  background-color: #fffbe6 !important;
 }
 
 .basil--text {

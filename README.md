@@ -1,12 +1,10 @@
-# Kopasmart [![Build Status](https://travis-ci.com/finspointa/kopasmart-webapp.svg?branch=master)](https://travis-ci.com/finspointa/kopasmart-webapp) ![Auto Assign to Project(s)](https://github.com/finspointa/kopasmart-webapp/workflows/Auto%20Assign%20to%20Project(s)/badge.svg)
-
-> Kopasmart Web Application
+# Kopasmart
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
-$ npm run install
+$ npm install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
