@@ -6,11 +6,13 @@
 
     <v-list-item-content>
       <v-list-item-subtitle>
-        <span class='text--primary font-weight-bold'>{{comment.owner.first_name }}&nbsp;{{ comment.owner.last_name }}</span> &mdash;
-        <span  class="text--caption font-weight-light">{{comment.created_at  | DateFormat }}</span>
+        <span
+          class="text--primary font-weight-bold"
+        >{{comment.owner.first_name }}&nbsp;{{ comment.owner.last_name }}</span> &mdash;
+        <span class="text--caption font-weight-light">{{comment.created_at | DateFormat }}</span>
       </v-list-item-subtitle>
       <v-list-item-subtitle>
-        <p  class="body-2 text-caption">{{ comment.text_content }}</p>
+        <p class="body-2 text-caption">{{ comment.text_content }}</p>
       </v-list-item-subtitle>
     </v-list-item-content>
   </v-list-item>
@@ -18,11 +20,13 @@
 
 <script>
 export default {
-  props: ['comment', 'index'],
-  name: "p_post_comment_tile.vue"
-}
+  props: {
+    comment: Object,
+    index: Number,
+  },
+  name: "p_post_comment_tile.vue",
+};
 </script>
 
 <style scoped>
-
 </style>
