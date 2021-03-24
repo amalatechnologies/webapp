@@ -36,11 +36,10 @@
           router
           exact
         >
-          <v-list-item-icon class="ml-1 mr-1">
-            <v-icon color="primary" v-text="item.icon"></v-icon>
-          </v-list-item-icon>
+         
 
-          <v-list-item-title class="font-weight-bold">{{
+          <v-list-item-title >
+              <v-icon color="primary" v-text="item.icon" small></v-icon>&nbsp;&nbsp;{{
             $t(item.definition)
           }}</v-list-item-title>
         </v-list-item>
@@ -72,15 +71,8 @@
     </v-navigation-drawer>
 
     <v-app-bar dense fixed app color="primary">
-      <v-app-bar-nav-icon>
-        <v-avatar size="36px">
-          <img
-            class="mx-1"
-            :src="require('~/assets/images/icon.png')"
-            alt="Kopasmart"
-            @click.stop="drawer = !drawer"
-          />
-        </v-avatar>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" dark>
+      
       </v-app-bar-nav-icon>
       <v-spacer />
       <v-btn icon @click="changemode">
