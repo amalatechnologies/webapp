@@ -2,7 +2,7 @@
   "name": "kopasmart",
   "version": "1.0.0",
   "description": "Kopasmart Web Application",
-  "author": "=elirehema",
+  "author": "elirehema",
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=dev nuxt",
