@@ -92,6 +92,6 @@
 </template>
 <script>
 export default {
-  props: ["FooterData", "ChapterDetails"]
+  props: { FooterData: Object, ChapterDetails: Object },
 };
 </script>
