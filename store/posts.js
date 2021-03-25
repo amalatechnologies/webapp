@@ -14,11 +14,7 @@ const mutations = {
   },
   [mutation.GET_BLOG_POSTS_SUCCESS](state, payload) {
     state.showLoader = false;
-    if (payload != null) {
-      state.posts.length = 0;
-      state.posts = payload;
-    }
-
+    state.posts = payload;
   },
   [mutation.GET_BLOG_POSTS_FAILED](state) {
     state.showLoader = false;
