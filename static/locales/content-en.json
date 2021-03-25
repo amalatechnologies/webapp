@@ -50,8 +50,17 @@
       "Repayments":"Repayments", 
       "Loan Term":"Loan Term",
       "Method":"Method",
-      "Interest":"Interest"
-      
+      "Interest":"Interest",
+      "Repayment Schedule Name":"Repayment Schedule Name",
+      "Day":"Day",
+      "Principal due":"Malipo kuu",
+      "Paid Date":"Paid Date",
+      "Principal":"Principal",
+      "Interrest":"interrest",
+      "Loan Balance":"Loan Balance",
+      "Total":"Total",
+      "Search":"Search"
+
     },
     "button": {
       "btncontactus": "Contact Us",
@@ -72,7 +81,11 @@
       "btnFollow": "Follow",
       "btnupdateprofile": "updateprofile",
       "btnsubmit": "Submit",
-      "btnSearch": "Search"
+      "btnSearch": "Search",
+      "btnSave": "Save",
+      "btnNo": "No"
+
+
 
     },
     "message": {
