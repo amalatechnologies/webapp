@@ -114,7 +114,7 @@
 
                 <v-dialog v-model="dialog" max-width="290">
                   <v-card>
-                    <v-card-title class="headline error white--text">Do you agree ?</v-card-title>
+                    <v-card-title class="headline error white--text">{{ $t('label.message.Do you Agree')}}?</v-card-title>
 
                     <v-card-text class="mt-1 pt-1">{{ $t('label.message.profileupdate')}}</v-card-text>
 
@@ -127,7 +127,7 @@
                         outlined
                         small
                         @click="dialog = false"
-                      >I Disagree</v-btn>
+                      >{{ $t('label.button.btnDisagree')}}</v-btn>
 
                       <v-btn
                         color="error darken-1"
@@ -135,7 +135,7 @@
                         small
                         outlined
                         @click="updateProfileWithCreadentials"
-                      >I Agree</v-btn>
+                      >{{ $t('label.button.btnAgree')}}</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>

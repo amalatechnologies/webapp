@@ -76,7 +76,6 @@
       "buttonsignup": "Jiandikishe",
       "btncalculate": "Wasilisha",
       "btncancel": "Sitisha",
-    
       "btnback": "Nyuma",
       "btnhome": "Mwanzo",
       "btnsave": "Hifadhi",
@@ -84,7 +83,9 @@
       "btnFollow": "Fuata",
       "btnclear": "Futa",
       "btnsubmit": "Wasilisha",
-      "btnSearch": "Tafuta"
+      "btnSearch": "Tafuta",
+      "btnDisagree":"Nakataa",
+      "btnAgree":"Nakubali"
 
     },
     "message": {
@@ -93,7 +94,7 @@
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
       "motto": "Making awesome stuffs",
       "saveschedule": "Kwa kubonyeza kuokoa ratiba hii ya ulipaji itahifadhiwa na inaweza kuhesabiwa tena baadaye. Je! Una uhakika unataka kuhifadhi hii? Ikiwa ndio Toa Jina hapa chini na bonyeza kitufe cha kuokoa ili kuhifadhi ",
-      "profileupdate": "By clicking *I Agree* you are agreeing to the Terms and Conditions and your profile informattions will be updated with a newly data you provide and your login infomations will also be updated. So you will be requested to re-login with new username if any. \n\n Do you agree ?"
+      "profileupdate": "Kwa kubonyeza * Ninakubali * unakubali Sheria na Masharti na maelezo yako mafupi yatasasishwa na data mpya unayotoa na maelezo yako ya kuingia pia yatasasishwa. Kwa hivyo utaombwa uingie tena na jina la mtumiaji mpya ikiwa ipo. \n\n Unakubali ?"
     },
     "contacts": {
       "community": "Washirika",
