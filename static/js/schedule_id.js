@@ -154,7 +154,7 @@ export default {
   },
   computed: {
     schedule() {
-      var data = this.$store.getters.getterschedule(parseInt(this.$nuxt._route.params.sid));
+      var data = this.$store.getters.getterschedule(parseInt(this.$nuxt._route.params.id));
       return data[0];
     }
   },
