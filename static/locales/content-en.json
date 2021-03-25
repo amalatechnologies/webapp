@@ -60,6 +60,8 @@
       "Loan Balance":"Loan Balance",
       "Total":"Total",
       "Search":"Search"
+     
+    
 
     },
     "button": {
@@ -83,8 +85,9 @@
       "btnsubmit": "Submit",
       "btnSearch": "Search",
       "btnSave": "Save",
-      "btnNo": "No"
-
+      "btnNo": "No",
+      "btnDisagree":"I Dis Agree",
+      "btnAgree":"I Agree"
 
 
     },
