@@ -41,9 +41,9 @@ const actions = {
     commit
   }) {
     commit(mutation.PROFILE);
-    await this.$api.$get(`users/`)
+    await this.$api.$get(`users/`+ localStorage.getItem('uuId') + `/`)
       .then(response => {
-        commit(mutation.PROFILE_SUCCESS, response.results[0]);
+        commit(mutation.PROFILE_SUCCESS, response);
 
 
       }).catch(error => {
