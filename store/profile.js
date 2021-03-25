@@ -37,9 +37,7 @@ const mutations = {
   }
 };
 const actions = {
-  async getProfile({
-    commit
-  }) {
+  async getProfile({ commit}) {
     commit(mutation.PROFILE);
     await this.$api.$get(`users/`+ localStorage.getItem('uuId') + `/`)
       .then(response => {
