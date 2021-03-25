@@ -64,6 +64,8 @@ export default {
     '~/plugins/route',
     '~/plugins/pwa.client.js',
     '~/plugins/moment.js',
+    '~/mixins/mixins.js',
+    '~/plugins/vuepersistence.js',
     { src: '~plugins/ga.js', mode: 'client' }
   ],
 
