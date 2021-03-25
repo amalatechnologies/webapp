@@ -14,7 +14,7 @@
                     <v-text-field
                       v-model="value_loan_amount"
                       type="number"
-                      label="Loan Amount"
+                      v-bind:label="$t('label.heading.Loan Amount')"
                       dense
                       min="0"
                       required
@@ -26,7 +26,7 @@
                     <v-text-field
                       v-model="value_interest_rate"
                       type="number"
-                      label="Interest Rate"
+                      v-bind:label="$t('label.heading.Interest Rate')"
                       dense
                       required
                       min="0"
@@ -40,7 +40,7 @@
                       item-text="name"
                       item-value="value"
                       :rules="[v => !!v || 'Item is required']"
-                      label="Interest Method"
+                      v-bind:label="$t('label.heading.Interest Method')"
                       required
                       persistent-hint
                       return-object
@@ -51,7 +51,7 @@
                     <v-text-field
                       v-model="value_loan_term"
                       type="number"
-                      label="Loan Terms"
+                      v-bind:label="$t('label.heading.Loan Terms')"
                       dense
                       required
                       min="0"
@@ -64,7 +64,7 @@
                       :rules="[(v) => !!v || 'Item is required']"
                       item-value="value"
                       item-text="name"
-                      label="Units"
+                      v-bind:label="$t('label.heading.Units')"
                       dense
                       persistent-hint
                       return-object
@@ -75,7 +75,7 @@
                     <v-text-field
                       v-model="value_num_of_repayments"
                       type="number"
-                      label="Number of Repayments"
+                      v-bind:label="$t('label.heading.Number of Repayments')"
                       dense
                       required
                       min="0"
@@ -87,7 +87,7 @@
                     <v-text-field
                       v-model="value_repayments_freq"
                       type="number"
-                      label="Repayment Frequency"
+                      v-bind:label="$t('label.heading.Repayment Frequency')"
                       dense
                       min="0"
                     ></v-text-field>
@@ -97,7 +97,7 @@
                       :items="loan_terms"
                       item-text="name"
                       item-value="value"
-                      label="Units"
+                      v-bind:label="$t('label.heading.Units')"
                       :rules="[v => !!v || 'Item is required']"
                       dense
                       required
@@ -110,7 +110,7 @@
                     <v-select
                       :items="amortizations"
                       v-model="value_amortization"
-                      label="Amortization"
+                      v-bind:label="$t('label.heading.Amortization')"
                       dense
                     ></v-select>
                   </v-col>
@@ -119,7 +119,7 @@
                     <v-text-field
                       v-model="value_interest_moratorium"
                       type="number"
-                      label="Interest Moratorium"
+                      v-bind:label="$t('label.heading.Interest Moratorium')"
                       dense
                       min="0"
                     ></v-text-field>
@@ -128,7 +128,7 @@
                     <v-text-field
                       v-model="value_principal_moratorium"
                       type="number"
-                      label="Principal Moratorium"
+                      v-bind:label="$t('label.heading.Principal Moratorium')"
                       dense
                       min="0"
                     ></v-text-field>
@@ -137,7 +137,7 @@
                     <v-text-field
                       v-model="value_interest_free_period"
                       type="number"
-                      label="Interest Free Period"
+                      v-bind:label="$t('label.heading.Interest Free Period')"
                       dense
                       min="0"
                     ></v-text-field>
@@ -150,7 +150,7 @@
                       small
                       color="primary"
                       @click="displayAdvanceOptions"
-                    >{{ advanced ? "Show Less" : "Advanced"}}</v-btn>
+                    >{{ advanced ?  $t('label.text.SHOWLESS')  :  $t('label.text.ADVANCED') }}</v-btn>
                   </v-col>
                 </v-row>
               </v-container>
@@ -221,7 +221,7 @@
                     <v-dialog v-model="dialog" max-width="290">
                       <v-form ref="forms" v-model="valid" lazy-validation>
                         <v-card>
-                          <v-card-title class="headline error white--text">Do you agree ?</v-card-title>
+                          <v-card-title class="headline error white--text">{{ $t('label.message.Do you Agree')}}?</v-card-title>
 
                           <v-card-text class="mt-1 pt-1">{{ $t('label.message.saveschedule')}}</v-card-text>
 

@@ -10,11 +10,11 @@
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-left" id="name">Name</th>
-            <th class="text-left" id="name">Phone</th>
-            <th class="text-left" id="email">Email</th>
-            <th class="text-left" id="role">Role</th>
-            <th class="text-left" id="joindate">Joined</th>
+            <th class="text-left" id="name"> {{ $t('label.th.Name') }}  </th>
+            <th class="text-left" id="name"> {{ $t('label.th.Phone') }}</th>
+            <th class="text-left" id="email"> {{ $t('label.th.Email') }}</th>
+            <th class="text-left" id="role"> {{ $t('label.th.Role') }}</th>
+            <th class="text-left" id="joindate"> {{ $t('label.th.Joined') }}</th>
           </tr>
         </thead>
         <tbody>

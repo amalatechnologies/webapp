@@ -32,10 +32,31 @@
       "city": "City",
       "country": "Country",
       "postalcode": "Postal Code",
-      "biography": "Biography"
+      "biography": "Biography",
+      "Loan Amount":"Loan Amount",
+      "Interest Rate":"Interest Rate",
+      "Interest Method":"Interest Method",
+      "Loan Terms":"Loan Terms",
+      "Units":"Units",
+      "Number of Repayments":"Number of Repayments",
+      "Repayment Frequency":"Repayment Frequency",
+      "Amortization":"Amortization",
+      "Principal Moratorium":"Principal Moratorium",
+      "Interest Free Period":"Interest Free Period",
+      "Interest Moratorium":"Interest Moratorium",
+      "Name":"Name",
+      "Amount":"Amount",
+      "Repay Every":"Repay Every",
+      "Repayments":"Repayments", 
+      "Loan Term":"Loan Term",
+      "Method":"Method",
+      "Interest":"Interest"
+      
     },
     "button": {
       "btncontactus": "Contact Us",
+      "btnReportUser": "Report User",
+      "btncontacts": "Contacts",
       "btncalculator": "Go to Calculator",
       "btnsignin": "Sign In",
       "btnsignup": "Sign Up",
@@ -50,9 +71,12 @@
       "btnsave": "Save",
       "btnFollow": "Follow",
       "btnupdateprofile": "updateprofile",
-      "btnsubmit": "Submit"
+      "btnsubmit": "Submit",
+      "btnSearch": "Search"
+
     },
     "message": {
+      "Do you Agree":"Do you Agree",
       "aboutusmessage": "Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
       "motto": "Making awesome stuffs",
@@ -81,7 +105,32 @@
       "isactive": "Is Active"
     },
     "text": {
-      "post": "Post"
-    }
+      "post": "Post",
+      "Follows":"Follows",
+      "Followers":"Followers",
+      "Rankings":"Rankings",
+      "SHOWLESS":"SHOWLESS",
+      "ADVANCED":"ADVANCED"
+     
+      },
+      "vtab":{
+        "Timeline":"Timeline",
+        "About":"About",
+        "Posts":"Posts",
+        "Comments":"Comments",
+        "Followers":"Followers",
+        "Followings":"Followings"
+      },
+      "th":{
+        "Name":"Name",
+        "Phone":"Phone",
+        "Email":"Email",
+        "Role":"Role",
+        "Joined":"Joined"},
+       "footer":{
+         "Interest Moratorium":"Interest Moratorium",
+           "Principal Moratorium":"Principal Moratorium",
+           "Interest Free Period":"Interest Free Period"
+      }
   }
 }
