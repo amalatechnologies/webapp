@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-container fluid>
     <v-data-table
       :headers="headers"
       :items="schedules"
       :items-per-page="5"
       dense
-      @click:row="getSchedule(item)"
+      @click:row="getSchedule"
       class="elevation-1"
     >
       <template v-slot:top>
@@ -39,7 +39,7 @@
         <p class="font-weight-bold">I.F.P :{{ $t('label.footer.Interest Free Period')}}</p>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 <script>
 export default {
@@ -47,6 +47,12 @@ export default {
     return {
       item: 1,
       headers: [
+         {
+          text: "ID",
+          align: "start",
+          sortable: false,
+          value: "id"
+        },
         {
           text: this.$t('label.heading.Name'),
           align: "start",
@@ -71,10 +77,11 @@ export default {
     vm.$store.dispatch("getSchedules");
   },
   methods: {
-    getSchedule: function(id) {
-      var data = this.$store.getters.getterschedule(id);
-      this.$router.push("/schedule/" + id);
-      return data;
+    getSchedule: function(item) {
+      //console.log(id)
+      /**var data = this.$store.getters.getterschedule(id);**/
+      this.$router.push("/schedule/" + item.id);
+     
     }
   },
   beforeMount: function() {},
