@@ -161,7 +161,7 @@
                   <v-text-field
                     v-model="search"
                     append-icon="mdi-magnify"
-                    label="Search"
+                    :label="$t('label.heading.Search')"
                     hide-details
                   ></v-text-field>
                 </v-card-title>
@@ -217,7 +217,7 @@
                       class="error lighten-1 white--text"
                       style="text-transform: capitalize"
                       @click.stop="dialog = true"
-                    >Save</v-btn>&nbsp;
+                    >{{ $t('label.button.btnsave') }}</v-btn>&nbsp;
                     <v-dialog v-model="dialog" max-width="290">
                       <v-form ref="forms" v-model="valid" lazy-validation>
                         <v-card>
@@ -231,7 +231,7 @@
                             :counter="10"
                             required
                             v-model="name"
-                            label="Repayment Schedule Name"
+                            :label="$t('label.heading.Repayment Schedule Name')"
                             placeholder="e.g Bank ABC "
                           ></v-text-field>
 
@@ -244,7 +244,10 @@
                               outlined
                               small
                               @click="dialog = false"
-                            >No</v-btn>
+                            >
+                            {{$t('label.button.btnNo')}}
+                            
+                            </v-btn>
 
                             <v-btn
                               class="warning darken-1 white--text"
@@ -254,7 +257,7 @@
                               :rules="nameRules"
                               :disabled="!valid"
                               @click="saveRepaymentSchedule"
-                            >Save</v-btn>
+                            >   {{$t('label.button.btnSave')}}</v-btn>
                           </v-card-actions>
                         </v-card>
                       </v-form>

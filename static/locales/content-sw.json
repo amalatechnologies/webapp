@@ -52,8 +52,17 @@
       "Repayments":"Malipo", 
       "Loan Term":"Muda wa Mkopo",
       "Method":"Njia",
-      "Interest":"Hisa"
-
+      "Interest":"Hisa",
+      "Repayment Schedule Name":"Jina la Ratiba ya Ulipaji",
+      "Day":"Siku",
+      "Paid Date":"Tarehe ya Kulipwa",
+      "Principal":"Mkuu",
+      "Interest":"hisa",
+      "Interrest":"kuingiliana",
+      "Loan Balance":"Usawa wa Mkopo",
+      "Total":"Jumla",
+      "Search":"Tafuta"
+      
     },
     "button": {
       "btncontactus": "Wasiliana Nasi",
@@ -83,7 +92,7 @@
       "aboutusmessage": "Kopasmart Application ni hutoa mikopo ya papo hapo, na huduma zingine za kibinafsi za kifedha nchini Tanzania na ulimwenguni kote. Mamilioni ya watu wamekopa kupitia programu ya smartphone ya Kopasmart",
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
       "motto": "Making awesome stuffs",
-      "saveschedule": "By Clicking save this repayment schedule will be saved and can be re-calculated later. \n\n Are you sure you want to save this ? \n\n If yes Provide the Name below and click save button to save ",
+      "saveschedule": "Kwa kubonyeza kuokoa ratiba hii ya ulipaji itahifadhiwa na inaweza kuhesabiwa tena baadaye. Je! Una uhakika unataka kuhifadhi hii? Ikiwa ndio Toa Jina hapa chini na bonyeza kitufe cha kuokoa ili kuhifadhi ",
       "profileupdate": "By clicking *I Agree* you are agreeing to the Terms and Conditions and your profile informattions will be updated with a newly data you provide and your login infomations will also be updated. So you will be requested to re-login with new username if any. \n\n Do you agree ?"
     },
     "contacts": {

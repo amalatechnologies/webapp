@@ -56,40 +56,40 @@ export default {
       ],
       amortizations: ["Equal Installment", "Equal principal"],
       headers: [{
-        text: "Day",
+        text: this.$t('label.heading.Day'),
         align: "left",
         sortable: false,
         value: "days"
       },
       {
-        text: "Paid Date",
+        text: this.$t('label.heading.Paid Date'),
         value: "paiddate"
       },
       {
-        text: "Principal",
+        text: this.$t('label.heading.Principal'),
         value: "loanamount"
       },
       {
-        text: "Principal due",
+        text: this.$t('label.heading.Principal due'),
         value: "principaldue"
       },
       {
-        text: "Interest",
+        text: this.$t('label.heading.Interest'),
         value: "interest",
         filterable: false
       },
 
       {
-        text: "Interrest",
+        text: this.$t('label.heading.Interrest'),
         value: "interrest",
         filterable: false
       },
       {
-        text: "Loan Balance",
+        text: this.$t('label.heading.Loan Balance'),
         value: "loanbalance"
       },
       {
-        text: "Total",
+        text: this.$t('label.heading.Total'),
         value: "total",
         filterable: false
       }
