@@ -118,7 +118,8 @@ export default {
         "https://wpepitome.com/wp-content/uploads/2019/07/29_wine-bottle-mockups.jpg",
         "https://worldbranddesign.com/wp-content/uploads/2020/02/design-for-vida-wine-brand.jpg",
         "https://s23444.pcdn.co/wp-content/uploads/2020/01/Africa-general-pic.jpg.optimal.jpg",
-        "https://secure.img1-fg.wfcdn.com/im/80685197/resize-h800-w800%5Ecompr-r85/3073/30739909/Siera+4+Bottle+Wall+Mounted+Wine+Bottle+and+Glass+Rack+in+White.jpg"
+        "https://secure.img1-fg.wfcdn.com/im/80685197/resize-h800-w800%5Ecompr-r85/3073/30739909/Siera+4+Bottle+Wall+Mounted+Wine+Bottle+and+Glass+Rack+in+White.jpg",
+        
       ],
     }
   },

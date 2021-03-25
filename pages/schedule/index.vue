@@ -30,13 +30,13 @@
     </v-data-table>
     <v-row>
       <v-col cols="12" md="4">
-        <p class="font-weight-bold">I.M : Interest Moratorium</p>
+        <p class="font-weight-bold">I.M : {{ $t('label.footer.Interest Moratorium')}}</p>
       </v-col>
       <v-col cols="12" md="4">
-        <p class="font-weight-bold">P.M : Principal Moratorium</p>
+        <p class="font-weight-bold">P.M : {{ $t('label.footer.Principal Moratorium')}}</p>
       </v-col>
       <v-col cols="12" md="4">
-        <p class="font-weight-bold">I.F.P : Interest Free Period</p>
+        <p class="font-weight-bold">I.F.P :{{ $t('label.footer.Interest Free Period')}}</p>
       </v-col>
     </v-row>
   </div>
@@ -48,18 +48,18 @@ export default {
       item: 1,
       headers: [
         {
-          text: "Name",
+          text: this.$t('label.heading.Name'),
           align: "start",
           sortable: false,
           value: "name"
         },
-        { text: "Amount", value: "amount" },
-        { text: "Interest", value: "interest_rate" },
-        { text: "Method", value: "interest_method" },
-        { text: "Amortization", value: "amortization" },
-        { text: "Repayments", value: "number_of_repayments" },
-        { text: "Loan Term", value: "term" },
-        { text: "Repay Every", value: "repay" },
+        { text: this.$t('label.heading.Amount'), value: "amount" },
+        { text: this.$t('label.heading.Interest'), value: "interest_rate" },
+        { text: this.$t('label.heading.Method'), value: "interest_method" },
+        { text: this.$t('label.heading.Amortization'), value: "amortization" },
+        { text: this.$t('label.heading.Repayments'), value: "number_of_repayments" },
+        { text: this.$t('label.heading.Loan Terms'), value: "term" },
+        { text: this.$t('label.heading.Repay Every'), value: "repay" },
         { text: "I.M", value: "interest_moratorium" },
         { text: "P.M", value: "principal_moratorium" },
         { text: "I.F.P", value: "interest_free_period" }

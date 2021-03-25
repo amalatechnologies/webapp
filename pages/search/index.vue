@@ -10,7 +10,9 @@
           :rules="[nameRules.required, nameRules.length(1)]"
         ></v-text-field>
       </v-col>
-      <v-btn color="dark" @click="searches()" dark large>Search</v-btn>
+      <v-btn color="dark" @click="searches()" dark large>
+        {{ $t('label.button.btnSearch') }}
+      </v-btn>
     </v-row>
 
     <div>

@@ -16,7 +16,7 @@
     "heading": {
       "repaymentschedule": "Ratiba ya malipo",
       "repaymentschedulelist": "Ratiba za malipo",
-      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
+      "loanrepaymentschedulecalculator": "Ratiba ya malipo ya mkopo",
       "contactus": "Wasiliana nasi",
       "aboutus": "Kuhusu",
       "help": "Msaada",
@@ -34,10 +34,31 @@
       "city": "Mji",
       "country": "Nchi",
       "postalcode": "Anwani ya posta",
-      "biography": "Wasifu"
+      "biography": "Wasifu",
+      "Loan Amount":"Kiasi cha Mkopo",
+      "Interest Rate":"Kiwango cha riba",
+      "Interest Method":"Njia ya Riba",
+      "Loan Terms":"Masharti ya Mkopo",
+      "Units":" Vitengo",
+      "Number of Repayments":"Idadi ya Malipo",
+      "Repayment Frequency":"Malipo ya mara kwa mara",
+      "Amortization":"Upunguzaji wa pesa",
+      "Principal Moratorium":"Kusitishwa kwa Mkuu",
+      "Interest Free Period":"Kipindi cha Bure cha Riba",
+      "Interest Moratorium":"Kusitishwa kwa riba",
+      "Name":"Jina",
+      "Amount":"Kiasi",
+      "Repay Every":"Ulipe Kila",
+      "Repayments":"Malipo", 
+      "Loan Term":"Muda wa Mkopo",
+      "Method":"Njia",
+      "Interest":"Hisa"
+
     },
     "button": {
       "btncontactus": "Wasiliana Nasi",
+      "btnReportUser": "Ripoti Mtumiaji",
+      "btncontacts": "Mawasiliano",
       "btncalculator": "Kikokotoo",
       "btnsignin": "Ingia",
       "btnsignup": "Jiandikishe",
@@ -53,9 +74,12 @@
       "btnupdateprofile": "sasisha wasifu",
       "btnFollow": "Fuata",
       "btnclear": "Futa",
-      "btnsubmit": "Wasilisha"
+      "btnsubmit": "Wasilisha",
+      "btnSearch": "Tafuta"
+
     },
     "message": {
+      "Do you Agree":"Unakubali",
       "aboutusmessage": "Kopasmart Application is a Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
       "motto": "Making awesome stuffs",
@@ -84,7 +108,33 @@
       "isactive": "Yu hai"
     },
     "text": {
-      "post": "Chapisho"
-    }
+      "post": "Chapisho",
+      "Follows":"Ifuatayo",
+      "Followers":"Wafuasi",
+      "Rankings":"Kiwango",
+      "SHOWLESS":"WAKATI WA KUONEKANA",
+      "ADVANCED":"MAENDELEO"
+    },
+    "vtab":{
+      "Timeline":"Ratiba ya nyakati",
+      "About":"Kuhusu",
+      "Posts":"machapisho",
+      "Comments":"Maoni",
+      "Followers":"Wafuasi",
+      "Followings":"Ufuatiliaji"
+    },
+    "th":{
+      "Name":"Jina",
+      "Phone":"Namba ya simu",
+      "Email":"Barua pepe",
+      "Role":"Wajibu",
+      "Joined":"Alijiunga"
+
+    },
+    "footer":{
+      "Interest Moratorium":"Kusitishwa kwa riba",
+        "Principal Moratorium":"Kusitishwa kwa Mkuu",
+        "Interest Free Period":"Kipindi cha Bure cha Riba"
+   }
   }
 }

@@ -104,7 +104,7 @@
                       class="mt-8"
                     >
                       <v-list-item-content>
-                        <v-list-item-subtitle class="text-overline">Rankings</v-list-item-subtitle>
+                        <v-list-item-subtitle class="text-overline">{{ $t('label.text.Rankings') }}</v-list-item-subtitle>
                         <v-list-item-title v-if="userdata.lender_profile">
                           <v-row align="center" justify="start">
                             <v-col cols="2" v-if="userdata.lender_profile">
@@ -141,10 +141,10 @@
                         <v-row no-gutters>
                           <v-col
                             class="font-weight-bold text-overline primary--text"
-                          >{{ userdata.follows_count }} followers</v-col>
+                          >{{ userdata.follows_count }} {{ $t('label.text.Followers') }}</v-col>
                           <v-col
                             class="font-weight-bold text-overline primary--text"
-                          >{{ userdata.following_count }} follows</v-col>
+                          >{{ userdata.following_count }} {{ $t('label.text.Follows') }} </v-col>
                         </v-row>
                       </v-container>
                     </v-list-item>
@@ -171,11 +171,11 @@
                                 @click.stop="followThisPerson"
                                 color="primary"
                                 block
-                              >Follow</v-btn>
+                              > {{ $t('label.button.btnFollow') }}</v-btn>
                             </v-col>
                             <v-col sm="12" md="3" class="ma-1">
                               <v-btn small cols="auto" block>
-                                <v-icon small>mdi-check</v-icon>&nbsp; Contacts
+                                <v-icon small>mdi-check</v-icon>&nbsp; {{ $t('label.button.btncontacts') }}
                               </v-btn>
                             </v-col>
                             <v-col sm="12" md="3" class="ma-1">
@@ -188,7 +188,7 @@
                                 cols="auto"
                                 block
                               >
-                                <v-icon small>mdi-bug</v-icon>&nbsp;Report User
+                                <v-icon small>mdi-bug</v-icon>&nbsp;{{ $t('label.button.btnReportUser') }}
                               </v-btn>
                             </v-col>
                           </v-row>
@@ -200,25 +200,25 @@
                         <v-tabs right grow center-active class="elevation-2">
                           <v-tab class="font-weight-light">
                             <span>
-                              <v-icon small left>mdi-eye</v-icon>Timeline
+                              <v-icon small left>mdi-eye</v-icon>{{ $t('label.vtab.Timeline') }}
                             </span>
                           </v-tab>
                           <v-tab class="font-weight-light">
                             <span>
-                              <v-icon small left>mdi-account</v-icon>About
+                              <v-icon small left>mdi-account</v-icon>{{ $t('label.vtab.About') }}
                             </span>
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisUserPosts()">
-                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>Posts
+                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>{{ $t('label.vtab.Posts') }}
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisUserComments()">
-                            <v-icon small left>mdi-chat</v-icon>Comments
+                            <v-icon small left>mdi-chat</v-icon>{{ $t('label.vtab.Comments') }}
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisPersonFollowers">
-                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>Followers
+                            <v-icon small left>mdi-format-list-bulleted-triangle</v-icon>{{ $t('label.vtab.Followers') }}
                           </v-tab>
                           <v-tab class="font-weight-light" @click.stop="getThisPersonFollowings()">
-                            <v-icon small left>mdi-chat</v-icon>Followings
+                            <v-icon small left>mdi-chat</v-icon>{{ $t('label.vtab.Followings') }}
                           </v-tab>
 
                           <v-tab-item>
