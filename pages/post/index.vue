@@ -12,6 +12,9 @@
             rows="1"
             :rules="[rules.name, rules.length(20)]"
           ></v-textarea>
+        
+   <input type="file"  @change="onFileChanged">
+    
         </v-form>
         <v-card-actions>
           <v-btn
@@ -41,6 +44,8 @@ export default {
       dialog: false,
       isLoading: false,
       text_content: null,
+      selectedFile:null ,
+      
       rules: {
         email: (v) => !!(v || "").match(/@/) || "Please enter a valid email",
         length: (len) => (v) =>
@@ -56,15 +61,29 @@ export default {
     };
   },
   methods: {
+
+onFileChanged (event) {this.selectedFile = event.target.files[0]
+},
+
+
+
     createNewPost() {
-      console.log(this.text_content);
+ 
+ //console.log(this.selectedFile);
       this.$store.dispatch("new_post", {
-        text_content: this.text_content,
-      }).then(()=>{
-        this.$router.push("/home");
-      })
-      
+         text_content: this.text_content,
+         selectedFile:this.selectedFile
+       }).then(()=>{
+         this.$router.push("/home");
+       })
+
+     
+     
     },
   },
+
+
+
+
 };
 </script>

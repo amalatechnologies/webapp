@@ -105,6 +105,9 @@ const mutations = {
 };
 
 const actions = {
+  
+  
+
   async getBlogPosts({commit}, payload) {
     commit(mutation.GET_BLOG_POSTS);
     await this.$api.$get(`posts/?${payload}&type=post`)
@@ -117,16 +120,46 @@ const actions = {
 
       });
   },
+
   async new_post({commit}, payload) {
-    commit(mutation.POST_NEW_BLOG_CONTENT);
-    await this.$api.$post(`posts/`, payload)
+    let abc="";
+   commit(mutation.POST_NEW_BLOG_CONTENT);
+    await this.$api.$post(`posts/`, payload.text_content)
+    
       .then(response => {
+        
         commit(mutation.POST_NEW_BLOG_CONTENT_SUCCESS, response);
+  abc =response.id;
       }).catch(error => {
         commit(mutation.POST_NEW_BLOG_CONTENT_ERROR);
         console.log(error);
 
       });
+
+      const my= new FormData();
+        my.append('post',abc);
+        my.append('src',payload.selectedFile);
+    console.log(payload.selectedFile+"lukelo");
+        // var obj = new Object();
+        // obj.post = abc;
+        // obj.src  = payload.selectedFile;
+        
+        // var jsonString= JSON.stringify(obj);
+        // console.log(jsonString+"asdasdasd");
+     
+       await this.$api.$post(`post-medias/`,my)
+      .then(response => {
+    
+    console.log(response);
+     
+       }).catch(error => {
+        
+         console.log(error);
+
+       });
+
+
+
   },
   async commentOnBlogPosts({commit}, payload) {
     commit(mutation.COMMENT_BLOG_POST);
