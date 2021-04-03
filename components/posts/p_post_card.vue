@@ -75,8 +75,8 @@
         </NuxtLink>
         <v-list-item-content v-show="post.type === 'post'">
           <v-list-item-title class="subhead text-caption">
-            {{ post.owner.first_name }}
-            {{ post.owner.last_name }}
+            <span v-if=" post.owner.first_name == '' && post.owner.last_name == '' ">{{post.owner.username}} </span>
+            
           </v-list-item-title>
           <v-list-item-subtitle
             class="font-weight-medium text-caption"
