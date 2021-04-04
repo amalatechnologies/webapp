@@ -24,7 +24,7 @@ export default {
     {
       hid: 'description',
       name: 'description',
-      content: process.env.npm_package_description || ''
+      content: 'provides instant lending, and other personalized financial services in Tanzania and around the world. Millions of people have borrowed through Kopasmart’s smartphone app'
     }
     ],
     link: [{
