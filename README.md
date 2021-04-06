@@ -1,4 +1,4 @@
-# Kopasmart
+# Kopasmart web
 
 ## Build Setup
 
