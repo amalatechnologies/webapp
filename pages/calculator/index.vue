@@ -257,7 +257,7 @@
                               :rules="nameRules"
                               :disabled="!valid"
                               @click="saveRepaymentSchedule"
-                            >   {{$t('label.button.btnSave')}}</v-btn>
+                            >   {{$t('label.button.btnsave')}}</v-btn>
                           </v-card-actions>
                         </v-card>
                       </v-form>
