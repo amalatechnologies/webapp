@@ -31,4 +31,10 @@ export default {
 .container {
   padding: 0%
 }
+body{
+    background: #3A1C71;
+    background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+  zoom:100%;
+}
 </style>
