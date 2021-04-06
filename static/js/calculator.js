@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       valid: true,
-      title: "Home",
+      title: "Home",  
       dense: false,
       dark: false,
       dialog: false,
