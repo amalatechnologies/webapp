@@ -1,7 +1,7 @@
 import * as mutation from './mutation-types';
 const state = () => ({
   userdata: {},
-
+  error: '',
 });
 
 const mutations = {
@@ -12,8 +12,9 @@ const mutations = {
   [mutation.LOGIN_FAILED](state) {
     state.showLoader = false;
   },
-  [mutation.LOGIN_ERROR](state) {
+  [mutation.LOGIN_ERROR](state,error) {
     state.showLoader = false;
+    state.error = error;
   },
   [mutation.LOGIN_SUCCESS](state, payload) {
     state.showLoader = false;
@@ -48,10 +49,10 @@ const actions = {
 
 
       }).catch(error => {
-        commit(mutation.LOGIN_ERROR);
+        commit(mutation.LOGIN_ERROR,"Your Username or Password is incorrect");
         localStorage.removeItem('qAccessToken');
         localStorage.removeItem('uuId', uuId);
-        console.log(error);
+       console.log(error);
 
       });
   }
@@ -65,7 +66,13 @@ const getters = {
   },
   userId: (state) => {
     return state.userdata.id;
-  }
+  },
+
+  Signerror: function (state) {
+    return state.error;
+  },
+
+
 };
 export default {
   namespaced: false,

@@ -6,10 +6,14 @@
           <v-subheader class="font-weight-light">{{ $t('label.button.buttonsignin')}}</v-subheader>
           <v-spacer></v-spacer>
         </v-toolbar>
+        
         <v-form ref="form" class="pa-4 pt-6 text-center">
+             
           <v-container fluid>
             <v-row>
+  
               <v-col cols="12" sm="6">
+                 
                 <v-text-field
                   type="text"
                   label="Username"
@@ -43,7 +47,10 @@
                 <p class="font-weight-light">{{ $t('qnNewToKopasmart') }}</p>
                 <router-link to="/signup" tag="a">
                   <a>{{ $t('createAccount') }}</a>
+                    
                 </router-link>
+                <br>
+               <label  class="  red text-center">{{error}}</label>
               </v-col>
               <v-col cols="12" sm="6">
                 <p class="font-weight-regular">{{ $t('homeDescriptionTitle') }}</p>
