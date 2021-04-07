@@ -81,7 +81,6 @@
                 {{ post.owner.first_name }}
             {{ post.owner.last_name }}
             </span>
-       
             
           </v-list-item-title>
           <v-list-item-subtitle
