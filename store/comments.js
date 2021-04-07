@@ -1,4 +1,4 @@
-import * as mutation from './mutation-types';
+
 import Vue from "vue";
 const state = () => ({
   comments: [],
@@ -9,18 +9,18 @@ const state = () => ({
 });
 
 const mutations = {
-  [mutation.GET_LIST_OF_POST_COMMENTS](state) {
+  GET_LIST_OF_POST_COMMENTS(state) {
     state.showLoader = false;
   },
-  [mutation.GET_LIST_OF_POST_COMMENTS_SUCCESS](state, payload) {
+ GET_LIST_OF_POST_COMMENTS_SUCCESS(state, payload) {
     state.showLoader = false;
     state.comments.length = 0;
     Vue.set(state.comments, 0, payload.results);
   },
-  [mutation.GET_LIST_OF_POST_COMMENTS_FAILED](state) {
+  GET_LIST_OF_POST_COMMENTS_FAILED(state) {
     state.showLoader = false;
   },
-  [mutation.GET_LIST_OF_POST_COMMENTS_ERROR](state) {
+GET_LIST_OF_POST_COMMENTS_ERROR(state) {
     state.showLoader = false;
   },
 
@@ -28,12 +28,12 @@ const mutations = {
 
 const actions = {
   async getThisPostComments({ commit }, payload) {
-    commit(mutation.GET_LIST_OF_POST_COMMENTS);
+    commit("GET_LIST_OF_POST_COMMENTS");
     await this.$api.$get(`posts/${payload}/comments/`)
       .then(response => {
-        commit(mutation.GET_LIST_OF_POST_COMMENTS_SUCCESS, response);
+        commit("GET_LIST_OF_POST_COMMENTS_SUCCESS", response);
       }).catch(error => {
-        commit(mutation.GET_LIST_OF_POST_COMMENTS_ERROR);
+        commit("GET_LIST_OF_POST_COMMENTS_ERROR");
         console.log(error);
 
       });
