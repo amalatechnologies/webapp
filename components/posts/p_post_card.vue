@@ -1,5 +1,6 @@
 <template>
-  <v-card class="mx-auto" flat elevation="1">
+  
+    <v-card class="mx-auto" flat elevation="1">
     <v-img
       class="white--text align-end"
       height="200px"
@@ -58,7 +59,6 @@
           </v-row>
       </v-row>-->
     </v-card-subtitle>
-    <!--<v-card-title class="font-weight-bold"> Top {{post.id}} australian beaches</v-card-title>-->
     <v-card-text class="text--primary ma-0 mt-2 py-0">
       {{ text_truncate(post.text_content, null, null) }}
       <NuxtLink :to="'/post/' + post.id">
@@ -81,7 +81,6 @@
                 {{ post.owner.first_name }}
             {{ post.owner.last_name }}
             </span>
-       
             
           </v-list-item-title>
           <v-list-item-subtitle
@@ -156,9 +155,7 @@ export default {
 }
 </script>
 <style>
-* {
-  text-transform: none !important;
-}
+
 
 .trancate {
   white-space: nowrap;

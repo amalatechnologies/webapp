@@ -3,10 +3,13 @@ import Vue from "vue";
 const state = () => ({
   posts: [],
   post: {},
+  id:"",
   comments: [],
   comment: {},
   showLoader: Boolean,
 });
+
+
 
 const mutations = {
   GET_BLOG_POSTS(state) {
@@ -117,17 +120,46 @@ const actions = {
 
       });
   },
+
+  
   async new_post({commit}, payload) {
+
     commit("POST_NEW_BLOG_CONTENT");
+
+    let src= payload.src;
+  let id;
+  
+
     await this.$api.$post(`posts/`, payload)
+ 
       .then(response => {
-        commit("POST_NEW_BLOG_CONTENT_SUCCESS", response);
+
+       
+
+         id =response.id;       
+    
+     commit("POST_NEW_BLOG_CONTENT_SUCCESS", response);
+
       }).catch(error => {
         commit("POST_NEW_BLOG_CONTENT_ERROR");
         console.log(error);
 
       });
+     
+      let form =new FormData( );
+      form.append('post',id);
+      form.append('src',src);
+
+      await this.$api.$post(`post-medias/`,form)
+      .then(response => {
+    }).catch(error => {
+    });
   },
+    
+
+
+
+
   async commentOnBlogPosts({commit}, payload) {
     commit("COMMENT_BLOG_POST");
     await this.$api.$post(`comments/`, payload)

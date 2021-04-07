@@ -1,5 +1,5 @@
 <template>
-  <v-app class="app" style="background-color: #F5F5F5;">
+  <v-app style="background-color: #F5F5F5;">
     <v-navigation-drawer
       v-model="drawer"
       mini-variant.sync="mini"
@@ -103,14 +103,11 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-main>
+    <v-main  >
       <v-container
         style="background-color: #F5F5F5;"
-        class="mx-3 px-6"
-        fluid
-        mx-auto
-      >
-        <nuxt />
+        class="ma-0 pa-0">
+        <nuxt class="ma-0 pa-0" />
       </v-container>
     </v-main>
     <v-bottom-navigation
