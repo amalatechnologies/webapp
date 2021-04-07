@@ -12,6 +12,17 @@
             rows="1"
             :rules="[rules.name, rules.length(20)]"
           ></v-textarea>
+       
+  <v-file-input
+  v-model="src"
+    label="Image input"
+    filled
+    prepend-icon="mdi-camera"
+    :rules="[rules.required]"
+     @change=uploadImage
+  ></v-file-input>
+
+            
         </v-form>
         <v-card-actions>
           <v-btn
@@ -37,10 +48,12 @@
 export default {
   data() {
     return {
+      src:null,
       form: false,
       dialog: false,
       isLoading: false,
       text_content: null,
+      src:null,
       rules: {
         email: (v) => !!(v || "").match(/@/) || "Please enter a valid email",
         length: (len) => (v) =>
@@ -52,17 +65,31 @@ export default {
           ) ||
           "Password must contain an upper case letter, a numeric character, and a special character",
         required: (v) => !!v || "This field is required",
+
+
+
       },
+
+
+
+
     };
   },
   methods: {
+
+
     createNewPost() {
-      console.log(this.text_content);
-      this.$store.dispatch("new_post", {
-        text_content: this.text_content,
-      }).then(()=>{
-        this.$router.push("/home");
-      })
+      
+        
+     
+              this.$store.dispatch("new_post", {
+       text_content: this.text_content,
+        src:this.src
+     })
+     
+     .then(()=>{
+       this.$router.push("/home");
+     })
       
     },
   },
