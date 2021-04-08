@@ -19,10 +19,7 @@ export default {
     }
   }),
   computed: {
-    error() {
-   
-      return this.$store.getters.Signerror;
-    }
+
   },
   methods: {
 
@@ -33,11 +30,7 @@ export default {
       };
       this.$store.dispatch('login', data);
 
-    },
-   
-
-
-
+    }
   },
   beforeMount() {
     if (localStorage.getItem("qAccessToken") != null) {
