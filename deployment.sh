@@ -1,5 +1,3 @@
-#!/bin/su root
-
-sudo npm cache clean --force
+npm cache clean --force
 npm install
 npm run build
