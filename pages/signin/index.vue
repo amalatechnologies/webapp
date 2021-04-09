@@ -17,6 +17,8 @@
                 <v-text-field
                   type="text"
                   label="Username"
+                  :error-messages="nameErrors"
+                   required
                   :rules="[rules.required]"
                   prepend-icon="mdi-account"
                   single-line
@@ -25,8 +27,10 @@
 
                 <v-text-field
                   v-model="password"
+                  :error-messages="nameErrors"
                   type="password"
                   label="Password"
+                   required
                   :rules="[rules.required, rules.min]"
                   :prepend-icon=" show1 ? 'mdi-eye':'mdi-eye-off'"
                   single-line

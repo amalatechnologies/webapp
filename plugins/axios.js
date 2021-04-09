@@ -28,7 +28,7 @@ export default function ({
   });
 
   console.log(process.env.NODE_ENV);
-  api.setBaseURL(process.env.NODE_ENV === "development" ? process.env.releaseUrl : process.env.releaseUrl);
+  api.setBaseURL(process.env.NODE_ENV === "development" ? process.env.developmentUrl: process.env.releaseUrl);
 
   // Inject to context as $api
   inject('api', api);
