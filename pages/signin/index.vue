@@ -17,7 +17,6 @@
                 <v-text-field
                   type="text"
                   label="Username"
-                  :error-messages="nameErrors"
                    required
                   :rules="[rules.required]"
                   prepend-icon="mdi-account"
@@ -27,7 +26,6 @@
 
                 <v-text-field
                   v-model="password"
-                  :error-messages="nameErrors"
                   type="password"
                   label="Password"
                    required

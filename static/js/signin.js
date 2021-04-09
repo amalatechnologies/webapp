@@ -19,7 +19,11 @@ export default {
     }
   }),
   computed: {
+    error() {
 
+      return this.$store.getters.Signerror;
+    }
+   
   },
   methods: {
 
