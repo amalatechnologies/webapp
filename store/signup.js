@@ -1,4 +1,4 @@
-import * as mutation from './mutation-types';
+
 const state = () => ({
   registration: {},
   isLoading: Boolean,
@@ -6,17 +6,17 @@ const state = () => ({
 });
 
 const mutations = {
-  [mutation.REGISTER](state) {
+  REGISTER(state) {
     state.isLoading = true;
   },
-  [mutation.REGISTER_SUCCESS](state, payload) {
+  REGISTER_SUCCESS(state, payload) {
     state.isLoading = false;
     state.userdata = payload;
   },
-  [mutation.REGISTER_FAILED](state) {
+  REGISTER_FAILED(state) {
     state.isLoading = false;
   },
-  [mutation.REGISTER_ERROR](state) {
+REGISTER_ERROR(state) {
     state.isLoading = false;
   }
 };
@@ -24,14 +24,14 @@ const actions = {
   async register({
     commit
   }, payload) {
-    commit(mutation.REGISTER);
+    commit("REGISTER");
     await this.$api.$post(`register/`, payload)
       .then(response => {
-        commit(mutation.REGISTER_SUCCESS, response);
+        commit("REGISTER_SUCCESS", response);
 
 
       }).catch(error => {
-        commit(mutation.REGISTER_FAILED);
+        commit("REGISTER_FAILED");
 
 
       });
