@@ -1,4 +1,4 @@
-import * as mutation from './mutation-types';
+
 const state = () => ({
   responses: [],
   response: {},
@@ -7,19 +7,19 @@ const state = () => ({
 });
 
 const mutations = {
-  [mutation.SAMPLE_MUTATION_DEFINITION](state) {
+  SAMPLE_MUTATION_DEFINITION(state) {
     state.showLoader = false;
   },
-  [mutation.SAMPLE_MUTATION_DEFINITION_SUCCESS](state, payload) {
+  SAMPLE_MUTATION_DEFINITION_SUCCESS(state, payload) {
     state.showLoader = false;
     if (payload != null) {
       state.responses = payload;
     }
   },
-  [mutation.SAMPLE_MUTATION_DEFINITION_FAILED](state) {
+  SAMPLE_MUTATION_DEFINITION_FAILED(state) {
     state.showLoader = false;
   },
-  [mutation.SAMPLE_MUTATION_DEFINITION_ERROR](state) {
+  SAMPLE_MUTATION_DEFINITION_ERROR(state) {
     state.showLoader = false;
   },
 

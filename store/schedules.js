@@ -1,4 +1,4 @@
-import * as mutation from './mutation-types';
+
 const state = () => ({
   count: null,
   schedule: {},
@@ -10,36 +10,36 @@ const state = () => ({
 });
 
 const mutations = {
-  [mutation.REPAYMENT_SCHEDULES](state) {
+  REPAYMENT_SCHEDULES(state) {
     state.isLoading = true;
   },
-  [mutation.REPAYMENT_SCHEDULES_SUCCESS](state, payload) {
+  REPAYMENT_SCHEDULES_SUCCESS(state, payload) {
     state.isLoading = false;
     state.schedules = payload;
   },
-  [mutation.REPAYMENT_SCHEDULES_FAILED](state) {
+  REPAYMENT_SCHEDULES_FAILED(state) {
     state.isLoading = false;
   },
 
-  [mutation.REPAYMENT_SCHEDULE](state) {
+  REPAYMENT_SCHEDULE(state) {
     state.isLoading = true;
   },
-  [mutation.REPAYMENT_SCHEDULE_SUCCESS](state, payload) {
+  REPAYMENT_SCHEDULE_SUCCESS(state, payload) {
     state.isLoading = false;
     state.schedule = payload;
   },
-  [mutation.REPAYMENT_SCHEDULE_FAILED](state) {
+  REPAYMENT_SCHEDULE_FAILED(state) {
     state.isLoading = false;
   },
 
-  [mutation.SAVE_REPAYMENT_SCHEDULE](state) {
+  SAVE_REPAYMENT_SCHEDULE(state) {
     state.isLoading = true;
   },
-  [mutation.SAVE_REPAYMENT_SCHEDULE_SUCCESS](state, payload) {
+  SAVE_REPAYMENT_SCHEDULE_SUCCESS(state, payload) {
     state.isLoading = false;
     state.saveSchedule = payload;
   },
-  [mutation.SAVE_REPAYMENT_SCHEDULE_FAILED](state) {
+  SAVE_REPAYMENT_SCHEDULE_FAILED(state) {
     state.isLoading = false;
   }
 };
@@ -47,15 +47,15 @@ const actions = {
   async getSchedules({
     commit
   }) {
-    commit(mutation.REPAYMENT_SCHEDULES);
+    commit("REPAYMENT_SCHEDULES");
     await this.$api.$get(`repayment-schedules/`)
       .then(response => {
         console.log(response);
-        commit(mutation.REPAYMENT_SCHEDULES_SUCCESS, response.results);
+        commit("REPAYMENT_SCHEDULES_SUCCESS", response.results);
 
 
       }).catch(error => {
-        commit(mutation.REPAYMENT_SCHEDULES_FAILED);
+        commit("REPAYMENT_SCHEDULES_FAILED");
         console.log(error);
 
       });
@@ -63,14 +63,14 @@ const actions = {
   async getSchedule({
     commit
   }, payload) {
-    commit(mutation.REPAYMENT_SCHEDULE);
+    commit("REPAYMENT_SCHEDULE");
     await this.$api.$get(`repayment-schedules/` + payload)
       .then(response => {
-        commit(mutation.REPAYMENT_SCHEDULE_SUCCESS, response);
+        commit("REPAYMENT_SCHEDULE_SUCCESS", response);
 
 
       }).catch(error => {
-        commit(mutation.REPAYMENT_SCHEDULE_FAILED);
+        commit("REPAYMENT_SCHEDULE_FAILED");
         console.log(error);
 
       });
@@ -79,15 +79,15 @@ const actions = {
     commit
   }, payload) {
     console.log(payload);
-    commit(mutation.SAVE_REPAYMENT_SCHEDULE);
+    commit("SAVE_REPAYMENT_SCHEDULE");
     await this.$api.$post(`repayment-schedules/`, payload)
       .then(response => {
-        commit(mutation.SAVE_REPAYMENT_SCHEDULE_SUCCESS, response);
+        commit("SAVE_REPAYMENT_SCHEDULE_SUCCESS", response);
         this.$router.push('/schedule');
 
 
       }).catch(error => {
-        commit(mutation.SAVE_REPAYMENT_SCHEDULE_FAILED);
+        commit("SAVE_REPAYMENT_SCHEDULE_FAILED");
         console.log(error);
 
       });
