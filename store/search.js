@@ -1,4 +1,4 @@
-import * as mutation from './mutation-types';
+
 import Vue from "vue";
 const state = () => ({
   error: '',
