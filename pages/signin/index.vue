@@ -1,7 +1,8 @@
 <template>
   <v-app class="app">
-    <v-container fluid>
-      <v-card class="mx-auto" style flat outlined>
+    <v-container  class="fill-height" fluid>
+       <v-row align="center" class="justify-center" justify="center" >
+      <v-card width="400" class="elevation-12">
         <v-toolbar color="info" cards dark flat>
           <v-subheader class="font-weight-light">{{ $t('label.button.buttonsignin')}}</v-subheader>
           <v-spacer></v-spacer>
@@ -12,7 +13,7 @@
           <v-container fluid>
             <v-row>
   
-              <v-col cols="12" sm="6">
+              <v-col >
                  
                 <v-text-field
                   type="text"
@@ -54,15 +55,25 @@
                 <br>
                <label  class="  red text-center">{{error}}</label>
               </v-col>
-              <v-col cols="12" sm="6">
-                <p class="font-weight-regular">{{ $t('homeDescriptionTitle') }}</p>
-
-                <p class="font-weight-light">{{ $t('label.message.aboutusmessage') }}</p>
-              </v-col>
+           
             </v-row>
           </v-container>
         </v-form>
       </v-card>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </v-row>
+    
     </v-container>
   </v-app>
 </template>
