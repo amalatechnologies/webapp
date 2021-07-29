@@ -9,9 +9,9 @@
             wrap
             :key="index"
           >
-            <post-card :post="post"></post-card>
+            <post-card :post="post" :postimage="post.medias[0]"></post-card>
           </v-col>
-          <div >No Data</div>
+          
           <v-fab-transition>
             <v-btn
               fab

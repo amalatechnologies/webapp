@@ -102,8 +102,10 @@ COMMENT_BLOG_POST(state) {
   },
 DISLIKE_POST_OR_COMMENT_ERROR(state) {
     state.showLoader = false;
+  },
+  GET_IMAGES(state,payload){
+    state.postsimages=payload.results;
   }
-
 
 };
 
@@ -195,6 +197,8 @@ const actions = {
       });
   },
 
+ 
+
 
 };
 
@@ -202,6 +206,7 @@ const getters = {
   posts: function (state) {
     return state.posts;
   },
+
   post: (state) => (id) => {
     return state.posts.length !== null ? state.posts.results.find(post => post.id === parseInt(id)) : null;
   }

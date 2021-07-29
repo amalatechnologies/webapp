@@ -4,7 +4,7 @@
     <v-img
       class="white--text align-end"
       height="200px"
-      :src="images[Math.floor(Math.random() * images.length)]"
+      :src="post.medias[0].src"
     ></v-img>
 
     <v-card-subtitle class="ma-0 pa-0">
@@ -16,7 +16,7 @@
                 <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0">
                   <v-avatar size="20px">
                     <img
-                      :src="images[Math.floor(Math.random() * images.length)]"
+                      :src="post.medias[0].src"
                       alt="post.owner.username"
                     />
                   </v-avatar>
@@ -70,7 +70,7 @@
       <v-list-item dense>
         <NuxtLink :to="'/profile/' + post.owner.id">
           <v-list-item-avatar color="grey" v-show="post.type === 'post'">
-            <img :src="images[Math.floor(Math.random() * images.length)]" alt="post.owner.username" />
+            <img :src="post.medias[0].src" alt="post.owner.username" />
           </v-list-item-avatar>
         </NuxtLink>
         <v-list-item-content v-show="post.type === 'post'">
@@ -81,6 +81,7 @@
                 {{ post.owner.first_name }}
             {{ post.owner.last_name }}
             </span>
+          
             
           </v-list-item-title>
           <v-list-item-subtitle
@@ -118,7 +119,7 @@
 import mixin from "@/plugins/mixins.js";
 export default {
   mixins:[mixin],
-  props: {post:Object},
+  props: {post:Object,postimage:Array},
   data: () => ({
     view: false,
     images:[
@@ -131,6 +132,11 @@ export default {
     ]
 
   }),
+
+created(){
+     this.$store.dispatch("getImages");
+},
+
   methods: {
     likePost(post){
       console.log(post.is_liked_by_me)
@@ -151,6 +157,13 @@ export default {
     },
   },
   beforeMount() {
+  },
+computed: {
+    postsImage() {
+      console.log("hamisa");
+      console.log(this.$store.getters.postimages);
+      return this.$store.getters.postimages;
+    }
   }
 }
 </script>
