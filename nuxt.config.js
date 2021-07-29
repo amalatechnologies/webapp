@@ -8,7 +8,7 @@ export default {
   },
   env: {
     developmentUrl: process.env.BASE_URL || 'https://api.kopasmart.app/',
-    releaseUrl: process.env.LIVE_URL || 'https://kopasmartapp.herokuapp.com/'
+    releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
   },
 
   head: {
