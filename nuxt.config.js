@@ -1,4 +1,6 @@
 const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/';
+import metajs from './plugins/meta';
+const meta = metajs();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -13,8 +15,8 @@ export default {
 
    // Global page headers (https://go.nuxtjs.dev/config-head)
    head: {
-    titleTemplate: 'kopasmart',
-    title: 'Kopasmart',
+    titleTemplate: 'kopaSmart',
+    title: 'KopaSmart',
     meta: [
       ...meta,
       { charset: 'utf-8' },
@@ -27,9 +29,9 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
       { hid: 'description', name: 'description', content: 'Kopasmart' },
       //Twitter meta-data
-      { hid: "twitter:site", name: "twitter:site", content: "kopasmartwebapp" },
+      { hid: "twitter:site", name: "twitter:site", content: "kopaSmart webapp" },
       { hid: "twitter:card", name: "twitter:card", content: "summary_large_image" },
-      { hid: "twitter:image:alt", name: "twitter:image:alt", content: "Kopasmart application" },
+      { hid: "twitter:image:alt", name: "twitter:image:alt", content: "KopaSmart application" },
 
     ],
     link: [
@@ -59,6 +61,7 @@ export default {
     "~/plugins/i18n.js",
     '@plugins/vuetify.js',
     '~/plugins/axios',
+    '~/plugins/meta',
     '~/plugins/route',
     '~/plugins/pwa.client.js',
     '~/plugins/moment.js',
