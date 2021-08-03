@@ -11,31 +11,29 @@ export default {
     releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
   },
 
-  head: {
-    titleTemplate: 'Kopasmart',
-    title: process.env.npm_package_name || '',
-    meta: [{
-      charset: 'utf-8'
-    },
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1'
-    },
-    {
-      hid: 'description',
-      name: 'description',
-      content: 'provides instant lending, and other personalized financial services in Tanzania and around the world. Millions of people have borrowed through Kopasmart’s smartphone app'
-    }
+   // Global page headers (https://go.nuxtjs.dev/config-head)
+   head: {
+    titleTemplate: 'kopasmart',
+    title: 'Kopasmart',
+    meta: [
+      ...meta,
+      { charset: 'utf-8' },
+      /**Chrome, Firefox OS and Opera **/
+      { name: "theme-color", content: "#00A756" },
+      /**Windows phone **/
+      { name: "msapplication-navbutton-color", content: "#00A756" },
+      /**iOS Safari**/
+      { name: "apple-mobile-web-app-status-bar-style", content: "#00A756" },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { hid: 'description', name: 'description', content: 'Kopasmart' },
+      //Twitter meta-data
+      { hid: "twitter:site", name: "twitter:site", content: "kopasmartwebapp" },
+      { hid: "twitter:card", name: "twitter:card", content: "summary_large_image" },
+      { hid: "twitter:image:alt", name: "twitter:image:alt", content: "Kopasmart application" },
+
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css?family=Montserrat&display=swap"'
-    }
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -105,11 +103,26 @@ export default {
   },
   pwa: {
     manifest: {
-      name: 'Kopasmart',
+      name: 'KopaS  mart',
       lang: 'en'
     },
     meta: {
       /* meta options */
+      name: "KopaSmart",
+      author: "Fintasport",
+      description: "Where lender and borrowers Meet",
+      lang: "en",
+      ogType: "website",
+      ogSiteName: "KopaSmart WebApp",
+      ogTitle: "KopaSmart WebApp",
+      ogDescription: "Where lender and borrowers Meet",
+      ogHost: "https://kopasmart.app/",
+      ogImage: "https://github.com/finspointa/kopasmart-webapp/blob/master/static/kopasmart.jpg",
+      ogUrl: "",
+      twitterCard: "KopaSmart",
+      twitterSite: "kopaSmart",
+
+
     },
     icon: {
       iconSrc: '/static/icon.png'
