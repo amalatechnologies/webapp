@@ -61,7 +61,6 @@ export default {
     "~/plugins/i18n.js",
     '@plugins/vuetify.js',
     '~/plugins/axios',
-    '~/plugins/meta',
     '~/plugins/route',
     '~/plugins/pwa.client.js',
     '~/plugins/moment.js',

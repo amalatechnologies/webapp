@@ -154,7 +154,7 @@
             </v-avatar>
           </v-row>
           <v-card-text class="text-xs-center">
-            <h6 class="category text-gray font-weight-thin mb-3">CEO / CO-FOUNDER</h6>
+            <!-- <h6 class="category text-gray font-weight-thin mb-3">CEO / CO-FOUNDER</h6> -->
             <h4 class="card-title font-weight-light">
               {{userdata.first_name}} {{userdata.last_name}}
               <strong
@@ -162,8 +162,9 @@
               >{ @{{userdata.username}} }</strong>
             </h4>
             <p
+               v-if="userdata.biography!= null"
               class="card-description font-weight-light"
-            >Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...</p>
+            >{{userdata.biography}}</p>
 
             <v-btn
               color="info lighten-1"
