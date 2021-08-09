@@ -2,6 +2,7 @@
   
     <v-card class="mx-auto" flat elevation="1">
     <v-img
+    v-if="post.medias[0].src != null"
       class="white--text align-end"
       height="200px"
       :src="post.medias[0].src"
@@ -16,6 +17,7 @@
                 <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0">
                   <v-avatar size="20px">
                     <img
+                     v-if="post.medias[0].src != null"
                       :src="post.medias[0].src"
                       alt="post.owner.username"
                     />
@@ -122,14 +124,7 @@ export default {
   props: {post:Object,postimage:Array},
   data: () => ({
     view: false,
-    images:[
-      "https://freepsdmock-up.com/wp-content/uploads/2018/06/Free-Wine-Bottle-Label-Mockups-1.jpg",
-      "https://wpepitome.com/wp-content/uploads/2019/07/29_wine-bottle-mockups.jpg",
-      "https://worldbranddesign.com/wp-content/uploads/2020/02/design-for-vida-wine-brand.jpg",
-      "https://s23444.pcdn.co/wp-content/uploads/2020/01/Africa-general-pic.jpg.optimal.jpg",
-      "https://dibonphuong.files.wordpress.com/2019/09/most-beautiful-landscapes-in-europe-hallstatt-copyright-canadastock-european-best-destinations.jpg",
-      "https://secure.img1-fg.wfcdn.com/im/80685197/resize-h800-w800%5Ecompr-r85/3073/30739909/Siera+4+Bottle+Wall+Mounted+Wine+Bottle+and+Glass+Rack+in+White.jpg"
-    ]
+  
 
   }),
 

@@ -4,10 +4,11 @@
       <v-row justify="center" align="center" align-content="center">
         <v-col cols="12">
           <div class="home_tool_lg">
-          Where borrowers and lenders meet 
+       {{ $t('label.message.motto') }}
             </div>
        <div class="white--text text-center font-weight-bold">
-         Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.<br> The most informative application in financial inclusion.
+        {{ $t('label.message.aboutusmessage') }}<br>
+        {{ $t('label.message.aboutusmessage2') }}
           </div>
 
         </v-col>
