@@ -90,9 +90,10 @@
     },
     "message": {
       "Do you Agree":"Unakubali",
-      "aboutusmessage": "Kopasmart Application ni hutoa mikopo ya papo hapo, na huduma zingine za kibinafsi za kifedha nchini Tanzania na ulimwenguni kote. Mamilioni ya watu wamekopa kupitia programu ya smartphone ya Kopasmart",
-      "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
-      "motto": "Making awesome stuffs",
+      "aboutusmessage": "Taasisi tofauti za kifedha hukutana na wakopaji wao huko Kopasmart na wakopaji wanawezeshwa na habari na chaguo la kutosha wakati wa kufanya uamuzi wa kukopa",
+      "aboutusmessage2":"Maombi yenye habari zaidi katika ujumuishaji wa kifedha",
+      "thanksmessage": "Asante kwa kuendeleza na {{app_name}} na ninatarajia kuleta vipengee zaidi vya kufurahisha katika siku zijazo.",
+      "motto": "Ambapo wakopaji na wakopeshaji wanakutana",
       "saveschedule": "Kwa kubonyeza kuokoa ratiba hii ya ulipaji itahifadhiwa na inaweza kuhesabiwa tena baadaye. Je! Una uhakika unataka kuhifadhi hii? Ikiwa ndio Toa Jina hapa chini na bonyeza kitufe cha kuokoa ili kuhifadhi ",
       "profileupdate": "Kwa kubonyeza * Ninakubali * unakubali Sheria na Masharti na maelezo yako mafupi yatasasishwa na data mpya unayotoa na maelezo yako ya kuingia pia yatasasishwa. Kwa hivyo utaombwa uingie tena na jina la mtumiaji mpya ikiwa ipo. \n\n Unakubali ?"
     },
@@ -104,7 +105,7 @@
     "tooltip": {
       "tooltiphello": "Habari yako",
       "tooltipwelcometo": "Karibu kwenye",
-      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+      "loanrepaymentschedulecalculator": "Kikokotoo cha Ratiba ya Malipo ya Mkopo"
     },
     "menu": {
       "repaymentchedules": "Ratiba za malipo",
@@ -128,7 +129,7 @@
     "vtab":{
       "Timeline":"Ratiba ya nyakati",
       "About":"Kuhusu",
-      "Posts":"machapisho",
+      "Posts":"Machapisho",
       "Comments":"Maoni",
       "Followers":"Wafuasi",
       "Followings":"Ufuatiliaji"

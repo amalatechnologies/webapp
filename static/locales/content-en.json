@@ -93,9 +93,10 @@
     },
     "message": {
       "Do you Agree":"Do you Agree",
-      "aboutusmessage": "Kopasmart Application  provides instant  lending, and other personalized financial services in Tanzania and around the world. Millions of people have borrowed through Kopasmart’s smartphone app",
+      "aboutusmessage": "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.",
+      "aboutusmessage2":"The most informative application in financial inclusion.",
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
-      "motto": "Making awesome stuffs",
+      "motto": "Where borrowers and lenders meet",
       "saveschedule": "By Clicking save this repayment schedule will be saved and can be re-calculated later. \n\n Are you sure you want to save this ? \n\n If yes Provide the Name below and click save button to save ",
       "profileupdate": "By clicking *I Agree* you are agreeing to the Terms and Conditions and your profile informattions will be updated with a newly data you provide and your login infomations will also be updated. So you will be requested to re-login with new username if any. \n\n Do you agree ?"
     },
