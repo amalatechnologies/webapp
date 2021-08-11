@@ -35,7 +35,7 @@ export default {
 
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favi.ico' }
     ]
   },
 
@@ -105,19 +105,20 @@ export default {
   },
   pwa: {
     manifest: {
-      name: 'KopaS  mart',
+      name: 'KopaSmart',
       lang: 'en'
     },
     meta: {
       /* meta options */
       name: "KopaSmart",
       author: "Fintasport",
-      description: "Where lender and borrowers Meet",
+      motto:"Where lender and borrowers Meet",
+      description: "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       lang: "en",
       ogType: "website",
       ogSiteName: "KopaSmart WebApp",
       ogTitle: "KopaSmart WebApp",
-      ogDescription: "Where lender and borrowers Meet",
+      ogDescription: "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       ogHost: "https://kopasmart.app/",
       ogImage: "https://github.com/finspointa/kopasmart-webapp/blob/master/static/kopasmart.jpg",
       ogUrl: "",
@@ -125,10 +126,8 @@ export default {
       twitterSite: "kopaSmart",
 
 
-    },
-    icon: {
-      iconSrc: '/static/icon.png'
     }
+   
   },
   server: {
     port: 8000, // default: 3000
