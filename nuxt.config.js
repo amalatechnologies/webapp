@@ -120,7 +120,7 @@ export default {
       ogTitle: "KopaSmart WebApp",
       ogDescription: "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       ogHost: "https://kopasmart.app/",
-      ogImage: "https://github.com/finspointa/kopasmart-webapp/blob/master/static/kopasmart.jpg",
+      ogImage: '~/static/kopalogo.png',
       ogUrl: "",
       twitterCard: "KopaSmart",
       twitterSite: "kopaSmart",

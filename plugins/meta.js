@@ -3,7 +3,7 @@ const url = "https://kopasmart.app/";
 const title = "Kopasmart WebApp";
 const motto = "Where lender and borrowers Meet";
 const description = "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion";
-const mainImage = "https://github.com/finspointa/kopasmart-webapp/blob/master/static/kopasmart.jpg";
+const mainImage = '~/static/kopalogo.png';
 
 
 export default (meta) => {
