@@ -57,9 +57,7 @@ const actions = {
     await this.$api.$patch(`users/` + localStorage.getItem('uuId') + `/`, payload)
       .then(response => {
         commit("PROFILE_UPDATE_SUCCESS", response);
-        localStorage.removeItem('qAccessToken');
-        localStorage.removeItem('uuId');
-        this.$router.push('/home');
+       
 
       }).catch(error => {
         commit("PROFILE_UPDATE_FAILED");
