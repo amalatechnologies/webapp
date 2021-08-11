@@ -36,7 +36,7 @@ export default (meta) => {
         {
             hid: "og:description",
             property: "og:description",
-            content: (meta && meta.description) || description,
+            content: (meta && meta.ogDescription) || description,
         },
         {
             hid: "og:image",
