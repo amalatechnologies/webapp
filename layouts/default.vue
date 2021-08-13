@@ -1,5 +1,6 @@
 <template>
   <v-app style="background-color: #F5F5F5;">
+    
     <v-navigation-drawer
       v-model="drawer"
       mini-variant.sync="mini"
@@ -9,6 +10,7 @@
       width="220"
       height="100%"
     >
+      
       <v-list dense subheader tile>
         <v-list-item dense to="/profile" class="list-item ma-0">
           <v-list-item-avatar>
@@ -17,6 +19,7 @@
               dark
             ></v-img>
           </v-list-item-avatar>
+          
           <v-list-item-content>
             <v-list-item-title class="headline text-h6">{{
               userdata.username
@@ -72,9 +75,17 @@
 
     <v-app-bar dense fixed app color="primary">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" dark>
-      
+       
       </v-app-bar-nav-icon>
+      <img
+                
+                width="80px"
+                
+                src="/kopalogo.ico"
+                alt="KopaSmart"
+              />
       <v-spacer />
+     
       <v-btn icon @click="changemode">
         <v-icon v-if="!dark" color="white">mdi-brightness-6</v-icon>
         <v-icon v-if="dark" color="white">mdi-brightness-5</v-icon>
