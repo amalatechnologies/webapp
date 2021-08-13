@@ -1,15 +1,29 @@
 <template>
-  <v-app class="app">
+  <v-app class="app"
+  
+  >
     <v-container  class="fill-height" fluid>
        <v-row align="center" class="justify-center" justify="center" >
+       
       <v-card width="400" class="elevation-12">
-        <v-toolbar color="info" cards dark flat>
-          <v-subheader class="font-weight-light">{{ $t('label.button.buttonsignin')}}</v-subheader>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-        
+
+        <v-toolbar prominent :src="image" flat
+         
+      
+        >
+            <v-toolbar-title  dense>
+              <img
+                
+                class="mt-6"
+                src="/kopalogo.png"
+                alt="KopaSmart"
+              />
+            </v-toolbar-title>
+            <v-spacer ></v-spacer>
+          </v-toolbar>
+             <v-card-text>   
         <v-form ref="form" class="pa-4 pt-6 text-center">
-             
+        
           <v-container fluid>
             <v-row>
   
@@ -59,6 +73,7 @@
             </v-row>
           </v-container>
         </v-form>
+        </v-card-text>   
       </v-card>
     
     
