@@ -1,23 +1,22 @@
-//const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/';
+const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/';
 import metajs from './plugins/meta';
 const meta = metajs();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-  // router: {
-  //   base: routerBase,
-  //   routerNameSplitter: '/',
-  // },
+  target: 'static',
+  router: {
+    base: routerBase,
+    routerNameSplitter: '/',
+  },
   env: {
-    developmentUrl: process.env.BASE_URL || 'https://api.kopasmart.app/',
-    releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
+    developmentUrl: process.env.BASE_URL || 'http://127.0.0.1:8081/',
+    releaseUrl: process.env.LIVE_URL || 'http://127.0.0.1:8081/'
   },
 
 
-    target: 'static',
-    router: {
-      base: '/kopasmart-webapp/'
-    },
+   
+ 
   
   
    // Global page headers (https://go.nuxtjs.dev/config-head)

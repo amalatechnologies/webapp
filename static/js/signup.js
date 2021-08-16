@@ -10,6 +10,17 @@ export default {
     dialog: false,
     email: undefined,
     form: false,
+    items: [
+      {
+        name: "Lender",
+        value: "LENDER_ROLE"
+      },
+      {
+        name: "Borrower",
+        value: "BORROWER_ROLE"
+      }
+    ],
+    role:null,
     isLoading: false,
     password: undefined,
     username: undefined,
@@ -31,8 +42,11 @@ export default {
       let data = {
         username: this.username,
         password: this.password,
-        email: this.email
+        email: this.email,
+        role:this.role
+
       };
+      console.log(data);
       if (this.password === this.rePassword) {
         this.$store.dispatch('register', data);
       }
