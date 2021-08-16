@@ -4,6 +4,7 @@ const meta = metajs();
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  
   router: {
     base: routerBase,
     routerNameSplitter: '/',
@@ -121,7 +122,7 @@ export default {
       ogTitle: "KopaSmart WebApp",
       ogDescription: "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       ogHost: "https://kopasmart.app/",
-      ogImage: '~/static/kopalogo.png',
+      ogImage: 'https://api.kopasmart.app/media/posts_media/kopalogo.png',
       ogUrl: "",
       twitterCard: "KopaSmart",
       twitterSite: "kopaSmart",
