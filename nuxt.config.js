@@ -2,6 +2,7 @@ const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/
 import metajs from './plugins/meta';
 const meta = metajs();
 export default {
+  target: 'static',
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   
