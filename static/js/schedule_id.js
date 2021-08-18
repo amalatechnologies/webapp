@@ -48,12 +48,6 @@ export default {
         value: "interest",
         filterable: false
       },
-
-      {
-        text: "Interrest",
-        value: "interrest",
-        filterable: false
-      },
       {
         text: "Loan Balance",
         value: "loanbalance"
