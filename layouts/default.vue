@@ -77,10 +77,8 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" dark>
        
       </v-app-bar-nav-icon>
-      <img
-                
-                width="80px"
-                
+      <img  
+                width="80px"      
                 src="/kopalogo.ico"
                 alt="KopaSmart"
               />
@@ -117,8 +115,8 @@
     <v-main  >
       <v-container
         style="background-color: #F5F5F5;"
-        class="ma-0 pa-0">
-        <nuxt class="ma-0 pa-0" />
+        >
+        <nuxt />
       </v-container>
     </v-main>
     <v-bottom-navigation
