@@ -6,8 +6,9 @@
           <div class="home_tool_lg">
        {{ $t('label.message.motto') }}
             </div>
-       <div class="white--text text-center font-weight-bold">
+       <div class="text-center font-weight-bold" style="color:#1569C7">
         {{ $t('label.message.aboutusmessage') }}<br>
+     
         {{ $t('label.message.aboutusmessage2') }}
           </div>
 
@@ -16,10 +17,10 @@
           <v-row justify="center" align="center">
             <v-col cols="12" md="4" sm12>
               <v-btn
-                color="white"
+                color="info"
                 large
                 depressed
-                outlined
+               
                 to="/calculator"
                 router
                 exact
@@ -29,7 +30,7 @@
             <v-col cols="12"  md="4" sm12></v-col>
             <v-col cols="12"  md="4" sm12>
               <v-btn
-                color="success"
+                color="info"
                 class="font-weight-bold"
                 large
                 depressed
@@ -94,15 +95,14 @@ export default {
 <style lang="scss" scoped>
 .my-2,
 .home_tool {
-  font-weight: bold;
-  color: #FFFFFF;
+
   text-align: center;
   font-family: 'Inconsolata', Consolas, monospace;
   font-size: 1em;
 }
 .home_tool_lg{
   font-weight: bold;
-  color: #FFFFFF;
+color:#1569C7;
   text-align: center;
   font-family: 'Inconsolata', Consolas, monospace;
   font-size: 3em;

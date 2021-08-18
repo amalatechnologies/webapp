@@ -78,9 +78,11 @@
        
       </v-app-bar-nav-icon>
       <img  
-                width="80px"      
+                width="120px" 
+                     
                 src="/kopalogo.ico"
                 alt="KopaSmart"
+               
               />
       <v-spacer />
      

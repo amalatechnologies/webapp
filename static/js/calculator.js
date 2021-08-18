@@ -78,12 +78,6 @@ export default {
         value: "interest",
         filterable: false
       },
-
-      {
-        text: this.$t('label.heading.Interrest'),
-        value: "interrest",
-        filterable: false
-      },
       {
         text: this.$t('label.heading.Loan Balance'),
         value: "loanbalance"
@@ -97,8 +91,6 @@ export default {
       repayments: [],
       method: {},
       value_frequency: {},
-
-
       value_loan_amount: "",
       value_interest_rate: "",
       value_loan_term: "",

@@ -1,7 +1,25 @@
 <template>
   <v-app class="app">
     <v-container fluid>
-      <v-card class="mx-auto" style="max-width=540">
+
+  
+
+
+       <v-row class="justify-end"  >
+ <v-col  >
+  <img  
+                width="400px" 
+               
+                src="/kopalogo.ico"
+                alt="KopaSmart"
+               
+              />
+        
+   </v-col>
+
+
+            <v-col  >
+      <v-card class="elevation-20" max-width="540" >
         <v-toolbar color="primary" dark flat>
           <v-subheader class="font-weight-regular">{{
             $t("label.button.buttonsignup")
@@ -10,7 +28,7 @@
         </v-toolbar>
         <v-form ref="form" v-model="form" class="pa-4 pt-6">
           <v-row>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="12">
               <v-text-field
                 ref="username"
                 v-model="username"
@@ -18,6 +36,7 @@
                 :rules="[rules.length(5)]"
                 placeholder="Username"
               ></v-text-field>
+            
               <v-text-field
                 ref="email"
                 v-model="email"
@@ -26,8 +45,7 @@
                 placeholder="email@example.com"
                 type="email"
               ></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="6">
+            
               <v-text-field
                 v-model="password"
                 :rules="[rules.password, rules.length(8)]"
@@ -47,8 +65,7 @@
                 label="Confirm Password"
                 type="password"
               ></v-text-field>
-            </v-col>
-            <v-col cols="12" sm="6">
+          
               <v-select
                 v-model="role"
                 item-text="name"
@@ -76,7 +93,9 @@
         </v-form>
         <v-divider></v-divider>
         <v-card-actions>
-          <v-btn text @click="$refs.form.reset()">Clear</v-btn>
+          <v-btn  color="info"  to="/signin">{{
+            $t("label.button.buttonsignin")
+          }}</v-btn>
           <v-spacer></v-spacer>
           <v-btn
             :disabled="!form"
@@ -85,7 +104,7 @@
             color="deep-purple accent-4"
             depressed
             @click="signUpWithCredentials"
-            >Submit</v-btn
+            >{{$t("label.button.buttonsignup")}}</v-btn
           >
         </v-card-actions>
         <v-dialog v-model="dialog" absolute max-width="400" persistent>
@@ -117,6 +136,8 @@
           </v-card>
         </v-dialog>
       </v-card>
+      </v-col>
+        </v-row>
     </v-container>
   </v-app>
 </template>
