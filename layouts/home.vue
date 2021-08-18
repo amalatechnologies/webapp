@@ -1,11 +1,7 @@
 <template>
   <v-app
     class="aspire"
-    style="
-    background: #3A1C71;
-    background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
-    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
-  ">
+    style='background-image: url("/kopalogo.png"); background-repeat: no-repeat; background-position: center top;  margin-top: 10px;'>
     <v-main>
       <nuxt/>
     </v-main>

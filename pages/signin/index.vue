@@ -9,9 +9,9 @@
 
         <v-toolbar prominent :src="image" flat
          
-      
+      color="info"
         >
-            <v-toolbar-title  dense>
+            <v-toolbar-title dense>
               <img
                 
                 class="mt-6"
