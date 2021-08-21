@@ -81,7 +81,9 @@ export default {
   modules: [
    '@nuxtjs/bulma',
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'vue-social-sharing/nuxt',
+  
   ],
 
   axios: {},

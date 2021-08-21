@@ -1,11 +1,25 @@
 <template>
   <v-app class="app">
+     
+        <v-app-bar dense fixed app color="primary" v-if="t"  >
+           <img  
+                width="120px" 
+                   
+                src="/kopalogo.ico"
+                alt="KopaSmart"
+               
+              />
+        </v-app-bar>
     <v-container fluid>
+    
+      
       <v-layout justify-center align-center>
         <v-flex>
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-card class="mx-auto">
               <v-container fluid v-if="datarequired">
+
+              
                 <p
                   class="subtitle-2 text-center font-weight-black"
                 >{{ $t('label.heading.loanrepaymentschedulecalculator') }}</p>

@@ -3,7 +3,7 @@ import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import DatatableComponent from "~/components/items/datatable-component";
 
 export default {
-  layout: localStorage.getItem("qAccessToken") != null ? "default" : "home",
+  layout: localStorage.getItem("qAccessToken") == null ? "fault" : "Home",
   components: {
     Logo,
     VuetifyLogo,
@@ -14,6 +14,7 @@ export default {
       valid: true,
       title: "Home",  
       dense: false,
+      t:localStorage.getItem("qAccessToken") != null ? false : true,
       dark: false,
       dialog: false,
       advanced: false,
