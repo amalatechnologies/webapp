@@ -34,7 +34,27 @@ const mutations = {
   },
   PROFILE_UPDATE_ERROR(state) {
     state.showLoader = false;
-  }
+  },
+  UPDATE_PASSWORD(state) {
+    state.showLoader = true;
+  },
+  UPDATE_PASSWORD_FAILED(state) {
+    state.showLoader = false;
+  },
+  UPDATE_PASSWORD_ERROR(state) {
+    state.showLoader = false;
+  },
+  UPDATE_PASSWORD_SUCCESS(state, payload) {
+    state.showLoader = false;
+
+  },
+
+
+
+
+
+
+
 };
 const actions = {
   async getProfile({ commit}) {
@@ -47,6 +67,25 @@ const actions = {
       }).catch(error => {
         commit("PROFILE_ERROR");
 
+
+      });
+  }, 
+  async _update_user_password({ commit }, payload) {
+    commit("UPDATE_PASSWORD");
+    console.log(payload);
+    await this.$api.$put("change-password/", payload)
+      .then(response => {
+        commit("UPDATE_PASSWORD_SUCCESS", response);
+        if (response.httpStatus === 200) {
+          localStorage.removeItem('qAccessToken');
+          localStorage.removeItem('uuId', uuId);
+          this.$router.push('/');
+        }
+      
+       
+      }).catch(error => {
+        commit("UPDATE_PASSWORD_ERROR");
+        console.log(error);
 
       });
   },

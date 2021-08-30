@@ -109,10 +109,118 @@
                   color="info lighten-1"
                   class="mx-0 font-weight-light"
                   style="text-transform: capitalize"
-                  @click.stop="dialog = true"
+                  @click.stop="dialog1 = true"
                 >{{ $t("label.button.btnupdateprofile") }}</v-btn>
 
-                <v-dialog v-model="dialog" max-width="290">
+                   <v-dialog v-model="dialog" width="500">
+                <template v-slot:activator="{ on, attrs }">
+                    
+                     <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  class="button"
+                  medium
+                  elevation="2"
+                >
+                  <v-icon small>mdi-lock</v-icon>
+                  &nbsp;&nbsp;Change Password</v-btn
+                >
+                
+                </template>
+               
+                <v-card flat>
+              <v-toolbar dark flat class="primary">
+                <v-toolbar-title><h3>Update password</h3></v-toolbar-title>
+              </v-toolbar>
+              <v-card-text class="pa-4">
+                  <v-form
+                  @submit.prevent="updatepassword"
+                  id="check-login-form"
+                  class="mt-3"
+                  ref="form"
+                  v-model="valid"
+                > 
+                <v-text-field
+                v-model="form_data.old_password"
+                prepend-inner-icon="mdi-lock"
+                :append-icon="show1 ? 'mdi-eye':'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'"
+                 @click:append="show1 = !show1"
+                     error-count="8"
+                    label="Old password"
+                    placeholder="********"
+                    name="input-10-1"
+                    counter
+                    dense
+                    outlined
+                    required
+                    class="mt-2 ma-5">
+                </v-text-field>
+
+                <v-text-field
+                  v-model="form_data.new_password"
+                    prepend-inner-icon="mdi-lock-outline"
+                    :append-icon="show2 ? 'mdi-eye':'mdi-eye-off'"
+                    :type="show2 ? 'text' : 'password'"
+                    :rules="[rules.required, rules.min]"
+                    @click:append="show2 = !show2"
+                    error-count="8"
+                    label="New password"
+                    placeholder="********"
+                    name="input-10-1"
+                    hint="At least 8 characters"
+                    counter
+                    dense
+                    outlined
+                    required
+                    class="mt-2 ma-5"
+                  ></v-text-field>
+                   <v-text-field
+                     v-model="confirmPassword"
+                    prepend-inner-icon="mdi-lock-outline"
+                    :append-icon="show3 ? 'mdi-eye':'mdi-eye-off'"
+                    :type="show3 ? 'text' : 'password'"
+                    :rules="[
+                      rules.required,
+                      rules.min,
+                      passwordConfirmationRule
+                    ]"
+                    @click:append="show3 = !show3"
+                    error-count="8"
+                    label="Confirm password"
+                    placeholder="********"
+                    name="input-10-1"
+                    counter
+                    dense
+                    outlined
+                    required
+                    class="mt-2 ma-5"
+                  ></v-text-field>
+                </v-form>
+              </v-card-text>
+
+             <v-divider></v-divider>
+
+             <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn class="button cancel" small @click="dialog = false">
+                  Cancel
+                </v-btn>
+                <v-btn
+                  class="button"
+                  small
+                  type="submit"
+                  :disabled="!valid"
+                  form="check-login-form"
+                >
+                  Update
+                </v-btn>
+              </v-card-actions>
+                 </v-card>
+                   </v-dialog>
+
+                
+                <v-dialog v-model="dialog1" max-width="290">
                   <v-card>
                     <v-card-title class="headline error white--text">{{ $t('label.message.Do you Agree')}}?</v-card-title>
 

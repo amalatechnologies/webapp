@@ -33,6 +33,7 @@
                   type="text"
                   label="Username"
                    required
+                   
                   :rules="[rules.required]"
                   prepend-icon="mdi-account"
                   single-line
@@ -40,12 +41,19 @@
                 ></v-text-field>
 
                 <v-text-field
-                  v-model="password"
-                  type="password"
-                  label="Password"
-                   required
+                 v-model="password"
+                 prepend-icon="mdi-lock"
+                :append-icon="show1 ? 'mdi-eye':'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'"
                   :rules="[rules.required, rules.min]"
-                  :prepend-icon=" show1 ? 'mdi-eye':'mdi-eye-off'"
+                 @click:append="show1 = !show1"
+                     error-count="8"
+                    label="Password"
+                    placeholder="********"
+                    name="input-10-1"
+                    counter
+               
+                    required
                   single-line
                   autocomplete
                 ></v-text-field>

@@ -11,7 +11,7 @@ export default {
     routerNameSplitter: '/',
   },
   env: {
-    developmentUrl: process.env.BASE_URL || 'https://api.kopasmart.app/',
+    developmentUrl: process.env.BASE_URL || 'http://127.0.0.1:8081/',
     releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
   },
 
