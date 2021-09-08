@@ -2,6 +2,8 @@
 const state = () => ({
   userdata: {},
   showLoader: Boolean,
+  error:null,
+  success:null
 
 });
 
@@ -41,11 +43,14 @@ const mutations = {
   UPDATE_PASSWORD_FAILED(state) {
     state.showLoader = false;
   },
-  UPDATE_PASSWORD_ERROR(state) {
-    state.showLoader = false;
+  UPDATE_PASSWORD_ERROR(state,payload) {
+    state.showLoader = true;
+
+    state.error = payload;
   },
   UPDATE_PASSWORD_SUCCESS(state, payload) {
-    state.showLoader = false;
+    state.success=payload;
+    state.showLoader = true;
 
   },
 
@@ -76,17 +81,24 @@ const actions = {
     await this.$api.$put("change-password/", payload)
       .then(response => {
         commit("UPDATE_PASSWORD_SUCCESS", response);
-        if (response.httpStatus === 200) {
+       
+    
+        if (response.code === 200) {
           localStorage.removeItem('qAccessToken');
-          localStorage.removeItem('uuId', uuId);
+          localStorage.removeItem('uuId');
           this.$router.push('/');
         }
       
-       
-      }).catch(error => {
-        commit("UPDATE_PASSWORD_ERROR");
-        console.log(error);
+        else if(response.code === 400)
+    {
 
+      commit("UPDATE_PASSWORD_ERROR",response.message);
+     
+    }
+
+      }).catch(error => {
+        
+        commit("UPDATE_PASSWORD_FAILED")
       });
   },
   async updateProfile({
@@ -108,6 +120,13 @@ const actions = {
 const getters = {
   userInfo: function (state) {
     return state.userdata;
+  },
+  passwordfailed: function (state) {
+    console.log(state.error);
+    return state.error;
+  },
+  passwordsuccess:function(state){
+    return state.success;
   }
 };
 export default {

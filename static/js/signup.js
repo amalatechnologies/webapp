@@ -6,6 +6,10 @@ export default {
   },
   layout: "home",
   data: () => ({
+    show1: false,
+    show2: true,
+    show3: false,
+    show4: false,
     agreement: false,
     dialog: false,
     email: undefined,
