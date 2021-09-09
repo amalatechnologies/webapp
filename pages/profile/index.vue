@@ -316,6 +316,6 @@
   </v-container>
 </template>
 
-<script lang="js" src="~/static/js/profile.js"></script>
+<script lang="js" src="~/static/js/profile.js"></script>  
 <style scoped>
 </style>

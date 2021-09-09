@@ -11,7 +11,7 @@ export default {
     routerNameSplitter: '/',
   },
   env: {
-    developmentUrl: process.env.BASE_URL || 'https://api.kopasmart.app/',
+    developmentUrl: process.env.BASE_URL ||'https://api.kopasmart.app/',
     releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
   },
 
@@ -69,6 +69,8 @@ export default {
     '~/plugins/moment.js',
     '~/mixins/mixins.js',
     '~/plugins/vuepersistence.js',
+  
+     '~/plugins/VueToasted.js',
     { src: '~plugins/ga.js', mode: 'client' }
   ],
 
@@ -136,6 +138,6 @@ export default {
   },
   server: {
     port: 8000, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: '127.0.0.1', // default: localhost
   },
 }

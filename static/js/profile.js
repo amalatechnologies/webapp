@@ -44,7 +44,7 @@ export default {
       return () =>
         this.form_data.new_password === this.confirmPassword ||
         "Password must match";
-    }
+    },
 
   },
   methods: {
@@ -55,10 +55,10 @@ export default {
         this.$store.dispatch('updateProfile', this.userdata);
       }
      
-
     },
     updatepassword() {
       this.$store.dispatch("_update_user_password", this.form_data);
+      this.$toaster.success('Your toaster success message.');
     }
   },
   beforeMount() {

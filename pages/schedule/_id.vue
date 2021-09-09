@@ -15,7 +15,19 @@
         <v-card-subtitle class="title font-weight-light"
           >Selected Repayment Schedule {{ schedule.name }}</v-card-subtitle
         >
+<v-card-text>
 
+  <ShareNetwork
+    network="Telegram"
+    url="https://kopasmart.app/schedule/13"
+    title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
+    description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+    quote="The hot reload is so fast it\'s near instant. - Evan You"
+    hashtags="vuejs,vite"
+  >
+    Share on Facebook
+</ShareNetwork>
+</v-card-text>
         <v-row v-if="data">
           <list-item
             title="Name"
@@ -63,7 +75,12 @@
             title="Interest Free period"
             v-bind:subtitle="schedule.interest_free_period"
           ></list-item>
+
         </v-row>
+
+
+
+
 
         <v-container fluid v-if="table">
           <datatable-component
@@ -92,16 +109,7 @@
             @click="calculateRepaymentSchedule"
             >Calculate</v-btn
           >
-          <!-- <ShareNetwork
-    network="Whatsapp"
-    url="/departments/"`${this.$route.params.id}`
-    title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-    description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-    quote="The hot reload is so fast it\'s near instant. - Evan You"
-    hashtags="vuejs,vite"
-  >
-    Share on Facebook
-</ShareNetwork> -->
+        
         </v-card-actions>
       </v-card>
     </v-container>
