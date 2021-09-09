@@ -313,6 +313,43 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+
+  <v-row justify="center">
+    <v-dialog
+      v-model="dialog3"
+      persistent
+      max-width="290"
+    >
+  
+      <v-card>
+        <v-card-title >
+       ALert
+        </v-card-title>
+         <v-card-text>{{text}},password not changed</v-card-text>
+        <v-card-actions>
+  
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog3 = false"
+          >
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+
+
+
+
+
+
+
+
+
+
   </v-container>
 </template>
 

@@ -2,8 +2,7 @@
 const state = () => ({
   userdata: {},
   showLoader: Boolean,
-  error:null,
-  success:null
+  message:null,
 
 });
 
@@ -46,10 +45,10 @@ const mutations = {
   UPDATE_PASSWORD_ERROR(state,payload) {
     state.showLoader = true;
 
-    state.error = payload;
+    state.message= payload;
   },
   UPDATE_PASSWORD_SUCCESS(state, payload) {
-    state.success=payload;
+    state.message=payload;
     state.showLoader = true;
 
   },
@@ -80,7 +79,7 @@ const actions = {
     console.log(payload);
     await this.$api.$put("change-password/", payload)
       .then(response => {
-        commit("UPDATE_PASSWORD_SUCCESS", response);
+        commit("UPDATE_PASSWORD_SUCCESS", response.code);
        
     
         if (response.code === 200) {
@@ -92,7 +91,7 @@ const actions = {
         else if(response.code === 400)
     {
 
-      commit("UPDATE_PASSWORD_ERROR",response.message);
+      commit("UPDATE_PASSWORD_ERROR",response.code);
      
     }
 
@@ -121,13 +120,11 @@ const getters = {
   userInfo: function (state) {
     return state.userdata;
   },
-  passwordfailed: function (state) {
-    console.log(state.error);
-    return state.error;
+  passwordmessage: function (state) {
+
+    return state.message;
   },
-  passwordsuccess:function(state){
-    return state.success;
-  }
+
 };
 export default {
   namespaced: false,
