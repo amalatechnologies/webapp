@@ -1,6 +1,7 @@
 export default {
   data: () => ({
     valid: false,
+    text:null,
     show1: false,
     show2: false,
     show3: false,
@@ -20,6 +21,7 @@ export default {
     postal: "",
     about: "",
     dialog1: false,
+    dialog3: false,
     dialog:false,
     rules: {
       required: value => !!value || "Required.",
@@ -56,9 +58,23 @@ export default {
       }
      
     },
+    jiachie(message)
+     {
+  
+       if (message === 400)
+       {
+         
+        this.text="Old password isnot correct"
+        this.dialog3=true;
+             }  
+
+
+     },
     updatepassword() {
       this.$store.dispatch("_update_user_password", this.form_data);
-      this.$toaster.success('Your toaster success message.');
+      this.dialog = false;
+      this.jiachie(this.$store.getters.passwordmessage);
+
     }
   },
   beforeMount() {
