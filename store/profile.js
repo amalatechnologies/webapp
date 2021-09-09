@@ -47,8 +47,8 @@ const mutations = {
 
     state.message= payload;
   },
-  UPDATE_PASSWORD_SUCCESS(state, payload) {
-    state.message=payload;
+  UPDATE_PASSWORD_SUCCESS(state) {
+  
     state.showLoader = true;
 
   },
@@ -79,7 +79,7 @@ const actions = {
     console.log(payload);
     await this.$api.$put("change-password/", payload)
       .then(response => {
-        commit("UPDATE_PASSWORD_SUCCESS", response.code);
+        commit("UPDATE_PASSWORD_SUCCESS");
        
     
         if (response.code === 200) {
