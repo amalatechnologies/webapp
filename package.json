@@ -16,7 +16,7 @@
     "core-js": "^3.17.3",
     "fibers": "^5.0.0",
     "moment": "^2.27.0",
-    "nuxt": "^2.15.8",
+    "nuxt": "^2.13.3",
     "secure-ls": "^1.2.6",
     "vue-i18n": "^8.25.1",
     "vue-social-sharing": "^3.0.8",
