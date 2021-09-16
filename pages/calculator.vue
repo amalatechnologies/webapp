@@ -203,9 +203,9 @@
                   <v-btn
                     v-if="datarequired"
                     color="success"
-                    small
+                    medium
                     outlined
-                    depressed
+                    depressed ref="calculate"
                     :disabled="!valid"
                     @click="calculate"
                   >{{ $t('label.button.btncalculate') }}</v-btn>&nbsp;
@@ -213,14 +213,14 @@
                     v-if="datarequired"
                     color="secondary"
                     outlined
-                    small
+                
                     depressed
                     @click="clear"
                   >{{ $t('label.button.btnclear') }}</v-btn>&nbsp;
                   <v-btn
                     v-if="!datarequired"
                     color="error"
-                    small
+                  
                     depressed
                     @click="cancel"
                   >{{ $t('label.button.btnback') }}</v-btn>&nbsp;
@@ -256,7 +256,6 @@
                               style="text-transform: capitalize"
                               color="green darken-1"
                               outlined
-                              small
                               @click="dialog = false"
                             >
                             {{$t('label.button.btnNo')}}
@@ -266,7 +265,7 @@
                             <v-btn
                               class="warning darken-1 white--text"
                               style="text-transform: capitalize"
-                              small
+                          
                               outlined
                               :rules="nameRules"
                               :disabled="!valid"
@@ -280,7 +279,6 @@
 
                   <v-btn
                     class="info lighten-1"
-                    small
                     depressed
                     to="/"
                   >{{ $t('label.button.btnhome') }}</v-btn>
@@ -300,15 +298,13 @@ import DatatableComponent from "~/components/items/datatable-component";
 export default {
   layout: localStorage.getItem("qAccessToken") == null ? "fault" : "Home",
   components: {
-    Logo,
-    VuetifyLogo,
     DatatableComponent
   },
   data() {
     return {
       valid: true,
       title: "Home",  
-      dense: false,
+      dense: true,
       t:localStorage.getItem("qAccessToken") != null ? false : true,
       dark: false,
       dialog: false,
@@ -517,7 +513,74 @@ export default {
           return "Y";
       }
     },
+    isEmpty: function(obj){
+      return Object.keys(obj).length === 0;
+    }
 
+  },
+  mounted() {
+    console.log('Logging router: ');
+   
+    if(!this.isEmpty(this.$route.query)){
+      var query = this.$route.query;
+      console.log(this.$route.query);
+      this.value_loan_amount = query.a;
+      this.value_interest_rate = query.i;
+      this.value_num_of_repayments = query.nr;
+      this.method = this.iterest_methods.filter(function(x) {return x.name == query.m})[0];
+      this.value_loan_term = query.lt.charAt(0);
+      this.value_repayments_freq = query.rf.charAt(0);
+      this.value_loan_term_unit = this.loan_terms.filter(function(x){ return x.name.startsWith(query.lt.charAt(1))})[0];
+      this.value_frequency = this.loan_terms.filter(function(x){ return x.name.startsWith(query.rf.charAt(1))})[0];
+      
+        this.datarequired = false;
+        this.loading = true;
+
+        this.$nextTick(() => {
+          const items = [];
+          const interestRate = this.value_interest_rate / 100;
+          if (this.method.value == 1) {
+            var totalInterest = (this.value_loan_amount * interestRate * this.value_loan_term);
+            this.ttInterest = totalInterest;
+            this.ttBalance =
+              parseInt(this.value_loan_amount) + parseInt(totalInterest);
+            var balance =
+              parseInt(this.value_loan_amount) + parseInt(totalInterest);
+            for (var i = 0; i < this.value_num_of_repayments; i++) {
+              const item = new Object();
+
+              item.days = 1 + i;
+              item.paiddate = this.getNextWeekDay(
+                (i + 1) *
+                this.value_repayments_freq *
+                this.value_frequency.value
+              )
+                .toLocaleString()
+                .split(" ")[0];
+              item.principaldue =
+                this.value_loan_amount / this.value_num_of_repayments;
+              item.loanamount = this.value_loan_amount;
+              item.interest = totalInterest / this.value_num_of_repayments;
+              item.total = item.principaldue + item.interest;
+              balance = balance - (item.principaldue + item.interest);
+              item.loanbalance = balance;
+              items.push(item);
+
+            }
+          } else if (this.method.value == 2) {
+
+          }
+          this.repayments = items;
+
+
+        });
+
+        this.loading = false;
+      }
+      
+     
+    
+    
   },
   computed: {
     isLoggedIn() {
