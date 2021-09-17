@@ -70,7 +70,7 @@ export default {
     '~/mixins/mixins.js',
     '~/plugins/vuepersistence.js',
   
-     '~/plugins/VueToasted.js',
+  
     { src: '~plugins/ga.js', mode: 'client' }
   ],
 
