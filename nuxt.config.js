@@ -84,7 +84,7 @@ export default {
    '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
-    'vue-social-sharing/nuxt',
+   
   
   ],
 
