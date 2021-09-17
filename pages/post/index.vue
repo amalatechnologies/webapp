@@ -12,15 +12,17 @@
             rows="1"
             :rules="[rules.name, rules.length(20)]"
           ></v-textarea>
-       
-  <v-file-input
-  v-model="src"
-    label="Image input"
+        <v-file-input
+    v-model="src"
+     label="Upload Image"
+      :rules="[rules.required]"
+    accept="image/png, image/jpeg, image/bmp"
     filled
     prepend-icon="mdi-camera"
-    :rules="[rules.required]"
-     @change=uploadImage
+  
+    @change=uploadImage
   ></v-file-input>
+ 
 
             
         </v-form>
