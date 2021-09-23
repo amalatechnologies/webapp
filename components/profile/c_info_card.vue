@@ -37,6 +37,43 @@
 
             <v-flex xs12 md12 class="ma-0 pa-0">
               <v-type-divider type="Work"></v-type-divider>
+              
+                <v-row no-gutters>
+                          
+                            <v-col sm="12" md="3" class="ma-1">
+                            
+                               <v-btn
+                  v-if="userdata.username != null"
+
+                  color="info lighten-1"
+                  class="mx-0 font-weight-light"
+                  style="text-transform: capitalize"
+                  @click.stop="dialog4 = true"
+                >{{ $t("label.button.btnupdateprofile") }}</v-btn>
+
+
+                            </v-col>
+                       
+           </v-row>
+
+      <v-row no-gutters>
+                          
+                            <v-col sm="12" md="3" class="ma-1">
+                            
+                               <v-btn
+                  v-if="userdata.username != null"
+
+                  color="info lighten-1"
+                  class="mx-0 font-weight-light"
+                  style="text-transform: capitalize"
+                  @click.stop="dialog = true"
+                >Change Password</v-btn>
+
+
+                            </v-col>
+                       
+           </v-row>
+
             </v-flex>
 
             <v-flex xs12 md12 class="ma-0 pa-0">
@@ -200,7 +237,7 @@
                         <v-tabs right grow center-active class="elevation-2">
                           <v-tab class="font-weight-light">
                             <span>
-                              <v-icon small left>mdi-eye</v-icon>{{ $t('label.vtab.Timeline') }}
+                              <v-icon small left>mdi-eye</v-icon>Documents
                             </span>
                           </v-tab>
                           <v-tab class="font-weight-light">
@@ -224,21 +261,24 @@
                           <v-tab-item>
                             <v-card flat>
                               <v-card-text>
-                                <p>
-                                  Sed aliquam ultrices mauris. Donec posuere vulputate arcu. Morbi ac felis. Etiam
-                                  feugiat lorem non metus. Sed a libero.
-                                </p>
+                               
 
-                                <p>
-                                  Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Aenean tellus
-                                  metus, bibendum sed, posuere ac, mattis non, nunc. Aliquam lobortis. Aliquam lobortis.
-                                  Suspendisse non nisl sit amet velit hendrerit rutrum.
-                                </p>
+            <v-btn
+              fab
+              small
+              bottom
+              right
+              fixed
+              class="primary darken-3 v-btn--example"
+             @click.stop="dialog6 = true"
+            >
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+   
 
-                                <p class="mb-0">
-                                  Phasellus dolor. Fusce neque. Fusce fermentum odio nec arcu. Pellentesque libero
-                                  tortor, tincidunt et, tincidunt eget, semper nec, quam. Phasellus blandit leo ut odio.
-                                </p>
+                              
+
+                             
                               </v-card-text>
                             </v-card>
                           </v-tab-item>
@@ -320,7 +360,7 @@
                                 :key="index"
                               >
                                 <v-follows :follow="follower"></v-follows>
-                              </v-col>
+                               </v-col>
                               <p v-else></p>
                             </v-row>
                           </v-tab-item>
@@ -357,159 +397,383 @@
         </v-card>
       </v-flex>
     </v-layout>
+ 
+<template>
+
+  <v-row >
+    <v-dialog
+      v-model="dialog4"
+    
+   
+    >
+     
+      <v-card>
+        <v-card-title>
+          <span class="text-h5">User Profile</span>
+        </v-card-title>
+        <v-card-text>
+            <v-container py-0>
+          <v-layout wrap>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="company"
+                :label="$t('label.heading.company')"
+                placeholder="e.g Singo Africa"
+                disabled
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.username"
+                class="purple-input"
+                :label="$t('label.heading.username')"
+                placeholder="e.g johnDoe"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.email"
+                :label="$t('label.heading.emailaddress')"
+                class="purple-input"
+                placeholder="e.g example@email.com"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.first_name"
+                :label="$t('label.heading.firstname')"
+                class="purple-input"
+                placeholder="John"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.middle_name"
+                :label="$t('label.heading.middlename')"
+                class="purple-input"
+                placeholder="Doe"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.last_name"
+                :label="$t('label.heading.lastname')"
+                class="purple-input"
+                placeholder="Doe"
+              />
+            </v-flex>
+
+            <v-flex xs12 md8>
+              <v-text-field
+                v-model="address"
+                :label="$t('label.heading.addressline')"
+                placeholder="Snow Rock PI"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="userdata.phone"
+                :label="$t('label.heading.phonenumber')"
+                placeholder="e.g 0716 xxx xxx"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="city"
+                :label="$t('label.heading.city')"
+                placeholder="Snow Rocky"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="country"
+                :label="$t('label.heading.country')"
+                placeholder="e.g Tanzania"
+                class="purple-input"
+              />
+            </v-flex>
+            <v-flex xs12 md4>
+              <v-text-field
+                v-model="postal"
+                class="purple-input"
+                :label="$t('label.heading.postalcode')"
+                placeholder="0610 Snow Rocky"
+                type="number"
+              />
+            </v-flex>
+            <v-flex xs12>
+              <v-textarea
+                class="purple-input"
+                :label="$t('label.heading.biography')"
+                v-model="userdata.biography"
+                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+            </v-flex>
+           
+          </v-layout>
+        </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="dialog4 = false"
+          >
+            Close
+          </v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="dialog4  = false"
+          >
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+</template>
+
+       <v-dialog v-model="dialog" width="500">
+              
+               
+                <v-card flat>
+              <v-toolbar dark flat class="primary">
+                <v-toolbar-title><h3>Update password</h3></v-toolbar-title>
+              </v-toolbar>
+              <v-card-text class="pa-4">
+                  <v-form
+                  @submit.prevent="updatepassword"
+                  id="check-login-form"
+                  class="mt-3"
+                  ref="form"
+                  v-model="valid"
+                > 
+                <v-text-field
+                v-model="form_data.old_password"
+                prepend-inner-icon="mdi-lock"
+                :append-icon="show1 ? 'mdi-eye':'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'"
+                 @click:append="show1 = !show1"
+                     error-count="8"
+                    label="Old password"
+                    placeholder="********"
+                    name="input-10-1"
+                    counter
+                    dense
+                    outlined
+                    required
+                    class="mt-2 ma-5">
+                </v-text-field>
+
+                <v-text-field
+                  v-model="form_data.new_password"
+                    prepend-inner-icon="mdi-lock-outline"
+                    :append-icon="show2 ? 'mdi-eye':'mdi-eye-off'"
+                    :type="show2 ? 'text' : 'password'"
+                    :rules="[rules.required, rules.min]"
+                    @click:append="show2 = !show2"
+                    error-count="8"
+                    label="New password"
+                    placeholder="********"
+                    name="input-10-1"
+                    hint="At least 8 characters"
+                    counter
+                    dense
+                    outlined
+                    required
+                    class="mt-2 ma-5"
+                  ></v-text-field>
+                   <v-text-field
+                     v-model="confirmPassword"
+                    prepend-inner-icon="mdi-lock-outline"
+                    :append-icon="show3 ? 'mdi-eye':'mdi-eye-off'"
+                    :type="show3 ? 'text' : 'password'"
+                    :rules="[
+                      rules.required,
+                      rules.min,
+                      passwordConfirmationRule
+                    ]"
+                    @click:append="show3 = !show3"
+                    error-count="8"
+                    label="Confirm password"
+                    placeholder="********"
+                    name="input-10-1"
+                    counter
+                    dense
+                    outlined
+                    required
+                    class="mt-2 ma-5"
+                  ></v-text-field>
+                </v-form>
+              </v-card-text>
+
+             <v-divider></v-divider>
+
+             <v-card-actions>
+
+
+
+
+
+                <v-spacer></v-spacer>
+                <v-btn class="button cancel" small @click="dialog = false">
+                  Cancel
+                </v-btn>
+                <v-btn
+                  class="button"
+                  small
+                  type="submit"
+                  :disabled="!valid"
+                  form="check-login-form"
+                >
+                  Update
+                </v-btn>
+              </v-card-actions>
+                 </v-card>
+                   </v-dialog>
+   <v-dialog v-model="dialog1" max-width="290">
+                  <v-card>
+                    <v-card-title class="headline error white--text">{{ $t('label.message.Do you Agree')}}?</v-card-title>
+
+                    <v-card-text class="mt-1 pt-1">{{ $t('label.message.profileupdate')}}</v-card-text>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+
+                      <v-btn
+                        style="text-transform: capitalize"
+                        color="green darken-1"
+                        outlined
+                        small
+                        @click="dialog = false"
+                      >{{ $t('label.button.btnDisagree')}}</v-btn>
+
+                      <v-btn
+                        color="error darken-1"
+                        style="text-transform: capitalize"
+                        small
+                        outlined
+                        @click="updateProfileWithCreadentials"
+                      >{{ $t('label.button.btnAgree')}}</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+
+
+
+<template>
+  <v-row justify="center">
+    <v-dialog
+      v-model="dialog6"
+      persistent
+      max-width="490"
+    >
+     
+      <v-card>
+        <v-card-title class="text-h5">
+         Upload Documents
+        </v-card-title>
+        <v-card-text>
+        <form
+          @submit.prevent="upload_files"
+                  id="upload_files_form"
+                  class="mt-3"
+                  ref="form"
+                  v-model="valid"
+                  >
+      <v-file-input
+    v-model="src_Tinumber"
+     label="Upload TIN document"
+      :rules="[rules.required]"
+    accept=".pdf"
+   outlined
+    dense
+ 
+  ></v-file-input>
+    <v-file-input
+    v-model="src_certificate"
+     label="Upload Certificate"
+      :rules="[rules.required]"
+    accept=".pdf"
+  outlined
+    dense
+  ></v-file-input>
+
+
+        </form>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog6= false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            color="green darken-1"
+            text
+        
+             @click.stop="uploadDocuments()"
+          >
+            Submit
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+</template>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </v-container>
 </template>
-<script lang="js">
-import c_type_divider from "@/components/profile/c_type_divider";
-import c_address_card from "@/components/profile/c_address_card";
-import postCard from "@/components/posts/p_post_card"
-import c_follows from "@/components/follows/c_follows";
 
-export default {
-  props: {userdata:Object},
-  components: {
-    'post-card': postCard,
-    'v-type-divider': c_type_divider,
-    'v-address-card': c_address_card,
-    'v-follows': c_follows
-  },
-  data() {
-    return {
-      dialog: false,
-      rate: false,
-      tab: null,
-      rating: 2,
-      posts: null,
-      comments: null,
-      followers: null,
-      followings: null,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      emptyIcon: 'mdi-star-outline',
-      fullIcon: 'mdi-star',
-      halfIcon: 'mdi-star-half-full',
-      address: {
-        location: '',
-        class: '',
-        street_name: '',
-        street_address: ''
-      },
-      address1: {
-        location: "Spotify New York",
-        class: "Primary",
-        street_name: "170 William Street",
-        street_address: "New York, NY 10038-78 212-312-51\n"
-      },
-      address2: {
-        location: "Metropolitan Museum",
-        class: "Secondary",
-        street_name: "S45 E 68th Street",
-        street_address: "New York, NY 10038-78 212-312-51\n"
-      },
-
-
-    }
-  },
-  created() {
-    this.address.location = this.userdata.username;
-    this.address.class = "Home Address";
-    this.address.street_name = "Phone No. " + this.userdata.phone;
-    this.address.street_address = "Email Address " + this.userdata.email;
-
-  },
-  methods: {
-    async getThisUserPosts() {
-      console.log("Clicked" + this.$route.params.id)
-      return await this.$api.$get(`users/${this.$route.params.id}/posts/?type=post`)
-        .then(response => {
-          this.posts = response;
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    async getThisUserComments() {
-      console.log("Clicked" + this.$route.params.id)
-      return await this.$api.$get(`users/${this.$route.params.id}/comments/`)
-        .then(response => {
-          this.comments = response;
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    async unfollowThisPerson() {
-      return await this.$api.$post(`/unfollow-user/`, {"id": this.$route.params.id})
-        .then(response => {
-          if (response !== null) {
-            this.$parent.viewusedata();
-          }
-        }).catch(error => {
-          console.log(error);
-
-        });
-
-    },
-    async followThisPerson() {
-      return await this.$api.$post(`/follow-user/`, {"id": this.$route.params.id})
-        .then(response => {
-          if (response !== null) {
-            this.$parent.viewusedata();
-          }
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    async getThisPersonFollowers() {
-      return await this.$api.$get(`users/${this.$route.params.id}/follows/`)
-        .then(response => {
-          if (response !== null) {
-            this.followers = response;
-          }
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    async getThisPersonFollowings() {
-      return await this.$api.$get(`users/${this.$route.params.id}/following/`)
-        .then(response => {
-          if (response !== null) {
-            this.followings = response;
-            this.followings = response;
-          }
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    addRating() {
-      this.rate = true;
-    },
-    async rateThisPersonLanderProfile() {
-      let rate_dta = {
-        "profile": parseInt(this.userdata.lender_profile.id),
-        "score": Math.round(this.rating)
-      };
-      return await this.userdata.lender_profile.my_rating ? this.$api.$patch(`/lender-profile-ratings/${this.$route.params.id}/`, rate_dta) : this.$api.$post(`/lender-profile-ratings/`, rate_dta)
-        .then(response => {
-          if (response !== null) {
-            this.$parent.viewusedata();
-          }
-        }).catch(error => {
-          console.log(error);
-        });
-    }
-
-  }
-}
-</script>
+  
+<script lang="js" src="~/static/js/c_card.js"></script>  
 <style>
-.basil {
-  background-color: #fffbe6 !important;
-}
 
-.basil--text {
-  color: #356859 !important;
-}
-</style>

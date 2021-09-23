@@ -20,7 +20,7 @@
     filled
     prepend-icon="mdi-camera"
   
-    @change=uploadImage
+
   ></v-file-input>
  
 
@@ -81,8 +81,6 @@ export default {
 
 
     createNewPost() {
-      
-        
      
               this.$store.dispatch("new_post", {
        text_content: this.text_content,

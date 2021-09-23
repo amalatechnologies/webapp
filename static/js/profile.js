@@ -50,6 +50,9 @@ export default {
 
   },
   methods: {
+
+    
+
     updateProfileWithCreadentials() {
       if (this.userdata.picture == null) {
         delete this.userdata.picture;

@@ -17,11 +17,11 @@ export default {
     items: [
       {
         name: "Lender",
-        value: "LENDER_ROLE"
+        value: "lender"
       },
       {
         name: "Borrower",
-        value: "BORROWER_ROLE"
+        value: "borrower"
       }
     ],
     role:null,
@@ -50,7 +50,7 @@ export default {
         role:this.role
 
       };
-      console.log(data);
+      console.log(data.role);
       if (this.password === this.rePassword) {
         this.$store.dispatch('register', data);
       }

@@ -25,7 +25,10 @@ const actions = {
     commit
   }, payload) {
     commit("REGISTER");
+
+ 
     await this.$api.$post(`register/`, payload)
+   
       .then(response => {
         commit("REGISTER_SUCCESS", response);
 
