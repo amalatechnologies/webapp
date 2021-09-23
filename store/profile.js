@@ -61,7 +61,7 @@ const mutations = {
 
 };
 const actions = {
-  async upload_Tin_document({commit})
+  async upload_Tin_document({commit},payload)
 {
   await this.$api.$post(`lender-tin-document/`, payload)
   .then(response => {
@@ -78,7 +78,7 @@ const actions = {
 
 
 },
-async upload_Certificate_document({commit})
+async upload_Certificate_document({commit},payload)
 {
   await this.$api.$post(`lender-certificates-document/`, payload)
   .then(response => {
