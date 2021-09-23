@@ -61,14 +61,35 @@ const mutations = {
 
 };
 const actions = {
-  async upload_Tin_document()
+  async upload_Tin_document({commit})
 {
+  await this.$api.$post(`lender-tin-document/`, payload)
+  .then(response => {
+    console.log("dlab");
+   console.log(response);
+    //commit("PROFILE_UPDATE_SUCCESS", response);
+   
 
+  }).catch(error => {
+   
+    console.log(error);
+
+  });
 
 
 },
 async upload_Certificate_document({commit})
 {
+  await this.$api.$post(`lender-certificates-document/`, payload)
+  .then(response => {
+  console.log("y4c");
+   console.log(response);
+
+  }).catch(error => {
+   
+    console.log(error);
+
+  });
  
 
 
