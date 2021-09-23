@@ -61,6 +61,21 @@ const mutations = {
 
 };
 const actions = {
+  async upload_Tin_document()
+{
+
+
+
+},
+async upload_Certificate_document({commit})
+{
+ 
+
+
+
+},
+
+
   async getProfile({ commit}) {
     commit("PROFILE");
     await this.$api.$get(`users/`+ localStorage.getItem('uuId') + `/`)
