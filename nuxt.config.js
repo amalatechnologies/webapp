@@ -12,7 +12,7 @@ export default {
   },
   env: {
     developmentUrl: process.env.BASE_URL ||'https://testing.kopasmart.app/',
-    releaseUrl: process.env.LIVE_URL || 'https://testing.kopasmart.app/'
+    releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
   },
 
 
