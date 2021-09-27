@@ -21,7 +21,7 @@
     "vue-i18n": "^8.26.1",
     "vue-social-sharing": "^3.0.8",
     "vue-toasted": "^1.1.28",
-    "vuex-persistedstate": "^4.0.0"
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.17",
