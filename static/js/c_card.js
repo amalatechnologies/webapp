@@ -38,12 +38,15 @@ export default {
     dialog1: false,
     dialog3: false,
       dialog4:false,
+      dialog5:false,
         dialog6:false,
       dialog: false,
       rate: false,
       tab: null,
       rating: 2,
       posts: null,
+      TinDoc:null,
+      CerDoc:null,
       comments: null,
       followers: null,
       followings: null,
@@ -82,18 +85,20 @@ export default {
 
     }
   },
-  created() {
-    this.address.location = this.userdata.username;
-    this.address.class = "Home Address";
-    this.address.street_name = "Phone No. " + this.userdata.phone;
-    this.address.street_address = "Email Address " + this.userdata.email;
-
+  created : function () {
+    // this.address.location = this.userdata.username;
+    // this.address.class = "Home Address";
+    // this.address.street_name = "Phone No. " + this.userdata.phone;
+    // this.address.street_address = "Email Address " + this.userdata.email;
+    this.getThisUserCertificates();
+    this.getThisUserTinCertificates();
   },
     computed: {
     // userdata() {
     //   return this.$store.getters.userInfo;
 
     // },
+
     passwordConfirmationRule() {
       return () =>
         this.form_data.new_password === this.confirmPassword ||
@@ -115,8 +120,7 @@ export default {
 src:this.src_certificate,
 owner: localStorage.getItem('uuId')
       }
-console.log(data);
-console.log(datas);
+
       this.$store.dispatch('upload_Tin_document',data);
       this.$store.dispatch('upload_Certificate_document',datas);
     this.dialog6 = false;
@@ -124,12 +128,12 @@ console.log(datas);
      updateProfileWithCreadentials() {
       if (this.userdata.picture == null) {
         delete this.userdata.picture;
-        this.dialog = false;
+        this.dialog5 = false;
         this.$store.dispatch('updateProfile', this.userdata);
       }
      
     },
-    jiachie(message)
+    alert(message)
      {
   
        if (message === 400)
@@ -144,7 +148,7 @@ console.log(datas);
     updatepassword() {
       this.$store.dispatch("_update_user_password", this.form_data);
       this.dialog = false;
-      this.jiachie(this.$store.getters.passwordmessage);
+      this.alert(this.$store.getters.passwordmessage);
 
     },
     async getThisUserPosts() {
@@ -157,6 +161,30 @@ console.log(datas);
 
         });
     },
+    async getThisUserTinCertificates() {
+
+      return await this.$api.$get(`lender-tin-document/?owner=10`)
+        .then(response => {
+          this.TinDoc=response;
+       
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+    async getThisUserCertificates() {
+
+      return await this.$api.$get(`lender-certificates-document/`)
+        .then(response => {
+        this.CerDoc=response;
+       
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+
+    
     async getThisUserComments() {
       console.log("Clicked" + this.$route.params.id)
       return await this.$api.$get(`users/${this.$route.params.id}/comments/`)
