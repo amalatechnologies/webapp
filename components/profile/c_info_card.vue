@@ -263,6 +263,12 @@
                               <v-card-text>
                                
 
+<div
+    v-if="TinDoc != null"
+>
+Tin :{{this.TinDoc.results[0].src}}
+</div>
+
             <v-btn
               fab
               small
@@ -522,14 +528,14 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog4 = false"
+            @click="dialog = false"
           >
             Close
           </v-btn>
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog4  = false"
+            @click.stop="dialog5 = true"
           >
             Save
           </v-btn>
@@ -637,7 +643,7 @@
               </v-card-actions>
                  </v-card>
                    </v-dialog>
-   <v-dialog v-model="dialog1" max-width="290">
+   <v-dialog v-model="dialog5" max-width="290">
                   <v-card>
                     <v-card-title class="headline error white--text">{{ $t('label.message.Do you Agree')}}?</v-card-title>
 
