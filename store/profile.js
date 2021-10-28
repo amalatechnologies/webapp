@@ -3,11 +3,20 @@ const state = () => ({
   userdata: {},
   showLoader: Boolean,
   message:null,
+  TinDoument:null,
+  CertificateDocument:null,
 
 });
 
 const mutations = {
-
+  TINDOCUMENT_SUCCESS(state,payload){
+    state.showLoader = false;
+    state.TinDoument =payload;
+  },
+  CERTIFICATEDOCUMENT_SUCCESS (state,payload){
+    state.showLoader = false;
+    state.CertificateDocument=payload;
+  },
   PROFILE(state) {
     state.showLoader = true;
   },
@@ -65,7 +74,7 @@ const actions = {
 {
   await this.$api.$post(`lender-tin-document/`, payload)
   .then(response => {
-    console.log("dlab");
+  
    console.log(response);
     //commit("PROFILE_UPDATE_SUCCESS", response);
    
@@ -82,7 +91,7 @@ async upload_Certificate_document({commit},payload)
 {
   await this.$api.$post(`lender-certificates-document/`, payload)
   .then(response => {
-  console.log("y4c");
+
    console.log(response);
 
   }).catch(error => {
@@ -96,6 +105,29 @@ async upload_Certificate_document({commit},payload)
 
 },
 
+    async getThisUserTinDocument({commit}) {
+
+      return await this.$api.$get(`lender-tin-document/?owner=`+ localStorage.getItem('uuId') )
+        .then(response => {
+          commit("TINDOCUMENT_SUCCESS", response);
+       
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
+    async getThisUserCertificates({commit}) {
+
+      return await this.$api.$get(`lender-certificates-document/?owner=`+ localStorage.getItem('uuId'))
+        .then(response => {
+        console.log(response);
+          commit("CERTIFICATEDOCUMENT_SUCCESS", response);
+       
+        }).catch(error => {
+          console.log(error);
+
+        });
+    },
 
   async getProfile({ commit}) {
     commit("PROFILE");
@@ -160,7 +192,13 @@ const getters = {
 
     return state.message;
   },
-
+  tinDocument:function(state){
+  
+    return state.TinDoument;
+  },
+  certificateDocument:function(state){
+    return state.CertificateDocument;
+  }
 };
 export default {
   namespaced: false,

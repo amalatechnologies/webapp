@@ -13,6 +13,7 @@ export default {
   },
   data() {
     return {
+      lid:localStorage.getItem('uuId'),
       src_Tinumber:null,
      src_certificate:null,
        valid: false,
@@ -90,14 +91,21 @@ export default {
     // this.address.class = "Home Address";
     // this.address.street_name = "Phone No. " + this.userdata.phone;
     // this.address.street_address = "Email Address " + this.userdata.email;
-    this.getThisUserCertificates();
-    this.getThisUserTinCertificates();
+    this.$store.dispatch("getThisUserCertificates");
+  //  this.getThisUserCertificates();
+    this.$store.dispatch("getThisUserTinDocument");
+  ///  this.getThisUserTinCertificates();
   },
     computed: {
-    // userdata() {
-    //   return this.$store.getters.userInfo;
+  getTinDocument(){
+    return this.$store.getters.tinDocument;
+  },
+  
 
-    // },
+  getcertificateDocument(){
+
+    return this.$store.getters.certificateDocument;
+  },
 
     passwordConfirmationRule() {
       return () =>
@@ -156,28 +164,6 @@ owner: localStorage.getItem('uuId')
       return await this.$api.$get(`users/${this.$route.params.id}/posts/?type=post`)
         .then(response => {
           this.posts = response;
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    async getThisUserTinCertificates() {
-
-      return await this.$api.$get(`lender-tin-document/?owner=10`)
-        .then(response => {
-          this.TinDoc=response;
-       
-        }).catch(error => {
-          console.log(error);
-
-        });
-    },
-    async getThisUserCertificates() {
-
-      return await this.$api.$get(`lender-certificates-document/`)
-        .then(response => {
-        this.CerDoc=response;
-       
         }).catch(error => {
           console.log(error);
 
