@@ -37,7 +37,7 @@
 
             <v-flex xs12 md12 class="ma-0 pa-0">
               <v-type-divider type="Work"></v-type-divider>
-              
+               <div v-if="userdata.id == this.lid" >  
                 <v-row no-gutters>
                           
                             <v-col sm="12" md="3" class="ma-1">
@@ -55,7 +55,8 @@
                             </v-col>
                        
            </v-row>
-
+           </div>
+ <div v-if="userdata.id == this.lid" >   
       <v-row no-gutters>
                           
                             <v-col sm="12" md="3" class="ma-1">
@@ -73,7 +74,7 @@
                             </v-col>
                        
            </v-row>
-
+</div>
             </v-flex>
 
             <v-flex xs12 md12 class="ma-0 pa-0">
@@ -261,13 +262,26 @@
                           <v-tab-item>
                             <v-card flat>
                               <v-card-text>
-                               
 
 <div
-    v-if="TinDoc != null"
+    v-if="getTinDocument.results.length !=0 "
 >
-Tin :{{this.TinDoc.results[0].src}}
+
+
+ <a v-bind:href="this.getTinDocument.results[0].src">Download TinDocument</a> 
+
 </div>
+<div v-else >
+  Upload TinDocuments
+</div>
+<div v-if="getcertificateDocument.results.length != 0">
+   <a v-bind:href="this.getcertificateDocument.results[0].src">Download CertificateDocument</a> 
+
+</div>
+<div v-else >
+  Upload CertificatenDocuments
+</div>
+
 
             <v-btn
               fab
