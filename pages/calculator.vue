@@ -225,8 +225,7 @@
                     @click="cancel"
                   >{{ $t('label.button.btnback') }}</v-btn>&nbsp;
                   <div v-if="isLoggedIn">
-                    <v-btn
-                      small
+                    <v-btn medium
                       v-if="!datarequired"
                       class="error lighten-1 white--text"
                       style="text-transform: capitalize"
