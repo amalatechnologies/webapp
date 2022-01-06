@@ -24,7 +24,7 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-env": "^7.16.7",
     "@nuxtjs/vuetify": "^1.12.3",
     "node-sass": "^7.0.1",
     "sass-loader": "^10.1.1"
