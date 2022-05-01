@@ -9,7 +9,7 @@
               gradient
             "
           >
-            Amala Soko
+            AmalaSoko
           </p>
           <div class="text-center text-h4 text-sm-h3 secondary--text gradient">
             {{ $t("label.message.motto") }}
