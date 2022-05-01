@@ -20,9 +20,9 @@ export default ctx => {
             error: '#FF5252'
           },
           light: {
-            primary: '#2196F3',
-            accent: '#e91e63',
-            secondary: '#30b1dc',
+            primary: '#2d9fd9',
+            accent: '#9fd18c',
+            secondary: '#52afc0',
             success: '#4CAF50',
             info: '#2196F3',
             warning: '#FB8C00',
