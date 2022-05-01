@@ -6,7 +6,7 @@
                 width="120px" 
                    
                 src="/kopalogo.ico"
-                alt="KopaSmart"
+                alt="AmalaSoko"
                
               />
         </v-app-bar>

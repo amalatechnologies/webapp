@@ -18,8 +18,8 @@ export default {
 
    // Global page headers (https://go.nuxtjs.dev/config-head)
    head: {
-    titleTemplate: 'kopaSmart',
-    title: 'KopaSmart',
+    titleTemplate: 'AmalaSoko',
+    title: 'AmalaSoko',
     meta: [
       ...meta,
       { charset: 'utf-8' },
@@ -30,11 +30,11 @@ export default {
       /**iOS Safari**/
       { name: "apple-mobile-web-app-status-bar-style", content: "#00A756" },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-      { hid: 'description', name: 'description', content: 'Kopasmart' },
+      { hid: 'description', name: 'description', content: 'AmalaSoko' },
       //Twitter meta-data
-      { hid: "twitter:site", name: "twitter:site", content: "kopaSmart webapp" },
+      { hid: "twitter:site", name: "twitter:site", content: "AmalaSoko webapp" },
       { hid: "twitter:card", name: "twitter:card", content: "summary_large_image" },
-      { hid: "twitter:image:alt", name: "twitter:image:alt", content: "KopaSmart application" },
+      { hid: "twitter:image:alt", name: "twitter:image:alt", content: "AmalaSoko application" },
 
     ],
     link: [
@@ -125,25 +125,25 @@ export default {
   },
   pwa: {
     manifest: {
-      name: 'KopaSmart',
+      name: 'AmalaSoko',
       lang: 'en'
     },
     meta: {
       /* meta options */
-      name: "KopaSmart",
+      name: "AmalaSoko",
       author: "Fintasport",
       motto:"Where lender and borrowers Meet",
-      description: "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
+      description: "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       lang: "en",
       ogType: "website",
-      ogSiteName: "KopaSmart WebApp",
-      ogTitle: "KopaSmart WebApp",
-      ogDescription: "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
+      ogSiteName: "AmalaSoko WebApp",
+      ogTitle: "AmalaSoko WebApp",
+      ogDescription: "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       ogHost: "https://kopasmart.app/",
       ogImage: 'https://api.kopasmart.app/media/posts_media/kopalogo.png',
       ogUrl: "",
-      twitterCard: "KopaSmart",
-      twitterSite: "kopaSmart",
+      twitterCard: "AmalaSoko",
+      twitterSite: "AmalaSoko",
 
 
     }
