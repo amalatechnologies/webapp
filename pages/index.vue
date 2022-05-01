@@ -7,7 +7,7 @@
               font-weight-black
               gradient
             ">AmalaSoko</p>
-        <div class="text-center text-h3 secondary--text gradient">
+        <div class="text-center text-h4 text-sm-h3 secondary--text gradient">
           {{ $t("label.message.motto") }}
         </div>
         <div class="text-center " >
