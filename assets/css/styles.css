@@ -10,7 +10,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #2196f3;
+  background-color: #2d9fd9;
   font-weight: b;
   color: white;
 }
@@ -93,5 +93,7 @@ body {
 
 button span.v-btn__content {
   text-transform: none !important;
+  font-size: small !important;
+  font-weight: bold !important;
 }
 /*# sourceMappingURL=styles.css.map */
