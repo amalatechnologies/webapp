@@ -2,6 +2,13 @@
   <v-app
     class="aspire"
     style='background-image: url("/kopalogo.png"); background-repeat: no-repeat; background-position: center top;  margin-top: 10px;'>
+     <v-app-bar flat dense fixed app color="white">
+      
+      <img width="80px" class="mt-2" src="/kopalogo.png" alt="KopaSmart" />
+      <v-spacer></v-spacer>
+      <v-btn small text elevation="0" class="px-5 mr-1" color="primary">Sign Up</v-btn>
+      <v-btn small elevation="1" class="px-5" color="primary">Sign In</v-btn>
+    </v-app-bar>
     <v-main>
       <nuxt/>
     </v-main>
