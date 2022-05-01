@@ -91,6 +91,10 @@ body {
   zoom: 100%;
 }
 
+.form {
+  background-color: white !important;
+}
+
 button span.v-btn__content, .v-btn span.v-btn__content {
   text-transform: none !important;
   font-size: small !important;
