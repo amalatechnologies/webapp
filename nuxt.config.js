@@ -51,7 +51,7 @@ export default {
   loadingIndicator: {
     name: 'rotating-plane',
     color: ' #FFFFFF',
-    background: '#021E34'
+    background: '#9fd18c'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -140,7 +140,7 @@ export default {
       ogTitle: "AmalaSoko WebApp",
       ogDescription: "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion",
       ogHost: "https://kopasmart.app/",
-      ogImage: 'https://api.kopasmart.app/media/posts_media/kopalogo.png',
+      ogImage: 'https://kopasmart.app/kopalogo.png',
       ogUrl: "",
       twitterCard: "AmalaSoko",
       twitterSite: "AmalaSoko",
