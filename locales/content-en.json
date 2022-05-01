@@ -1,0 +1,153 @@
+{
+  "appName": "AmalaSoko",
+  "application": "Application",
+  "userName": "Username",
+  "qnNewToAmalaSoko": "New to AmalaSoko ?",
+  "createAccount": "Create Account",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "homeDescriptionTitle": "What is AmalaSoko ",
+  "homePage": "Home",
+  "change": {
+    "languages": "Change Language"
+  },
+  "label": {
+    "heading": {
+      "repaymentschedule": "Repayment Schedule",
+      "repaymentschedulelist": "Repayment Schedules List",
+      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator",
+      "contactus": "Contact Us",
+      "aboutus": "About Us",
+      "help": "Help",
+      "hompage": "Home Page",
+      "totalinterest": "Total Interest",
+      "totalprincipal": "Total Principal",
+      "company": "Company",
+      "username": "Username",
+      "emailaddress": "Email Address",
+      "firstname": "First Name",
+      "middlename": "Middle Name",
+      "lastname": "Last Name",
+      "addressline": "Address Line",
+      "phonenumber": "Phone No.",
+      "city": "City",
+      "country": "Country",
+      "postalcode": "Postal Code",
+      "biography": "Biography",
+      "Loan Amount":"Loan Amount",
+      "Interest Rate":"Interest Rate",
+      "Interest Method":"Interest Method",
+      "Loan Terms":"Loan Terms",
+      "Units":"Units",
+      "Number of Repayments":"Number of Repayments",
+      "Repayment Frequency":"Repayment Frequency",
+      "Amortization":"Amortization",
+      "Principal Moratorium":"Principal Moratorium",
+      "Interest Free Period":"Interest Free Period",
+      "Interest Moratorium":"Interest Moratorium",
+      "Name":"Name",
+      "Amount":"Amount",
+      "Repay Every":"Repay Every",
+      "Repayments":"Repayments", 
+      "Loan Term":"Loan Term",
+      "Method":"Method",
+      "Interest":"Interest",
+      "Repayment Schedule Name":"Repayment Schedule Name",
+      "Day":"Day",
+      "Principal due":"Malipo kuu",
+      "Paid Date":"Paid Date",
+      "Principal":"Principal",
+      "Interrest":"interrest",
+      "Loan Balance":"Loan Balance",
+      "Total":"Total",
+      "Search":"Search"
+     
+    
+
+    },
+    "button": {
+      "btncontactus": "Contact Us",
+      "btnReportUser": "Report User",
+      "btncontacts": "Contacts",
+      "btncalculator": "Go to Calculator",
+      "btnsignin": "Sign In",
+      "btnsignup": "Sign Up",
+      "btnchangelanguages": "Change Language",
+      "buttonsignin": "Sign In",
+      "buttonsignup": "Sign Up",
+      "btncalculate": "Submit",
+      "btncancel": "Cancel",
+      "btnclear": "Clear",
+      "btnback": "Back",
+      "btnhome": "Home",
+      "btnsave": "Save",
+      "btnFollow": "Follow",
+      "btnupdateprofile": "updateprofile",
+      "btnsubmit": "Submit",
+      "btnSearch": "Search",
+      "btnSave": "Save",
+      "btnNo": "No",
+      "btnDisagree":"I Dis Agree",
+      "btnAgree":"I Agree"
+
+
+    },
+    "message": {
+      "Do you Agree":"Do you Agree",
+      "aboutusmessage": "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.",
+      "aboutusmessage2":"The most informative application in financial inclusion.",
+      "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
+      "motto": "Where borrowers and lenders meet",
+      "saveschedule": "By Clicking save this repayment schedule will be saved and can be re-calculated later. \n\n Are you sure you want to save this ? \n\n If yes Provide the Name below and click save button to save ",
+      "profileupdate": "By clicking *I Agree* you are agreeing to the Terms and Conditions and your profile informattions will be updated with a newly data you provide and your login infomations will also be updated. So you will be requested to re-login with new username if any. \n\n Do you agree ?"
+    },
+    "contacts": {
+      "community": "Community",
+      "developer": "Developer",
+      "slack": "slack community"
+    },
+    "tooltip": {
+      "tooltiphello": "Hello there",
+      "tooltipwelcometo": "Welcome to",
+      "loanrepaymentschedulecalculator": "Loan Repayment Schedule Calculator"
+    },
+    "menu": {
+      "repaymentchedules": "Repayment Schedules",
+      "calculator": "Calculator",
+      "profile": "Profile",
+      "logout": "Logout",
+      "homepage": "Homepage",
+      "Search": "Search"
+    },
+    "checkbox": {
+      "isactive": "Is Active"
+    },
+    "text": {
+      "post": "Post",
+      "Follows":"Follows",
+      "Followers":"Followers",
+      "Rankings":"Rankings",
+      "SHOWLESS":"SHOWLESS",
+      "ADVANCED":"ADVANCED"
+     
+      },
+      "vtab":{
+        "Documents":"Documents",
+        "About":"About",
+        "Posts":"Posts",
+        "Comments":"Comments",
+        "Followers":"Followers",
+        "Followings":"Followings"
+      },
+      "th":{
+        "Name":"Name",
+        "Phone":"Phone",
+        "Email":"Email",
+        "Role":"Role",
+        "Joined":"Joined"},
+       "footer":{
+         "Interest Moratorium":"Interest Moratorium",
+           "Principal Moratorium":"Principal Moratorium",
+           "Interest Free Period":"Interest Free Period"
+      }
+  }
+}

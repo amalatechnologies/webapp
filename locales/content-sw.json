@@ -1,0 +1,151 @@
+{
+  "appName": "AmalaSoko",
+  "goToCalculator": "Kikokotozi",
+  "signIn": "Ingia",
+  "signUp": "Jiunge",
+  "userName": "Jina ",
+  "qnNewToAmalaSoko": "Wewe ni mgeni ?",
+  "createAccount": "Unda akaunti",
+  "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "homeDescriptionTitle": "AmalaSoko ni nini ? ",
+  "homePage": "Nyumbani",
+  "change": {
+    "languages": "Badili Lugha"
+  },
+  "label": {
+    "heading": {
+      "repaymentschedule": "Ratiba ya malipo",
+      "repaymentschedulelist": "Ratiba za malipo",
+      "loanrepaymentschedulecalculator": "Ratiba ya malipo ya mkopo",
+      "contactus": "Wasiliana nasi",
+      "aboutus": "Kuhusu",
+      "help": "Msaada",
+      "hompage": "Ukurasa wa Mwanzo",
+      "totalinterest": "Jumla ya riba",
+      "totalprincipal": "Total Principal",
+      "company": "Kampuni",
+      "username": "Jina la Utambulishi",
+      "emailaddress": "Barua Pepe",
+      "firstname": "Jina la kwanza",
+      "middlename": "Jina la Kati",
+      "lastname": "Jina la mwisho",
+      "addressline": "Anwani",
+      "phonenumber": "Nambari ya simu",
+      "city": "Mji",
+      "country": "Nchi",
+      "postalcode": "Anwani ya posta",
+      "biography": "Wasifu",
+      "Loan Amount":"Kiasi cha Mkopo",
+      "Interest Rate":"Kiwango cha riba",
+      "Interest Method":"Njia ya Riba",
+      "Loan Terms":"Masharti ya Mkopo",
+      "Units":" Vitengo",
+      "Number of Repayments":"Idadi ya Malipo",
+      "Repayment Frequency":"Malipo ya mara kwa mara",
+      "Amortization":"Upunguzaji wa pesa",
+      "Principal Moratorium":"Kusitishwa kwa Mkuu",
+      "Interest Free Period":"Kipindi cha Bure cha Riba",
+      "Interest Moratorium":"Kusitishwa kwa riba",
+      "Name":"Jina",
+      "Amount":"Kiasi",
+      "Repay Every":"Ulipe Kila",
+      "Repayments":"Malipo", 
+      "Loan Term":"Muda wa Mkopo",
+      "Method":"Njia",
+      "Interest":"Hisa",
+      "Repayment Schedule Name":"Jina la Ratiba ya Ulipaji",
+      "Day":"Siku",
+      "Paid Date":"Tarehe ya Kulipwa",
+      "Principal":"Mkuu",
+      "Interrest":"kuingiliana",
+      "Loan Balance":"Usawa wa Mkopo",
+      "Total":"Jumla",
+      "Search":"Tafuta"
+      
+    },
+    "button": {
+      "btncontactus": "Wasiliana Nasi",
+      "btnReportUser": "Ripoti Mtumiaji",
+      "btncontacts": "Mawasiliano",
+      "btncalculator": "Kikokotoo",
+      "btnsignin": "Ingia",
+      "btnsignup": "Jiandikishe",
+      "btnchangelanguages": "Badili Lugha",
+      "buttonsignin": "Ingia",
+      "buttonsignup": "Fungua Akaunti",
+      "btncalculate": "Wasilisha",
+      "btncancel": "Sitisha",
+      "btnback": "Nyuma",
+      "btnhome": "Mwanzo",
+      "btnsave": "Hifadhi",
+      "btnNo": "Hapana",
+      "btnupdateprofile": "sasisha wasifu",
+      "btnFollow": "Fuata",
+      "btnclear": "Futa",
+      "btnsubmit": "Wasilisha",
+      "btnSearch": "Tafuta",
+      "btnDisagree":"Nakataa",
+      "btnAgree":"Nakubali"
+
+    },
+    "message": {
+      "Do you Agree":"Unakubali",
+      "aboutusmessage": "Taasisi tofauti za kifedha hukutana na wakopaji wao huko AmalaSoko na wakopaji wanawezeshwa na habari na chaguo la kutosha wakati wa kufanya uamuzi wa kukopa",
+      "aboutusmessage2":"Maombi yenye habari zaidi katika ujumuishaji wa kifedha",
+      "thanksmessage": "Asante kwa kuendeleza na {{app_name}} na ninatarajia kuleta vipengee zaidi vya kufurahisha katika siku zijazo.",
+      "motto": "Ambapo wakopaji na wakopeshaji wanakutana",
+      "saveschedule": "Kwa kubonyeza kuokoa ratiba hii ya ulipaji itahifadhiwa na inaweza kuhesabiwa tena baadaye. Je! Una uhakika unataka kuhifadhi hii? Ikiwa ndio Toa Jina hapa chini na bonyeza kitufe cha kuokoa ili kuhifadhi ",
+      "profileupdate": "Kwa kubonyeza * Ninakubali * unakubali Sheria na Masharti na maelezo yako mafupi yatasasishwa na data mpya unayotoa na maelezo yako ya kuingia pia yatasasishwa. Kwa hivyo utaombwa uingie tena na jina la mtumiaji mpya ikiwa ipo. \n\n Unakubali ?"
+    },
+    "contacts": {
+      "community": "Washirika",
+      "developer": "Developer",
+      "slack": "Slack"
+    },
+    "tooltip": {
+      "tooltiphello": "Habari yako",
+      "tooltipwelcometo": "Karibu kwenye",
+      "loanrepaymentschedulecalculator": "Kikokotoo cha Ratiba ya Malipo ya Mkopo"
+    },
+    "menu": {
+      "repaymentchedules": "Ratiba za malipo",
+      "calculator": "Kikokotoo",
+      "profile": "Wasifu",
+      "logout": "Toka",
+      "homepage": "Nyumbani",
+      "Search": "Tafuta"
+    },
+    "checkbox": {
+      "isactive": "Yu hai"
+    },
+    "text": {
+      "post": "Chapisho",
+      "Follows":"Ifuatayo",
+      "Followers":"Wafuasi",
+      "Rankings":"Kiwango",
+      "SHOWLESS":"WAKATI WA KUONEKANA",
+      "ADVANCED":"MAENDELEO"
+    },
+    "vtab":{
+      "Timeline":"Ratiba ya nyakati",
+      "About":"Kuhusu",
+      "Posts":"Machapisho",
+      "Comments":"Maoni",
+      "Followers":"Wafuasi",
+      "Followings":"Ufuatiliaji"
+    },
+    "th":{
+      "Name":"Jina",
+      "Phone":"Namba ya simu",
+      "Email":"Barua pepe",
+      "Role":"Wajibu",
+      "Joined":"Alijiunga"
+
+    },
+    "footer":{
+      "Interest Moratorium":"Kusitishwa kwa riba",
+        "Principal Moratorium":"Kusitishwa kwa Mkuu",
+        "Interest Free Period":"Kipindi cha Bure cha Riba"
+   }
+  }
+}
