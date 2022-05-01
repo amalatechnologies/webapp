@@ -1,28 +1,13 @@
 <template>
-  <v-app class="app">
-     
-        <v-app-bar dense fixed app color="primary" v-if="t"  >
-           <img  
-                width="120px" 
-                   
-                src="/kopalogo.ico"
-                alt="AmalaSoko"
-               
-              />
-        </v-app-bar>
-    <v-container fluid>
-    
-      
+  
+    <v-container  fluid>
       <v-layout justify-center align-center>
-        <v-flex>
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-card class="mx-auto">
               <v-container fluid v-if="datarequired">
-
-              
-                <p
-                  class="subtitle-2 text-center font-weight-black"
-                >{{ $t('label.heading.loanrepaymentschedulecalculator') }}</p>
+                <p class="subtitle-2 text-center font-weight-black">
+                  {{ $t("label.heading.loanrepaymentschedulecalculator") }}
+                </p>
                 <v-row align="center">
                   <v-col class="d-flex" cols="12" sm="6">
                     <v-text-field
@@ -53,7 +38,7 @@
                       :items="iterest_methods"
                       item-text="name"
                       item-value="value"
-                      :rules="[v => !!v || 'Item is required']"
+                      :rules="[(v) => !!v || 'Item is required']"
                       v-bind:label="$t('label.heading.Interest Method')"
                       required
                       persistent-hint
@@ -112,7 +97,7 @@
                       item-text="name"
                       item-value="value"
                       v-bind:label="$t('label.heading.Units')"
-                      :rules="[v => !!v || 'Item is required']"
+                      :rules="[(v) => !!v || 'Item is required']"
                       dense
                       required
                       persistent-hint
@@ -164,13 +149,18 @@
                       small
                       color="primary"
                       @click="displayAdvanceOptions"
-                    >{{ advanced ?  $t('label.text.SHOWLESS')  :  $t('label.text.ADVANCED') }}</v-btn>
+                      >{{
+                        advanced
+                          ? $t("label.text.SHOWLESS")
+                          : $t("label.text.ADVANCED")
+                      }}</v-btn
+                    >
                   </v-col>
                 </v-row>
               </v-container>
               <v-container v-else>
                 <v-card-title>
-                  {{ $t('label.heading.repaymentschedule') }}
+                  {{ $t("label.heading.repaymentschedule") }}
                   <v-spacer></v-spacer>
                   <v-text-field
                     v-model="search"
@@ -205,38 +195,48 @@
                     color="success"
                     medium
                     outlined
-                    depressed ref="calculate"
+                    depressed
+                    ref="calculate"
                     :disabled="!valid"
                     @click="calculate"
-                  >{{ $t('label.button.btncalculate') }}</v-btn>&nbsp;
+                    >{{ $t("label.button.btncalculate") }}</v-btn
+                  >&nbsp;
                   <v-btn
                     v-if="datarequired"
                     color="secondary"
                     outlined
-                
                     depressed
                     @click="clear"
-                  >{{ $t('label.button.btnclear') }}</v-btn>&nbsp;
+                    >{{ $t("label.button.btnclear") }}</v-btn
+                  >&nbsp;
                   <v-btn
                     v-if="!datarequired"
                     color="error"
-                  
                     depressed
                     @click="cancel"
-                  >{{ $t('label.button.btnback') }}</v-btn>&nbsp;
+                    >{{ $t("label.button.btnback") }}</v-btn
+                  >&nbsp;
                   <div v-if="isLoggedIn">
-                    <v-btn medium
+                    <v-btn
+                      medium
                       v-if="!datarequired"
                       class="error lighten-1 white--text"
                       style="text-transform: capitalize"
                       @click.stop="dialog = true"
-                    >{{ $t('label.button.btnsave') }}</v-btn>&nbsp;
+                      >{{ $t("label.button.btnsave") }}</v-btn
+                    >&nbsp;
                     <v-dialog v-model="dialog" max-width="290">
                       <v-form ref="forms" v-model="valid" lazy-validation>
                         <v-card>
-                          <v-card-title class="headline error white--text">{{ $t('label.message.Do you Agree')}}?</v-card-title>
+                          <v-card-title class="headline error white--text"
+                            >{{
+                              $t("label.message.Do you Agree")
+                            }}?</v-card-title
+                          >
 
-                          <v-card-text class="mt-1 pt-1">{{ $t('label.message.saveschedule')}}</v-card-text>
+                          <v-card-text class="mt-1 pt-1">{{
+                            $t("label.message.saveschedule")
+                          }}</v-card-text>
 
                           <v-text-field
                             class="ma-2"
@@ -257,54 +257,52 @@
                               outlined
                               @click="dialog = false"
                             >
-                            {{$t('label.button.btnNo')}}
-                            
+                              {{ $t("label.button.btnNo") }}
                             </v-btn>
 
                             <v-btn
                               class="warning darken-1 white--text"
                               style="text-transform: capitalize"
-                          
                               outlined
                               :rules="nameRules"
                               :disabled="!valid"
                               @click="saveRepaymentSchedule"
-                            >   {{$t('label.button.btnsave')}}</v-btn>
+                            >
+                              {{ $t("label.button.btnsave") }}</v-btn
+                            >
                           </v-card-actions>
                         </v-card>
                       </v-form>
                     </v-dialog>
                   </div>
 
-                  <v-btn
-                    class="info lighten-1"
-                    depressed
-                    to="/"
-                  >{{ $t('label.button.btnhome') }}</v-btn>
+                  <v-btn class="info lighten-1" depressed to="/">{{
+                    $t("label.button.btnhome")
+                  }}</v-btn>
                 </v-col>
               </v-row>
             </v-card>
           </v-form>
-        </v-flex>
+        
       </v-layout>
     </v-container>
-  </v-app>
+  
 </template>
 
 <script>
 import DatatableComponent from "~/components/items/datatable-component";
 
 export default {
-  layout: localStorage.getItem("qAccessToken") == null ? "fault" : "Home",
+  layout: localStorage.getItem("qAccessToken") == null ? "signup" : "default",
   components: {
-    DatatableComponent
+    DatatableComponent,
   },
   data() {
     return {
       valid: true,
-      title: "Home",  
+      title: "Home",
       dense: true,
-      t:localStorage.getItem("qAccessToken") != null ? false : true,
+      t: localStorage.getItem("qAccessToken") != null ? false : true,
       dark: false,
       dialog: false,
       advanced: false,
@@ -315,69 +313,72 @@ export default {
       datarequired: true,
       ttInterest: "",
       ttBalance: "",
-      loan_terms: [{
-        name: "Days",
-        value: 1
-      },
-      {
-        name: "Weeks",
-        value: 7
-      },
-      {
-        name: "Months",
-        value: 30
-      },
-      {
-        name: "Year",
-        value: 366
-      }
+      loan_terms: [
+        {
+          name: "Days",
+          value: 1,
+        },
+        {
+          name: "Weeks",
+          value: 7,
+        },
+        {
+          name: "Months",
+          value: 30,
+        },
+        {
+          name: "Year",
+          value: 366,
+        },
       ],
-      iterest_methods: [{
-        name: "Flat",
-        value: 1
-      },
-      {
-        name: "Reducing Balance",
-        value: 2
-      },
-      {
-        name: "Straight Method",
-        value: 3
-      }
+      iterest_methods: [
+        {
+          name: "Flat",
+          value: 1,
+        },
+        {
+          name: "Reducing Balance",
+          value: 2,
+        },
+        {
+          name: "Straight Method",
+          value: 3,
+        },
       ],
       amortizations: ["Equal Installment", "Equal principal"],
-      headers: [{
-        text: this.$t('label.heading.Day'),
-        align: "left",
-        sortable: false,
-        value: "days"
-      },
-      {
-        text: this.$t('label.heading.Paid Date'),
-        value: "paiddate"
-      },
-      {
-        text: this.$t('label.heading.Principal'),
-        value: "loanamount"
-      },
-      {
-        text: this.$t('label.heading.Principal due'),
-        value: "principaldue"
-      },
-      {
-        text: this.$t('label.heading.Interest'),
-        value: "interest",
-        filterable: false
-      },
-      {
-        text: this.$t('label.heading.Loan Balance'),
-        value: "loanbalance"
-      },
-      {
-        text: this.$t('label.heading.Total'),
-        value: "total",
-        filterable: false
-      }
+      headers: [
+        {
+          text: this.$t("label.heading.Day"),
+          align: "left",
+          sortable: false,
+          value: "days",
+        },
+        {
+          text: this.$t("label.heading.Paid Date"),
+          value: "paiddate",
+        },
+        {
+          text: this.$t("label.heading.Principal"),
+          value: "loanamount",
+        },
+        {
+          text: this.$t("label.heading.Principal due"),
+          value: "principaldue",
+        },
+        {
+          text: this.$t("label.heading.Interest"),
+          value: "interest",
+          filterable: false,
+        },
+        {
+          text: this.$t("label.heading.Loan Balance"),
+          value: "loanbalance",
+        },
+        {
+          text: this.$t("label.heading.Total"),
+          value: "total",
+          filterable: false,
+        },
       ],
       repayments: [],
       method: {},
@@ -397,19 +398,19 @@ export default {
       loading: false,
       search: "",
       valueRules: [
-        v => !!v || "Value is required",
-        v => (v && v.length <= 1) || "Value must be less than 2 characters"
+        (v) => !!v || "Value is required",
+        (v) => (v && v.length <= 1) || "Value must be less than 2 characters",
       ],
       nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        (v) => !!v || "Name is required",
+        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
       ],
-      numberRules: [v => !!v || "Invalid value"]
+      numberRules: [(v) => !!v || "Invalid value"],
     };
   },
   head() {
     return {
-      title: 'Calculator'
+      title: "Calculator",
     };
   },
   methods: {
@@ -422,7 +423,8 @@ export default {
           const items = [];
           const interestRate = this.value_interest_rate / 100;
           if (this.method.value == 1) {
-            var totalInterest = (this.value_loan_amount * interestRate * this.value_loan_term);
+            var totalInterest =
+              this.value_loan_amount * interestRate * this.value_loan_term;
             this.ttInterest = totalInterest;
             this.ttBalance =
               parseInt(this.value_loan_amount) + parseInt(totalInterest);
@@ -434,8 +436,8 @@ export default {
               item.days = 1 + i;
               item.paiddate = this.getNextWeekDay(
                 (i + 1) *
-                this.value_repayments_freq *
-                this.value_frequency.value
+                  this.value_repayments_freq *
+                  this.value_frequency.value
               )
                 .toLocaleString()
                 .split(" ")[0];
@@ -447,14 +449,10 @@ export default {
               balance = balance - (item.principaldue + item.interest);
               item.loanbalance = balance;
               items.push(item);
-
             }
           } else if (this.method.value == 2) {
-
           }
           this.repayments = items;
-
-
         });
 
         this.loading = false;
@@ -462,7 +460,6 @@ export default {
     },
     displayAdvanceOptions() {
       this.advanced = !this.advanced;
-
     },
     clear() {
       this.$refs.form.reset();
@@ -493,11 +490,10 @@ export default {
         amortization: "EQUAL_INSTALLMENT",
         interest_moratorium: parseInt(this.value_interest_moratorium) || 0,
         principal_moratorium: parseInt(this.value_principal_moratorium) || 0,
-        interest_free_period: parseInt(this.value_interest_free_period) || 0
+        interest_free_period: parseInt(this.value_interest_free_period) || 0,
       };
       if (this.$refs.forms.validate()) {
-
-        this.$store.dispatch('saveSchedule', data);
+        this.$store.dispatch("saveSchedule", data);
       }
     },
     getSelectedTerm(i) {
@@ -512,82 +508,77 @@ export default {
           return "Y";
       }
     },
-    isEmpty: function(obj){
+    isEmpty: function (obj) {
       return Object.keys(obj).length === 0;
-    }
-
+    },
   },
   mounted() {
-    console.log('Logging router: ');
-   
-    if(!this.isEmpty(this.$route.query)){
+    console.log("Logging router: ");
+
+    if (!this.isEmpty(this.$route.query)) {
       var query = this.$route.query;
       console.log(this.$route.query);
       this.value_loan_amount = query.a;
       this.value_interest_rate = query.i;
       this.value_num_of_repayments = query.nr;
-      this.method = this.iterest_methods.filter(function(x) {return x.name == query.m})[0];
+      this.method = this.iterest_methods.filter(function (x) {
+        return x.name == query.m;
+      })[0];
       this.value_loan_term = query.lt.charAt(0);
       this.value_repayments_freq = query.rf.charAt(0);
-      this.value_loan_term_unit = this.loan_terms.filter(function(x){ return x.name.startsWith(query.lt.charAt(1))})[0];
-      this.value_frequency = this.loan_terms.filter(function(x){ return x.name.startsWith(query.rf.charAt(1))})[0];
-      
-        this.datarequired = false;
-        this.loading = true;
+      this.value_loan_term_unit = this.loan_terms.filter(function (x) {
+        return x.name.startsWith(query.lt.charAt(1));
+      })[0];
+      this.value_frequency = this.loan_terms.filter(function (x) {
+        return x.name.startsWith(query.rf.charAt(1));
+      })[0];
 
-        this.$nextTick(() => {
-          const items = [];
-          const interestRate = this.value_interest_rate / 100;
-          if (this.method.value == 1) {
-            var totalInterest = (this.value_loan_amount * interestRate * this.value_loan_term);
-            this.ttInterest = totalInterest;
-            this.ttBalance =
-              parseInt(this.value_loan_amount) + parseInt(totalInterest);
-            var balance =
-              parseInt(this.value_loan_amount) + parseInt(totalInterest);
-            for (var i = 0; i < this.value_num_of_repayments; i++) {
-              const item = new Object();
+      this.datarequired = false;
+      this.loading = true;
 
-              item.days = 1 + i;
-              item.paiddate = this.getNextWeekDay(
-                (i + 1) *
-                this.value_repayments_freq *
-                this.value_frequency.value
-              )
-                .toLocaleString()
-                .split(" ")[0];
-              item.principaldue =
-                this.value_loan_amount / this.value_num_of_repayments;
-              item.loanamount = this.value_loan_amount;
-              item.interest = totalInterest / this.value_num_of_repayments;
-              item.total = item.principaldue + item.interest;
-              balance = balance - (item.principaldue + item.interest);
-              item.loanbalance = balance;
-              items.push(item);
+      this.$nextTick(() => {
+        const items = [];
+        const interestRate = this.value_interest_rate / 100;
+        if (this.method.value == 1) {
+          var totalInterest =
+            this.value_loan_amount * interestRate * this.value_loan_term;
+          this.ttInterest = totalInterest;
+          this.ttBalance =
+            parseInt(this.value_loan_amount) + parseInt(totalInterest);
+          var balance =
+            parseInt(this.value_loan_amount) + parseInt(totalInterest);
+          for (var i = 0; i < this.value_num_of_repayments; i++) {
+            const item = new Object();
 
-            }
-          } else if (this.method.value == 2) {
-
+            item.days = 1 + i;
+            item.paiddate = this.getNextWeekDay(
+              (i + 1) * this.value_repayments_freq * this.value_frequency.value
+            )
+              .toLocaleString()
+              .split(" ")[0];
+            item.principaldue =
+              this.value_loan_amount / this.value_num_of_repayments;
+            item.loanamount = this.value_loan_amount;
+            item.interest = totalInterest / this.value_num_of_repayments;
+            item.total = item.principaldue + item.interest;
+            balance = balance - (item.principaldue + item.interest);
+            item.loanbalance = balance;
+            items.push(item);
           }
-          this.repayments = items;
+        } else if (this.method.value == 2) {
+        }
+        this.repayments = items;
+      });
 
-
-        });
-
-        this.loading = false;
-      }
-      
-     
-    
-    
+      this.loading = false;
+    }
   },
   computed: {
     isLoggedIn() {
       return localStorage.getItem("qAccessToken") != null;
-    }
-  }
+    },
+  },
 };
-
 </script>
 <style scoped>
 pa-sm-2 {
