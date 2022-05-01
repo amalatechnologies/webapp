@@ -91,9 +91,37 @@ body {
   zoom: 100%;
 }
 
-button span.v-btn__content {
+button span.v-btn__content, .v-btn span.v-btn__content {
   text-transform: none !important;
   font-size: small !important;
   font-weight: bold !important;
+}
+
+.notched {
+  margin-top: 40px;
+  contain: initial;
+  overflow: visible;
+}
+
+.notched::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 10px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  width: 10px;
+  height: 13px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 13px solid #510606;
+}
+
+.gradient {
+  background: -webkit-gradient(linear, left top, right top, from(#2d9fd9), to(#9fd18c));
+  background: linear-gradient(to right, #2d9fd9, #9fd18c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 /*# sourceMappingURL=styles.css.map */

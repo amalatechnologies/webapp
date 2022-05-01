@@ -1,43 +1,19 @@
 <template>
   <v-container class="fill-height" fluid>
     <v-row justify="center" align="center" align-content="center">
-      <v-col cols="12">
-        <div class="home_tool_lg">
+      <v-col  cols="12" sm="6" class="pa-5" >
+        <p class="text-center text-h1 font-weight-black gradient">Amala Soko</p>
+        <div class="text-center text-h3 secondary--text gradient">
           {{ $t("label.message.motto") }}
         </div>
-        <div class="text-center font-weight-bold" style="color: #1569c7">
-          {{ $t("label.message.aboutusmessage") }}<br />
+        <div class="text-center " >
+          <p class="mt-2 black--text">{{ $t("label.message.aboutusmessage") }}</p>
 
-          {{ $t("label.message.aboutusmessage2") }}
+          <p class="mt-2 black--text">{{ $t("label.message.aboutusmessage2") }}</p>
         </div>
       </v-col>
-      <v-col cols="12" class="my-2 mt-12 pa-1" sm="12">
-        <v-row justify="center" align="center">
-          <v-col cols="12" md="4" sm12>
-            <v-btn
-              color="info"
-              large
-              depressed
-              to="/calculator"
-              router
-              exact
-              class="font-weight-bold"
-              >{{ $t("label.button.btncalculator") }}</v-btn
-            >
-          </v-col>
-          <v-col cols="12" md="4" sm12></v-col>
-          <v-col cols="12" md="4" sm12>
-            <v-btn
-              color="info"
-              class="font-weight-bold"
-              large
-              depressed
-              @click="routingAction"
-              dark
-              >{{ label }}</v-btn
-            >
-          </v-col>
-        </v-row>
+      <v-col class="d-flex justify-center align-center" cols="12" sm="6">
+        <img height="300" width="510" src="../assets/images/logo.png"/>
       </v-col>
     </v-row>
   </v-container>
@@ -48,7 +24,7 @@ export default {
     auth: { requiresAuth: false },
   },
   layout(context) {
-    return "home";
+    return "signin";
   },
   data: () => ({
     locale: "",
@@ -89,18 +65,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.my-2,
-.home_tool {
-  text-align: center;
-  font-family: "Inconsolata", Consolas, monospace;
-  font-size: 1em;
-}
-.home_tool_lg {
-  font-weight: bold;
-  color: #1569c7;
-  text-align: center;
-  font-family: "Inconsolata", Consolas, monospace;
-  font-size: 3em;
-}
-</style>
+

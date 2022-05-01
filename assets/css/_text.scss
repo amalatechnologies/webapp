@@ -1,0 +1,10 @@
+.gradient {
+    background: -webkit-linear-gradient(left, $color_primary , $color_accent);
+    background: -o-linear-gradient(right, $color_primary, $color_accent);
+    background: -moz-linear-gradient(right, $color_primary, $color_accent);
+    background: linear-gradient(to right, $color_primary , $color_accent); 
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+
+}
