@@ -18,7 +18,7 @@
     "moment": "^2.29.3",
     "nuxt": "^2.15.8",
     "secure-ls": "^1.2.6",
-    "vue-i18n": "^8.26.8",
+    "vue-i18n": "^8.27.1",
     "vue-toasted": "^1.1.28",
     "vuex-persistedstate": "^4.1.0"
   },
