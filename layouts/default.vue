@@ -1,6 +1,5 @@
 <template>
-  <v-app style="background-color: #F5F5F5;">
-    
+  <v-app style="background-color: #f5f5f5">
     <v-navigation-drawer
       v-model="drawer"
       mini-variant.sync="mini"
@@ -10,7 +9,6 @@
       width="220"
       height="100%"
     >
-      
       <v-list dense subheader tile>
         <v-list-item dense to="/profile" class="list-item ma-0">
           <v-list-item-avatar>
@@ -19,7 +17,7 @@
               dark
             ></v-img>
           </v-list-item-avatar>
-          
+
           <v-list-item-content>
             <v-list-item-title class="headline text-h6">{{
               userdata.username
@@ -39,12 +37,10 @@
           router
           exact
         >
-         
-
-          <v-list-item-title >
-              <v-icon color="primary" v-text="item.icon" small></v-icon>&nbsp;&nbsp;{{
-            $t(item.definition)
-          }}</v-list-item-title>
+          <v-list-item-title>
+            <v-icon color="primary" v-text="item.icon" small></v-icon
+            >&nbsp;&nbsp;{{ $t(item.definition) }}</v-list-item-title
+          >
         </v-list-item>
       </v-list>
       <template v-slot:append>
@@ -75,17 +71,10 @@
 
     <v-app-bar dense fixed app color="primary">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" dark>
-       
       </v-app-bar-nav-icon>
-      <img  
-                width="120px" 
-                     
-                src="/kopalogo.ico"
-                alt="KopaSmart"
-               
-              />
+      <img width="120px" src="/kopalogo.png" alt="Amala Soko" />
       <v-spacer />
-     
+
       <v-btn icon @click="changemode">
         <v-icon v-if="!dark" color="white">mdi-brightness-6</v-icon>
         <v-icon v-if="dark" color="white">mdi-brightness-5</v-icon>
@@ -114,10 +103,8 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-main  >
-      <v-container
-        style="background-color: #F5F5F5;"
-        >
+    <v-main>
+      <v-container style="background-color: #f5f5f5">
         <nuxt />
       </v-container>
     </v-main>
@@ -157,7 +144,7 @@ export default {
     await this.$store.dispatch("getProfile");
   },
   components: {
-    FooterComponent
+    FooterComponent,
   },
   data() {
     return {
@@ -176,7 +163,7 @@ export default {
         { locale: "English", lang: "en" },
         { locale: "Swahili", lang: "sw" },
         { locale: "French", lang: "fr" },
-        { locale: "Arabic", lang: "ar" }
+        { locale: "Arabic", lang: "ar" },
       ],
 
       items: [
@@ -186,7 +173,7 @@ export default {
           subtitle: "Go to Home Page",
           definition: "label.menu.homepage",
           to: "/home",
-          iconClass: "info darken-1 white--text"
+          iconClass: "info darken-1 white--text",
         },
         {
           icon: "mdi-clipboard-list",
@@ -194,7 +181,7 @@ export default {
           subtitle: "Repayment Schedule list",
           definition: "label.menu.repaymentchedules",
           to: "/schedule",
-          iconClass: "info darken-1 white--text"
+          iconClass: "info darken-1 white--text",
         },
         {
           icon: "mdi-calculator-variant",
@@ -202,7 +189,7 @@ export default {
           subtitle: "Repayment Schedule generator",
           definition: "label.menu.calculator",
           to: "/calculator",
-          iconClass: "info darken-1 white--text"
+          iconClass: "info darken-1 white--text",
         },
         {
           icon: "mdi-account-search",
@@ -210,27 +197,27 @@ export default {
           subtitle: "Searching",
           definition: "label.menu.Search",
           to: "/search",
-          iconClass: "info darken-1 white--text"
-        }
+          iconClass: "info darken-1 white--text",
+        },
       ],
       actions: [
         {
           title: "View profile",
           icon: "mdi-account-circle",
-          label: "label.menu.profile"
+          label: "label.menu.profile",
         },
         {
           title: "Logout",
           icon: "mdi-logout-variant",
-          label: "label.menu.logout"
-        }
+          label: "label.menu.logout",
+        },
       ],
       miniVariant: false,
       right: true,
       shaped: true,
       collapseOnScroll: true,
       rightDrawer: false,
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     };
   },
   created() {
@@ -238,7 +225,7 @@ export default {
   },
 
   methods: {
-    selectedItemAction: function(item) {
+    selectedItemAction: function (item) {
       switch (item) {
         case 0:
           this.$router.push("/profile");
@@ -255,30 +242,30 @@ export default {
       // This makes it so the correct locale file is used
       this.$i18n.locale = lang;
     },
-    changemode: function() {
+    changemode: function () {
       this.dark = !this.dark;
       this.$vuetify.theme.dark = this.dark;
     },
-    syncro: async function() {
+    syncro: async function () {
       const vm = this;
       vm.sync = !vm.sync;
       await Promise.all([
         vm.$store.dispatch("getProfile"),
-        vm.$store.dispatch("getBlogPosts", "page=1")
-      ]).then(function() {
+        vm.$store.dispatch("getBlogPosts", "page=1"),
+      ]).then(function () {
         console.log("Loading complete...");
       });
       setTimeout(() => {
         vm.sync = !vm.sync;
       }, 2000);
-    }
+    },
   },
-  beforeMount: function() {},
+  beforeMount: function () {},
 
   computed: {
     userdata() {
       return this.$store.getters.userInfo;
-    }
-  }
+    },
+  },
 };
 </script>
