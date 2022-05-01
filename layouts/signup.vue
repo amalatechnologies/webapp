@@ -1,7 +1,7 @@
 <template>
   <v-app class="aspire">
     <v-app-bar flat fixed app color="white">
-      <img width="80px" class="mt-2" src="/kopalogo.png" alt="KopaSmart" />
+      <img width="80px" class="mt-2"  src="../assets/images/logo.png" alt="Amala Soko" />
       <v-spacer></v-spacer>
       <v-btn
         to="/"
