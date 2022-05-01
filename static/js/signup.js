@@ -4,7 +4,7 @@ export default {
       requiresAuth: false
     }
   },
-  layout: "home",
+  layout: "signup",
   data: () => ({
     show1: false,
     show2: false,
