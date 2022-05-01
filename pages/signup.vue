@@ -1,103 +1,103 @@
 <template>
-  <v-app class="app">
-    <v-container fluid>
-      <v-row class="justify-end">
-        <v-col>
-          <img width="400px" src="/kopalogo.ico" alt="AmalaSoko" />
+    <v-container class="fill-height" >
+      <v-row no-gutters justify="center" align="center" align-content="center">
+        <v-col cols="12" xs="12" sm="6" md="6" class="pa-5">
+          <p
+            class="
+              text-center text-h3 text-sm-h2 text-md-h1
+              font-weight-black
+              gradient
+            "
+          >
+            Amala Soko
+          </p>
+          <div class="text-center text-h4 text-sm-h3 secondary--text gradient">
+            {{ $t("label.message.motto") }}
+          </div>
+          <div class="text-center">
+            <p class="mt-2 black--text">
+              {{ $t("label.message.aboutusmessage") }}
+            </p>
+
+            <p class="mt-2 black--text">
+              {{ $t("label.message.aboutusmessage2") }}
+            </p>
+          </div>
         </v-col>
+        <v-spacer></v-spacer>
 
-        <v-col>
-          <v-card class="elevation-20" max-width="540">
-            <v-toolbar color="primary" dark flat>
-              <v-subheader class="font-weight-regular">{{
-                $t("label.button.buttonsignup")
-              }}</v-subheader>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-            <v-form ref="form" v-model="form" class="pa-4 pt-6">
-              <v-row>
-                <v-col cols="12" sm="12">
-                  <v-text-field
-                    ref="username"
-                    v-model="username"
-                    label="Username"
-                    :rules="[rules.length(5)]"
-                    placeholder="Username"
-                  ></v-text-field>
-
-                  <v-text-field
-                    ref="email"
-                    v-model="email"
-                    :rules="[rules.email]"
-                    label="Email address"
-                    placeholder="email@example.com"
-                    type="email"
-                  ></v-text-field>
-
-                  <v-text-field
-                    prepend-inner-icon="mdi-lock"
-                    v-model="password"
-                    :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                    :type="show1 ? 'text' : 'password'"
-                    @click:append="show1 = !show1"
-                    :rules="[rules.password, rules.length(8)]"
-                    color="deep-purple"
-                    counter="8"
-                    label="Password"
-                    placeholder="********"
-                  ></v-text-field>
-
-                  <v-text-field
-                    prepend-inner-icon="mdi-lock"
-                    v-model="rePassword"
-                    :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="show2 = !show2"
-                    auto-grow
-                    :rules="[rules.password, rules.length(8)]"
-                    placeholder="********"
-                    color="deep-purple"
-                    label="Confirm Password"
-                    type="password"
-                  ></v-text-field>
-
-                  <v-select
-                    v-model="role"
-                    item-text="name"
-                    item-value="value"
-                    :items="items"
-                    label="Role"
-                  ></v-select>
-                </v-col>
-              </v-row>
-              <v-checkbox
-                v-model="agreement"
-                :rules="[rules.required]"
-                color="deep-purple"
-              >
-                <template v-slot:label>
-                  I agree to the&nbsp;
-                  <a href="#" @click.stop.prevent="dialog = true"
-                    >Terms of Service</a
-                  >
-                  &nbsp;and&nbsp;
-                  <a href="#" @click.stop.prevent="dialog = true"
-                    >Privacy Policy</a
-                  >*
-                </template>
-              </v-checkbox>
-            </v-form>
+        <v-col cols="12" xs="12" md="4" class="d-flex justify-end align-center">
+          <v-card  outlined class="elevation-1" max-width="540">
+            <v-card-text>
+              <v-form ref="form" v-model="form" class="pa-4 pt-6">
+                <v-row no-gutters>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field
+                      v-model="username"
+                      label="Username"
+                      outlined dense
+                      :rules="[rules.length(5)]"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field
+                      v-model="email"
+                       outlined dense
+                      :rules="[rules.email]"
+                      label="Email address"
+                      type="email"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="12">
+                    <v-text-field
+                      prepend-inner-icon="mdi-lock"
+                      v-model="password"
+                       outlined dense
+                      :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                      :type="show1 ? 'text' : 'password'"
+                      @click:append="show1 = !show1"
+                      :rules="[rules.password, rules.length(8)]"
+                      color="deep-purple"
+                      counter="8"
+                      label="Password"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="12">
+                    <v-text-field
+                      prepend-inner-icon="mdi-lock"
+                      v-model="rePassword"
+                       outlined dense
+                      :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                      @click:append="show2 = !show2"
+                      auto-grow
+                      :rules="[rules.password, rules.length(8)]"
+                      color="deep-purple"
+                      label="Confirm Password"
+                      type="password"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12">
+                    <v-select
+                      v-model="role"
+                      item-text="name"
+                      item-value="value"
+                      :items="items"
+                      label="Select role"
+                    ></v-select>
+                  </v-col>
+                </v-row>
+              
+              </v-form>
+            </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
-              <v-btn color="info" to="/">{{
-                $t("label.button.buttonsignin")
-              }}</v-btn>
-              <v-spacer></v-spacer>
+            
               <v-btn
                 :disabled="!form"
-                :loading="isLoading"
+                :loading="isLoading" small block
                 class="white--text"
-                color="deep-purple accent-4"
-                depressed
+                color="primary"
+                depressed 
                 @click="signUpWithCredentials"
                 >{{ $t("label.button.buttonsignup") }}</v-btn
               >
@@ -136,7 +136,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </v-app>
+
 </template>
 
 <script lang="js" src="~/static/js/signup.js">
