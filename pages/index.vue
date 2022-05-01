@@ -2,7 +2,7 @@
   <v-container class="fill-height" fluid>
     <v-row justify="center" align="center" align-content="center">
       <v-col  cols="12" sm="6" class="pa-5" >
-        <p class="text-center text-h1 font-weight-black gradient">Amala Soko</p>
+        <p class="text-center text-h1 font-weight-black gradient">AmalaSoko</p>
         <div class="text-center text-h3 secondary--text gradient">
           {{ $t("label.message.motto") }}
         </div>
