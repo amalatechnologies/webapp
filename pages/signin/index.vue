@@ -69,7 +69,7 @@
                   >{{ $t('label.button.buttonsignin') }}</v-btn>
                 </div>
 
-                <p class="font-weight-light">{{ $t('qnNewToKopasmart') }}</p>
+                <p class="font-weight-light">{{ $t('qnNewToAmalaSoko') }}</p>
                 <router-link to="/signup" tag="a">
                   <a>{{ $t('createAccount') }}</a>
                     

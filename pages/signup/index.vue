@@ -11,7 +11,7 @@
                 width="400px" 
                
                 src="/kopalogo.ico"
-                alt="KopaSmart"
+                alt="AmalaSoko"
                
               />
         

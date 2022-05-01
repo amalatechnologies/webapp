@@ -1,11 +1,11 @@
 {
-  "appName": "KopaSmart",
+  "appName": "AmalaSoko",
   "application": "Application",
   "userName": "Username",
-  "qnNewToKopasmart": "New to Kopasmart ?",
+  "qnNewToAmalaSoko": "New to AmalaSoko ?",
   "createAccount": "Create Account",
   "homeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-  "homeDescriptionTitle": "What is Kopasmart ",
+  "homeDescriptionTitle": "What is AmalaSoko ",
   "homePage": "Home",
   "change": {
     "languages": "Change Language"
@@ -93,7 +93,7 @@
     },
     "message": {
       "Do you Agree":"Do you Agree",
-      "aboutusmessage": "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.",
+      "aboutusmessage": "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.",
       "aboutusmessage2":"The most informative application in financial inclusion.",
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
       "motto": "Where borrowers and lenders meet",
