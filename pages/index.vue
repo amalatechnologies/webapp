@@ -1,18 +1,18 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <v-row justify="center" align="center" align-content="center">
-      <v-col  cols="12" sm="6" class="pa-5" >
-        <p class="text-center text-h1 font-weight-black gradient">Amala Soko</p>
-        <div class="text-center text-h3 secondary--text gradient">
+  <v-container class="fill-height" >
+    <v-row no-gutters justify="center" align="center" align-content="center">
+      <v-col  cols="12" xs="12" sm="6" md="6" class="pa-5" >
+        <p class="text-center text-h3 text-sm-h2 text-md-h1 font-weight-black gradient">Amala Soko</p>
+        <div class="text-center text-h4 text-sm-h3 secondary--text gradient">
           {{ $t("label.message.motto") }}
         </div>
-        <div class="text-center " >
+        <div class="text-center"  >
           <p class="mt-2 black--text">{{ $t("label.message.aboutusmessage") }}</p>
 
           <p class="mt-2 black--text">{{ $t("label.message.aboutusmessage2") }}</p>
         </div>
       </v-col>
-      <v-col class="d-flex justify-center align-center" cols="12" sm="6">
+      <v-col v-if="$vuetify.breakpoint.smAndUp"  class="d-flex justify-center align-center" cols="12" sm="6">
         <img height="300" width="510" src="../assets/images/logo.png"/>
       </v-col>
     </v-row>

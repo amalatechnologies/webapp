@@ -1,17 +1,16 @@
 <template>
   <v-app class="aspire">
-    <v-app-bar flat fixed app color="white">
+    <v-app-bar flat fixed app color="transparent">
       <img width="80px" class="mt-2" src="/kopalogo.png" alt="KopaSmart" />
       <v-spacer></v-spacer>
       <v-btn
-        to="/signup"
+        to="/calculator"
         small
-        outlined
         elevation="0"
         class="px-5 mr-1"
-        color="primary"
+        color="accent"
         @click="loginmenu=false"
-        >Sign Up</v-btn
+        > Calculator</v-btn
       >
       <v-menu
         v-model="loginmenu"
@@ -19,6 +18,7 @@
         :close-on-click="true"
         transition="slide-y-transition"
         bottom
+        :width="$vuetify.breakpoint.mdAndUp ? '50%':'90%'"
         content-class="notched"
       >
         <template  v-slot:activator="{ on, attrs }">
@@ -32,7 +32,7 @@
             >Sign In</v-btn
           >
         </template>
-        <v-form ref="form" class="pa-4 pt-6 text-center">
+        <v-form ref="form" class="form pa-4 pt-6 text-center">
           <v-container class="px-2 py-10"  fluid>
             <v-row>
               <v-col>
@@ -77,6 +77,8 @@
                     >{{ $t("label.button.buttonsignin") }}</v-btn
                   >
                 </div>
+                <nuxt-link to="/signup">
+                <p class="mt-4">Don't have an account ?<a > Sign Up</a></p></nuxt-link>
                 <br />
                 <label class="red text-center">{{ error }}</label>
               </v-col>
@@ -85,7 +87,7 @@
         </v-form>
       </v-menu>
     </v-app-bar>
-    <v-main>
+    <v-main >
       <nuxt />
     </v-main>
   </v-app>
