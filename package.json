@@ -13,7 +13,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/bulma": "^1.2.6",
     "@nuxtjs/pwa": "^3.3.5",
-    "core-js": "^3.22.3",
+    "core-js": "^3.22.4",
     "fibers": "^5.0.1",
     "moment": "^2.29.3",
     "nuxt": "^2.15.8",
