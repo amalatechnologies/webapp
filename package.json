@@ -6,26 +6,29 @@
     "dev": "NODE_ENV=dev nuxt",
     "build": "nuxt build",
     "deploy": "DEPLOY_ENV=prod nuxt generate",
+    "production":"npx browserslist@latest --update-db && nuxt generate",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "engines": {
+    "npm": "8.3.0",
+    "node": "14.18.1"
+  },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/axios": "^5.13.5",
     "@nuxtjs/bulma": "^1.2.6",
     "@nuxtjs/pwa": "^3.3.5",
-    "core-js": "^3.22.3",
-    "fibers": "^5.0.1",
+    "core-js": "^3.21.1",
     "moment": "^2.29.3",
     "nuxt": "^2.15.8",
     "secure-ls": "^1.2.6",
     "vue-i18n": "^8.27.1",
     "vue-toasted": "^1.1.28",
-    "vuex-persistedstate": "^4.1.0"
+    "vuetify": "^2.6.5",
+    "vuex-persistedstate": "^3.2.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
-    "@nuxtjs/vuetify": "^1.12.3",
-    "node-sass": "^7.0.1",
-    "sass-loader": "^10.1.1"
+    "@nuxtjs/vuetify": "^1.12.3"
   }
 }
