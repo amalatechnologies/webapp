@@ -11,8 +11,8 @@ export default {
     routerNameSplitter: '/',
   },
   env: {
-    developmentUrl: process.env.BASE_URL ||'https://api.kopasmart.app/',
-    releaseUrl: process.env.LIVE_URL || 'https://api.kopasmart.app/'
+    developmentUrl: process.env.BASE_URL ||'https://api.amalasoko.com/',
+    releaseUrl: process.env.LIVE_URL || 'https://api.amalasoko.com/'
   },
 
 
