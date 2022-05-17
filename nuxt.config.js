@@ -1,4 +1,4 @@
-const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/kopasmart-webapp/' : '/';
+const routerBase = process.env.DEPLOY_ENV === 'prod' ? '/webapp/' : '/';
 import metajs from './plugins/meta';
 const meta = metajs();
 export default {
