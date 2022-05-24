@@ -1,4 +1,4 @@
-# Kopasmart web
+# AmalaSoko web
 
 ## Build Setup
 
