@@ -11,8 +11,8 @@ export default {
     routerNameSplitter: '/',
   },
   env: {
-    developmentUrl: process.env.BASE_URL ||'https://api.amalasoko.com/',
-    releaseUrl: process.env.LIVE_URL || 'https://api.amalasoko.com/'
+    developmentUrl: process.env.BASE_URL ||'http://134.209.206.157:8000/',
+    releaseUrl: process.env.LIVE_URL || 'http://134.209.206.157:8000/'
   },
 
 
