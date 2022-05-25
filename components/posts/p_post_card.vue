@@ -2,13 +2,13 @@
   
     <v-card class="mx-auto" flat elevation="1">
     <v-img
-    v-if="post.medias[0].src != null"
+   
       class="white--text align-end"
       height="200px"
-      :src="post.medias[0].src"
+      :src="post.medias.length > 0  ? post.medias[0].src : placeholder"
     ></v-img>
 
-    <v-card-subtitle class="ma-0 pa-0">
+  <v-card-subtitle class="ma-0 pa-0">
       <NuxtLink :to="'/post/' + post.id" v-show="post.type === 'comment'">
         <v-list dense class="ma-0 pa-0">
           <v-list-item dense class="ml-1 pa-0">
@@ -17,8 +17,7 @@
                 <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0">
                   <v-avatar size="20px">
                     <img
-                     v-if="post.medias[0].src != null"
-                      :src="post.medias[0].src"
+                     :src="post.medias.length > 0  ? post.medias[0].src : placeholder"
                       alt="post.owner.username"
                     />
                   </v-avatar>
@@ -38,28 +37,6 @@
           </v-list-item>
         </v-list>
       </NuxtLink>
-
-      <!-- <v-row no-gutters>
-       <v-btn x-small rounded depressed  class="font-weight-medium" color="primary">
-         {{post.type}}
-       </v-btn>
-          <v-spacer></v-spacer>
-          <v-row
-            align="center"
-            justify="end"
-
-          >
-            <v-btn text x-small>
-              <v-icon class="mr-0 text-caption">mdi-heart</v-icon>
-              <span class=" font-weight-light text-caption">{{ post.likes_count }}</span>
-            </v-btn>
-            <span class="mr-1">·</span>
-            <v-btn text x-small>
-              <v-icon class=" text-caption">mdi-comment</v-icon>
-              <span class="font-weight-light text-caption">{{ post.comments_count }}</span>
-            </v-btn>
-          </v-row>
-      </v-row>-->
     </v-card-subtitle>
     <v-card-text class="text--primary ma-0 mt-2 py-0">
       {{ text_truncate(post.text_content, null, null) }}
@@ -72,7 +49,7 @@
       <v-list-item dense>
         <NuxtLink :to="'/profile/' + post.owner.id">
           <v-list-item-avatar color="grey" v-show="post.type === 'post'">
-            <img :src="post.medias[0].src" alt="post.owner.username" />
+            <img :src="post.medias.length > 0  ? post.medias[0].src : placeholder" alt="post.owner.username" />
           </v-list-item-avatar>
         </NuxtLink>
         <v-list-item-content v-show="post.type === 'post'">
@@ -118,10 +95,16 @@
 </template>
 
 <script lang="js">
-import mixin from "@/plugins/mixins.js";
 export default {
-  mixins:[mixin],
-  props: {post:Object,postimage:Array},
+  props: {
+    post:{
+    type: Object,
+    default: null
+  },
+  postimage:{
+    type: Array,
+    default: null
+  }},
   data: () => ({
     view: false,
   
@@ -129,7 +112,7 @@ export default {
   }),
 
 created(){
-     this.$store.dispatch("getImages");
+     //this.$store.dispatch("getImages");
 },
 
   methods: {
@@ -155,7 +138,6 @@ created(){
   },
 computed: {
     postsImage() {
-      console.log("hamisa");
       console.log(this.$store.getters.postimages);
       return this.$store.getters.postimages;
     }

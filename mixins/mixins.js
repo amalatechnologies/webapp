@@ -1,6 +1,12 @@
-export default {
+import Vue from 'vue';
+import { mapGetters } from "vuex";
+
+
+Vue.mixin({
   data() {
-    return {};
+    return {
+      placeholder: 'https://i.picsum.photos/id/131/4698/3166.jpg?hmac=DpRHYso0tlQQ8HzsmRHNTSWfbMaTdHq58UciPSggCY8'
+    };
   },
   computed: {},
   methods: {
@@ -11,4 +17,4 @@ export default {
       this.$store.dispatch(dipatch, { "id": parseInt(payload)});
     }
   }
-};
+});

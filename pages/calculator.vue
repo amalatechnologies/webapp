@@ -293,7 +293,7 @@
 import DatatableComponent from "~/components/items/datatable-component";
 
 export default {
-  layout: localStorage.getItem("qAccessToken") == null ? "signup" : "default",
+  //layout: localStorage.getItem("qAccessToken") == null ? "signup" : "default",
   components: {
     DatatableComponent,
   },

@@ -110,9 +110,9 @@ DISLIKE_POST_OR_COMMENT_ERROR(state) {
 };
 
 const actions = {
-  async getBlogPosts({commit}, payload) {
+  async _getallblogposts({commit}, page) {
     commit("GET_BLOG_POSTS");
-    await this.$api.$get(`posts/?${payload}&type=post`)
+    await this.$api.$get(`posts/`,{params:{page: page, type: 'post'}} )
       .then(response => {
         commit("GET_BLOG_POSTS_SUCCESS", response);
         return 1;

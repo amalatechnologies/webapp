@@ -42,6 +42,7 @@
 <script>
 import PostsComponent from "~/components/posts/index";
 import postCard from "~/components/posts/p_post_card";
+import { mapGetters } from "vuex";
 export default {
   components: {
     "posts-component": PostsComponent,
@@ -73,20 +74,21 @@ export default {
   },
   created: function() {
     let vm = this;
+    this.getThisPage(1)
   },
     methods: {
-    getThisPage(it) {
-      console.log(it);
-      this.$store.dispatch("getBlogPosts", "page=" + it).then(response => {
+    getThisPage(page) {
+      console.log(page);
+      this.$store.dispatch("_getallblogposts", page).then(response => {
         console.log(response);
         this.$forceUpdate();
       });
     }
   },
    computed: {
-    posts() {
-      return this.$store.getters.posts;
-    }
+     ...mapGetters({
+       "posts":"posts"
+   })
   }
 };
 </script>

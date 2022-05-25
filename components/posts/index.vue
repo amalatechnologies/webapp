@@ -2,9 +2,9 @@
   <div>
     <v-layout row wrap align-center>
       <v-flex xs12 sm12 md12 order-md2 order-sm2>
-        <v-row>
+        <v-row  v-if="posts.results.length !== 0">
           <v-col
-            v-if="posts.results.length !== 0"
+           
             cols="12"
             lg="3"
             md="4"
@@ -15,7 +15,7 @@
           >
             <post-card :post="post"></post-card>
           </v-col>
-          <div v-else>No Data</div>
+          
           <v-fab-transition>
             <v-btn
               fab
@@ -30,6 +30,7 @@
             </v-btn>
           </v-fab-transition>
         </v-row>
+        <div v-else>No Data</div>
       </v-flex>
     </v-layout>
     <div class="text-center">
@@ -58,7 +59,7 @@ export default {
   methods: {
     getThisPage(it) {
       console.log(it);
-      this.$store.dispatch("getBlogPosts", "page=" + it).then(response => {
+      this.$store.dispatch("_getallblogposts", "page=" + it).then(response => {
         console.log(response);
         this.$forceUpdate();
       });
