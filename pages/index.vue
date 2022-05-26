@@ -6,7 +6,7 @@
               text-center text-h3 text-sm-h2 text-md-h1
               font-weight-black
               gradient
-            ">AmalaSokoo</p>
+            ">AmalaSoko</p>
         <div class="text-center text-h4 text-sm-h3 secondary--text gradient">
           {{ $t("label.message.motto") }}
         </div>
