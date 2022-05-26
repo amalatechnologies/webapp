@@ -23,7 +23,7 @@
           <p>
             Find a bug? Report it on the github
             <a
-              href="https://github.com/finspointa/kopasmart-webapp/issues"
+              href="https://github.com/amalatechnologies/webapp/issues"
               target="_blank"
               title="contribute"
             >issue board</a>.

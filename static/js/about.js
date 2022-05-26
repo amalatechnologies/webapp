@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       title: 'About Us',
-      app_name: 'Kopasmart Application',
+      app_name: 'AmalaSoko',
 
     };
   },

@@ -1,9 +1,9 @@
 const type = "website";
-const url = "https://kopasmart.app/";
-const title = "Kopasmart WebApp";
+const url = "https://amalasoko.com/";
+const title = "AmalaSoko";
 const motto = "Where lender and borrowers Meet";
-const description = "Different financial institutions meet their borrowers in Kopasmart and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion";
-const mainImage = 'https://api.kopasmart.app/media/posts_media/kopalogo.png';
+const description = "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.The most informative application in financial inclusion";
+const mainImage = 'https://amalasoko.com/preview.jpeg';
 
 
 export default (meta) => {
