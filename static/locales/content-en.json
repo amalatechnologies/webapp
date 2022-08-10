@@ -33,36 +33,33 @@
       "country": "Country",
       "postalcode": "Postal Code",
       "biography": "Biography",
-      "Loan Amount":"Loan Amount",
-      "Interest Rate":"Interest Rate",
-      "Interest Method":"Interest Method",
-      "Loan Terms":"Loan Terms",
-      "Units":"Units",
-      "Number of Repayments":"Number of Repayments",
-      "Repayment Frequency":"Repayment Frequency",
-      "Amortization":"Amortization",
-      "Principal Moratorium":"Principal Moratorium",
-      "Interest Free Period":"Interest Free Period",
-      "Interest Moratorium":"Interest Moratorium",
-      "Name":"Name",
-      "Amount":"Amount",
-      "Repay Every":"Repay Every",
-      "Repayments":"Repayments", 
-      "Loan Term":"Loan Term",
-      "Method":"Method",
-      "Interest":"Interest",
-      "Repayment Schedule Name":"Repayment Schedule Name",
-      "Day":"Day",
-      "Principal due":"Malipo kuu",
-      "Paid Date":"Paid Date",
-      "Principal":"Principal",
-      "Interrest":"interrest",
-      "Loan Balance":"Loan Balance",
-      "Total":"Total",
-      "Search":"Search"
-     
-    
-
+      "Loan Amount": "Loan Amount",
+      "Interest Rate": "Interest Rate",
+      "Interest Method": "Interest Method",
+      "Loan Terms": "Loan Terms",
+      "Units": "Units",
+      "Number of Repayments": "Number of Repayments",
+      "Repayment Frequency": "Repayment Frequency",
+      "Amortization": "Amortization",
+      "Principal Moratorium": "Principal Moratorium",
+      "Interest Free Period": "Interest Free Period",
+      "Interest Moratorium": "Interest Moratorium",
+      "Name": "Name",
+      "Amount": "Amount",
+      "Repay Every": "Repay Every",
+      "Repayments": "Repayments",
+      "Loan Term": "Loan Term",
+      "Method": "Method",
+      "Interest": "Interest",
+      "Repayment Schedule Name": "Repayment Schedule Name",
+      "Day": "Day",
+      "Principal due": "Malipo kuu",
+      "Paid Date": "Paid Date",
+      "Principal": "Principal",
+      "Interrest": "interrest",
+      "Loan Balance": "Loan Balance",
+      "Total": "Total",
+      "Search": "Search"
     },
     "button": {
       "btncontactus": "Contact Us",
@@ -86,15 +83,13 @@
       "btnSearch": "Search",
       "btnSave": "Save",
       "btnNo": "No",
-      "btnDisagree":"I Dis Agree",
-      "btnAgree":"I Agree"
-
-
+      "btnDisagree": "I Dis Agree",
+      "btnAgree": "I Agree"
     },
     "message": {
-      "Do you Agree":"Do you Agree",
+      "Do you Agree": "Do you Agree",
       "aboutusmessage": "Different financial institutions meet their borrowers in AmalaSoko and borrowers are empowered by enough information and option when making decision of borrowing.",
-      "aboutusmessage2":"The most informative application in financial inclusion.",
+      "aboutusmessage2": "The most informative application in financial inclusion.",
       "thanksmessage": "Thank you for developing with {{app_name}} and I look forward to bringing more exciting features in the future.",
       "motto": "Where borrowers and lenders meet",
       "saveschedule": "By Clicking save this repayment schedule will be saved and can be re-calculated later. \n\n Are you sure you want to save this ? \n\n If yes Provide the Name below and click save button to save ",
@@ -123,31 +118,31 @@
     },
     "text": {
       "post": "Post",
-      "Follows":"Follows",
-      "Followers":"Followers",
-      "Rankings":"Rankings",
-      "SHOWLESS":"SHOWLESS",
-      "ADVANCED":"ADVANCED"
-     
-      },
-      "vtab":{
-        "Documents":"Documents",
-        "About":"About",
-        "Posts":"Posts",
-        "Comments":"Comments",
-        "Followers":"Followers",
-        "Followings":"Followings"
-      },
-      "th":{
-        "Name":"Name",
-        "Phone":"Phone",
-        "Email":"Email",
-        "Role":"Role",
-        "Joined":"Joined"},
-       "footer":{
-         "Interest Moratorium":"Interest Moratorium",
-           "Principal Moratorium":"Principal Moratorium",
-           "Interest Free Period":"Interest Free Period"
-      }
+      "Follows": "Follows",
+      "Followers": "Followers",
+      "Rankings": "Rankings",
+      "SHOWLESS": "SHOWLESS",
+      "ADVANCED": "ADVANCED"
+    },
+    "vtab": {
+      "Documents": "Documents",
+      "About": "About",
+      "Posts": "Posts",
+      "Comments": "Comments",
+      "Followers": "Followers",
+      "Followings": "Followings"
+    },
+    "th": {
+      "Name": "Name",
+      "Phone": "Phone",
+      "Email": "Email",
+      "Role": "Role",
+      "Joined": "Joined"
+    },
+    "footer": {
+      "Interest Moratorium": "Interest Moratorium",
+      "Principal Moratorium": "Principal Moratorium",
+      "Interest Free Period": "Interest Free Period"
+    }
   }
 }
