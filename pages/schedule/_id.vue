@@ -15,9 +15,7 @@
         <v-card-subtitle class="title font-weight-light"
           >Selected Repayment Schedule {{ schedule.name }}</v-card-subtitle
         >
-<v-card-text>
-
-</v-card-text>
+        <v-card-text> </v-card-text>
         <v-row v-if="data">
           <list-item
             title="Name"
@@ -65,12 +63,13 @@
             title="Interest Free period"
             v-bind:subtitle="schedule.interest_free_period"
           ></list-item>
-
+          <template v-if="schedule.is_shared">
+            <list-item
+              title="Shared By"
+              :subtitle="schedule.shared_by.username"
+            ></list-item>
+          </template>
         </v-row>
-
-
-
-
 
         <v-container fluid v-if="table">
           <datatable-component
@@ -99,9 +98,37 @@
             @click="calculateRepaymentSchedule"
             >Calculate</v-btn
           >
-        
+          <v-btn
+            v-else
+            class="info lighten-1 font-weight-light"
+            @click="dialog = true"
+            >Share</v-btn
+          >
         </v-card-actions>
       </v-card>
+
+      <v-dialog v-model="dialog" width="70rem">
+        <v-card>
+          <v-card-text>Share repayment schedule</v-card-text>
+          <v-form class="mx-5">
+            <!-- <v-text-field
+              placeholder="Username"
+              outlined
+              label="Username"
+            ></v-text-field> -->
+            <v-autocomplete
+              outlined
+              placeholder="Username"
+              :loading="uLoading"
+              :search-input.sync="searchUsers"
+              :items="users"
+              v-model="username"
+              hide-no-data
+            ></v-autocomplete>
+            <v-btn class="primary" @click="shareSchedule">Share schedule</v-btn>
+          </v-form>
+        </v-card>
+      </v-dialog>
     </v-container>
   </v-app>
 </template>
