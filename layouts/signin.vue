@@ -1,7 +1,12 @@
 <template>
   <v-app class="aspire">
     <v-app-bar flat fixed app color="transparent">
-      <img width="80px" class="mt-2" src="../assets/images/logo.png" alt="Amala Soko" />
+      <img
+        width="80px"
+        class="mt-2"
+        src="../assets/images/logo.png"
+        alt="Amala Soko"
+      />
       <v-spacer></v-spacer>
       <v-btn
         to="/calculator"
@@ -9,8 +14,9 @@
         elevation="0"
         class="px-5 mr-1"
         color="accent"
-        @click="loginmenu=false"
-        > Calculator</v-btn
+        @click="loginmenu = false"
+      >
+        Calculator</v-btn
       >
       <v-menu
         v-model="loginmenu"
@@ -18,22 +24,22 @@
         :close-on-click="true"
         transition="slide-y-transition"
         bottom
-        :width="$vuetify.breakpoint.mdAndUp ? '50%':'90%'"
+        :width="$vuetify.breakpoint.mdAndUp ? '50%' : '90%'"
         content-class="notched"
       >
-        <template  v-slot:activator="{ on, attrs }">
+        <template v-slot:activator="{ on, attrs }">
           <v-btn
             small
             elevation="1"
             class="px-5"
             color="primary"
             v-bind="attrs"
-            v-on="on" 
+            v-on="on"
             >Sign In</v-btn
           >
         </template>
         <v-form ref="form" class="form pa-4 pt-6 text-center">
-          <v-container class="px-2 py-10"  fluid>
+          <v-container class="px-2 py-10" fluid>
             <v-row>
               <v-col>
                 <v-text-field
@@ -41,7 +47,7 @@
                   label="Username"
                   required
                   outlined
-                  dense 
+                  dense
                   :rules="[rules.required]"
                   prepend-inner-icon="mdi-account"
                   single-line
@@ -78,7 +84,13 @@
                   >
                 </div>
                 <nuxt-link to="/signup">
-                <p class="mt-4">Don't have an account ?<a > Sign Up</a></p></nuxt-link>
+                  <p class="mt-4">
+                    Don't have an account ?<a> Sign Up</a>
+                  </p></nuxt-link
+                >
+                <nuxt-link to="/reset">
+                  <p>Forgot Password??</p>
+                </nuxt-link>
                 <br />
                 <label class="red text-center">{{ error }}</label>
               </v-col>
@@ -87,12 +99,11 @@
         </v-form>
       </v-menu>
     </v-app-bar>
-    <v-main >
+    <v-main>
       <nuxt />
     </v-main>
   </v-app>
 </template>
-
 
 <script>
 export default {
@@ -103,10 +114,10 @@ export default {
       show2: true,
       show3: false,
       show4: false,
-      loginmenu:false,
-      payload:{
-         password: "",
-      username: "",
+      loginmenu: false,
+      payload: {
+        password: "",
+        username: "",
       },
       rules: {
         required: (value) => !!value || "Required.",
@@ -121,8 +132,6 @@ export default {
       this.loginmenu = false;
       this.$store.dispatch("login", this.payload);
     },
-
   },
 };
 </script>
-
