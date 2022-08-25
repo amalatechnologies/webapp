@@ -1,12 +1,10 @@
-
 const state = () => ({
   count: null,
   schedule: {},
   schedules: [],
   savedschedule: {},
   isLoading: Boolean,
-  authToken: true
-
+  authToken: true,
 });
 
 const mutations = {
@@ -41,55 +39,67 @@ const mutations = {
   },
   SAVE_REPAYMENT_SCHEDULE_FAILED(state) {
     state.isLoading = false;
-  }
+  },
+  SHARE_REPAYMENT_SCHEDULE(state) {
+    state.isLoading = true;
+  },
+  SHARE_REPAYMENT_SCHEDULE_SUCCESS(state) {
+    state.isLoading = false;
+  },
+  SHARE_REPAYMENT_SCHEDULE_FAIL(state) {
+    state.isLoading = false;
+  },
 };
 const actions = {
-  async getSchedules({
-    commit
-  }) {
+  async getSchedules({ commit }) {
     commit("REPAYMENT_SCHEDULES");
-    await this.$api.$get(`repayment-schedules/`)
-      .then(response => {
-        console.log(response);
+    await this.$api
+      .$get(`repayment-schedules/`)
+      .then((response) => {
         commit("REPAYMENT_SCHEDULES_SUCCESS", response.results);
-
-
-      }).catch(error => {
+      })
+      .catch((error) => {
         commit("REPAYMENT_SCHEDULES_FAILED");
         console.log(error);
-
       });
   },
-  async getSchedule({
-    commit
-  }, payload) {
+  async getSchedule({ commit }, payload) {
     commit("REPAYMENT_SCHEDULE");
-    await this.$api.$get(`repayment-schedules/` + payload)
-      .then(response => {
+    await this.$api
+      .$get(`repayment-schedules/` + payload)
+      .then((response) => {
         commit("REPAYMENT_SCHEDULE_SUCCESS", response);
-
-
-      }).catch(error => {
+      })
+      .catch((error) => {
         commit("REPAYMENT_SCHEDULE_FAILED");
         console.log(error);
-
       });
   },
-  async saveSchedule({
-    commit
-  }, payload) {
+  async saveSchedule({ commit }, payload) {
     console.log(payload);
     commit("SAVE_REPAYMENT_SCHEDULE");
-    await this.$api.$post(`repayment-schedules/`, payload)
-      .then(response => {
+    await this.$api
+      .$post(`repayment-schedules/`, payload)
+      .then((response) => {
         commit("SAVE_REPAYMENT_SCHEDULE_SUCCESS", response);
-        this.$router.push('/schedule');
-
-
-      }).catch(error => {
+        this.$router.push("/schedule");
+      })
+      .catch((error) => {
         commit("SAVE_REPAYMENT_SCHEDULE_FAILED");
         console.log(error);
-
+      });
+  },
+  async shareSchedule({ commit }, { scheduleId, shareTo }) {
+    commit("SHARE_REPAYMENT_SCHEDULE");
+    await this.$api
+      .$patch(`repayment-schedules/${scheduleId}/share/?username=${shareTo}`)
+      .then((res) => {
+        commit("SHARE_REPAYMENT_SCHEDULE_SUCCESS");
+        this.$router.push("/schedule");
+      })
+      .catch((err) => {
+        commit("SHARE_REPAYMENT_SCHEDULE_FAIL");
+        console.log(err);
       });
   },
 };
@@ -102,12 +112,11 @@ const getters = {
   },
   getterschedule: (state, getters) => (id) => {
     if (getters.schedulesdata.length > 0) {
-      return state.schedules.filter(schedule => schedule.id === id);
+      return state.schedules.filter((schedule) => schedule.id === id);
     } else {
       return state.schedule;
     }
-  }
-
+  },
 };
 export default {
   namespaced: false,
