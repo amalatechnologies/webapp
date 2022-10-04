@@ -22,7 +22,7 @@ export default {
           this.userdata = response;
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     },
   },

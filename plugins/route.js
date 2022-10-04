@@ -8,15 +8,15 @@ export default function ({ app, route, from, store, redirect }) {
       to.path !== "/calculator" &&
       !to.path.startsWith("/reset")
     ) {
-      console.log("Entering the route:  " + to.path);
+      // console.log("Entering the route:  " + to.path);
 
       next("/signin");
     } else {
-      console.log("Entering the route:  " + to.path);
+      // console.log("Entering the route:  " + to.path);
       next();
     }
   });
   app.router.afterEach((to, from) => {
-    console.log("After leaving the route");
+    // console.log("After leaving the route");
   });
 }

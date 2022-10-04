@@ -60,7 +60,7 @@ const actions = {
       })
       .catch((error) => {
         commit("REPAYMENT_SCHEDULES_FAILED");
-        console.log(error);
+        // console.log(error);
       });
   },
   async getSchedule({ commit }, payload) {
@@ -72,7 +72,7 @@ const actions = {
       })
       .catch((error) => {
         commit("REPAYMENT_SCHEDULE_FAILED");
-        console.log(error);
+        // console.log(error);
       });
   },
   async saveSchedule({ commit }, payload) {
@@ -86,7 +86,7 @@ const actions = {
       })
       .catch((error) => {
         commit("SAVE_REPAYMENT_SCHEDULE_FAILED");
-        console.log(error);
+        // console.log(error);
       });
   },
   async shareSchedule({ commit }, { scheduleId, shareTo }) {
@@ -99,7 +99,7 @@ const actions = {
       })
       .catch((err) => {
         commit("SHARE_REPAYMENT_SCHEDULE_FAIL");
-        console.log(err);
+        // console.log(err);
       });
   },
 };

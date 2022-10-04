@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div></div>
-
-    <v-row>
-      <v-col cols="12" sm="6" md="9">
-        <v-text-field
-          v-model="search"
-          label="Search"
-          :rules="[nameRules.required, nameRules.length(1)]"
-        ></v-text-field>
-      </v-col>
-      <v-btn color="dark" @click="searches()" dark large>
-        {{ $t('label.button.btnSearch') }}
-      </v-btn>
-    </v-row>
+    <div>
+      <v-row>
+        <v-col cols="12" sm="6" md="9">
+          <v-text-field
+            v-model="search"
+            label="Search"
+            :rules="[nameRules.required, nameRules.length(1)]"
+          ></v-text-field>
+        </v-col>
+        <v-btn color="dark" @click="searches()" dark large>
+          {{ $t("label.button.btnSearch") }}
+        </v-btn>
+      </v-row>
+    </div>
 
     <div>
       <searchs :error="error" :item="searcheditem"></searchs>

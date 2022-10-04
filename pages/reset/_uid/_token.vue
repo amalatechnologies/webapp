@@ -69,7 +69,7 @@ export default {
         token: this.$route.params.token,
       };
 
-      console.log(data);
+      // console.log(data);
 
       this.$store.dispatch("_sendResetPasswordData", data);
     },
