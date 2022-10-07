@@ -22,7 +22,7 @@
     "moment": "^2.29.3",
     "nuxt": "^2.15.8",
     "secure-ls": "^1.2.6",
-    "vue-i18n": "^8.27.1",
+    "vue-i18n": "^8.27.2",
     "vue-toasted": "^1.1.28",
     "vuetify": "^2.6.5",
     "vuex-persistedstate": "^3.2.1"
