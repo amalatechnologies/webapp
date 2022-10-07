@@ -1,4 +1,4 @@
-<template >
+<template>
   <card-info :userdata="userdata"></card-info>
 </template>
 
@@ -22,7 +22,7 @@ export default {
           this.userdata = response;
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     },
   },
@@ -32,5 +32,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

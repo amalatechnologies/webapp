@@ -34,7 +34,7 @@ const actions = {
         commit("GET_LIST_OF_POST_COMMENTS_SUCCESS", response);
       }).catch(error => {
         commit("GET_LIST_OF_POST_COMMENTS_ERROR");
-        console.log(error);
+        // console.log(error);
 
       });
   },

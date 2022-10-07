@@ -67,7 +67,7 @@ export default {
     };
   },
   created: function () {
-    console.log(this.schedule);
+    // console.log(this.schedule);
   },
   methods: {
     calculateRepaymentSchedule() {

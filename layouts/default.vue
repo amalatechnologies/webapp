@@ -1,7 +1,16 @@
 <template>
   <v-app style="background-color: #f5f5f5">
-    <v-navigation-drawer v-if="$vuetify.breakpoint.smAndUp" v-model="drawer" mini-variant.sync="mini"
-      overlay-color="primary" app absolute clipped width="220" height="100%">
+    <v-navigation-drawer
+      v-if="$vuetify.breakpoint.smAndUp"
+      v-model="drawer"
+      mini-variant.sync="mini"
+      overlay-color="primary"
+      app
+      absolute
+      clipped
+      width="220"
+      height="100%"
+    >
       <v-list dense subheader tile>
         <!--<v-list-item dense to="/me" class="list-item ma-0">
           <v-list-item-avatar>
@@ -18,9 +27,18 @@
           </v-list-item-content>
         </v-list-item>-->
 
-        <v-list-item class="list-item ma-0" dense v-for="(item, i) in items" :key="i" :to="item.to" router exact>
+        <v-list-item
+          class="list-item ma-0"
+          dense
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
+        >
           <v-list-item-title>
-            <v-icon color="primary" v-text="item.icon" small></v-icon>&nbsp;&nbsp;{{ $t(item.definition) }}
+            <v-icon color="primary" v-text="item.icon" small></v-icon
+            >&nbsp;&nbsp;{{ $t(item.definition) }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -30,8 +48,18 @@
             <v-list-item>
               <v-list-item-content>
                 <div cols="6" md="1">
-                  <v-select v-model="select" :items="locales" item-text="locale" item-value="lang" persistent-hint
-                    return-object single-line dense lass="font-weight-light" @change="changeLanguage(select.lang)">
+                  <v-select
+                    v-model="select"
+                    :items="locales"
+                    item-text="locale"
+                    item-value="lang"
+                    persistent-hint
+                    return-object
+                    single-line
+                    dense
+                    lass="font-weight-light"
+                    @change="changeLanguage(select.lang)"
+                  >
                   </v-select>
                 </div>
               </v-list-item-content>
@@ -41,30 +69,34 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar clipped-left flat fixed app :color="$vuetify.breakpoint.smAndUp ? 'white' : 'accent'">
+    <v-app-bar
+      clipped-left
+      flat
+      fixed
+      app
+      :color="$vuetify.breakpoint.smAndUp ? 'white' : 'accent'"
+    >
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" >
       </v-app-bar-nav-icon>-->
       <v-avatar tile>
         <img src="../assets/images/logo.png" alt="Amala Soko" />
-
       </v-avatar>
       <v-spacer></v-spacer>
 
-        <div>
-          <v-list-item active-class="primary" dense  class="list-item ma-0">
+      <div>
+        <v-list-item active-class="primary" dense class="list-item ma-0">
           <v-list-item-avatar>
             <v-img :src="placeholder" dark></v-img>
           </v-list-item-avatar>
 
           <v-list-item-content>
             <v-list-item-title class="headline text-h6">{{
-                userdata.username
+              userdata.username
             }}</v-list-item-title>
-           
           </v-list-item-content>
         </v-list-item>
-        </div>
-      
+      </div>
+
       <!--<v-btn icon @click="changemode">
         <v-icon v-if="!dark" color="primary">mdi-brightness-6</v-icon>
         <v-icon v-if="dark" color="primary">mdi-brightness-5</v-icon>
@@ -78,27 +110,36 @@
         </template>
 
         <v-list dense>
-          <v-list-item v-for="(item, i) in actions" :key="i" @click="selectedItemAction(i)">
+          <v-list-item
+            v-for="(item, i) in actions"
+            :key="i"
+            @click="selectedItemAction(i)"
+          >
             <v-list-item-avatar width="36" height="35">
               <v-icon class="success white--text" v-text="item.icon"></v-icon>
             </v-list-item-avatar>
             <v-list-item-title class="font-weight-light">{{
-                $t(item.label)
+              $t(item.label)
             }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
-      
-      
-      
     </v-app-bar>
     <v-main>
       <v-container class="ma-0 pa-0" style="background-color: #f5f5f5">
         <nuxt />
       </v-container>
     </v-main>
-    <v-bottom-navigation v-show="$vuetify.breakpoint.smAndDown" fixed shift scroll-threshold="2" hide-on-scroll
-      color="white" active-class="secondary" background-color="accent">
+    <v-bottom-navigation
+      v-show="$vuetify.breakpoint.smAndDown"
+      fixed
+      shift
+      scroll-threshold="2"
+      hide-on-scroll
+      color="white"
+      active-class="secondary"
+      background-color="accent"
+    >
       <v-btn to="/home">
         <span class="font-weight-bold">Home</span>
         <v-icon>mdi-home</v-icon>
@@ -121,7 +162,6 @@
         <span class="font-weight-bold">Account</span>
         <v-icon>mdi-account</v-icon>
       </v-btn>
-
     </v-bottom-navigation>
   </v-app>
 </template>
@@ -245,14 +285,14 @@ export default {
         vm.$store.dispatch("getProfile"),
         vm.$store.dispatch("_getallblogposts", "page=1"),
       ]).then(function () {
-        console.log("Loading complete...");
+        // console.log("Loading complete...");
       });
       setTimeout(() => {
         vm.sync = !vm.sync;
       }, 2000);
     },
   },
-  beforeMount: function () { },
+  beforeMount: function () {},
 
   computed: {
     userdata() {

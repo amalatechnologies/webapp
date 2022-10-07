@@ -7,7 +7,7 @@ export default {
   computed: {
     datas() {
       let datax = this.$store.getters.getsavedschedule;
-      console.log(datax);
+      // console.log(datax);
       return datax;
     }
   }

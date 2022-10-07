@@ -27,7 +27,7 @@ const actions = {
       })
       .catch((err) => {
         commit("SEARCH_USERS_FAIL");
-        console.log(err);
+        // console.log(err);
       });
   },
 };

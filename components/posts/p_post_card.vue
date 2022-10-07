@@ -1,36 +1,40 @@
 <template>
-  
-    <v-card class="mx-auto" flat elevation="1">
+  <v-card class="mx-auto" flat elevation="1">
     <v-img
-   
       class="white--text align-end"
       height="200px"
-      :src="post.medias.length > 0  ? post.medias[0].src : placeholder"
+      :src="post.medias.length > 0 ? post.medias[0].src : placeholder"
     ></v-img>
 
-  <v-card-subtitle class="ma-0 pa-0">
+    <v-card-subtitle class="ma-0 pa-0">
       <NuxtLink :to="'/post/' + post.id" v-show="post.type === 'comment'">
         <v-list dense class="ma-0 pa-0">
           <v-list-item dense class="ml-1 pa-0">
             <v-list-item-content class="ma-0 pa-0">
               <v-list-item-title ma-0 pa-0>
-                <v-btn x-small rounded depressed color="primary" class="mb-1 ps-0">
+                <v-btn
+                  x-small
+                  rounded
+                  depressed
+                  color="primary"
+                  class="mb-1 ps-0"
+                >
                   <v-avatar size="20px">
                     <img
-                     :src="post.medias.length > 0  ? post.medias[0].src : placeholder"
+                      :src="
+                        post.medias.length > 0
+                          ? post.medias[0].src
+                          : placeholder
+                      "
                       alt="post.owner.username"
                     />
                   </v-avatar>
                   &nbsp;
-                  {{ post.owner.first_name }}&nbsp;{{
-                  post.owner.last_name
-                  }}
-                  replied
-                </v-btn>&nbsp;
+                  {{ post.owner.first_name }}&nbsp;{{ post.owner.last_name }}
+                  replied </v-btn
+                >&nbsp;
                 <span class="font-weight-light text-caption" caption>
-                  {{
-                  post.created_at | DateFormat
-                  }}
+                  {{ post.created_at | DateFormat }}
                 </span>
               </v-list-item-title>
             </v-list-item-content>
@@ -49,42 +53,54 @@
       <v-list-item dense>
         <NuxtLink :to="'/profile/' + post.owner.id">
           <v-list-item-avatar color="grey" v-show="post.type === 'post'">
-            <img :src="post.medias.length > 0  ? post.medias[0].src : placeholder" alt="post.owner.username" />
+            <img
+              :src="post.medias.length > 0 ? post.medias[0].src : placeholder"
+              alt="post.owner.username"
+            />
           </v-list-item-avatar>
         </NuxtLink>
         <v-list-item-content v-show="post.type === 'post'">
           <v-list-item-title class="subhead text-caption">
-            <span v-if="     post.owner.first_name == '' &&post.owner.last_name == ''" >  
-            {{post.owner.username}} </span>
-            <span v-else>
-                {{ post.owner.first_name }}
-            {{ post.owner.last_name }}
+            <span
+              v-if="post.owner.first_name == '' && post.owner.last_name == ''"
+            >
+              {{ post.owner.username }}
             </span>
-          
-            
+            <span v-else>
+              {{ post.owner.first_name }}
+              {{ post.owner.last_name }}
+            </span>
           </v-list-item-title>
-          <v-list-item-subtitle
-            class="font-weight-medium text-caption"
-          >{{ post.created_at | DateFormat }}</v-list-item-subtitle>
+          <v-list-item-subtitle class="font-weight-medium text-caption">{{
+            post.created_at | DateFormat
+          }}</v-list-item-subtitle>
         </v-list-item-content>
         <v-row no-gutters>
           <v-row align="center" justify="end">
             <v-btn text x-small @click.stop="likePost(post)">
-              <v-icon color="success" class="mr-0 text-caption" v-if="post.is_liked_by_me">mdi-heart</v-icon>
-              <v-icon class="mr-0 text-caption" v-else>mdi-heart-outline</v-icon>
+              <v-icon
+                color="success"
+                class="mr-0 text-caption"
+                v-if="post.is_liked_by_me"
+                >mdi-heart</v-icon
+              >
+              <v-icon class="mr-0 text-caption" v-else
+                >mdi-heart-outline</v-icon
+              >
               <span class="font-weight-light text-caption">
-                {{
-                post.likes_count
-                }}
+                {{ post.likes_count }}
               </span>
             </v-btn>
             <span class="mr-1">·</span>
-            <v-btn text x-small :to="'/post/' + post.id" @click.stop="commentPost(post.id)">
+            <v-btn
+              text
+              x-small
+              :to="'/post/' + post.id"
+              @click.stop="commentPost(post.id)"
+            >
               <v-icon class="text-caption">mdi-comment</v-icon>
               <span class="font-weight-light text-caption">
-                {{
-                post.comments_count
-                }}
+                {{ post.comments_count }}
               </span>
             </v-btn>
           </v-row>
@@ -107,7 +123,7 @@ export default {
   }},
   data: () => ({
     view: false,
-  
+
 
   }),
 
@@ -117,7 +133,7 @@ created(){
 
   methods: {
     likePost(post){
-      console.log(post.is_liked_by_me)
+      // console.log(post.is_liked_by_me)
       post.is_liked_by_me ? this.unlike_this_post('unlikeBlogPosts',post.id) : this.like_this_post('likeBlogPosts',post.id)
     },
     text_truncate : function(str, length, ending) {
@@ -138,15 +154,13 @@ created(){
   },
 computed: {
     postsImage() {
-      console.log(this.$store.getters.postimages);
+      // console.log(this.$store.getters.postimages);
       return this.$store.getters.postimages;
     }
   }
 }
 </script>
 <style>
-
-
 .trancate {
   white-space: nowrap;
   width: 100%; /* IE6 needs any width */
