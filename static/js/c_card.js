@@ -129,6 +129,7 @@ export default {
       if (this.userdata.picture == null) {
         delete this.userdata.picture;
         this.dialog5 = false;
+        this.dialog4 = false;
         this.$store.dispatch("updateProfile", this.userdata);
       }
     },

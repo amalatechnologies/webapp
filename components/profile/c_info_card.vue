@@ -6,8 +6,8 @@
           <v-layout wrap>
             <v-flex xs12 md12 class="pa-0 ma-0">
               <v-card class="mx-auto" raised height="480">
-                <v-img :src="placeholder" :lazy-src="placeholder" aspect-ratio="1" class="grey lighten-2" height="400"
-                  max-height="400">
+                <v-img :src="placeholder" :lazy-src="placeholder" aspect-ratio="1" class="grey lighten-2" height="250"
+                  max-height="300">
                   <template v-slot:placeholder>
                     <v-row class="fill-height ma-0" align="center" justify="center">
                       <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
@@ -26,7 +26,7 @@
               <v-type-divider type="Info"></v-type-divider>
             </v-flex>
             <v-flex xs12 md12 class="ma-0 pa-0">
-              <v-address-card :address="address"></v-address-card>
+              <v-address-card :address="address">{{userdata.address}}</v-address-card>
             </v-flex>
 
             <v-flex xs12 md12 class="ma-0 pa-0">
@@ -60,14 +60,14 @@
                 </v-row>
               </div>
             </v-flex>
-
+            <!--
             <v-flex xs12 md12 class="ma-0 pa-0">
               <v-address-card :address="address1"></v-address-card>
             </v-flex>
             <v-flex xs12 md12 class="ma-0 pa-0">
               <v-address-card :address="address2"></v-address-card>
             </v-flex>
-         
+            -->
           </v-layout>
         </v-container>
       </v-flex>
@@ -90,8 +90,8 @@
                               </span>
                             </v-col>
                             <v-col>
-                              <span class="font-weight-light text-caption">
-                                <v-icon>mdi-map-marker</v-icon>New York, NY
+                              <span class="font-weight-light text-captain">
+                                <v-icon>mdi-map-marker</v-icon>{{ userdata.address }}
                               </span>
                             </v-col>
                           </v-row>
@@ -329,7 +329,7 @@
                   </v-flex>
 
                   <v-flex xs12 md8>
-                    <v-text-field v-model="address" :label="$t('label.heading.addressline')" placeholder="Snow Rock PI"
+                    <v-text-field v-model="userdata.address" :label="$t('label.heading.addressline')" placeholder="Snow Rock PI"
                       class="purple-input" />
                   </v-flex>
                   <v-flex xs12 md4>
@@ -359,7 +359,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="dialog = false">
+              <v-btn color="blue darken-1" text @click="dialog4 = false">
                 Close
               </v-btn>
               <v-btn color="blue darken-1" text @click.stop="dialog5 = true">
@@ -430,7 +430,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn style="text-transform: capitalize" color="green darken-1" outlined small @click="dialog = false">{{
+          <v-btn style="text-transform: capitalize" color="green darken-1" outlined small @click="dialog5 = false">{{
               $t('label.button.btnDisagree')
           }}</v-btn>
 
