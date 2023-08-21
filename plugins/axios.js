@@ -8,7 +8,7 @@ export default function ({ $axios, redirect }, inject) {
     },
   });
   api.onRequest((config) => {
-    if (localStorage.getItem("qAccessToken") != null) {
+    if (localStorage.getItem("qAccessToken") != null && config.url !== 'auth/') {
       api.setHeader(
         "Authorization",
         "Token " + localStorage.getItem("qAccessToken")
