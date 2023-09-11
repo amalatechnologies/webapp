@@ -78,12 +78,12 @@
       "btnhome": "Home",
       "btnsave": "Save",
       "btnFollow": "Follow",
-      "btnupdateprofile": "updateprofile",
+      "btnupdateprofile": "Update Profile",
       "btnsubmit": "Submit",
       "btnSearch": "Search",
       "btnSave": "Save",
       "btnNo": "No",
-      "btnDisagree": "I Dis Agree",
+      "btnDisagree": "I Disagree",
       "btnAgree": "I Agree"
     },
     "message": {

@@ -1,3 +1,5 @@
+import { toISOString } from "core-js/core/date";
+
 export default {
   data: () => ({
     valid: false,
@@ -57,7 +59,8 @@ export default {
     updateProfileWithCreadentials() {
       if (this.userdata.picture == null) {
         delete this.userdata.picture;
-        this.dialog = false;
+        this.dialog5 = false;
+        this.dialog4 = false;
         this.$store.dispatch('updateProfile', this.userdata);
       }
      
